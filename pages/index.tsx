@@ -1,17 +1,20 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {useState} from "react";
 
 export default function Home() {
+  const [text, setText] = useState<string>("타입스크립트 테스트");
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>타입스크립트</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {text}!
         </h1>
 
         <p className={styles.description}>
