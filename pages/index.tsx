@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import {useState} from "react";
 
 export default function Home() {
-  const [text, setText] = useState<string>("타입스크립트 테스트");
+  const [text, setText] = useState<string>("GIT FLOW TEST");
 
   return (
     <div className={styles.container}>
@@ -14,11 +14,11 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          {text}!
+          {text}
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          feature/SYL-001 {' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
