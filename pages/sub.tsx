@@ -24,10 +24,10 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <Link href="/sub">
+          <Link href="/">
             <a className={styles.card}>
-              <h3>Sub &rarr;</h3>
-              <p>서브 페이지로 이동</p>
+              <h3>Main &rarr;</h3>
+              <p>Main 페이지로 이동</p>
             </a>
           </Link>
         </div>
