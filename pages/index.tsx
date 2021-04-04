@@ -7,11 +7,11 @@ export default function Home() {
   const [text, setText] = useState<string>('typesciprt Test');
 
   return (
-      <div>
-        <Head>
-          <title>Create Next App</title>
-        </Head>
-        <ItemList />
-      </div>
+    <div>
+      <Head>
+        <title>Create Next App</title>
+      </Head>
+      <ItemList />
+    </div>
   );
 }

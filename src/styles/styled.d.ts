@@ -1,5 +1,4 @@
 import 'styled-components';
-
 // interface라고 생각하면 된다.
 // 참고 : https://flowkater.io/frontend/setup-styled-components/
 // 참고 : https://velog.io/@hwang-eunji/styled-component-typescript
