@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
-import {useState} from "react";
+import Head from "next/head";
+import Link from "next/link";
+import { useState } from "react";
+import styles from "../src/styles/Home.module.css";
 
 export default function Home() {
   const [text, setText] = useState<string>("GIT FLOW TEST");
@@ -14,13 +14,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          {text}
-        </h1>
+        <h1 className={styles.title}>{text}</h1>
 
         <p className={styles.description}>
-          feature/SYL-001 {' '}
-          <code className={styles.code}>pages/index.js</code>
+          feature/SYL-001 <code className={styles.code}>pages/index.js</code>
         </p>
 
         <div className={styles.grid}>
@@ -39,10 +36,10 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }

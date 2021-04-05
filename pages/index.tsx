@@ -1,26 +1,42 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import styles from '../src/styles/Home.module.css'
-import {useState} from "react";
+import Head from "next/head";
+import Link from "next/link";
+import { useState } from "react";
+import styled from "styled-components";
+import styles from "../src/styles/Home.module.css";
+import Footer from "../src/components/common/Footer";
 
 export default function Home() {
-  const [text, setText] = useState<string>("GIT FLOW TEST");
+  const [text, setText] = useState<string>("TEST PAGE");
+  const MainContainer = styled.div`
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    ${({ theme }) => theme.media.desktop`
+        background-color: red;
+      `}
+    ${({ theme }) => theme.media.tablet`
+        background-color: black;
+      `}
+      ${({ theme }) => theme.media.mobile`
+        background-color: blue;
+      `}
+  `;
 
   return (
-    <div className={styles.container}>
+    <MainContainer>
       <Head>
-        <title>타입스크립트</title>
+        <title>HelloWorld</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          {text}
-        </h1>
+        <h1 className={styles.title}>{text}</h1>
 
         <p className={styles.description}>
-          feature/SYL-001 {' '}
-          <code className={styles.code}>pages/index.js</code>
+          feature/SYL-001 <code className={styles.code}>pages/index.js</code>
         </p>
 
         <div className={styles.grid}>
@@ -32,17 +48,7 @@ export default function Home() {
           </Link>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+      <Footer />
+    </MainContainer>
+  );
 }
