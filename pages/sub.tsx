@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>타입스크립트</title>
+        <title>Sub</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -17,7 +17,7 @@ export default function Home() {
         <h1 className={styles.title}>{text}</h1>
 
         <p className={styles.description}>
-          feature/SYL-001 <code className={styles.code}>pages/index.js</code>
+          feature/SYL-001 <code className={styles.code}>pages/sub.js</code>
         </p>
 
         <div className={styles.grid}>

@@ -1,4 +1,4 @@
-import { Container, AppProps } from "next/app";
+import { AppProps } from "next/app";
 import GlobalStyle from "../src/styles/global";
 import theme from "../src/styles/theme";
 import { ThemeProvider } from "../src/styles/themed-components";
