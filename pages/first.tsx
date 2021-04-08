@@ -1,14 +1,14 @@
 import Head from "next/head";
-import Index from "../src/components/Index";
+import First from "../src/components/First";
 
 export default function Component() {
   return (
     <main>
       <Head>
-        <title>Main</title>
+        <title>First</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Index />
+      <First />
     </main>
   );
 }
