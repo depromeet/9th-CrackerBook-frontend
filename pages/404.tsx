@@ -26,3 +26,5 @@ function Error404(): JSX.Element {
     </Container>
   );
 }
+
+export default Error404;

@@ -16,12 +16,18 @@ const AppContainer = styled.div`
 const Desktop = styled.section`
   display: block;
   position: fixed;
-  top: 40%;
-  left: 10%;
+  top: 43%;
+  left: 13%;
   ${({ theme }) => theme.media.mobile`
     display: none;
   `};
 `;
+
+const Img = styled.img`
+  position: fixed;
+  top: 37%;
+  left: 30%
+`
 
 const Mobile = styled.section`
   position: relative;
@@ -61,4 +67,4 @@ const Title = styled.div`
   }
 `;
 
-export { AppContainer, Desktop, Mobile, MainContainer, Title };
+export { AppContainer, Desktop, Mobile, MainContainer, Title, Img };
