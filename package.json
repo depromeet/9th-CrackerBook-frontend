@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint pages/** src/**",
+    "fix": "eslint pages/** src/** --fix"
   },
   "dependencies": {
     "next": "10.1.3",
