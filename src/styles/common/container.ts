@@ -26,8 +26,8 @@ const Desktop = styled.section`
 const Img = styled.img`
   position: fixed;
   top: 37%;
-  left: 30%
-`
+  left: 30%;
+`;
 
 const Mobile = styled.section`
   position: relative;

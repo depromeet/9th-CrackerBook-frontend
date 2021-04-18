@@ -7,7 +7,7 @@ import {
   Title,
   Mobile,
   Desktop,
-  Img
+  Img,
 } from "../src/styles/common/container";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <AppContainer>
         <Desktop>
           <Title>Craker Book</Title>
-          <Img src='/assets/main/main.png'/>
+          <Img src="/assets/main/main.png" />
         </Desktop>
         <Mobile>
           <Component {...pageProps} />
