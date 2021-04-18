@@ -5,7 +5,7 @@ export default function Index(): JSX.Element {
   return (
     <main>
       <Head>
-        <title>Main</title>
+        <title>Cracker Book</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <IndexComponent />
