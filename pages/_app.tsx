@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <GlobalStyle />
       <AppContainer>
         <Desktop>
-          <Title>토이프로젝트!!</Title>
+          <Title>크래커북</Title>
         </Desktop>
         <Mobile>
           <Header />
