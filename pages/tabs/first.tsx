@@ -1,7 +1,7 @@
 import Head from "next/head";
 import First from "../../src/components/tabs/First";
 
-export default function Component(): JSX.Element {
+export default function FirstPage(): JSX.Element {
   return (
     <main>
       <Head>

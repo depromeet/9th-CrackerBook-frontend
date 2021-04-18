@@ -22,7 +22,7 @@ const Img = styled.img`
   margin-left: 0.5rem;
 `;
 
-export default function Component(): JSX.Element {
+export default function FooterComponent(): JSX.Element {
   return (
     <Footer>
       <A
