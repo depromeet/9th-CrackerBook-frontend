@@ -1,14 +1,13 @@
 import Head from "next/head";
-import Index from "../src/components/Index";
+import Second from "../../src/components/tabs/Second";
 
 export default function Component(): JSX.Element {
   return (
     <main>
       <Head>
-        <title>Main</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Second</title>
       </Head>
-      <Index />
+      <Second />
     </main>
   );
 }

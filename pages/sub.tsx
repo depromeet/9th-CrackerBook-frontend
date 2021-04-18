@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "../src/styles/Home.module.css";
 
-export default function Home() {
-  const [text, setText] = useState<string>("GIT FLOW TEST");
+export default function Home(): JSX.Element {
+  const [text] = useState<string>("GIT FLOW TEST");
 
   return (
     <div className={styles.container}>

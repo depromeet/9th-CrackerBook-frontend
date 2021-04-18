@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { MainContainer, Title } from "../styles/container";
+import { MainContainer, Title } from "../styles/common/container";
 
 const Description = styled.p`
   line-height: 1.5;
@@ -50,8 +50,8 @@ const Card = styled.a`
   }
 `;
 
-export default function Component() {
-  const [text, setText] = useState<string>("MAIN");
+export default function Component(): JSX.Element {
+  const [text] = useState<string>("MAIN");
   return (
     <MainContainer>
       <Title>{text}</Title>

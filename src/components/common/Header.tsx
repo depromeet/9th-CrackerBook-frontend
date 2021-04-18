@@ -20,20 +20,20 @@ const UL = styled.ul`
   padding: 0 30px;
 `;
 
-export default function Component() {
+export default function Component(): JSX.Element {
   return (
     <Header>
       <UL>
         <Link href="/">
           <a>Main</a>
         </Link>
-        <Link href="/first">
+        <Link href="/tabs/first">
           <a>Sub1</a>
         </Link>
-        <Link href="/second">
+        <Link href="/tabs/second">
           <a>Sub2</a>
         </Link>
-        <Link href="/third">
+        <Link href="/tabs/third">
           <a>Sub3</a>
         </Link>
       </UL>
