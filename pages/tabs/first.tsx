@@ -1,13 +1,13 @@
 import Head from "next/head";
-import First from "../../src/components/tabs/First";
+import FirstComponent from "../../src/components/tabs/First";
 
-export default function Component(): JSX.Element {
+export default function First(): JSX.Element {
   return (
     <main>
       <Head>
         <title>First</title>
       </Head>
-      <First />
+      <FirstComponent />
     </main>
   );
 }

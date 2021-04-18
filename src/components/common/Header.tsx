@@ -20,7 +20,7 @@ const UL = styled.ul`
   padding: 0 30px;
 `;
 
-export default function Component(): JSX.Element {
+export default function HeaderComponent(): JSX.Element {
   return (
     <Header>
       <UL>
