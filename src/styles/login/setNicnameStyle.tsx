@@ -13,6 +13,7 @@ const GuidCommnet = styled.div<CommentType>`
 `;
 
 const NicnameInput = styled.input`
+  font-family: "Noto Sans KR", sans-serif;
   margin: 17px 10px 10px 10px;
   padding-left: 15px;
   border-radius: 22px;
@@ -22,10 +23,11 @@ const NicnameInput = styled.input`
   width: 262px;
   box-shadow: 1px 2px 7px 5px #f4f4f4;
   outline: none;
+  text-align: center;
 `;
 
 const NicnameContainer = styled.div`
-  padding: 30% 20px 0 20px;
+  padding: 40% 20px 0 20px;
   font-family: "Noto Sans KR", sans-serif;
 `;
 
