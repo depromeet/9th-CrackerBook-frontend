@@ -18,7 +18,6 @@ const StudyTypeTitle = styled.div`
   font-size: 12px
 `;
 
-
 const StudyTypeImg = styled.img`
   width: 52px;
   height: 52px;
@@ -46,7 +45,7 @@ const TitleWrapper = styled.div`
   padding-top: 8px;
 `;
 
-const StudyTitle = styled.div`
+const BookTitle = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
@@ -79,6 +78,11 @@ const IconWrapper = styled.div`
   top: -83px;
 `;
 
+const IconWrapperContent = styled.div`
+  width: 6%;
+  text-align: center;
+`;
+
 const HeartIconBookBox = styled.img`
   width: 20px;
   height: 20px;
@@ -90,7 +94,86 @@ const HeartCnt = styled.div`
   font-family: "Nunito", sans-serif;
 `;
 
+const StudyInfoWrapper = styled.div`
+  display: flex;
+  padding-top: 20px;
+`;
+
+const StudyProfile = styled.div`
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+const StudyImg = styled.img`
+  border-radius: 100px;
+  width: 56px;
+  height: 56px;
+`;
+
+const StudyHost = styled.div`
+  text-align: center;
+  color: #999999;
+  font-size: 12px;
+  margin-right: 16px;
+  padding-top: 5px;
+`;
+
+const StudyContentWrapper = styled.div`
+  width: 72%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StudyContent = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: #777777;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 8px;
+`;
+
+const StudyIcon = styled.img`
+  width: 18px;
+  height: 18px;
+  margin-right: 2px
+`;
+
+const StudyDiv = styled.div`
+  margin-right: 15px;
+`;
+
+const StudyTitle = styled.div`
+  font-size: 16px;
+  margin-bottom: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+  color: #222222;
+`;
+
+const StudyDate = styled.div`
+  font-size: 12px;
+  color: #777777;
+  font-family: "Nunito", sans-serif;
+`;
+
+
+
 export {
+    StudyDiv,
+    IconWrapperContent,
+    StudyDate,
+    StudyIcon,
+    StudyContent,
+    StudyContentWrapper,
+    StudyHost,
+    StudyImg,
+    StudyInfoWrapper,
+    StudyProfile,
     IconWrapper,
     HeartIconBookBox,
     HeartCnt,
@@ -102,6 +185,7 @@ export {
     Hr,
     StudyTypeTitle,
     StudyTitle,
+    BookTitle,
     TotalView,
     TitleWrapper,
     BookBox
