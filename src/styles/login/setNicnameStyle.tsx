@@ -23,7 +23,6 @@ const NicnameInput = styled.input`
   width: 262px;
   box-shadow: 1px 2px 7px 5px #f4f4f4;
   outline: none;
-  text-align: center;
 `;
 
 const NicnameContainer = styled.div`
