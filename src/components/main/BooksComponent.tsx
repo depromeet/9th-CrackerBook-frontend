@@ -1,6 +1,6 @@
 import {
     Hr, LikeInfoWrapper, LikeStudyTitleWrapper, LikeStudyWrapper,
-    MainContainer, RankBookImg, RankBookWrapper,
+    MainContainer, NewStudyBackground, NewStudyWrapper, RankBookImg, RankBookWrapper,
     StudyTypeDiv,
     StudyTypeImg,
     StudyTypeTitle,
@@ -10,7 +10,7 @@ import {
     BookContainer,
     BookInfoContainer,
     LikeBookContainer,
-    LikeBookNameContainer, LikeDateContainer, LikeTitleContainer,
+    LikeBookNameContainer, LikeDateContainer, LikeTitleContainer, NewStudyContainer,
     Title
 } from "../../containers/main/BooksContainer";
 
@@ -81,6 +81,12 @@ export default function BooksComponent(props: { bookData: Array<BookData> }): JS
                             </RankBookWrapper>
 
                         </LikeStudyWrapper>
+
+                        <NewStudyBackground>
+                            <NewStudyWrapper>
+                                <NewStudyContainer />
+                            </NewStudyWrapper>
+                        </NewStudyBackground>
 
                     </>
             }

@@ -126,6 +126,19 @@ export function LikeTitleContainer() {
     )
 }
 
+export function NewStudyContainer() {
+    return (
+        <LikeStudyTitleWrapper>
+            <TitleDiv>
+                새로 생긴 스터디
+            </TitleDiv>
+            <TotalView>
+                전체보기 &gt;
+            </TotalView>
+        </LikeStudyTitleWrapper>
+    )
+}
+
 export function LikeDateContainer() {
     return (
         <StudyContent isLike={true}>
@@ -134,36 +147,3 @@ export function LikeDateContainer() {
     )
 }
 
-export function LikeStudyContainer(props: { bookInfo: BookData }) {
-    const bookData = props.bookInfo;
-    return (
-        <>
-            <StudyInfoWrapper>
-                <StudyProfile>
-                    <StudyImg src='/assets/main/exBook.jpg'/>
-                    <StudyHost>
-                        {bookData.host}
-                    </StudyHost>
-                </StudyProfile>
-                <StudyContentWrapper>
-                    <StudyContent isLike={true}>
-                        <StudyIcon src='/assets/main/bookIcon.svg'/>
-                        <StudyDiv>토론</StudyDiv>
-                        <StudyIcon src='/assets/main/memberIcon.svg'/>
-                        <div>멤버 3/6</div>
-                    </StudyContent>
-                    <StudyTitle isLike={true}>
-                        {bookData.studyName}
-                    </StudyTitle>
-                    <StudyContent isLike={true}>
-                        {bookData.startData} ~ {bookData.endData} 토 14:00
-                    </StudyContent>
-                </StudyContentWrapper>
-                <IconWrapperContent>
-                    <HeartIconBookBox src='/assets/main/heart.svg'/>
-                    <HeartCnt>6</HeartCnt>
-                </IconWrapperContent>
-            </StudyInfoWrapper>
-        </>
-    )
-}

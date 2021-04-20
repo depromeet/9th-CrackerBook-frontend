@@ -196,7 +196,18 @@ const LikeInfoWrapper = styled.div`
   margin: 10px 15px 0 0;
 `;
 
+const NewStudyBackground = styled.div`
+  background-color: #F1F1F3;
+  min-height: 300px;  
+`;
+
+const NewStudyWrapper = styled.div`
+  padding: 80px 20px;
+`;
+
 export {
+    NewStudyBackground,
+    NewStudyWrapper,
     LikeDiv,
     LikeInfoWrapper,
     RankBookWrapper,
