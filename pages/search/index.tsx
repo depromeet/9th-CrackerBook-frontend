@@ -7,6 +7,7 @@ const ArrowLeft = styled.div`
   height: 45px;
   line-height: 45px;
   position: absolute;
+  top: 40px;
   left: 20px;
   font-size: 19px;
 `;
@@ -44,7 +45,7 @@ const InputSearch = styled.input`
 const AreaHead = styled.div`
   position: relative;
   min-height: 35px;
-  margin: 30px 15px 0;
+  margin: 30px 20px 0;
 `;
 const TitSearch = styled.div`
   display: block;
@@ -64,6 +65,36 @@ const UtilSet = styled.div`
   line-height: 20px;
   text-align: center;
   color: #999999;
+`;
+const KeywordSubWrapper = styled.div`
+  margin: 10px 10px 10px 20px;
+`;
+const KeywordListWrapper = styled.div`
+  list-style: none;
+`;
+
+const LiLink = styled.li`
+  position: relative;
+  float: left;
+  margin: 0 10px 10px 0;
+  cursor: pointer;
+  display: block;
+`;
+
+const BtnTag = styled.div`
+  color: #777777;
+  font-size: 14px;
+  line-height: 32px;
+  padding: 0 22px 0 10px;
+  display: inline-block;
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  border-radius: 10px;
+`;
+const LiIconBox = styled.div`
+  position: absolute;
+  top: 7px;
+  right: 8px;
 `;
 
 export default function Search(): JSX.Element {
@@ -86,7 +117,10 @@ export default function Search(): JSX.Element {
   };
 
   return (
-    <main>
+    <>
+      <Head>
+        <title>검색</title>
+      </Head>
       <ArrowLeft>
         <Link href="/login/setNicname">
           <a>
@@ -96,12 +130,6 @@ export default function Search(): JSX.Element {
       </ArrowLeft>
       <SearchBoxWrapper>
         <SearchBoxInnerWrapper>
-          <Head>
-            <title>검색</title>
-          </Head>
-          <IconBox>
-            <img src="/assets/search/icon.svg" />
-          </IconBox>
           <InputBox>
             <InputSearch
               id="name"
@@ -113,6 +141,9 @@ export default function Search(): JSX.Element {
               required
             />
           </InputBox>
+          <IconBox>
+            <img src="/assets/search/icon.svg" />
+          </IconBox>
           {/* <form onSubmit={registerUser}>
           <label htmlFor="name">Name</label> */}
           {/* <button type="submit">Register</button>
@@ -123,6 +154,46 @@ export default function Search(): JSX.Element {
         <TitSearch>최근 검색어</TitSearch>
         <UtilSet>전체삭제</UtilSet>
       </AreaHead>
-    </main>
+      <KeywordSubWrapper>
+        <KeywordListWrapper>
+          <LiLink>
+            <BtnTag>디자인</BtnTag>
+            <LiIconBox>
+              <img src="/assets/search/cross.svg" />
+            </LiIconBox>
+          </LiLink>
+          <LiLink>
+            <BtnTag>난배고프다</BtnTag>
+            <LiIconBox>
+              <img src="/assets/search/cross.svg" />
+            </LiIconBox>
+          </LiLink>
+          <LiLink>
+            <BtnTag>도레미파솔라시</BtnTag>
+            <LiIconBox>
+              <img src="/assets/search/cross.svg" />
+            </LiIconBox>
+          </LiLink>
+          <LiLink>
+            <BtnTag>조선왕조실록</BtnTag>
+            <LiIconBox>
+              <img src="/assets/search/cross.svg" />
+            </LiIconBox>
+          </LiLink>
+          <LiLink>
+            <BtnTag>백엔드개발</BtnTag>
+            <LiIconBox>
+              <img src="/assets/search/cross.svg" />
+            </LiIconBox>
+          </LiLink>
+          <LiLink>
+            <BtnTag>프론트엔드</BtnTag>
+            <LiIconBox>
+              <img src="/assets/search/cross.svg" />
+            </LiIconBox>
+          </LiLink>
+        </KeywordListWrapper>
+      </KeywordSubWrapper>
+    </>
   );
 }

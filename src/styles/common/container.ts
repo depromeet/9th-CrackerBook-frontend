@@ -31,7 +31,7 @@ const Img = styled.img`
 
 const Mobile = styled.section`
   position: relative;
-  width: 100%;
+  width: 375px;
   max-width: 375px;
   zoom: 1.25;
   min-height: 80vh;
