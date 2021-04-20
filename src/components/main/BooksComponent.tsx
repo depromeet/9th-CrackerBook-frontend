@@ -1,12 +1,18 @@
 import {
-    Hr, LikeStudyTitleWrapper, LikeStudyWrapper,
+    Hr, LikeInfoWrapper, LikeStudyTitleWrapper, LikeStudyWrapper,
     MainContainer, RankBookImg, RankBookWrapper,
     StudyTypeDiv,
     StudyTypeImg,
     StudyTypeTitle,
     StudyTypeWrapper, TitleDiv, TotalView,
 } from "../../styles/main/BooksStyle";
-import {BookContainer, BookInfoContainer, Title} from "../../containers/main/BooksContainer";
+import {
+    BookContainer,
+    BookInfoContainer,
+    LikeBookContainer,
+    LikeBookNameContainer, LikeDateContainer, LikeTitleContainer,
+    Title
+} from "../../containers/main/BooksContainer";
 
 interface BookData {
     bookName: string;
@@ -52,19 +58,28 @@ export default function BooksComponent(props: { bookData: Array<BookData> }): JS
                         })}
 
                         <LikeStudyWrapper>
-                            <LikeStudyTitleWrapper>
-                                <TitleDiv>
-                                    좋아요가 많은 스터디
-                                </TitleDiv>
-                                <TotalView>
-                                    전체보기 &gt;
-                                </TotalView>
-                            </LikeStudyTitleWrapper>
+                            <LikeTitleContainer />
                             <RankBookWrapper>
-                                <RankBookImg src='/assets/main/exBook.jpg'/>
-                                <RankBookImg src='/assets/main/exBook.jpg'/>
-                                <RankBookImg src='/assets/main/exBook.jpg'/>
+                                <LikeInfoWrapper>
+                                    <RankBookImg src='/assets/main/exBook.jpg'/>
+                                    <LikeBookContainer />
+                                    <LikeBookNameContainer />
+                                    <LikeDateContainer />
+                                </LikeInfoWrapper>
+                                <LikeInfoWrapper>
+                                    <RankBookImg src='/assets/main/exBook.jpg'/>
+                                    <LikeBookContainer />
+                                    <LikeBookNameContainer />
+                                    <LikeDateContainer />
+                                </LikeInfoWrapper>
+                                <LikeInfoWrapper>
+                                    <RankBookImg src='/assets/main/exBook.jpg'/>
+                                    <LikeBookContainer />
+                                    <LikeBookNameContainer />
+                                    <LikeDateContainer />
+                                </LikeInfoWrapper>
                             </RankBookWrapper>
+
                         </LikeStudyWrapper>
 
                     </>

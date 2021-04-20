@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+type infoType = {
+    isLike: boolean
+}
 const StudyTypeWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -126,14 +129,14 @@ const StudyContentWrapper = styled.div`
   flex-direction: column;
 `;
 
-const StudyContent = styled.div`
+const StudyContent = styled.div<infoType>`
   display: flex;
   align-items: center;
   font-size: 12px;
   font-weight: 400;
   color: #777777;
   font-family: "Nunito", sans-serif;
-  margin-bottom: 8px;
+  margin-bottom: ${(props) => (props.isLike ? '3px' : '8px')}
 `;
 
 const StudyIcon = styled.img`
@@ -146,9 +149,13 @@ const StudyDiv = styled.div`
   margin-right: 15px;
 `;
 
-const StudyTitle = styled.div`
+const LikeDiv = styled.div`
+  margin-right: 5px;
+`;
+
+const StudyTitle = styled.div<infoType>`
   font-size: 16px;
-  margin-bottom: 16px;
+  margin-bottom: ${(props) => (props.isLike ? '6px' : '16px')};
   font-style: normal;
   font-weight: 500;
   line-height: 23px;
@@ -163,6 +170,7 @@ const StudyDate = styled.div`
 
 const LikeStudyWrapper = styled.div`
   padding: 0 20px;
+  margin-bottom: 25px;
 `;
 
 const LikeStudyTitleWrapper = styled.div`
@@ -175,14 +183,22 @@ const LikeStudyTitleWrapper = styled.div`
 const RankBookWrapper = styled.div`
   display: flex;
   flex-wrap: nowrap;
+  margin-bottom: 80px;
 `;
+
 const RankBookImg = styled.img`
   width: 120px;
   height: 173px;
-  padding-right: 20px;
+  border-radius: 2px 8px 8px 2px;
+`;
+
+const LikeInfoWrapper = styled.div`
+  margin: 10px 15px 0 0;
 `;
 
 export {
+    LikeDiv,
+    LikeInfoWrapper,
     RankBookWrapper,
     RankBookImg,
     LikeStudyWrapper,

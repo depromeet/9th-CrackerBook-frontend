@@ -14,7 +14,7 @@ import {
     StudyImg, StudyInfoWrapper,
     StudyProfile, StudyTitle,
     TitleWrapper,
-    TotalView
+    TotalView, LikeDiv, LikeStudyTitleWrapper, LikeStudyWrapper
 } from "../../styles/main/BooksStyle";
 
 interface BookData {
@@ -72,16 +72,16 @@ export function BookInfoContainer(props: { bookInfo: BookData }) {
                     </StudyHost>
                 </StudyProfile>
                 <StudyContentWrapper>
-                    <StudyContent>
+                    <StudyContent isLike={false}>
                         <StudyIcon src='/assets/main/bookIcon.svg'/>
                         <StudyDiv>토론</StudyDiv>
                         <StudyIcon src='/assets/main/memberIcon.svg'/>
                         <div>멤버 3/6</div>
                     </StudyContent>
-                    <StudyTitle>
+                    <StudyTitle isLike={false}>
                         {bookData.studyName}
                     </StudyTitle>
-                    <StudyContent>
+                    <StudyContent isLike={false}>
                         {bookData.startData} ~ {bookData.endData} 토 14:00
                     </StudyContent>
                 </StudyContentWrapper>
@@ -91,6 +91,46 @@ export function BookInfoContainer(props: { bookInfo: BookData }) {
                 </IconWrapperContent>
             </StudyInfoWrapper>
         </>
+    )
+}
+
+export function LikeBookContainer() {
+    return (
+        <StudyContent isLike={true}>
+            <StudyIcon src='/assets/main/bookIcon.svg'/>
+            <LikeDiv>토론</LikeDiv>
+            <StudyIcon src='/assets/main/memberIcon.svg'/>
+            <div>멤버 3/6</div>
+        </StudyContent>
+    )
+}
+
+export function LikeBookNameContainer() {
+    return (
+        <StudyTitle isLike={true}>
+            한달 한권
+        </StudyTitle>
+    )
+}
+
+export function LikeTitleContainer() {
+    return (
+        <LikeStudyTitleWrapper>
+            <TitleDiv>
+                좋아요가 많은 스터디
+            </TitleDiv>
+            <TotalView>
+                전체보기 &gt;
+            </TotalView>
+        </LikeStudyTitleWrapper>
+    )
+}
+
+export function LikeDateContainer() {
+    return (
+        <StudyContent isLike={true}>
+            04.26~05.26 토 14:00
+        </StudyContent>
     )
 }
 
@@ -106,16 +146,16 @@ export function LikeStudyContainer(props: { bookInfo: BookData }) {
                     </StudyHost>
                 </StudyProfile>
                 <StudyContentWrapper>
-                    <StudyContent>
+                    <StudyContent isLike={true}>
                         <StudyIcon src='/assets/main/bookIcon.svg'/>
                         <StudyDiv>토론</StudyDiv>
                         <StudyIcon src='/assets/main/memberIcon.svg'/>
                         <div>멤버 3/6</div>
                     </StudyContent>
-                    <StudyTitle>
+                    <StudyTitle isLike={true}>
                         {bookData.studyName}
                     </StudyTitle>
-                    <StudyContent>
+                    <StudyContent isLike={true}>
                         {bookData.startData} ~ {bookData.endData} 토 14:00
                     </StudyContent>
                 </StudyContentWrapper>
