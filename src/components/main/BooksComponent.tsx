@@ -59,18 +59,7 @@ export default function BooksComponent(props: { bookData: Array<BookData> }): JS
                         {data.map((book, index) => {
                             return (
                                 <MainContainer key={index}>
-                                    <BookTitle>
-                                        '{book.bookName}'의
-                                    </BookTitle>
-                                    <TitleWrapper>
-                                        <BookTitle>
-                                            스터디
-                                        </BookTitle>
-                                        <TotalView>
-                                            전체보기 &gt;
-                                        </TotalView>
-                                    </TitleWrapper>
-
+                                    <Title bookName={book.bookName}/>
                                     <BookBox>
                                         <BookImg src={book.img}/>
                                         <IconWrapper>
@@ -107,10 +96,27 @@ export default function BooksComponent(props: { bookData: Array<BookData> }): JS
                                 </MainContainer>
                             )
                         })}
-
                     </>
             }
         </>
-
     );
+}
+
+function Title(props: {bookName: string}) {
+
+    return (
+        <>
+            <BookTitle>
+                '{props.bookName}'의
+            </BookTitle>
+            <TitleWrapper>
+                <BookTitle>
+                    스터디
+                </BookTitle>
+                <TotalView>
+                    전체보기 &gt;
+                </TotalView>
+            </TitleWrapper>
+        </>
+    )
 }
