@@ -1,10 +1,10 @@
 import {
-    Hr,
-    MainContainer,
+    Hr, LikeStudyTitleWrapper, LikeStudyWrapper,
+    MainContainer, RankBookImg, RankBookWrapper,
     StudyTypeDiv,
     StudyTypeImg,
     StudyTypeTitle,
-    StudyTypeWrapper,
+    StudyTypeWrapper, TitleDiv, TotalView,
 } from "../../styles/main/BooksStyle";
 import {BookContainer, BookInfoContainer, Title} from "../../containers/main/BooksContainer";
 
@@ -50,6 +50,23 @@ export default function BooksComponent(props: { bookData: Array<BookData> }): JS
                                 </MainContainer>
                             )
                         })}
+
+                        <LikeStudyWrapper>
+                            <LikeStudyTitleWrapper>
+                                <TitleDiv>
+                                    좋아요가 많은 스터디
+                                </TitleDiv>
+                                <TotalView>
+                                    전체보기 &gt;
+                                </TotalView>
+                            </LikeStudyTitleWrapper>
+                            <RankBookWrapper>
+                                <RankBookImg src='/assets/main/exBook.jpg'/>
+                                <RankBookImg src='/assets/main/exBook.jpg'/>
+                                <RankBookImg src='/assets/main/exBook.jpg'/>
+                            </RankBookWrapper>
+                        </LikeStudyWrapper>
+
                     </>
             }
         </>

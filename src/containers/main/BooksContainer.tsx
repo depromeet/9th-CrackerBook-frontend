@@ -1,7 +1,7 @@
 import {
     BookBox,
     BookImg,
-    BookTitle,
+    TitleDiv,
     HeartCnt,
     HeartIconBookBox,
     IconWrapper, IconWrapperContent,
@@ -31,13 +31,13 @@ export function Title(props: { bookName: string }) {
 
     return (
         <>
-            <BookTitle>
+            <TitleDiv>
                 '{props.bookName}'의
-            </BookTitle>
+            </TitleDiv>
             <TitleWrapper>
-                <BookTitle>
+                <TitleDiv>
                     스터디
-                </BookTitle>
+                </TitleDiv>
                 <TotalView>
                     전체보기 &gt;
                 </TotalView>
@@ -61,6 +61,40 @@ export function BookContainer(props: { img: string }) {
 }
 
 export function BookInfoContainer(props: { bookInfo: BookData }) {
+    const bookData = props.bookInfo;
+    return (
+        <>
+            <StudyInfoWrapper>
+                <StudyProfile>
+                    <StudyImg src='/assets/main/exBook.jpg'/>
+                    <StudyHost>
+                        {bookData.host}
+                    </StudyHost>
+                </StudyProfile>
+                <StudyContentWrapper>
+                    <StudyContent>
+                        <StudyIcon src='/assets/main/bookIcon.svg'/>
+                        <StudyDiv>토론</StudyDiv>
+                        <StudyIcon src='/assets/main/memberIcon.svg'/>
+                        <div>멤버 3/6</div>
+                    </StudyContent>
+                    <StudyTitle>
+                        {bookData.studyName}
+                    </StudyTitle>
+                    <StudyContent>
+                        {bookData.startData} ~ {bookData.endData} 토 14:00
+                    </StudyContent>
+                </StudyContentWrapper>
+                <IconWrapperContent>
+                    <HeartIconBookBox src='/assets/main/heart.svg'/>
+                    <HeartCnt>6</HeartCnt>
+                </IconWrapperContent>
+            </StudyInfoWrapper>
+        </>
+    )
+}
+
+export function LikeStudyContainer(props: { bookInfo: BookData }) {
     const bookData = props.bookInfo;
     return (
         <>

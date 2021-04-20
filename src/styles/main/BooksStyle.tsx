@@ -28,7 +28,7 @@ const StudyTypeImg = styled.img`
 `;
 
 const Hr = styled.hr`
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   width: 100%;
   color: #EEEEEE;
   border: thin solid #EEEEEE;
@@ -45,7 +45,7 @@ const TitleWrapper = styled.div`
   padding-top: 8px;
 `;
 
-const BookTitle = styled.div`
+const TitleDiv = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
@@ -161,9 +161,32 @@ const StudyDate = styled.div`
   font-family: "Nunito", sans-serif;
 `;
 
+const LikeStudyWrapper = styled.div`
+  padding: 0 20px;
+`;
 
+const LikeStudyTitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+
+const RankBookWrapper = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+`;
+const RankBookImg = styled.img`
+  width: 120px;
+  height: 173px;
+  padding-right: 20px;
+`;
 
 export {
+    RankBookWrapper,
+    RankBookImg,
+    LikeStudyWrapper,
+    LikeStudyTitleWrapper,
     StudyDiv,
     IconWrapperContent,
     StudyDate,
@@ -185,7 +208,7 @@ export {
     Hr,
     StudyTypeTitle,
     StudyTitle,
-    BookTitle,
+    TitleDiv,
     TotalView,
     TitleWrapper,
     BookBox
