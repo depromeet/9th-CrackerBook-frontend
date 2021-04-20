@@ -1,27 +1,12 @@
 import {
-    BookBox,
-    BookImg,
-    BookTitle,
-    HeartCnt,
-    HeartIconBookBox,
     Hr,
-    IconWrapper, IconWrapperContent,
     MainContainer,
-    StudyContent,
-    StudyContentWrapper, StudyDate, StudyDiv,
-    StudyHost,
-    StudyIcon,
-    StudyImg,
-    StudyInfoWrapper,
-    StudyProfile,
-    StudyTitle,
     StudyTypeDiv,
     StudyTypeImg,
     StudyTypeTitle,
     StudyTypeWrapper,
-    TitleWrapper,
-    TotalView
 } from "../../styles/main/BooksStyle";
+import {BookContainer, BookInfoContainer, Title} from "../../containers/main/BooksContainer";
 
 interface BookData {
     bookName: string;
@@ -60,39 +45,8 @@ export default function BooksComponent(props: { bookData: Array<BookData> }): JS
                             return (
                                 <MainContainer key={index}>
                                     <Title bookName={book.bookName}/>
-                                    <BookBox>
-                                        <BookImg src={book.img}/>
-                                        <IconWrapper>
-                                            <HeartIconBookBox src='/assets/main/heart.svg'/>
-                                            <HeartCnt>14</HeartCnt>
-                                        </IconWrapper>
-                                    </BookBox>
-                                    <StudyInfoWrapper>
-                                        <StudyProfile>
-                                            <StudyImg src='/assets/main/exBook.jpg'/>
-                                            <StudyHost>
-                                                {book.host}
-                                            </StudyHost>
-                                        </StudyProfile>
-                                        <StudyContentWrapper>
-                                            <StudyContent>
-                                                <StudyIcon src='/assets/main/bookIcon.svg'/>
-                                                <StudyDiv>토론</StudyDiv>
-                                                <StudyIcon src='/assets/main/memberIcon.svg'/>
-                                                <div>멤버 3/6</div>
-                                            </StudyContent>
-                                            <StudyTitle>
-                                                {book.studyName}
-                                            </StudyTitle>
-                                            <StudyContent>
-                                                {book.startData} ~ {book.endData} 토 14:00
-                                            </StudyContent>
-                                        </StudyContentWrapper>
-                                        <IconWrapperContent>
-                                            <HeartIconBookBox src='/assets/main/heart.svg'/>
-                                            <HeartCnt>6</HeartCnt>
-                                        </IconWrapperContent>
-                                    </StudyInfoWrapper>
+                                    <BookContainer img={book.img}/>
+                                    <BookInfoContainer bookInfo={book}/>
                                 </MainContainer>
                             )
                         })}
@@ -102,21 +56,4 @@ export default function BooksComponent(props: { bookData: Array<BookData> }): JS
     );
 }
 
-function Title(props: {bookName: string}) {
 
-    return (
-        <>
-            <BookTitle>
-                '{props.bookName}'의
-            </BookTitle>
-            <TitleWrapper>
-                <BookTitle>
-                    스터디
-                </BookTitle>
-                <TotalView>
-                    전체보기 &gt;
-                </TotalView>
-            </TitleWrapper>
-        </>
-    )
-}
