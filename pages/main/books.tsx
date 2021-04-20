@@ -5,15 +5,15 @@ import BooksComponent from "../../src/components/main/BooksComponent";
 interface BookData {
     bookName: string;
     img: string;
-    studyName: Array<string>;
-    host: Array<string>;
-    memberCnt: Array<number>;
-    startData: Array<string>;
-    endData: Array<string>;
+    studyName: string;
+    host: string;
+    memberCnt: number;
+    startData: string;
+    endData: string;
 };
 
 export default function Books(): JSX.Element {
-    const [bookData, setBookData] = useState<BookData>();
+    const [bookData, setBookData] = useState<Array<BookData>>();
     useEffect(() => {
         getBookData().then((book) => {
             setBookData(book)
@@ -29,7 +29,7 @@ export default function Books(): JSX.Element {
 }
 
 
-async function getBookData(): Promise<BookData> {
+async function getBookData(): Promise<Array<BookData>> {
     try {
         const apiUrl = '/api/main/apiBookData';
         const res = await axios.get(apiUrl);

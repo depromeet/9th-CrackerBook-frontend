@@ -35,7 +35,7 @@ const Hr = styled.hr`
 `;
 
 const MainContainer = styled.div`
-  padding: 0 20px;
+  padding: 20px 20px;
 `;
 
 const TitleWrapper = styled.div`

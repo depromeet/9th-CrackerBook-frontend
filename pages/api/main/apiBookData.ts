@@ -5,26 +5,44 @@ import type { NextApiRequest, NextApiResponse } from "next";
 type Data = {
   bookName: string;
   img: string;
-  studyName: Array<string>;
-  host: Array<string>;
-  memberCnt: Array<number>;
-  startData: Array<string>;
-  endData: Array<string>;
+  studyName: string;
+  host: string;
+  memberCnt: number;
+  startData: string;
+  endData: string;
 };
 
-export default (_req: NextApiRequest, res: NextApiResponse<Data>): void => {
-  res.status(200).json({
-    bookName: "데이터 분석하는 디자이너 되기",
-    img: "/assets/main/exBook.jpg",
-    studyName: [
-      "같이 포트폴리오 만들어요",
-      "토론과 함께하는 데이터 디자인",
-      "에세이 글쓰기",
-      "생각의 힘을 길러주는 토론",
-    ],
-    host: ["데이지", "김또깡", "김아무개", "장발장"],
-    memberCnt: [3, 5, 7, 8],
-    startData: ["2021.05.21", "2021.06.28", "2021.08.21", "2021.09.01"],
-    endData: ["2021.05.29", "2021.07.08", "2021.09.21", "2021.11.01"],
-  });
+export default (
+  _req: NextApiRequest,
+  res: NextApiResponse<Array<Data>>,
+): void => {
+  res.status(200).json([
+    {
+      bookName: "데이터 분석하는 디자이너 되기",
+      img: "/assets/main/exBook.jpg",
+      studyName: "같이 포트폴리오 만들어요",
+      host: "데이지",
+      memberCnt: 3,
+      startData: "2021.05.21",
+      endData: "05.29",
+    },
+    {
+      bookName: "기록하기로 했습니다.",
+      img: "/assets/main/exBook.jpg",
+      studyName: "토론과 함께하는 데이터 디자인",
+      host: "김또깡",
+      memberCnt: 5,
+      startData: "2021.06.28",
+      endData: "07.08",
+    },
+    {
+      bookName: "그림으로 배우는 클라우드",
+      img: "/assets/main/exBook.jpg",
+      studyName: "에세이 글쓰기",
+      host: "김아무개",
+      memberCnt: 7,
+      startData: "2021.08.21",
+      endData: "2021.09.21",
+    },
+  ]);
 };
