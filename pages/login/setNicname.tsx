@@ -9,6 +9,7 @@ import {
   StartBtnWrapper,
   StartBtn,
 } from "../../src/styles/login/setNicnameStyle";
+import Link from "next/link";
 
 export default function SetNicName(): JSX.Element {
   return (
@@ -24,7 +25,9 @@ export default function SetNicName(): JSX.Element {
         <ExistCommnet>이미 존재하는 닉네임입니다.</ExistCommnet>
       </ExistWrapper>
       <StartBtnWrapper>
-        <StartBtn src="/assets/login/startBtn.png" />
+        <Link href="/main/books">
+          <StartBtn src="/assets/login/startBtn.png" />
+        </Link>
       </StartBtnWrapper>
     </NicnameContainer>
   );
