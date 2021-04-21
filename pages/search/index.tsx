@@ -7,13 +7,13 @@ const ArrowLeft = styled.div`
   height: 45px;
   line-height: 45px;
   position: absolute;
-  top: 40px;
+  top: 30px;
   left: 20px;
   font-size: 19px;
 `;
 const SearchBoxWrapper = styled.div`
-  border: 1px solid #dddddd;
-  margin: 40px 20px 10px 40px;
+  border: 1px solid #ffd262;
+  margin: 30px 20px 10px 40px;
   border-radius: 20px;
   line-height: 40px;
   height: 40px;
@@ -21,7 +21,6 @@ const SearchBoxWrapper = styled.div`
 const SearchBoxInnerWrapper = styled.div`
   position: relative;
   padding: 0 44px 0 17px;
-  height: 40px;
 `;
 const IconBox = styled.div`
   position: absolute;
@@ -42,7 +41,7 @@ const InputSearch = styled.input`
   padding: 11px 0 0;
   outline: none;
 `;
-const AreaHead = styled.div`
+const KeywordHeadWrapper = styled.div`
   position: relative;
   min-height: 35px;
   margin: 30px 20px 0;
@@ -65,12 +64,15 @@ const UtilSet = styled.div`
   line-height: 20px;
   text-align: center;
   color: #999999;
+  cursor: pointer;
 `;
 const KeywordSubWrapper = styled.div`
-  margin: 10px 10px 10px 20px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
 `;
-const KeywordListWrapper = styled.div`
-  list-style: none;
+const KeywordListWrapper = styled.ul`
+  margin: 10px 10px 10px 20px;
 `;
 
 const LiLink = styled.li`
@@ -150,10 +152,10 @@ export default function Search(): JSX.Element {
         </form> */}
         </SearchBoxInnerWrapper>
       </SearchBoxWrapper>
-      <AreaHead>
+      <KeywordHeadWrapper>
         <TitSearch>최근 검색어</TitSearch>
         <UtilSet>전체삭제</UtilSet>
-      </AreaHead>
+      </KeywordHeadWrapper>
       <KeywordSubWrapper>
         <KeywordListWrapper>
           <LiLink>
