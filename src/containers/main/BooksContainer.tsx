@@ -63,7 +63,7 @@ export function BookContainer(props: { img: string }) {
             <BookBox>
                 <BookImg src={props.img}/>
                 <IconWrapper>
-                    <HeartIconBookBox src='/assets/main/heart.svg'/>
+                    <HeartIconBookBox src='/assets/main/bookLike.svg'/>
                     <HeartCnt>14</HeartCnt>
                 </IconWrapper>
             </BookBox>
