@@ -4,17 +4,28 @@ import {
     TitleDiv,
     HeartCnt,
     HeartIconBookBox,
-    IconWrapper, IconWrapperContent,
+    IconWrapper,
+    IconWrapperContent,
     MainContainer,
     StudyContent,
     StudyContentWrapper,
     StudyDiv,
     StudyHost,
     StudyIcon,
-    StudyImg, StudyInfoWrapper,
-    StudyProfile, StudyTitle,
+    StudyImg,
+    StudyInfoWrapper,
+    StudyProfile,
+    StudyTitle,
     TitleWrapper,
-    TotalView, LikeDiv, LikeStudyTitleWrapper, LikeStudyWrapper
+    TotalView,
+    LikeDiv,
+    LikeStudyTitleWrapper,
+    LikeStudyWrapper,
+    NewBoxWrapper,
+    NewBookProfile,
+    SmallBookImg,
+    MoreBtn,
+    DownImg
 } from "../../styles/main/BooksStyle";
 
 interface BookData {
@@ -136,6 +147,44 @@ export function NewStudyContainer() {
                 전체보기 &gt;
             </TotalView>
         </LikeStudyTitleWrapper>
+    )
+}
+
+export function NewStudyBox() {
+    return (
+        <>
+            <NewBoxWrapper>
+                <NewBookProfile>
+                    <SmallBookImg src='/assets/main/exBook.jpg'/>
+                </NewBookProfile>
+                <StudyContentWrapper>
+                    <StudyContent isLike={false}>
+                        <StudyIcon src='/assets/main/bookIcon.svg'/>
+                        <StudyDiv>토론</StudyDiv>
+                        <StudyIcon src='/assets/main/memberIcon.svg'/>
+                        <div>멤버 3/6</div>
+                    </StudyContent>
+                    <StudyTitle isLike={false}>
+                        직장인 북클럽
+                    </StudyTitle>
+                    <StudyContent isLike={false}>
+                        2021.04.26 ~ 05.21 토 14:00
+                    </StudyContent>
+                </StudyContentWrapper>
+                <IconWrapperContent>
+                    <HeartIconBookBox src='/assets/main/heart.svg'/>
+                    <HeartCnt>6</HeartCnt>
+                </IconWrapperContent>
+            </NewBoxWrapper>
+        </>
+    )
+}
+
+export function MoreButton() {
+    return (
+        <MoreBtn>
+            더 보기 <DownImg src='/assets/main/caretDown.svg' />
+        </MoreBtn>
     )
 }
 

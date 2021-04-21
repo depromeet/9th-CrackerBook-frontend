@@ -38,7 +38,7 @@ const Hr = styled.hr`
 `;
 
 const MainContainer = styled.div`
-  padding: 20px 20px;
+  padding: 40px 20px;
 `;
 
 const TitleWrapper = styled.div`
@@ -75,6 +75,12 @@ const BookImg = styled.img`
   height: 144px;
 `;
 
+const SmallBookImg = styled.img`
+  width: 51px;
+  height: 74px;
+  border-radius: 2px 8px 8px 2px
+`;
+
 const IconWrapper = styled.div`
   position: relative;
   right: -94px;
@@ -83,12 +89,16 @@ const IconWrapper = styled.div`
 
 const IconWrapperContent = styled.div`
   width: 6%;
-  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
 `;
 
 const HeartIconBookBox = styled.img`
   width: 20px;
   height: 20px;
+  margin-bottom: 2px;
 `;
 
 const HeartCnt = styled.div`
@@ -102,29 +112,45 @@ const StudyInfoWrapper = styled.div`
   padding-top: 20px;
 `;
 
+const NewBoxWrapper = styled.div`
+  display: flex;
+  padding: 32px 20px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+`;
+
 const StudyProfile = styled.div`
-  width: 22%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-right: 17px;
+`;
+
+const NewBookProfile = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
 `;
 
 const StudyImg = styled.img`
   border-radius: 100px;
   width: 56px;
   height: 56px;
+  margin: auto;
 `;
+
 
 const StudyHost = styled.div`
   text-align: center;
   color: #999999;
   font-size: 12px;
-  margin-right: 16px;
   padding-top: 5px;
 `;
 
 const StudyContentWrapper = styled.div`
-  width: 72%;
+  width: 68%;
   display: flex;
   flex-direction: column;
 `;
@@ -136,7 +162,7 @@ const StudyContent = styled.div<infoType>`
   font-weight: 400;
   color: #777777;
   font-family: "Nunito", sans-serif;
-  margin-bottom: ${(props) => (props.isLike ? '3px' : '8px')}
+  margin-bottom: ${(props) => (props.isLike ? '3px' : '5px')}
 `;
 
 const StudyIcon = styled.img`
@@ -155,7 +181,7 @@ const LikeDiv = styled.div`
 
 const StudyTitle = styled.div<infoType>`
   font-size: 16px;
-  margin-bottom: ${(props) => (props.isLike ? '6px' : '16px')};
+  margin-bottom: ${(props) => (props.isLike ? '6px' : '13px')};
   font-style: normal;
   font-weight: 500;
   line-height: 23px;
@@ -198,14 +224,35 @@ const LikeInfoWrapper = styled.div`
 
 const NewStudyBackground = styled.div`
   background-color: #F1F1F3;
-  min-height: 300px;  
+  min-height: 300px;
 `;
 
 const NewStudyWrapper = styled.div`
   padding: 80px 20px;
 `;
 
+const MoreBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F1F3;
+  border: 1px solid #DDDDDD;
+  border-radius: 50px;
+  padding: 14px 125px;
+  margin-top: 20px;
+  cursor: pointer;
+  color: #777777;
+`;
+
+const DownImg = styled.img`
+  padding-left: 5px;
+`;
+
 export {
+    DownImg,
+    MoreBtn,
+    NewBookProfile,
+    NewBoxWrapper,
     NewStudyBackground,
     NewStudyWrapper,
     LikeDiv,
@@ -228,6 +275,7 @@ export {
     HeartIconBookBox,
     HeartCnt,
     BookImg,
+    SmallBookImg,
     MainContainer,
     StudyTypeWrapper,
     StudyTypeDiv,

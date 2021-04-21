@@ -10,7 +10,7 @@ import {
     BookContainer,
     BookInfoContainer,
     LikeBookContainer,
-    LikeBookNameContainer, LikeDateContainer, LikeTitleContainer, NewStudyContainer,
+    LikeBookNameContainer, LikeDateContainer, LikeTitleContainer, MoreButton, NewStudyBox, NewStudyContainer,
     Title
 } from "../../containers/main/BooksContainer";
 
@@ -85,9 +85,11 @@ export default function BooksComponent(props: { bookData: Array<BookData> }): JS
                         <NewStudyBackground>
                             <NewStudyWrapper>
                                 <NewStudyContainer />
+                                <NewStudyBox />
+                                <MoreButton/>
                             </NewStudyWrapper>
-                        </NewStudyBackground>
 
+                        </NewStudyBackground>
                     </>
             }
         </>
