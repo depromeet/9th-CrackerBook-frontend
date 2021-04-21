@@ -25,9 +25,9 @@ export default function SetNicName(): JSX.Element {
         <ExistCommnet>이미 존재하는 닉네임입니다.</ExistCommnet>
       </ExistWrapper>
       <StartBtnWrapper>
-          <Link href='/main/books'>
-              <StartBtn src="/assets/login/startBtn.png" />
-          </Link>
+        <Link href="/main/books">
+          <StartBtn src="/assets/login/startBtn.png" />
+        </Link>
       </StartBtnWrapper>
     </NicnameContainer>
   );

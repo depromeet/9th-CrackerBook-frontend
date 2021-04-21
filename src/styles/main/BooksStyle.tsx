@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 type infoType = {
-    isLike: boolean
-}
+  isLike: boolean;
+};
 const StudyTypeWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@ const StudyTypeDiv = styled.div`
 
 const StudyTypeTitle = styled.div`
   text-align: center;
-  font-size: 12px
+  font-size: 12px;
 `;
 
 const StudyTypeImg = styled.img`
@@ -26,15 +26,15 @@ const StudyTypeImg = styled.img`
   height: 52px;
   border-radius: 20px;
   margin: 10px;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   text-align: center;
 `;
 
 const Hr = styled.hr`
   margin-bottom: 25px;
   width: 100%;
-  color: #EEEEEE;
-  border: thin solid #EEEEEE;
+  color: #eeeeee;
+  border: thin solid #eeeeee;
 `;
 
 const MainContainer = styled.div`
@@ -60,7 +60,7 @@ const TotalView = styled.div`
 `;
 
 const BookBox = styled.div`
-  background-color: #F1F1F3;
+  background-color: #f1f1f3;
   border-radius: 10px;
   width: 335px;
   height: 226px;
@@ -78,7 +78,7 @@ const BookImg = styled.img`
 const SmallBookImg = styled.img`
   width: 51px;
   height: 74px;
-  border-radius: 2px 8px 8px 2px
+  border-radius: 2px 8px 8px 2px;
 `;
 
 const IconWrapper = styled.div`
@@ -115,7 +115,7 @@ const StudyInfoWrapper = styled.div`
 const NewBoxWrapper = styled.div`
   display: flex;
   padding: 32px 20px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 10px;
 `;
 
@@ -141,7 +141,6 @@ const StudyImg = styled.img`
   margin: auto;
 `;
 
-
 const StudyHost = styled.div`
   text-align: center;
   color: #999999;
@@ -162,13 +161,13 @@ const StudyContent = styled.div<infoType>`
   font-weight: 400;
   color: #777777;
   font-family: "Nunito", sans-serif;
-  margin-bottom: ${(props) => (props.isLike ? '3px' : '5px')}
+  margin-bottom: ${(props) => (props.isLike ? "3px" : "5px")};
 `;
 
 const StudyIcon = styled.img`
   width: 18px;
   height: 18px;
-  margin-right: 2px
+  margin-right: 2px;
 `;
 
 const StudyDiv = styled.div`
@@ -181,7 +180,7 @@ const LikeDiv = styled.div`
 
 const StudyTitle = styled.div<infoType>`
   font-size: 16px;
-  margin-bottom: ${(props) => (props.isLike ? '6px' : '13px')};
+  margin-bottom: ${(props) => (props.isLike ? "6px" : "13px")};
   font-style: normal;
   font-weight: 500;
   line-height: 23px;
@@ -223,7 +222,7 @@ const LikeInfoWrapper = styled.div`
 `;
 
 const NewStudyBackground = styled.div`
-  background-color: #F1F1F3;
+  background-color: #f1f1f3;
   min-height: 300px;
 `;
 
@@ -235,8 +234,8 @@ const MoreBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F1F1F3;
-  border: 1px solid #DDDDDD;
+  background-color: #f1f1f3;
+  border: 1px solid #dddddd;
   border-radius: 50px;
   padding: 14px 125px;
   margin-top: 20px;
@@ -249,42 +248,42 @@ const DownImg = styled.img`
 `;
 
 export {
-    DownImg,
-    MoreBtn,
-    NewBookProfile,
-    NewBoxWrapper,
-    NewStudyBackground,
-    NewStudyWrapper,
-    LikeDiv,
-    LikeInfoWrapper,
-    RankBookWrapper,
-    RankBookImg,
-    LikeStudyWrapper,
-    LikeStudyTitleWrapper,
-    StudyDiv,
-    IconWrapperContent,
-    StudyDate,
-    StudyIcon,
-    StudyContent,
-    StudyContentWrapper,
-    StudyHost,
-    StudyImg,
-    StudyInfoWrapper,
-    StudyProfile,
-    IconWrapper,
-    HeartIconBookBox,
-    HeartCnt,
-    BookImg,
-    SmallBookImg,
-    MainContainer,
-    StudyTypeWrapper,
-    StudyTypeDiv,
-    StudyTypeImg,
-    Hr,
-    StudyTypeTitle,
-    StudyTitle,
-    TitleDiv,
-    TotalView,
-    TitleWrapper,
-    BookBox
+  DownImg,
+  MoreBtn,
+  NewBookProfile,
+  NewBoxWrapper,
+  NewStudyBackground,
+  NewStudyWrapper,
+  LikeDiv,
+  LikeInfoWrapper,
+  RankBookWrapper,
+  RankBookImg,
+  LikeStudyWrapper,
+  LikeStudyTitleWrapper,
+  StudyDiv,
+  IconWrapperContent,
+  StudyDate,
+  StudyIcon,
+  StudyContent,
+  StudyContentWrapper,
+  StudyHost,
+  StudyImg,
+  StudyInfoWrapper,
+  StudyProfile,
+  IconWrapper,
+  HeartIconBookBox,
+  HeartCnt,
+  BookImg,
+  SmallBookImg,
+  MainContainer,
+  StudyTypeWrapper,
+  StudyTypeDiv,
+  StudyTypeImg,
+  Hr,
+  StudyTypeTitle,
+  StudyTitle,
+  TitleDiv,
+  TotalView,
+  TitleWrapper,
+  BookBox,
 };
