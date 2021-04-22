@@ -6,6 +6,7 @@ const MobileTitle = styled.div`
   margin: 20px 0 0 0;
   text-align: center;
   font-size: 20px;
+  font-weight: 800;
   color: #222222;
   font-family: "Nunito", sans-serif;
 `;
@@ -39,6 +40,43 @@ const InputSearch = styled.input`
   padding: 11px 0 0;
   outline: none;
 `;
+const SearchInit = styled.div`
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+`;
+const CategorySubWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+`;
+const CategoryListWrapper = styled.ul`
+  margin: 10px 10px 10px 20px;
+`;
+
+const LiLink = styled.li`
+  position: relative;
+  float: left;
+  margin: 0 10px 10px 0;
+  cursor: pointer;
+  display: block;
+`;
+
+const BtnTag = styled.div`
+  color: #677ac7;
+  font-size: 14px;
+  line-height: 32px;
+  padding: 0 10px 0 10px;
+  display: inline-block;
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #677ac7;
+  &.on {
+    background: #677ac7;
+    color: #ffffff;
+  }
+`;
 const TabSubWrapper = styled.div`
   position: relative;
 `;
@@ -54,10 +92,12 @@ const UlDiv = styled.div`
   text-align: center;
   transition: all 0.3s;
   cursor: pointer;
+  font-size: 14px;
   line-height: 125.69%;
   color: #999999;
   border-bottom: 2px solid #f1f1f3;
   &.on {
+    font-weight: 500;
     color: #222222;
     border-bottom: 2px solid #ffd262;
   }
@@ -68,6 +108,7 @@ const FilterInnerWrapper = styled.div`
   margin: 10px 20px 10px;
 `;
 const FilterTitle = styled.div`
+  font-family: "Nunito", sans-serif;
   font-size: 14px;
   line-height: 40px;
   color: #777777;
@@ -85,10 +126,9 @@ const Title = styled.div`
 const Detail = styled.div`
   position: absolute;
   z-index: 10;
-  top: 5px;
+  top: 8px;
   right: 17px;
   font-size: 14px;
-  line-height: 20px;
   color: #999999;
   cursor: pointer;
 `;
@@ -98,7 +138,6 @@ const DetailLink = styled.div`
   top: 7px;
   right: 0px;
   font-size: 14px;
-  line-height: 20px;
   color: #999999;
   cursor: pointer;
 `;
@@ -144,7 +183,7 @@ export default function Search(): JSX.Element {
               name="asd"
               type="text"
               autoComplete="name"
-              placeholder="검색어를 입력해주세요"
+              placeholder="책, 저자, 스터디를 검색해주세요."
               onKeyUp={registerUser}
               required
             />
@@ -154,6 +193,30 @@ export default function Search(): JSX.Element {
           </IconBox>
         </SearchBoxInnerWrapper>
       </SearchBoxWrapper>
+      <SearchInit>
+        책, 저자, 스터디명을 검색하며 찾아보실 수 있어요.
+        <br />
+        첫자와 띄어쓰기를 정확하게 입력해주세요.
+      </SearchInit>
+      <CategorySubWrapper>
+        <CategoryListWrapper>
+          <LiLink>
+            <BtnTag className="on">발표</BtnTag>
+          </LiLink>
+          <LiLink>
+            <BtnTag>토론</BtnTag>
+          </LiLink>
+          <LiLink>
+            <BtnTag>글쓰기</BtnTag>
+          </LiLink>
+          <LiLink>
+            <BtnTag>포트폴리오</BtnTag>
+          </LiLink>
+          <LiLink>
+            <BtnTag>오늘도배고프다...</BtnTag>
+          </LiLink>
+        </CategoryListWrapper>
+      </CategorySubWrapper>
       <TabSubWrapper>
         <Ul>
           <UlDiv className="on">

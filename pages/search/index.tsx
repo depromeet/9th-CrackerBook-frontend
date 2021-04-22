@@ -138,7 +138,7 @@ export default function Search(): JSX.Element {
               name="asd"
               type="text"
               autoComplete="name"
-              placeholder="검색어를 입력해주세요"
+              placeholder="책, 저자, 스터디를 검색해주세요."
               onKeyUp={registerUser}
               required
             />
