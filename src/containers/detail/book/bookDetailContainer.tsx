@@ -1,17 +1,23 @@
 import {
-    BookDetail,
-    BookDetailWrapper,
     BookImg,
-    MainBookCover, TabButton, TabWrapper,
-    Title,
+    MainBookCover,
     TitleInfoWrapper,
     TitleInner
 } from "../../../styles/detail/book/bookDetailStyle";
+import {
+    BackButton,
+    BookDetail,
+    BookDetailWrapper,
+    SearchButton,
+    Title
+} from "../../../styles/detail/common/commonStyle";
 
 export function BookCover():JSX.Element {
 
     return (
         <MainBookCover>
+            <BackButton src='/assets/detail/back.svg'/>
+            <SearchButton src='/assets/detail/magnifyingGlass.svg'/>
             <BookImg src='/assets/main/exBook.jpg'/>
         </MainBookCover>
     )
@@ -35,13 +41,4 @@ export function BookInfo():JSX.Element {
     )
 }
 
-export function TabContainer():JSX.Element {
 
-    return (
-        <TabWrapper>
-            <TabButton active={true}> 스터디(4)</TabButton>
-            <TabButton active={false}> 후기(23)</TabButton>
-            <TabButton active={false}> 책소개</TabButton>
-        </TabWrapper>
-    )
-}
