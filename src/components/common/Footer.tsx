@@ -4,7 +4,7 @@ const Footer = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-width: 420px;
+  max-width: 375px;
   height: 60px;
   border-top: 1px solid #eaeaea;
   display: flex;
