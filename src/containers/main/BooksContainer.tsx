@@ -25,7 +25,7 @@ import {
   MoreBtn,
   DownImg, DropDown,
 } from "../../styles/main/BooksStyle";
-import {ThisBookContentWrapper} from "../../styles/bookDetail/bookDetailStyle";
+import {ThisBookContentWrapper} from "../../styles/detail/book/bookDetailStyle";
 
 interface BookData {
   bookName: string;
@@ -121,7 +121,7 @@ export function StudyContainer(): JSX.Element {
   return (
     <LikeStudyTitleWrapper>
       <TitleDiv>새로 생긴 스터디</TitleDiv>
-      <TotalView> 모집중 <DropDown src='/assets/bookDetail/dropDown.svg'/> </TotalView>
+      <TotalView> 모집중 <DropDown src='/assets/detail/dropDown.svg'/> </TotalView>
     </LikeStudyTitleWrapper>
   );
 }

@@ -6,7 +6,7 @@ import {
     Title,
     TitleInfoWrapper,
     TitleInner
-} from "../../styles/bookDetail/bookDetailStyle";
+} from "../../../styles/detail/book/bookDetailStyle";
 
 export function BookCover():JSX.Element {
 

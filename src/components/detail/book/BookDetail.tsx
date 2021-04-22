@@ -1,7 +1,7 @@
-import {BookCover, BookInfo, TabContainer} from "../../containers/bookDetail/bookDetailContainer";
-import {DivLine} from "../../styles/bookDetail/bookDetailStyle";
-import {NewStudyWrapper, StudyBackground} from "../../styles/main/BooksStyle";
-import {MoreButton, StudyContainer, ThisBookBox} from "../../containers/main/BooksContainer";
+import {BookCover, BookInfo, TabContainer} from "../../../containers/detail/book/bookDetailContainer";
+import {DivLine} from "../../../styles/detail/book/bookDetailStyle";
+import {NewStudyWrapper, StudyBackground} from "../../../styles/main/BooksStyle";
+import {MoreButton, StudyContainer, ThisBookBox} from "../../../containers/main/BooksContainer";
 
 export default function BookDetailComponent(): JSX.Element {
   return (

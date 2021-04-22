@@ -61,7 +61,7 @@ const TotalView = styled.div`
 
 const BookBox = styled.div`
   background-color: #f1f1f3;
-  border-radius: 10px;
+  border-radius: 10px;   
   width: 335px;
   height: 226px;
   margin-top: 20px;
