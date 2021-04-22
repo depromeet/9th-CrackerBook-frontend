@@ -55,7 +55,7 @@ const TitleDiv = styled.div`
 
 const TotalView = styled.div`
   font-size: 14px;
-  color: #999999;
+  color: #677AC7;
   text-align: right;
 `;
 
@@ -221,13 +221,17 @@ const LikeInfoWrapper = styled.div`
   margin: 10px 15px 0 0;
 `;
 
-const NewStudyBackground = styled.div`
+const StudyBackground = styled.div`
   background-color: #f1f1f3;
   min-height: 300px;
 `;
 
 const NewStudyWrapper = styled.div`
   padding: 80px 20px;
+`;
+
+const DropDown = styled.img`
+
 `;
 
 const MoreBtn = styled.div`
@@ -248,11 +252,12 @@ const DownImg = styled.img`
 `;
 
 export {
+  DropDown,
   DownImg,
   MoreBtn,
   NewBookProfile,
   NewBoxWrapper,
-  NewStudyBackground,
+  StudyBackground,
   NewStudyWrapper,
   LikeDiv,
   LikeInfoWrapper,
