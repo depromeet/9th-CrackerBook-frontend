@@ -1,4 +1,4 @@
-import {TabButton, TabWrapper} from "../../../styles/detail/common/commonStyle";
+import {ModalElement, ModalWrapper, TabButton, TabWrapper} from "../../../styles/detail/common/commonStyle";
 
 export function TabContainer():JSX.Element {
 
@@ -9,4 +9,15 @@ export function TabContainer():JSX.Element {
             <TabButton active={false}> 책소개</TabButton>
         </TabWrapper>
     )
+}
+
+export function Modal():JSX.Element {
+
+    return (
+        <ModalWrapper>
+            <ModalElement>모집중</ModalElement>
+            <ModalElement>진행중</ModalElement>
+            <ModalElement>종료</ModalElement>
+        </ModalWrapper>
+    );
 }

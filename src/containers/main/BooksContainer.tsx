@@ -26,6 +26,8 @@ import {
   DownImg, DropDown,
 } from "../../styles/main/BooksStyle";
 import {ThisBookContentWrapper} from "../../styles/detail/book/bookDetailStyle";
+import {ModalWrapper} from "../../styles/detail/common/commonStyle";
+import {Modal} from "../detail/common/commonContainer";
 
 interface BookData {
   bookName: string;
@@ -118,10 +120,16 @@ export function LikeTitleContainer(): JSX.Element {
 }
 
 export function StudyContainer(): JSX.Element {
+  let isOpen = true;
+
+  const modalEvent = (e) => {
+    isOpen = !isOpen;
+  }
   return (
     <LikeStudyTitleWrapper>
       <TitleDiv>새로 생긴 스터디</TitleDiv>
-      <TotalView> 모집중 <DropDown src='/assets/detail/dropDown.svg'/> </TotalView>
+      <TotalView onClick={modalEvent}> 모집중 <DropDown src='/assets/detail/dropDown.svg'/> </TotalView>
+      {isOpen ? <Modal /> : ''}
     </LikeStudyTitleWrapper>
   );
 }

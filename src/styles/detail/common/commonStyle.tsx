@@ -49,7 +49,20 @@ const SearchButton = styled.img`
   cursor: pointer;
 `;
 
+const ModalWrapper = styled.div`
+  background-color: white;
+  text-align: center;
+  color: #999999;
+  width: 68px;
+  height: 100px;
+`;
+
+const ModalElement = styled.div`
+  cursor: pointer;
+`;
 export {
+    ModalWrapper,
+    ModalElement,
     BackButton,
     SearchButton,
     TabWrapper,
