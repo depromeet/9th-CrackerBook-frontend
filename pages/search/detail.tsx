@@ -80,6 +80,31 @@ const BtnTag = styled.div`
 const TabSubWrapper = styled.div`
   position: relative;
 `;
+const NotFoundWrapper = styled.div`
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+const Svgbox = styled.div`
+  position: relative;
+  padding: 109px 0 0 0;
+  font-weight: 500;
+  font-size: 20px;
+`;
+const NotFoundMain = styled.div`
+  position: relative;
+  padding: 32px 0 0 0;
+  font-weight: 500;
+  font-size: 20px;
+`;
+const NotFoundSub = styled.div`
+  position: relative;
+  padding: 10px 0 109px 0;
+  line-height: 20px;
+  color: #222222;
+  font-size: 14px;
+`;
 const Ul = styled.ul`
   display: flex;
   height: 80px;
@@ -117,13 +142,13 @@ const ListHeadWrapper = styled.div`
   position: relative;
   margin: 10px 20px 10px;
 `;
-const Title = styled.div`
+const ListHeadTitle = styled.div`
   font-size: 20px;
   font-weight: 500;
   line-height: 29px;
   color: #000000;
 `;
-const Detail = styled.div`
+const ListHeadDetail = styled.div`
   position: absolute;
   z-index: 10;
   top: 8px;
@@ -148,6 +173,24 @@ const BookListWrapper = styled.div`
 const StudyListWrapper = styled.div`
   position: relative;
   margin: 10px 20px 10px;
+`;
+const ListFooterWrapper = styled.div`
+  width: 335px;
+  height: 48px;
+  margin: 10px 20px 10px;
+  position: relative;
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  color: #777777;
+`;
+const ListFooterIconBox = styled.div`
+  margin: 0 2px;
 `;
 
 export default function Search(): JSX.Element {
@@ -236,12 +279,23 @@ export default function Search(): JSX.Element {
           </UlDiv>
         </Ul>
       </TabSubWrapper>
+      <NotFoundWrapper>
+        <Svgbox>
+          <img src="/assets/search/notfound.svg" />
+        </Svgbox>
+        <NotFoundMain>검색 결과가 없습니다.</NotFoundMain>
+        <NotFoundSub>
+          다른 검색어를 입력하시거나
+          <br />
+          철자와 띄어쓰기를 확인해보세요.
+        </NotFoundSub>
+      </NotFoundWrapper>
       <FilterInnerWrapper>
         <FilterTitle>38건의 검색결과</FilterTitle>
       </FilterInnerWrapper>
       <ListHeadWrapper>
-        <Title>책</Title>
-        <Detail>전체보기</Detail>
+        <ListHeadTitle>책</ListHeadTitle>
+        <ListHeadDetail>전체보기</ListHeadDetail>
         <DetailLink>
           <Link href="/login/setNicname">
             <a>
@@ -259,8 +313,8 @@ export default function Search(): JSX.Element {
         </ul>
       </BookListWrapper>
       <ListHeadWrapper>
-        <Title>스터디</Title>
-        <Detail>전체보기</Detail>
+        <ListHeadTitle>스터디</ListHeadTitle>
+        <ListHeadDetail>전체보기</ListHeadDetail>
         <DetailLink>
           <Link href="/login/setNicname">
             <a>
@@ -277,6 +331,20 @@ export default function Search(): JSX.Element {
           <li>스터디 리스트</li>
         </ul>
       </StudyListWrapper>
+      <BookListWrapper>
+        <ul>
+          <li>책 리스트</li>
+          <li>책 리스트</li>
+          <li>책 리스트</li>
+          <li>책 리스트</li>
+        </ul>
+      </BookListWrapper>
+      <ListFooterWrapper>
+        더 보기
+        <ListFooterIconBox>
+          <img src="/assets/search/arrowdown.svg" />
+        </ListFooterIconBox>
+      </ListFooterWrapper>
     </>
   );
 }
