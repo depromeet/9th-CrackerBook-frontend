@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+type ModalLocation = {
+    pageX: number;
+    pageY: number;
+}
+
 const Title = styled.div`
   font-size: 32px;
   color: #222222;
@@ -49,16 +54,22 @@ const SearchButton = styled.img`
   cursor: pointer;
 `;
 
-const ModalWrapper = styled.div`
+const ModalWrapper = styled.div<props: {ModalLocation}>`
   background-color: white;
   text-align: center;
   color: #999999;
   width: 68px;
   height: 100px;
+  top: -13px;
+  position: relative;
 `;
 
 const ModalElement = styled.div`
   cursor: pointer;
+  height: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export {
     ModalWrapper,

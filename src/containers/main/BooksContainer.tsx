@@ -28,6 +28,7 @@ import {
 import {ThisBookContentWrapper} from "../../styles/detail/book/bookDetailStyle";
 import {ModalWrapper} from "../../styles/detail/common/commonStyle";
 import {Modal} from "../detail/common/commonContainer";
+import {useEffect, useState} from "react";
 
 interface BookData {
   bookName: string;
@@ -119,18 +120,32 @@ export function LikeTitleContainer(): JSX.Element {
   );
 }
 
-export function StudyContainer(): JSX.Element {
-  let isOpen = true;
-
-  const modalEvent = (e) => {
-    isOpen = !isOpen;
+export function BookStudyContainer(): JSX.Element {
+  const [isOpen, setIsOpen] = useState(true);
+  const [pageX, setPageX] = useState(0);
+  const [pageY, setPageY] = useState(0);
+  const viewModal = (e) => {
+    setPageX(e.pageX);
+    setPageY(e.pageY);
+    setIsOpen(!isOpen);
   }
   return (
     <LikeStudyTitleWrapper>
       <TitleDiv>새로 생긴 스터디</TitleDiv>
-      <TotalView onClick={modalEvent}> 모집중 <DropDown src='/assets/detail/dropDown.svg'/> </TotalView>
-      {isOpen ? <Modal /> : ''}
+      <TotalView onClick={viewModal}> 모집중 <DropDown src='/assets/detail/dropDown.svg'/>
+        {isOpen ? <Modal pageX={pageX} pageY={pageX} /> : ''}
+      </TotalView>
     </LikeStudyTitleWrapper>
+  );
+}
+
+export function StudyContainer(): JSX.Element {
+
+  return (
+      <LikeStudyTitleWrapper>
+        <TitleDiv>새로 생긴 스터디</TitleDiv>
+        <TotalView > 모집중 <DropDown src='/assets/detail/dropDown.svg'/> </TotalView>
+      </LikeStudyTitleWrapper>
   );
 }
 

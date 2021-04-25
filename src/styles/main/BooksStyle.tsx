@@ -3,6 +3,8 @@ import styled from "styled-components";
 type infoType = {
   isLike: boolean;
 };
+
+
 const StudyTypeWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -57,6 +59,7 @@ const TotalView = styled.div`
   font-size: 14px;
   color: #677AC7;
   text-align: right;
+  cursor: pointer;
 `;
 
 const BookBox = styled.div`
