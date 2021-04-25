@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-type ModalLocation = {
+interface ModalPosition {
     pageX: number;
     pageY: number;
 }
@@ -54,14 +54,15 @@ const SearchButton = styled.img`
   cursor: pointer;
 `;
 
-const ModalWrapper = styled.div<props: {ModalLocation}>`
+const ModalWrapper = styled.div<ModalPosition>`
   background-color: white;
   text-align: center;
   color: #999999;
   width: 68px;
   height: 100px;
-  top: -13px;
-  position: relative;
+  top: ${(props) => (props.pageY) + 'px'};
+  right: 20px;
+  position: absolute;
 `;
 
 const ModalElement = styled.div`

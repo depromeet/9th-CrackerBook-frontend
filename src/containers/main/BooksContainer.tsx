@@ -26,9 +26,9 @@ import {
   DownImg, DropDown,
 } from "../../styles/main/BooksStyle";
 import {ThisBookContentWrapper} from "../../styles/detail/book/bookDetailStyle";
-import {ModalWrapper} from "../../styles/detail/common/commonStyle";
 import {Modal} from "../detail/common/commonContainer";
-import {useEffect, useState} from "react";
+import {useState} from "react";
+import Link from "next/link";
 
 interface BookData {
   bookName: string;
@@ -40,6 +40,10 @@ interface BookData {
   endData: string;
 }
 
+type PositionParam = {
+  pageX: number,
+  pageY: number
+}
 export function Title(props: { bookName: string }): JSX.Element {
   return (
     <>
@@ -55,13 +59,16 @@ export function Title(props: { bookName: string }): JSX.Element {
 export function BookContainer(props: { img: string }): JSX.Element {
   return (
     <>
-      <BookBox>
-        <BookImg src={props.img} />
-        <IconWrapper>
-          <HeartIconBookBox src="/assets/main/bookLike.svg" />
-          <HeartCnt>14</HeartCnt>
-        </IconWrapper>
-      </BookBox>
+      <Link href='/detail/book/bookDetail'>
+        <BookBox>
+          <BookImg src={props.img} />
+          <IconWrapper>
+            <HeartIconBookBox src="/assets/main/bookLike.svg" />
+            <HeartCnt>14</HeartCnt>
+          </IconWrapper>
+        </BookBox>
+      </Link>
+
     </>
   );
 }
@@ -121,20 +128,18 @@ export function LikeTitleContainer(): JSX.Element {
 }
 
 export function BookStudyContainer(): JSX.Element {
-  const [isOpen, setIsOpen] = useState(true);
-  const [pageX, setPageX] = useState(0);
-  const [pageY, setPageY] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [pagePosition, setPagePosition] = useState({pageX: 0, pageY: 0});
   const viewModal = (e) => {
-    setPageX(e.pageX);
-    setPageY(e.pageY);
+    setPagePosition({pageX: e.clientX, pageY: e.clientY - 10});
     setIsOpen(!isOpen);
   }
   return (
     <LikeStudyTitleWrapper>
       <TitleDiv>새로 생긴 스터디</TitleDiv>
       <TotalView onClick={viewModal}> 모집중 <DropDown src='/assets/detail/dropDown.svg'/>
-        {isOpen ? <Modal pageX={pageX} pageY={pageX} /> : ''}
       </TotalView>
+      {isOpen ? <Modal modalPosition = {pagePosition}/> : ''}
     </LikeStudyTitleWrapper>
   );
 }

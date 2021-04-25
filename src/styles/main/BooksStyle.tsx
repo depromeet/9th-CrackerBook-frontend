@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-type infoType = {
+type InfoType = {
+  isLike: boolean;
+};
+
+type ModalPosition = {
   isLike: boolean;
 };
 
@@ -157,7 +161,7 @@ const StudyContentWrapper = styled.div`
   flex-direction: column;
 `;
 
-const StudyContent = styled.div<infoType>`
+const StudyContent = styled.div<InfoType>`
   display: flex;
   align-items: center;
   font-size: 12px;
@@ -181,7 +185,7 @@ const LikeDiv = styled.div`
   margin-right: 5px;
 `;
 
-const StudyTitle = styled.div<infoType>`
+const StudyTitle = styled.div<InfoType>`
   font-size: 16px;
   margin-bottom: ${(props) => (props.isLike ? "6px" : "13px")};
   font-style: normal;
