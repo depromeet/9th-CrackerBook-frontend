@@ -73,7 +73,23 @@ const ModalElement = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+const MainBookStyle = styled.div`
+  background-color: #09a969;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const TitleInfoStyle = styled.div`
+  border-radius: 25px 25px 0 0;
+  position: relative;
+  background-color: white;
+`;
+
 export {
+  TitleInfoStyle,
+  MainBookStyle,
   ModalWrapper,
   ModalElement,
   BackButton,

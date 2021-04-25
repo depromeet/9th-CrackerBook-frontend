@@ -1,7 +1,7 @@
 import styled from "styled-components";
+import {MainBookStyle, TitleInfoStyle} from "../common/commonStyle";
 
-const MainBookCover = styled.div`
-  background-color: #09a969;
+const MainBookCover = styled(MainBookStyle)`
   width: 375px;
   height: 403px;
   display: flex;
@@ -15,11 +15,8 @@ const BookImg = styled.img`
   border-radius: 2px 8px 8px 2px;
 `;
 
-const TitleInfoWrapper = styled.div`
-  border-radius: 25px 25px 0 0;
-  position: relative;
+const TitleInfoWrapper = styled(TitleInfoStyle)`
   top: -22px;
-  background-color: white;
   height: 190px;
 `;
 
