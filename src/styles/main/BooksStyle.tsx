@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-type infoType = {
+type InfoType = {
   isLike: boolean;
 };
+
 const StudyTypeWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -55,8 +56,9 @@ const TitleDiv = styled.div`
 
 const TotalView = styled.div`
   font-size: 14px;
-  color: #999999;
+  color: #677ac7;
   text-align: right;
+  cursor: pointer;
 `;
 
 const BookBox = styled.div`
@@ -154,7 +156,7 @@ const StudyContentWrapper = styled.div`
   flex-direction: column;
 `;
 
-const StudyContent = styled.div<infoType>`
+const StudyContent = styled.div<InfoType>`
   display: flex;
   align-items: center;
   font-size: 12px;
@@ -178,7 +180,7 @@ const LikeDiv = styled.div`
   margin-right: 5px;
 `;
 
-const StudyTitle = styled.div<infoType>`
+const StudyTitle = styled.div<InfoType>`
   font-size: 16px;
   margin-bottom: ${(props) => (props.isLike ? "6px" : "13px")};
   font-style: normal;
@@ -221,7 +223,7 @@ const LikeInfoWrapper = styled.div`
   margin: 10px 15px 0 0;
 `;
 
-const NewStudyBackground = styled.div`
+const StudyBackground = styled.div`
   background-color: #f1f1f3;
   min-height: 300px;
 `;
@@ -229,6 +231,8 @@ const NewStudyBackground = styled.div`
 const NewStudyWrapper = styled.div`
   padding: 80px 20px;
 `;
+
+const DropDown = styled.img``;
 
 const MoreBtn = styled.div`
   display: flex;
@@ -248,11 +252,12 @@ const DownImg = styled.img`
 `;
 
 export {
+  DropDown,
   DownImg,
   MoreBtn,
   NewBookProfile,
   NewBoxWrapper,
-  NewStudyBackground,
+  StudyBackground,
   NewStudyWrapper,
   LikeDiv,
   LikeInfoWrapper,
