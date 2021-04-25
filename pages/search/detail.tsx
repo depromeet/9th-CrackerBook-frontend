@@ -188,6 +188,7 @@ const ListFooterWrapper = styled.div`
   text-align: center;
   font-size: 14px;
   color: #777777;
+  cursor: pointer;
 `;
 const ListFooterIconBox = styled.div`
   margin: 0 2px;
@@ -239,7 +240,7 @@ export default function Search(): JSX.Element {
       <SearchInit>
         책, 저자, 스터디명을 검색하며 찾아보실 수 있어요.
         <br />
-        첫자와 띄어쓰기를 정확하게 입력해주세요.
+        철자와 띄어쓰기를 정확하게 입력해주세요.
       </SearchInit>
       <CategorySubWrapper>
         <CategoryListWrapper>

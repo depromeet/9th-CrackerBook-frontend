@@ -17,7 +17,9 @@ export default function Component(): JSX.Element {
             <KakaoLoginBtn>카카오로 로그인</KakaoLoginBtn>
           </Link>
         </div>
-        <GoMainBtn>서비스 둘러보기 &gt;</GoMainBtn>
+        <Link href="/main/books">
+          <GoMainBtn>서비스 둘러보기 &gt;</GoMainBtn>
+        </Link>
       </NextDiv>
     </MainContainer>
   );
