@@ -4,11 +4,6 @@ type InfoType = {
   isLike: boolean;
 };
 
-type ModalPosition = {
-  isLike: boolean;
-};
-
-
 const StudyTypeWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -61,14 +56,14 @@ const TitleDiv = styled.div`
 
 const TotalView = styled.div`
   font-size: 14px;
-  color: #677AC7;
+  color: #677ac7;
   text-align: right;
   cursor: pointer;
 `;
 
 const BookBox = styled.div`
   background-color: #f1f1f3;
-  border-radius: 10px;   
+  border-radius: 10px;
   width: 335px;
   height: 226px;
   margin-top: 20px;
@@ -237,9 +232,7 @@ const NewStudyWrapper = styled.div`
   padding: 80px 20px;
 `;
 
-const DropDown = styled.img`
-
-`;
+const DropDown = styled.img``;
 
 const MoreBtn = styled.div`
   display: flex;

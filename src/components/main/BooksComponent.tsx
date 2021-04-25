@@ -1,11 +1,12 @@
- import {
+import {
   Hr,
   LikeInfoWrapper,
   LikeStudyWrapper,
   MainContainer,
   NewStudyWrapper,
   RankBookImg,
-  RankBookWrapper, StudyBackground,
+  RankBookWrapper,
+  StudyBackground,
   StudyTypeDiv,
   StudyTypeImg,
   StudyTypeTitle,

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 interface ModalPosition {
-    pageX: number;
-    pageY: number;
+  pageX: number;
+  pageY: number;
 }
 
 const Title = styled.div`
@@ -15,14 +15,14 @@ const Title = styled.div`
 const BookDetailWrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  padding-top: 10px
+  padding-top: 10px;
 `;
 
 const BookDetail = styled.div`
   font-size: 14px;
   color: #777777;
   padding-right: 10px;
-  border-right-color: #DDDDDD;
+  border-right-color: #dddddd;
 `;
 
 const TabWrapper = styled.div`
@@ -31,8 +31,9 @@ const TabWrapper = styled.div`
   height: 60px;
 `;
 
-const TabButton = styled.div<{active: boolean}>`
-  border-bottom: ${(props) => (props.active ? '1px solid #FFD262' : '1px solid #DDDDDD')};
+const TabButton = styled.div<{ active: boolean }>`
+  border-bottom: ${(props) =>
+    props.active ? "1px solid #FFD262" : "1px solid #DDDDDD"};
   width: 33%;
   display: flex;
   justify-content: center;
@@ -60,7 +61,7 @@ const ModalWrapper = styled.div<ModalPosition>`
   color: #999999;
   width: 68px;
   height: 100px;
-  top: ${(props) => (props.pageY) + 'px'};
+  top: ${(props) => props.pageY + "px"};
   right: 20px;
   position: absolute;
 `;
@@ -73,13 +74,13 @@ const ModalElement = styled.div`
   justify-content: center;
 `;
 export {
-    ModalWrapper,
-    ModalElement,
-    BackButton,
-    SearchButton,
-    TabWrapper,
-    TabButton,
-    BookDetailWrapper,
-    BookDetail,
-    Title
-}
+  ModalWrapper,
+  ModalElement,
+  BackButton,
+  SearchButton,
+  TabWrapper,
+  TabButton,
+  BookDetailWrapper,
+  BookDetail,
+  Title,
+};

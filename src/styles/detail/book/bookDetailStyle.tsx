@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 const MainBookCover = styled.div`
-  background-color: #09A969;
+  background-color: #09a969;
   width: 375px;
   height: 403px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
 
 const BookImg = styled.img`
   width: 138px;
@@ -30,7 +29,7 @@ const TitleInner = styled.div`
 
 const DivLine = styled.div`
   height: 10px;
-  background-color: #F1F1F3;  
+  background-color: #f1f1f3;
 `;
 
 const ThisBookContentWrapper = styled.div`
@@ -40,10 +39,10 @@ const ThisBookContentWrapper = styled.div`
 `;
 
 export {
-    ThisBookContentWrapper,
-    DivLine,
-    TitleInner,
-    MainBookCover,
-    BookImg,
-    TitleInfoWrapper
-}
+  ThisBookContentWrapper,
+  DivLine,
+  TitleInner,
+  MainBookCover,
+  BookImg,
+  TitleInfoWrapper,
+};
