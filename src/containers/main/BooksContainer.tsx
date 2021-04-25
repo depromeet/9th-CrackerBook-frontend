@@ -136,7 +136,7 @@ export function BookStudyContainer(): JSX.Element {
   }
   return (
     <LikeStudyTitleWrapper>
-      <TitleDiv>새로 생긴 스터디</TitleDiv>
+      <TitleDiv>이 책의 스터디</TitleDiv>
       <TotalView onClick={viewModal}> 모집중 <DropDown src='/assets/detail/dropDown.svg'/>
       </TotalView>
       {isOpen ? <Modal modalPosition = {pagePosition}/> : ''}
