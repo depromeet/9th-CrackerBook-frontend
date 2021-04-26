@@ -4,7 +4,7 @@ type CommentType = {
   isFirstComment: boolean;
 };
 
-const GuidCommnet = styled.div<CommentType>`
+const GuideCommnet = styled.div<CommentType>`
   display: flex;
   align-items: center;
   font-size: 24px;
@@ -59,7 +59,7 @@ const StartBtn = styled.img`
   cursor: pointer;
 `;
 export {
-  GuidCommnet,
+  GuideCommnet,
   NicnameInput,
   ExistCommnet,
   NicnameContainer,
