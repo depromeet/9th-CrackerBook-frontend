@@ -29,6 +29,9 @@ const TabWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   height: 60px;
+  color: #222222;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
 `;
 
 const TabButton = styled.div<{ active: boolean }>`
@@ -87,7 +90,13 @@ const TitleInfoStyle = styled.div`
   background-color: white;
 `;
 
+const DivLine = styled.div`
+  height: 10px;
+  background-color: #f1f1f3;
+`;
+
 export {
+  DivLine,
   TitleInfoStyle,
   MainBookStyle,
   ModalWrapper,

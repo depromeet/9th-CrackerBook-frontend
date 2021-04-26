@@ -18,14 +18,14 @@ const StudyBookImg = styled.img`
 
 const TitleStudyInfoWrapper = styled(TitleInfoStyle)`
   top: -150px;
-  height: 386px;
+  height: 175px;
 `;
 
 const HostBox = styled.div`
   margin: 35px 20px 40px;
   padding: 20px 100px 20px 20px;
-  border-radius: 5px 5px 5px 5px;
-  box-shadow: 1px 2px 7px 5px #f4f4f4;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 1px 3px 9px 7px #f4f4f4;
   display: flex;
   justify-content: center;
 `;
@@ -77,7 +77,35 @@ const Bar = styled.div`
   padding-right: 10px;
 `;
 
+const StudyInfoWrapper = styled.div`
+  padding: 40px 12px 40px 20px;
+`;
+
+const InfoContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-top: 10px;
+`;
+
+const InfoBold = styled.div`
+  font-weight: 700;
+  color: #222222;
+  font-size: 14px;
+  padding-right: 10px;
+  min-width: 65px;
+`;
+
+const InfoContent = styled.div`
+  font-size: 14px;
+  color: #777777;
+`;
+
 export {
+    StudyInfoWrapper,
+    InfoContentWrapper,
+    InfoBold,
+    InfoContent,
     Bar,
     StudyContentCover,
     HostBox,

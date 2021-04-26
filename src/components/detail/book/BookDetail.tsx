@@ -2,7 +2,6 @@ import {
   BookCover,
   BookInfo,
 } from "../../../containers/detail/book/bookDetailContainer";
-import { DivLine } from "../../../styles/detail/book/bookDetailStyle";
 import {
   NewStudyWrapper,
   StudyBackground,
@@ -13,6 +12,7 @@ import {
   ThisBookBox,
 } from "../../../containers/main/BooksContainer";
 import { TabContainer } from "../../../containers/detail/common/commonContainer";
+import {DivLine} from "../../../styles/detail/common/commonStyle";
 
 export default function BookDetailComponent(): JSX.Element {
   return (

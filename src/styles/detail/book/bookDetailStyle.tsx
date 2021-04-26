@@ -24,11 +24,6 @@ const TitleInner = styled.div`
   padding: 50px 87px 0 20px;
 `;
 
-const DivLine = styled.div`
-  height: 10px;
-  background-color: #f1f1f3;
-`;
-
 const ThisBookContentWrapper = styled.div`
   width: 95%;
   display: flex;
@@ -37,7 +32,6 @@ const ThisBookContentWrapper = styled.div`
 
 export {
   ThisBookContentWrapper,
-  DivLine,
   TitleInner,
   MainBookCover,
   BookImg,
