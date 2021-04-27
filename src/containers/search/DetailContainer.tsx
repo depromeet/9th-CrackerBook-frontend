@@ -36,6 +36,7 @@ import Link from "next/link";
 import Router from "next/router";
 
 export default function DetailContainer(): JSX.Element {
+  const [tabSelected, setTabSelected] = useState(0);
   const registerUser = async (event) => {
     event.preventDefault();
     if (event.keyCode === 13) {
@@ -86,10 +87,6 @@ export default function DetailContainer(): JSX.Element {
           <IconBox>
             <img src="/assets/search/icon.svg" />
           </IconBox>
-          {/* <form onSubmit={registerUser}>
-        <label htmlFor="name">Name</label> */}
-          {/* <button type="submit">Register</button>
-      </form> */}
         </SearchBoxInnerWrapper>
       </SearchBoxWrapper>
       <SearchInit>
@@ -98,7 +95,6 @@ export default function DetailContainer(): JSX.Element {
         철자와 띄어쓰기를 정확하게 입력해주세요.
       </SearchInit>
       <CategoryWrapper></CategoryWrapper>
-      <TabWrapper></TabWrapper>
       <NotFoundWrapper>
         <Svgbox>
           <img src="/assets/search/notfound.svg" />
@@ -110,47 +106,59 @@ export default function DetailContainer(): JSX.Element {
           철자와 띄어쓰기를 확인해보세요.
         </NotFoundSub>
       </NotFoundWrapper>
+      <TabWrapper
+        tabSelected={tabSelected}
+        setTabSelected={setTabSelected}
+      ></TabWrapper>
       <FilterInnerWrapper>
         <FilterTitle>38건의 검색결과</FilterTitle>
       </FilterInnerWrapper>
-      <ListHeadWrapper>
-        <ListHeadTitle>책</ListHeadTitle>
-        <ListHeadDetail>전체보기</ListHeadDetail>
-        <DetailLink>
-          <Link href="/login/setNicname">
-            <a>
-              <img src="/assets/search/detaillink.svg" />
-            </a>
-          </Link>
-        </DetailLink>
-      </ListHeadWrapper>
-      <BookListWrapper>
-        <ul>
-          <li>책 리스트</li>
-          <li>책 리스트</li>
-          <li>책 리스트</li>
-          <li>책 리스트</li>
-        </ul>
-      </BookListWrapper>
-      <ListHeadWrapper>
-        <ListHeadTitle>스터디</ListHeadTitle>
-        <ListHeadDetail>전체보기</ListHeadDetail>
-        <DetailLink>
-          <Link href="/login/setNicname">
-            <a>
-              <img src="/assets/search/detaillink.svg" />
-            </a>
-          </Link>
-        </DetailLink>
-      </ListHeadWrapper>
-      <StudyListWrapper>
-        <ul>
-          <li>스터디 리스트</li>
-          <li>스터디 리스트</li>
-          <li>스터디 리스트</li>
-          <li>스터디 리스트</li>
-        </ul>
-      </StudyListWrapper>
+      {[0, 1].includes(tabSelected) && (
+        <>
+          <ListHeadWrapper>
+            <ListHeadTitle>책</ListHeadTitle>
+            <ListHeadDetail>전체보기</ListHeadDetail>
+            <DetailLink>
+              <Link href="/login/setNicname">
+                <a>
+                  <img src="/assets/search/detaillink.svg" />
+                </a>
+              </Link>
+            </DetailLink>
+          </ListHeadWrapper>
+          <BookListWrapper>
+            <ul>
+              <li>책 리스트</li>
+              <li>책 리스트</li>
+              <li>책 리스트</li>
+              <li>책 리스트</li>
+            </ul>
+          </BookListWrapper>
+        </>
+      )}
+      {[0, 2].includes(tabSelected) && (
+        <>
+          <ListHeadWrapper>
+            <ListHeadTitle>스터디</ListHeadTitle>
+            <ListHeadDetail>전체보기</ListHeadDetail>
+            <DetailLink>
+              <Link href="/login/setNicname">
+                <a>
+                  <img src="/assets/search/detaillink.svg" />
+                </a>
+              </Link>
+            </DetailLink>
+          </ListHeadWrapper>
+          <StudyListWrapper>
+            <ul>
+              <li>스터디 리스트</li>
+              <li>스터디 리스트</li>
+              <li>스터디 리스트</li>
+              <li>스터디 리스트</li>
+            </ul>
+          </StudyListWrapper>
+        </>
+      )}
       <ListFooterWrapper>
         더 보기
         <ListFooterIconBox>
@@ -185,10 +193,13 @@ const CategoryWrapper = () => {
   );
 };
 
-const TabTitles = ["전체", "책", "스터디"];
-const TabWrapper = () => {
-  const [selected, setSelected] = useState(0);
+type NumberProps = {
+  tabSelected: number;
+  setTabSelected: (index: number) => void; // Dispatch<SetStateAction<number>>;
+};
 
+const TabTitles = ["전체", "책", "스터디"];
+const TabWrapper = ({ tabSelected, setTabSelected }: NumberProps) => {
   return (
     <TabSubWrapper>
       <Ul>
@@ -196,8 +207,8 @@ const TabWrapper = () => {
           return (
             <UlDiv
               key={index}
-              className={selected === index ? "on" : ""}
-              onClick={() => setSelected(index)}
+              className={tabSelected === index ? "on" : ""}
+              onClick={() => setTabSelected(index)}
             >
               {v}
               <br />

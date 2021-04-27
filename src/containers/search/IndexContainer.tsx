@@ -71,56 +71,42 @@ export default function IndexContainer(): JSX.Element {
           <IconBox>
             <img src="/assets/search/icon.svg" />
           </IconBox>
-          {/* <form onSubmit={registerUser}>
-          <label htmlFor="name">Name</label> */}
-          {/* <button type="submit">Register</button>
-        </form> */}
         </SearchBoxInnerWrapper>
       </SearchBoxWrapper>
+      <KeywordWrapper></KeywordWrapper>
+    </>
+  );
+}
+
+const KeywordTitles = [
+  "전체",
+  "난배고프다",
+  "도레미파솔라시",
+  "조선왕조실록",
+  "백엔드개발",
+  "프론트엔드",
+];
+const KeywordWrapper = () => {
+  return (
+    <>
       <KeywordHeadWrapper>
         <TitSearch>최근 검색어</TitSearch>
         <UtilSet>전체삭제</UtilSet>
       </KeywordHeadWrapper>
       <KeywordSubWrapper>
         <KeywordListWrapper>
-          <LiLink>
-            <BtnTag>디자인</BtnTag>
-            <LiIconBox>
-              <img src="/assets/search/cross.svg" />
-            </LiIconBox>
-          </LiLink>
-          <LiLink>
-            <BtnTag>난배고프다</BtnTag>
-            <LiIconBox>
-              <img src="/assets/search/cross.svg" />
-            </LiIconBox>
-          </LiLink>
-          <LiLink>
-            <BtnTag>도레미파솔라시</BtnTag>
-            <LiIconBox>
-              <img src="/assets/search/cross.svg" />
-            </LiIconBox>
-          </LiLink>
-          <LiLink>
-            <BtnTag>조선왕조실록</BtnTag>
-            <LiIconBox>
-              <img src="/assets/search/cross.svg" />
-            </LiIconBox>
-          </LiLink>
-          <LiLink>
-            <BtnTag>백엔드개발</BtnTag>
-            <LiIconBox>
-              <img src="/assets/search/cross.svg" />
-            </LiIconBox>
-          </LiLink>
-          <LiLink>
-            <BtnTag>프론트엔드</BtnTag>
-            <LiIconBox>
-              <img src="/assets/search/cross.svg" />
-            </LiIconBox>
-          </LiLink>
+          {KeywordTitles.map((v, index) => {
+            return (
+              <LiLink key={index}>
+                <BtnTag>{v}</BtnTag>
+                <LiIconBox>
+                  <img src="/assets/search/cross.svg" />
+                </LiIconBox>
+              </LiLink>
+            );
+          })}
         </KeywordListWrapper>
       </KeywordSubWrapper>
     </>
   );
-}
+};
