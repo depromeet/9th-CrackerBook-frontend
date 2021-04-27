@@ -5,6 +5,8 @@ import {
   IconBox,
   InputBox,
   InputSearch,
+} from "../../styles/search/common";
+import {
   KeywordHeadWrapper,
   TitSearch,
   UtilSet,
@@ -16,11 +18,16 @@ import {
 } from "../../styles/search/indexStyle";
 import Head from "next/head";
 import Link from "next/link";
+import Router from "next/router";
 
 export default function IndexContainer(): JSX.Element {
   const registerUser = async (event) => {
     event.preventDefault();
-    console.log(event.target.value);
+    if (event.keyCode === 13) {
+      Router.push({
+        pathname: "/search/detail",
+      });
+    }
 
     // const res = await fetch("/api/register", {
     //   body: JSON.stringify({
@@ -42,7 +49,7 @@ export default function IndexContainer(): JSX.Element {
         <title>검색</title>
       </Head>
       <ArrowLeft>
-        <Link href="/login/setNicname">
+        <Link href="/main/books">
           <a>
             <img src="/assets/search/arrowleft.svg" />
           </a>

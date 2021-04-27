@@ -1,43 +1,5 @@
 import styled from "styled-components";
 
-const MobileTitle = styled.div`
-  margin: 20px 0 0 0;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 800;
-  color: #222222;
-  font-family: "Nunito", sans-serif;
-`;
-const SearchBoxWrapper = styled.div`
-  border: 1px solid #ffd262;
-  margin: 30px 20px 10px 20px;
-  border-radius: 20px;
-  line-height: 40px;
-  height: 40px;
-`;
-const SearchBoxInnerWrapper = styled.div`
-  position: relative;
-  padding: 0 44px 0 17px;
-`;
-const IconBox = styled.div`
-  position: absolute;
-  top: 3px;
-  right: 20px;
-`;
-const InputBox = styled.div`
-  padding-top: 0px;
-`;
-const InputSearch = styled.input`
-  font-size: 14px;
-  line-height: 20px;
-  color: #999999;
-  border: 0;
-  width: 100%;
-  display: block;
-  margin: 0;
-  padding: 11px 0 0;
-  outline: none;
-`;
 const SearchInit = styled.div`
   text-align: center;
   font-size: 14px;
@@ -192,12 +154,6 @@ const ListFooterIconBox = styled.div`
   margin: 0 2px;
 `;
 export {
-  MobileTitle,
-  SearchBoxWrapper,
-  SearchBoxInnerWrapper,
-  IconBox,
-  InputBox,
-  InputSearch,
   SearchInit,
   CategorySubWrapper,
   CategoryListWrapper,
