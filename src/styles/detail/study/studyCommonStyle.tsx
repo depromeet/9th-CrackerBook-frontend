@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {MainBookStyle, TitleInfoStyle} from "../common/commonStyle";
+import {Box, MainBookStyle, TitleInfoStyle} from "../common/commonStyle";
 
 const StudyBookCover = styled(MainBookStyle)`
   width: 375px;
@@ -21,13 +21,11 @@ const TitleStudyInfoWrapper = styled(TitleInfoStyle)`
   height: 175px;
 `;
 
-const HostBox = styled.div`
+const HostBox = styled(Box)`
   margin: 35px 20px 40px;
   padding: 20px 100px 20px 20px;
-  border-radius: 10px 10px 10px 10px;
-  box-shadow: 1px 3px 9px 7px #f4f4f4;
   display: flex;
-  justify-content: center;
+  align-items: center;
 `;
 
 const Profile = styled.img`
@@ -101,7 +99,18 @@ const InfoContent = styled.div`
   color: #777777;
 `;
 
+const InfoWrapper = styled.div`
+  padding: 20px 20px;
+`;
+
+const NoticeBox = styled(Box)`
+  margin: 35px 0 40px;
+  padding: 20px 100px 20px 20px;
+`;
+
 export {
+    NoticeBox,
+    InfoWrapper,
     StudyInfoWrapper,
     InfoContentWrapper,
     InfoBold,

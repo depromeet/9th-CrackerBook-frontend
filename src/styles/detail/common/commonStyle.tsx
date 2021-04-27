@@ -95,7 +95,13 @@ const DivLine = styled.div`
   background-color: #f1f1f3;
 `;
 
+const  Box = styled.div`
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 1px 3px 9px 7px #f4f4f4;
+`;
+
 export {
+  Box,
   DivLine,
   TitleInfoStyle,
   MainBookStyle,

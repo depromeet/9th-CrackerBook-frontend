@@ -1,6 +1,6 @@
 import StudyCommon from "../../../src/components/detail/study/StudyCommon";
 
-export default function StudyDetail(): JSX.Element {
+export default function StudyDetailId(): JSX.Element {
   return (
       <>
         <StudyCommon/>
