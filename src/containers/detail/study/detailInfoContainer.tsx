@@ -1,19 +1,18 @@
 import {
+    BookBoxStyle, BookImg,
     DateDiv,
-    HostWrapper,
+    HostWrapper, NoticeContent,
     StudyContentWrapper,
     StudyIntroTitle,
     StudyIntroWrapper,
     TotalView
 } from "../../../styles/detail/study/detailInfoStyle";
 import {
-    Bar,
-    HostBox,
-    HostContent1, HostContent2, HostContent3,
-    HostContentCover,
+    HostContent1,
     NoticeBox,
     Profile, StudyContentCover
 } from "../../../styles/detail/study/studyCommonStyle";
+import {Wrapper} from "../../../styles/detail/common/commonStyle";
 
 export function StudyIntro(): JSX.Element {
     return (
@@ -46,19 +45,51 @@ export function StudyNotice(): JSX.Element {
                 </TotalView>
             </StudyIntroWrapper>
             <NoticeBox>
-                <HostWrapper>
-                <Profile src='/assets/main/surprised.svg'/>
-                    <HostContentCover>
+                <Wrapper>
+                    <Profile src='/assets/main/surprised.svg'/>
+                    <HostWrapper>
                         <HostContent1>빈센조</HostContent1>
-                    </HostContentCover>
-                    <StudyContentCover>
-                        <DateDiv>
-                            2021.05.05
-                        </DateDiv>
-                    </StudyContentCover>
-                </HostWrapper>
+                        <StudyContentCover>
+                            <DateDiv>
+                                2021.05.05
+                            </DateDiv>
+                        </StudyContentCover>
+                    </HostWrapper>
+                </Wrapper>
+
+                <NoticeContent>
+                    안녕하세요 스터디장 빈센조입니다! <br/>
+
+                    이번주는 원래 4장까지 읽어오기로 했지만,  3장 길이가 너무 많은 관계로 3장까지만 읽어오는걸로 하겠습니다 :-) <br/>
+                    모두 다음주에 만나요!
+                </NoticeContent>
             </NoticeBox>
         </>
 
     )
 }
+
+const GoStudyDetail = (): JSX.Element => {
+    return (
+        <>
+            <StudyIntroTitle>
+                책 상세정보
+            </StudyIntroTitle>
+            <BookBox/>
+        </>
+    )
+}
+
+const BookBox = (): JSX.Element => {
+
+    return (
+        <BookBoxStyle>
+            <BookImg src="/assets/main/exBook.jpg" />
+        </BookBoxStyle>
+    )
+}
+
+export {
+    GoStudyDetail
+}
+

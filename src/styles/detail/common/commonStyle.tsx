@@ -100,7 +100,12 @@ const  Box = styled.div`
   box-shadow: 1px 3px 9px 7px #f4f4f4;
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+`;
+
 export {
+  Wrapper,
   Box,
   DivLine,
   TitleInfoStyle,
