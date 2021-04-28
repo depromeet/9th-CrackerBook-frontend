@@ -60,7 +60,7 @@ export function StudyNotice(): JSX.Element {
                 <NoticeContent>
                     안녕하세요 스터디장 빈센조입니다! <br/>
 
-                    이번주는 원래 4장까지 읽어오기로 했지만,  3장 길이가 너무 많은 관계로 3장까지만 읽어오는걸로 하겠습니다 :-) <br/>
+                    이번주는 원래 4장까지 읽어오기로 했지만, 3장 길이가 너무 많은 관계로 3장까지만 읽어오는걸로 하겠습니다 :-) <br/>
                     모두 다음주에 만나요!
                 </NoticeContent>
             </NoticeBox>
@@ -84,7 +84,7 @@ const BookBox = (): JSX.Element => {
 
     return (
         <BookBoxStyle>
-            <BookImg src="/assets/main/exBook.jpg" />
+            <BookImg src="/assets/main/exBook.jpg"/>
         </BookBoxStyle>
     )
 }

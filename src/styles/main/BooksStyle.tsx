@@ -230,6 +230,7 @@ const StudyBackground = styled.div`
 
 const NewStudyWrapper = styled.div`
   padding: 80px 20px;
+  cursor: pointer;
 `;
 
 const DropDown = styled.img``;

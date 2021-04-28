@@ -13,6 +13,7 @@ import {
 } from "../../../containers/main/BooksContainer";
 import { TabContainer } from "../../../containers/detail/common/commonContainer";
 import {DivLine} from "../../../styles/detail/common/commonStyle";
+import Link from "next/link";
 
 export default function BookDetailComponent(): JSX.Element {
   return (
@@ -23,11 +24,13 @@ export default function BookDetailComponent(): JSX.Element {
       <TabContainer />
 
       <StudyBackground>
-        <NewStudyWrapper>
-          <BookStudyContainer />
-          <ThisBookBox />
-          <MoreButton />
-        </NewStudyWrapper>
+          <Link href='/detail/study/studyDetail'>
+              <NewStudyWrapper>
+                  <BookStudyContainer />
+                  <ThisBookBox />
+                  <MoreButton />
+              </NewStudyWrapper>
+          </Link>
       </StudyBackground>
     </div>
   );
