@@ -34,14 +34,20 @@ const TabWrapper = styled.div`
   font-family: "Nunito", sans-serif;
 `;
 
-const TabButton = styled.div<{ active: boolean }>`
-  border-bottom: ${(props) =>
-    props.active ? "1px solid #FFD262" : "1px solid #DDDDDD"};
+// border-bottom: ${(props) =>
+//   props.active ? "1px solid #FFD262" : "1px solid #DDDDDD"};
+
+const TabButton = styled.div`
+  border-bottom: 1px solid #DDDDDD;
   width: 33%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  
+  &.active {
+    border-bottom: 1px solid #FFD262; 
+  }
 `;
 
 const BackButton = styled.img`

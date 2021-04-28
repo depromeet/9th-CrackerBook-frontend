@@ -4,6 +4,7 @@ import {
   TabButton,
   TabWrapper,
 } from "../../../styles/detail/common/commonStyle";
+import {useState} from "react";
 
 type ModalPosition = {
   pageX: number;
@@ -11,11 +12,20 @@ type ModalPosition = {
 };
 
 export function TabContainer(): JSX.Element {
+  const tabList = ['스터디(4)', '후기(23)', '책소개'];
+  const [selected, setSelected] = useState(0);
   return (
     <TabWrapper>
-      <TabButton active={true}> 스터디(4)</TabButton>
-      <TabButton active={false}> 후기(23)</TabButton>
-      <TabButton active={false}> 책소개</TabButton>
+      {tabList.map((tab, index) => {
+        return (
+            <>
+              <TabButton
+                  key={index} className={selected === index ? 'active' : ''}
+                  onClick={() => setSelected(index)}
+              >{tab}</TabButton>
+            </>
+        );
+      })}
     </TabWrapper>
   );
 }
