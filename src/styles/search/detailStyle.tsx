@@ -15,7 +15,6 @@ const CategoryListWrapper = styled.ul`
 `;
 
 const LiLink = styled.li`
-  position: relative;
   float: left;
   margin: 0 10px 10px 0;
   cursor: pointer;
@@ -106,7 +105,7 @@ const ListHeadTitle = styled.div`
   font-size: 20px;
   font-weight: 500;
   line-height: 29px;
-  color: #000000;
+  color: #222222;
 `;
 const ListHeadDetail = styled.div`
   position: absolute;
@@ -128,11 +127,174 @@ const DetailLink = styled.div`
 `;
 const BookListWrapper = styled.div`
   position: relative;
-  margin: 10px 20px 10px;
+  margin: 20px 20px;
 `;
-const StudyListWrapper = styled.div`
+const BookTitle = styled.div`
+  margin: 0 0 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  width: 173px;
+  color: #222222;
+`;
+const StudySubWrapper = styled.ul`
   position: relative;
-  margin: 10px 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+`;
+const StudyListWrapper = styled.ul`
+  margin: 20px 0 20px 40px;
+`;
+const StudyLiLink = styled.li`
+  float: left;
+  cursor: pointer;
+  display: block;
+  margin: 0 30px 30px 0;
+`;
+const StudyInfoWrapper = styled.div`
+  position: relative;
+  display: flex;
+  margin: 0 0 30px 0;
+`;
+const StudyProfile = styled.div`
+  position: relative;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 17px;
+`;
+const StudyImgShadow = styled.div`
+  position: absolute;
+  top: 0px;
+  height: 115px;
+  width: 13.33px;
+  background: linear-gradient(
+    270deg,
+    rgba(207, 207, 207, 0) 27.95%,
+    rgba(136, 136, 136, 0.426) 100%
+  );
+  mix-blend-mode: multiply;
+  z-index: 0;
+`;
+const StudyImg = styled.img`
+  height: 115px;
+  width: 80px;
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.12));
+  border-radius: 0px 5px 5px 0px;
+  background: linear-gradient(
+    270deg,
+    rgba(207, 207, 207, 0) 27.95%,
+    rgba(136, 136, 136, 0.426) 100%
+  );
+  mix-blend-mode: multiply;
+`;
+const StudyHost = styled.div`
+  text-align: center;
+  color: #999999;
+  font-size: 12px;
+  padding-top: 5px;
+`;
+const StudyContentWrapper = styled.div`
+  flex-direction: column;
+  margin: 0 20px;
+`;
+const StudyContent = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: #677ac7;
+`;
+const StudyIcon = styled.img`
+  width: 18px;
+  height: 18px;
+  filter: invert(79%) sepia(47%) saturate(7439%) hue-rotate(204deg)
+    brightness(84%) contrast(83%);
+`;
+const StudyIconText = styled.div`
+  margin: 0 10px 0 4px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 17px;
+`;
+const StudyDiv = styled.div`
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #777777;
+`;
+const StudySubDiv = styled.div`
+  margin: 0 0 4px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #222222;
+`;
+const StudyTitle = styled.div`
+  margin: 4px 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 137.5%;
+  margin-bottom: 10px;
+  color: #222222;
+`;
+const StudyDate = styled.div`
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #777777;
+`;
+const BookLikeImgBorder = styled.img`
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  right: 0px;
+  font-size: 14px;
+  color: #999999;
+  cursor: pointer;
+`;
+const BookProfile = styled.div`
+  position: relative;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 15px;
+`;
+const BookImgShadow = styled.div`
+  position: absolute;
+  top: 0px;
+  height: 173px;
+  width: 32px;
+  border: 0;
+  background: linear-gradient(
+    270deg,
+    rgba(207, 207, 207, 0) 27.95%,
+    rgba(136, 136, 136, 0.426) 100%
+  );
+  mix-blend-mode: multiply;
+  z-index: 0;
+`;
+const BookImg = styled.img`
+  height: 173px;
+  width: 120px;
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.12));
+  border-radius: 0px 5px 5px 0px;
+  background: linear-gradient(
+    270deg,
+    rgba(207, 207, 207, 0) 27.95%,
+    rgba(136, 136, 136, 0.426) 100%
+  );
+  mix-blend-mode: multiply;
+`;
+const BookLikeImg = styled.img`
+  position: absolute;
+  z-index: 10;
+  top: 9px;
+  right: 5px;
+  font-size: 14px;
+  color: #999999;
+  cursor: pointer;
 `;
 const ListFooterWrapper = styled.div`
   width: 335px;
@@ -173,7 +335,28 @@ export {
   ListHeadDetail,
   DetailLink,
   BookListWrapper,
+  BookTitle,
+  StudySubWrapper,
   StudyListWrapper,
+  StudyLiLink,
+  StudyInfoWrapper,
+  StudyProfile,
+  StudyImg,
+  StudyImgShadow,
+  StudyHost,
+  StudyContentWrapper,
+  StudyContent,
+  StudyDate,
+  StudyIcon,
+  StudyIconText,
+  StudyDiv,
+  StudySubDiv,
+  StudyTitle,
+  BookProfile,
+  BookLikeImgBorder,
+  BookImgShadow,
+  BookLikeImg,
+  BookImg,
   ListFooterWrapper,
   ListFooterIconBox,
 };
