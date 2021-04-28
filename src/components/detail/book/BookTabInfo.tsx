@@ -1,6 +1,6 @@
 import {NewStudyWrapper, StudyBackground} from "../../../styles/main/BooksStyle";
 import Link from "next/link";
-import {BookStudyContainer, MoreButton, ThisBookBox} from "../../../containers/main/BooksContainer";
+import {BookStudyContainer, MoreButton, ThisBookBox} from "../../main/BooksComponent";
 
 export function BookTabInfo(): JSX.Element {
     return (

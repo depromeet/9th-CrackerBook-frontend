@@ -1,4 +1,4 @@
-export const ReviewContainer = (): JSX.Element => {
+export const Review = (): JSX.Element => {
 
     return (
         <>

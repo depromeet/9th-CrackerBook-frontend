@@ -1,27 +1,35 @@
 import {
     Bar,
-    HostBox,
-    HostContent1,
-    HostContent2,
-    HostContent3,
-    HostContentCover,
-    InfoBold,
-    InfoContent,
-    InfoContentWrapper,
-    Profile,
+    HostBox, HostContent1, HostContent2, HostContent3, HostContentCover,
+    InfoBold, InfoContent,
+    InfoContentWrapper, Profile,
     StudyBookCover,
-    StudyContentCover,
+    StudyBookImg, StudyContentCover,
     StudyInfoWrapper,
     TitleStudyInfoWrapper
 } from "../../../styles/detail/study/studyCommonStyle";
-import {TitleInner} from "../../../styles/detail/book/bookDetailStyle";
 import {
     BackButton,
     BookDetail,
     BookDetailWrapper,
+    DivLine,
     SearchButton,
     Title
 } from "../../../styles/detail/common/commonStyle";
+import {TitleInner} from "../../../styles/detail/book/bookDetailStyle";
+
+export function StudyInfoComponent(): JSX.Element {
+    return (
+        <>
+            <StudyBookImg src="/assets/main/exBook.jpg"/>
+            <StudyDetailCover/>
+            <BookInfo/>
+            <DivLine/>
+            <StudyInfo />
+            <DivLine/>
+        </>
+    )
+}
 
 export function StudyDetailCover(): JSX.Element {
     return (

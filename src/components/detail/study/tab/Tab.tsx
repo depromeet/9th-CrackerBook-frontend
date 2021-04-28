@@ -1,6 +1,8 @@
 import {useState} from "react";
 import {TabButton, TabWrapper} from "../../../../styles/detail/common/commonStyle";
-import {DetailInfoContainer} from "../../../../components/detail/study/tab/DetailInfo";
+import {Review} from "./Review";
+import {QnA} from "./QnA";
+import {DetailInfoComponent} from "./DetailInfo";
 
 export const Tab = (): JSX.Element => {
 
@@ -21,10 +23,14 @@ export const Tab = (): JSX.Element => {
                 })}
             </TabWrapper>
             {
-                (selected === 0) && <DetailInfoContainer/>
+                (selected === 0) && <DetailInfoComponent/>
+            }
+            {
+                (selected === 1) && <Review/>
+            }
+            {
+                (selected === 2) && <QnA/>
             }
         </>
     );
 }
-
-
