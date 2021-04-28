@@ -1,9 +1,9 @@
-import BookDetailComponent from "../../../src/components/detail/book/BookDetail";
+import BookDetailIndexComponent from "../../../src/components/detail/book/BookDetailIndex";
 
 export default function BookDetail(): JSX.Element {
   return (
     <>
-      <BookDetailComponent />
+      <BookDetailIndexComponent />
     </>
   );
 }
