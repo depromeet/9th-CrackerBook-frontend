@@ -58,13 +58,36 @@ const LiIconBox = styled.div`
   right: 8px;
 `;
 
-export {
-  KeywordHeadWrapper,
-  TitSearch,
-  UtilSet,
-  KeywordSubWrapper,
-  KeywordListWrapper,
-  LiLink,
-  BtnTag,
-  LiIconBox,
-};
+const KeywordTitles = [
+  "전체",
+  "난배고프다",
+  "도레미파솔라시",
+  "조선왕조실록",
+  "백엔드개발",
+  "프론트엔드",
+];
+
+export default function KeywordComponent(): JSX.Element {
+  return (
+    <>
+      <KeywordHeadWrapper>
+        <TitSearch>최근 검색어</TitSearch>
+        <UtilSet>전체삭제</UtilSet>
+      </KeywordHeadWrapper>
+      <KeywordSubWrapper>
+        <KeywordListWrapper>
+          {KeywordTitles.map((v, index) => {
+            return (
+              <LiLink key={index}>
+                <BtnTag>{v}</BtnTag>
+                <LiIconBox>
+                  <img src="/assets/search/cross.svg" />
+                </LiIconBox>
+              </LiLink>
+            );
+          })}
+        </KeywordListWrapper>
+      </KeywordSubWrapper>
+    </>
+  );
+}

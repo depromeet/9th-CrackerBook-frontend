@@ -9,14 +9,13 @@ const ArrowLeft = styled.div`
   left: 20px;
   font-size: 19px;
 `;
-const SearchBoxWrapper = styled.div`
+const SearchBoxWrapper = styled.div``;
+const SearchBoxInnerWrapper = styled.div`
   border: 1px solid #ffd262;
   margin: 30px 20px 10px 40px;
   border-radius: 20px;
   line-height: 40px;
   height: 40px;
-`;
-const SearchBoxInnerWrapper = styled.div`
   position: relative;
   padding: 0 44px 0 17px;
 `;
