@@ -44,10 +44,6 @@ const TabButton = styled.div`
   }
 `
 
-
-
-
-
 export default function StudyArea():JSX.Element {
     return (
         <div>
@@ -58,10 +54,7 @@ export default function StudyArea():JSX.Element {
                 </TabButton>
                 <TabButton>완료(3)</TabButton>
                 <TabButton>찜한 스터디(2)</TabButton>
-
             </StudyTabsArea>
-
         </div>
-
     );
 }

@@ -9,11 +9,10 @@ import StudyArea from "../../src/components/profile/MyPage/StudyArea";
 // `;
 
 
-export default function MyPage():JSX.Element {
+export default function InterestedBook():JSX.Element {
     return (
         <div>
-            <ProfileArea/>
-            <StudyArea/>
+            주최한 스터디 입니다.
         </div>
     );
 }

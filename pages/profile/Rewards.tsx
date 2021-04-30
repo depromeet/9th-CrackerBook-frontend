@@ -69,8 +69,6 @@ export default function Rewards(): JSX.Element {
                     <BadgeButton/>
                 </BadgeRow>
             </BadgeArea>
-
         </div>
-
     );
 }

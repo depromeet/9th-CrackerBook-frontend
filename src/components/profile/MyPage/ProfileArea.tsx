@@ -123,12 +123,17 @@ export default function ProfileArea(): JSX.Element {
                                 <img src="/assets/profile/activityrewards.svg" />
                             </ActivityButton>
                         </Link>
-                        <ActivityButton>
+
+                        <Link href={"/profile/InterestedBook"}>
+                            <ActivityButton>
                             <img src="/assets/profile/interestbook.svg" />
-                        </ActivityButton>
-                        <ActivityButton>
-                            <img src="/assets/profile/studypencil.svg" />
-                        </ActivityButton>
+                            </ActivityButton>
+                        </Link>
+                        <Link href={"/profile/HostedStudy"}>
+                            <ActivityButton>
+                                <img src="/assets/profile/studypencil.svg" />
+                            </ActivityButton>
+                        </Link>
                     </ButtonWrapper>
             </ButtonArea>
             <NameArea>{"빈센조"}</NameArea>
