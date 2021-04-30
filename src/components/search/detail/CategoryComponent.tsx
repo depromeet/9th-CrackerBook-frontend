@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-const CategorySubWrapper = styled.div`
+const CategoryWrapper = styled.ul`
   position: relative;
   display: flex;
   flex-wrap: wrap;
-`;
-const CategoryListWrapper = styled.ul`
   margin: 10px 10px 10px 20px;
 `;
 
@@ -39,21 +37,19 @@ export default function CategoryComponent(): JSX.Element {
   const [selected, setSelected] = useState(0);
 
   return (
-    <CategorySubWrapper>
-      <CategoryListWrapper>
-        {CategoryTitles.map((v, index) => {
-          return (
-            <LiLink key={index}>
-              <BtnTag
-                className={selected === index ? "on" : ""}
-                onClick={() => setSelected(index)}
-              >
-                {v}
-              </BtnTag>
-            </LiLink>
-          );
-        })}
-      </CategoryListWrapper>
-    </CategorySubWrapper>
+    <CategoryWrapper>
+      {CategoryTitles.map((v, index) => {
+        return (
+          <LiLink key={index}>
+            <BtnTag
+              className={selected === index ? "on" : ""}
+              onClick={() => setSelected(index)}
+            >
+              {v}
+            </BtnTag>
+          </LiLink>
+        );
+      })}
+    </CategoryWrapper>
   );
 }

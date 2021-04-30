@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TabSubWrapper = styled.div`
+const TabWrapper = styled.div`
   position: relative;
 `;
 const Ul = styled.ul`
@@ -36,47 +36,34 @@ const FilterTitle = styled.div`
   color: #777777;
 `;
 
+const TabTitles = ["전체", "책", "스터디"];
+
 export default function SearchResultComponent(props: {
   tabSelected: number;
   setTabSelected: (index: number) => void;
 }): JSX.Element {
   return (
     <>
-      <TabWrapper
-        tabSelected={props.tabSelected}
-        setTabSelected={props.setTabSelected}
-      ></TabWrapper>
+      <TabWrapper>
+        <Ul>
+          {TabTitles.map((v, index) => {
+            return (
+              <UlDiv
+                key={index}
+                className={props.tabSelected === index ? "on" : ""}
+                onClick={() => props.setTabSelected(index)}
+              >
+                {v}
+                <br />
+                (38)
+              </UlDiv>
+            );
+          })}
+        </Ul>
+      </TabWrapper>
       <FilterInnerWrapper>
         <FilterTitle>38건의 검색결과</FilterTitle>
       </FilterInnerWrapper>
     </>
   );
 }
-
-type NumberProps = {
-  tabSelected: number;
-  setTabSelected: (index: number) => void; // Dispatch<SetStateAction<number>>;
-};
-
-const TabTitles = ["전체", "책", "스터디"];
-const TabWrapper = ({ tabSelected, setTabSelected }: NumberProps) => {
-  return (
-    <TabSubWrapper>
-      <Ul>
-        {TabTitles.map((v, index) => {
-          return (
-            <UlDiv
-              key={index}
-              className={tabSelected === index ? "on" : ""}
-              onClick={() => setTabSelected(index)}
-            >
-              {v}
-              <br />
-              (38)
-            </UlDiv>
-          );
-        })}
-      </Ul>
-    </TabSubWrapper>
-  );
-};
