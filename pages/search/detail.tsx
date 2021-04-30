@@ -1,10 +1,10 @@
+import Head from "next/head";
+import { useState } from "react";
 import SearchBoxComponent from "../../src/components/search/common/SearchBoxComponent";
 import CategoryComponent from "../../src/components/search/detail/CategoryComponent";
 import SearchInitComponent from "../../src/components/search/detail/SearchInitComponent";
 import NotFoundComponent from "../../src/components/search/detail/NotFoundComponent";
 import SearchResultComponent from "../../src/components/search/detail/SearchResultComponent";
-import Head from "next/head";
-import { useState } from "react";
 import ListBookComponent from "src/components/search/detail/ListBookComponent";
 import ListStudyComponent from "src/components/search/detail/ListStudyComponent";
 
@@ -14,7 +14,7 @@ export default function Detail(): JSX.Element {
   return (
     <>
       <Head>
-        <title>검색</title>
+        <title>검색 결과</title>
       </Head>
       <SearchBoxComponent />
       <CategoryComponent />

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Router from "next/router";
+import { useState } from "react";
 
 const SearchBoxWrapper = styled.div`
   position: relative;
@@ -20,20 +21,22 @@ const SearchBoxInnerWrapper = styled.div`
   line-height: 40px;
   height: 40px;
   position: relative;
-  padding: 0 44px 0 17px;
+  padding: 0 80px 0 17px;
 `;
-const IconBox = styled.div`
+const SearchIconBox = styled.div`
   position: absolute;
   top: 3px;
   right: 20px;
 `;
-const InputBox = styled.div`
-  padding-top: 0px;
+const ClearIconBox = styled.div`
+  position: absolute;
+  top: 3px;
+  right: 50px;
 `;
 const InputSearch = styled.input`
   font-size: 14px;
   line-height: 20px;
-  color: #999999;
+  color: #222222;
   border: 0;
   width: 100%;
   display: block;
@@ -43,7 +46,10 @@ const InputSearch = styled.input`
 `;
 
 export default function SearchBoxComponent(): JSX.Element {
+  const [searchWord, setSearchWord] = useState("");
+
   const registerUser = async (event) => {
+    // console.log(Router.pathname);
     event.preventDefault();
     if (event.keyCode === 13) {
       Router.push({
@@ -62,20 +68,23 @@ export default function SearchBoxComponent(): JSX.Element {
         </Link>
       </ArrowLeft>
       <SearchBoxInnerWrapper>
-        <InputBox>
-          <InputSearch
-            id="name"
-            name="asd"
-            type="text"
-            autoComplete="name"
-            placeholder="책, 저자, 스터디를 검색해주세요."
-            onKeyUp={registerUser}
-            required
-          />
-        </InputBox>
-        <IconBox>
-          <img src="/assets/search/icon.svg" />
-        </IconBox>
+        <InputSearch
+          type="text"
+          name="searchWord"
+          value={searchWord}
+          placeholder="책, 저자, 스터디를 검색해주세요."
+          onChange={({ target: { value } }) => setSearchWord(value)}
+          onKeyUp={registerUser}
+        />
+        {searchWord && (
+          <ClearIconBox onClick={() => setSearchWord("")}>
+            <img src="/assets/search/searchclear.svg" />
+          </ClearIconBox>
+        )}
+
+        <SearchIconBox>
+          <img src="/assets/search/search.svg" />
+        </SearchIconBox>
       </SearchBoxInnerWrapper>
     </SearchBoxWrapper>
   );

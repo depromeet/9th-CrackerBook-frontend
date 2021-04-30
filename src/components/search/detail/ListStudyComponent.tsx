@@ -3,13 +3,14 @@ import ListHeaderComponent from "src/components/search/common/ListHeaderComponen
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
 
 const ListWrapper = styled.ul`
-  margin: 20px 0 20px 40px;
+  margin: 20px 30px;
 `;
 const LiLink = styled.li`
   float: left;
   cursor: pointer;
   display: block;
-  margin: 0 30px 30px 0;
+  width: 130px;
+  margin: 0 13px 30px 13px;
 `;
 const Profile = styled.div`
   position: relative;
@@ -47,6 +48,7 @@ const Img = styled.img`
 `;
 const Content = styled.div`
   display: flex;
+  margin-top: 10px;
   align-items: center;
   font-size: 12px;
   font-weight: 400;
@@ -63,6 +65,9 @@ const IconText = styled.div`
   font-weight: 500;
   font-size: 12px;
   line-height: 17px;
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 const Title = styled.div`
   margin: 4px 0;
@@ -89,7 +94,7 @@ const Result = [
 export default function ListComponent(): JSX.Element {
   return (
     <>
-      <ListHeaderComponent />
+      <ListHeaderComponent title={"스터디"} />
       <ListWrapper>
         {Result.map((v, index) => {
           return (
@@ -105,7 +110,7 @@ export default function ListComponent(): JSX.Element {
                 <IconText>멤버 3/6</IconText>
               </Content>
               <Title>{v}</Title>
-              <Date>04.26~05.26 토 14:00</Date>
+              <Date>04.26 ~ 05.26 토 14:00</Date>
             </LiLink>
           );
         })}

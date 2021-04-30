@@ -102,7 +102,7 @@ const Result = [
 export default function ListComponent(): JSX.Element {
   return (
     <>
-      <ListHeaderComponent />
+      <ListHeaderComponent title={"책"} />
       <ListWrapper>
         {Result.map((v, index) => {
           return (

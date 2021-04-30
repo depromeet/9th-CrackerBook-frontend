@@ -30,10 +30,12 @@ const DetailLink = styled.div`
   cursor: pointer;
 `;
 
-export default function ListFooterComponent(): JSX.Element {
+export default function ListFooterComponent(props: {
+  title: string;
+}): JSX.Element {
   return (
     <ListHeadWrapper>
-      <ListHeadTitle>책</ListHeadTitle>
+      <ListHeadTitle>{props.title}</ListHeadTitle>
       <ListHeadDetail>전체보기</ListHeadDetail>
       <DetailLink>
         <Link href="/login/setNicname">

@@ -17,10 +17,12 @@ const LiLink = styled.li`
 
 const BtnTag = styled.div`
   color: #677ac7;
-  font-size: 14px;
-  line-height: 32px;
+  height: 28px;
+  font-size: 12px;
+  line-height: 17px;
   padding: 0 10px 0 10px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   border: 1px solid #dddddd;
   box-sizing: border-box;
   border-radius: 10px;
