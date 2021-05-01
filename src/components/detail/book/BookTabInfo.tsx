@@ -10,7 +10,7 @@ export function BookTabInfo(): JSX.Element {
                     <NewStudyWrapper>
                         <BookStudyContainer />
                         <ThisBookBox />
-                        <MoreButton />
+                        <MoreButton backgroundColor='#f1f1f3'/>
                     </NewStudyWrapper>
                 </Link>
             </StudyBackground>

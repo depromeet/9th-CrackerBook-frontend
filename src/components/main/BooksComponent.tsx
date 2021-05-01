@@ -101,7 +101,7 @@ export default function BooksComponent(props: {
             <NewStudyWrapper>
               <StudyContainer />
               <NewStudyBox />
-              <MoreButton />
+              <MoreButton backgroundColor='#f1f1f3'/>
             </NewStudyWrapper>
           </StudyBackground>
         </>
@@ -286,9 +286,9 @@ export function ThisBookBox(): JSX.Element {
   );
 }
 
-export function MoreButton(): JSX.Element {
+export function MoreButton(props: {backgroundColor: string}): JSX.Element {
   return (
-      <MoreBtn>
+      <MoreBtn background={props.backgroundColor}>
         더 보기 <DownImg src="/assets/main/caretDown.svg" />
       </MoreBtn>
   );

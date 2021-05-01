@@ -6,7 +6,7 @@ export function NewStudy(): JSX.Element {
         <NewStudyWrapper>
             <BookStudyContainer />
             <ThisBookBox />
-            <MoreButton />
+            <MoreButton backgroundColor='#f1f1f3' />
         </NewStudyWrapper>
     )
 }

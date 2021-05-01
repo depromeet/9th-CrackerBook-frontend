@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {TabButton, TabWrapper} from "../../../../styles/detail/common/commonStyle";
-import {Review} from "./review/Review";
+import {ReviewIndex} from "./review/ReviewIndex";
 import {QnA} from "./qna/QnA";
 import {DetailInfoComponent} from "./detailInfo/DetailInfoIndex";
 
@@ -26,7 +26,7 @@ export const Tab = (): JSX.Element => {
                 (selected === 0) && <DetailInfoComponent/>
             }
             {
-                (selected === 1) && <Review/>
+                (selected === 1) && <ReviewIndex/>
             }
             {
                 (selected === 2) && <QnA/>

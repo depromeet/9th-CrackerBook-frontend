@@ -235,11 +235,11 @@ const NewStudyWrapper = styled.div`
 
 const DropDown = styled.img``;
 
-const MoreBtn = styled.div`
+const MoreBtn = styled.div<{background: string}>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f1f1f3;
+  background-color: ${(props) => props.background};
   border: 1px solid #dddddd;
   border-radius: 50px;
   padding: 14px 125px;

@@ -48,6 +48,10 @@ const InfoWrapper = styled.div`
   padding: 20px 20px;
 `;
 
+const ReviewWrapper = styled.div`
+  padding: 0 20px 40px 20px;
+`;
+
 const NoticeBox = styled(Box)`
   margin: 0 0 60px;
   padding: 20px 100px 20px 20px;
@@ -63,5 +67,6 @@ export {
     HostContent2,
     HostContent3,
     Profile,
-    TitleStudyInfoWrapper
+    TitleStudyInfoWrapper,
+    ReviewWrapper
 }
