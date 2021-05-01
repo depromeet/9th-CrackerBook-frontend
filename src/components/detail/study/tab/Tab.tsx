@@ -1,8 +1,8 @@
 import {useState} from "react";
 import {TabButton, TabWrapper} from "../../../../styles/detail/common/commonStyle";
-import {Review} from "./Review";
-import {QnA} from "./QnA";
-import {DetailInfoComponent} from "./DetailInfo";
+import {Review} from "./review/Review";
+import {QnA} from "./qna/QnA";
+import {DetailInfoComponent} from "./detailInfo/DetailInfo";
 
 export const Tab = (): JSX.Element => {
 
