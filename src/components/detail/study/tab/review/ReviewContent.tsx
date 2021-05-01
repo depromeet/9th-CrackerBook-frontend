@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Name, Profile, Date} from "../../../../../styles/detail/common/commonStyle";
 
 export function ReviewContent(): JSX.Element {
     const reviewData = [{
@@ -48,10 +49,8 @@ const ContentWrapper = styled.div`
   border-bottom: 1px solid #F1F1F3;
 `;
 
-const Profile = styled.img`
-  width: 44px;
-  height: 44px;
-  padding-right: 12px;
+const Review = styled.div`
+  padding-bottom: 32px;
 `;
 
 const ReviewWrapper = styled.div`
@@ -59,19 +58,7 @@ const ReviewWrapper = styled.div`
   flex-direction: column;
 `;
 
-const Name = styled.div`
-  padding-bottom: 4px;
-  font-weight: bold;
-`;
 
-const Date = styled.div`
-  color: #999999;
-  padding-bottom: 12px;
-`;
-
-const Review = styled.div`
-  padding-bottom: 32px;
-`;
 
 
 

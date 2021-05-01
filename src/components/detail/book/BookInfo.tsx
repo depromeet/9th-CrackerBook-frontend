@@ -2,14 +2,13 @@ import {
     BookImg,
     MainBookCover,
     TitleInfoWrapper,
-    TitleInner,
 } from "../../../styles/detail/book/bookDetailStyle";
 import {
     BackButton,
     BookDetail,
     BookDetailWrapper,
     SearchButton,
-    Title,
+    Title, TitleInner,
 } from "../../../styles/detail/common/commonStyle";
 
 export function BookCover(): JSX.Element {

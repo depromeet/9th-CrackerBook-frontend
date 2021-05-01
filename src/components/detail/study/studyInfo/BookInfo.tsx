@@ -1,6 +1,5 @@
 import {TitleStudyInfoWrapper} from "../../../../styles/detail/study/studyCommonStyle";
-import {BookDetail, BookDetailWrapper, Title} from "../../../../styles/detail/common/commonStyle";
-import styled from "styled-components";
+import {BookDetail, BookDetailWrapper, Title, TitleInner} from "../../../../styles/detail/common/commonStyle";
 import {HostBoxContainer} from "./HostBox";
 
 export function BookInfo(): JSX.Element {
@@ -20,6 +19,3 @@ export function BookInfo(): JSX.Element {
 }
 
 
-const TitleInner = styled.div`
-  padding: 50px 87px 0 20px;
-`;

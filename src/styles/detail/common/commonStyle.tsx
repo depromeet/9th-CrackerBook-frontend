@@ -12,6 +12,11 @@ const Title = styled.div`
   line-height: 40px;
 `;
 
+const TitleInner = styled.div`
+  padding: 50px 87px 0 20px;
+`;
+
+
 const BookDetailWrapper = styled.div`
   display: flex;
   justify-content: space-around;
@@ -110,7 +115,26 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
+const Profile = styled.img`
+  width: 44px;
+  height: 44px;
+  padding-right: 12px;
+`;
+
+const Name = styled.div`
+  padding-bottom: 4px;
+  font-weight: bold;
+`;
+
+const Date = styled.div`
+  color: #999999;
+  padding-bottom: 12px;
+`;
+
 export {
+  Name,
+  Date,
+  Profile,
   Wrapper,
   Box,
   DivLine,
@@ -125,4 +149,5 @@ export {
   BookDetailWrapper,
   BookDetail,
   Title,
+  TitleInner
 };
