@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 import Router from "next/router";
 
 const KeywordHeadWrapper = styled.div`
@@ -39,8 +40,8 @@ const LiLink = styled.li`
   position: relative;
   float: left;
   margin: 0 10px 10px 0;
-  cursor: pointer;
   display: block;
+  cursor: pointer;
 `;
 
 const BtnTag = styled.div`
@@ -57,23 +58,25 @@ const LiIconBox = styled.div`
   position: absolute;
   top: 7px;
   right: 8px;
+  cursor: pointer;
+  z-index: 0;
 `;
 
-const KeywordTitles = [
-  "전체",
-  "난배고프다",
-  "도레미파솔라시",
-  "조선왕조실록",
-  "백엔드개발",
-  "프론트엔드",
-];
-
 export default function KeywordComponent(): JSX.Element {
-  const keywordRouter = ({v}) => {
-      Router.push({
-        pathname: `/search/result/${v}`,
-      });
+  const [keywordTitles, setKeywordTitles] = useState([
+    "전체",
+    "난배고프다",
+    "도레미파솔라시",
+    "조선왕조실록",
+    "백엔드개발",
+    "프론트엔드",
+  ]);
+
+  const removeKeywordList = (event, index) => {
+    event.stopPropagation();
+    setKeywordTitles(keywordTitles.filter((_, i) => i !== index));
   };
+
   return (
     <>
       <KeywordHeadWrapper>
@@ -82,11 +85,18 @@ export default function KeywordComponent(): JSX.Element {
       </KeywordHeadWrapper>
       <KeywordSubWrapper>
         <KeywordListWrapper>
-          {KeywordTitles.map((v, index) => {
+          {keywordTitles.map((v, index) => {
             return (
-              <LiLink key={index} onClick={() => keywordRouter({v})}>
+              <LiLink
+                key={index}
+                onClick={() =>
+                  Router.push({
+                    pathname: `/search/result/${v}`,
+                  })
+                }
+              >
                 <BtnTag>{v}</BtnTag>
-                <LiIconBox>
+                <LiIconBox onClick={(event) => removeKeywordList(event, index)}>
                   <img src="/assets/search/cross.svg" />
                 </LiIconBox>
               </LiLink>

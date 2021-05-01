@@ -45,25 +45,28 @@ const InputSearch = styled.input`
   outline: none;
 `;
 
-
 export default function SearchBoxComponent(): JSX.Element {
   const Router = useRouter();
-  const [searchWord, setSearchWord] = useState("");
+  const [searchWord, setSearchWord] = useState(
+    Router.query.name ? Router.query.name : "",
+  );
 
-  const registerUser = async (event) => {
+  const search = (event) => {
     event.preventDefault();
-    if (event.keyCode === 13) {
-      Router.push({
-        pathname: `/search/result/${searchWord}`,
-      });
-    }
+    if (event.keyCode === 13) routeResult();
   };
-  const currentPath = Router.pathname === '/search' ? '/main/books' : '/search';
+
+  const routeResult = () =>
+    searchWord
+      ? Router.push({
+          pathname: `/search/result/${searchWord}`,
+        })
+      : alert("검색어를 입력해주세요.");
 
   return (
     <SearchBoxWrapper>
       <ArrowLeft>
-        <Link href={currentPath}>
+        <Link href={Router.pathname === "/search" ? "/main/books" : "/search"}>
           <a>
             <img src="/assets/search/arrowleft.svg" />
           </a>
@@ -76,7 +79,7 @@ export default function SearchBoxComponent(): JSX.Element {
           value={searchWord}
           placeholder="책, 저자, 스터디를 검색해주세요."
           onChange={({ target: { value } }) => setSearchWord(value)}
-          onKeyUp={registerUser}
+          onKeyUp={search}
         />
         {searchWord && (
           <ClearIconBox onClick={() => setSearchWord("")}>
@@ -84,9 +87,7 @@ export default function SearchBoxComponent(): JSX.Element {
           </ClearIconBox>
         )}
 
-        <SearchIconBox onClick={() => Router.push({
-          pathname: `/search/result/${searchWord}`,
-        })}>
+        <SearchIconBox onClick={() => routeResult()}>
           <img src="/assets/search/search.svg" />
         </SearchIconBox>
       </SearchBoxInnerWrapper>
