@@ -1,6 +1,6 @@
 import {
     NoticeContent,
-    StudyIntroTitle,
+    StudyIntroTitle, Title,
 } from "../../../../../styles/detail/study/detailInfoStyle";
 import {HostContent1, NoticeBox, Profile, StudyContentCover} from "../../../../../styles/detail/study/studyCommonStyle";
 import {Wrapper} from "../../../../../styles/detail/common/commonStyle";
@@ -20,9 +20,9 @@ export function StudyNotice(): JSX.Element {
 export function StudyNoticeTitle(): JSX.Element {
     return (
         <StudyIntroWrapper>
-            <StudyIntroTitle>
+            <Title>
                 스터디 공지
-            </StudyIntroTitle>
+            </Title>
             <TotalView>
                 전체보기 &gt;
             </TotalView>

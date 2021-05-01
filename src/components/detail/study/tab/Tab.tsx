@@ -2,7 +2,7 @@ import {useState} from "react";
 import {TabButton, TabWrapper} from "../../../../styles/detail/common/commonStyle";
 import {Review} from "./review/Review";
 import {QnA} from "./qna/QnA";
-import {DetailInfoComponent} from "./detailInfo/DetailInfo";
+import {DetailInfoComponent} from "./detailInfo/DetailInfoIndex";
 
 export const Tab = (): JSX.Element => {
 

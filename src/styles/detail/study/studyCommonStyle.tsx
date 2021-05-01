@@ -49,7 +49,7 @@ const InfoWrapper = styled.div`
 `;
 
 const NoticeBox = styled(Box)`
-  margin: 35px 0 40px;
+  margin: 0 0 60px;
   padding: 20px 100px 20px 20px;
   justify-content: left;
 `;

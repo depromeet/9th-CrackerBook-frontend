@@ -1,12 +1,12 @@
-import {StudyIntroTitle} from "../../../../../styles/detail/study/detailInfoStyle";
 import styled from "styled-components";
+import {Title} from "../../../../../styles/detail/study/detailInfoStyle";
 
 export function StudyIntro(): JSX.Element {
     return (
         <>
-            <StudyIntroTitle>
+            <Title>
                 스터디 소개
-            </StudyIntroTitle>
+            </Title>
             <StudyContentWrapper>
                 왜 꾸준히 쓰고 기록하는 건 어려울까요? <br/>
                 잘 기록할 수 있는 방법은 없을까요? <br/>
@@ -23,4 +23,7 @@ const StudyContentWrapper =styled.div`
   justify-content: left;
   color: #222222;
   font-size: 14px;
+  line-height: 20px;
 `;
+
+

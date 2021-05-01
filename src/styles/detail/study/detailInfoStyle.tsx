@@ -16,7 +16,16 @@ const NoticeContent = styled.div`
   color: #222222;
 `;
 
+const Title = styled.div`
+  color: #222222;
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 40px;
+  padding-bottom: 32px;
+`;
+
 export {
+    Title,
     NoticeContent,
     StudyIntroTitle
 }
