@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {TabButton, TabWrapper} from "../../../../styles/detail/common/commonStyle";
 import {ReviewIndex} from "./review/ReviewIndex";
-import {QnA} from "./qna/QnA";
+import {QnAIndex} from "./qna/QnAIndex";
 import {DetailInfoComponent} from "./detailInfo/DetailInfoIndex";
 
 export const Tab = (): JSX.Element => {
@@ -29,7 +29,7 @@ export const Tab = (): JSX.Element => {
                 (selected === 1) && <ReviewIndex/>
             }
             {
-                (selected === 2) && <QnA/>
+                (selected === 2) && <QnAIndex/>
             }
         </>
     );

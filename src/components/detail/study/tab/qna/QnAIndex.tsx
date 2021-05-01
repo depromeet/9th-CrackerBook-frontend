@@ -1,10 +1,11 @@
 import {InfoWrapper} from "../../../../../styles/detail/study/studyCommonStyle";
+import {RegitQuestion} from "./RegitQuestion";
 
-export const QnA = (): JSX.Element => {
+export const QnAIndex = (): JSX.Element => {
 
     return (
         <InfoWrapper>
-            QnA
+            <RegitQuestion/>
         </InfoWrapper>
     )
 }
