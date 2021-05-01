@@ -1,12 +1,10 @@
 import {
-    DateDiv,
-    HostWrapper, NoticeContent,
+    NoticeContent,
     StudyIntroTitle,
-    StudyIntroWrapper,
-    TotalView
 } from "../../../../../styles/detail/study/detailInfoStyle";
 import {HostContent1, NoticeBox, Profile, StudyContentCover} from "../../../../../styles/detail/study/studyCommonStyle";
 import {Wrapper} from "../../../../../styles/detail/common/commonStyle";
+import styled from "styled-components";
 
 export function StudyNotice(): JSX.Element {
 
@@ -56,3 +54,27 @@ export function Box(): JSX.Element {
         </NoticeBox>
     )
 }
+
+const StudyIntroWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 85px;
+`;
+
+const TotalView = styled.div`
+  color: #999999;
+  font-size: 14px;
+  cursor: pointer;
+`;
+
+const HostWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+  justify-content: left;
+`;
+
+const DateDiv = styled.div`
+  padding-top: 10px;
+`;

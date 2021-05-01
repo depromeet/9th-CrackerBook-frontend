@@ -1,4 +1,5 @@
-import {StudyContentWrapper, StudyIntroTitle} from "../../../../../styles/detail/study/detailInfoStyle";
+import {StudyIntroTitle} from "../../../../../styles/detail/study/detailInfoStyle";
+import styled from "styled-components";
 
 export function StudyIntro(): JSX.Element {
     return (
@@ -16,3 +17,10 @@ export function StudyIntro(): JSX.Element {
         </>
     );
 }
+
+const StudyContentWrapper =styled.div`
+  display: flex;
+  justify-content: left;
+  color: #222222;
+  font-size: 14px;
+`;
