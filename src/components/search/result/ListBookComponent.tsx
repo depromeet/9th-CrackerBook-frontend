@@ -25,7 +25,7 @@ const Profile = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-right: 17px;
+  margin-right: 20px;
 `;
 const Img = styled.img`
   height: 115px;
@@ -54,7 +54,7 @@ const ImgShadow = styled.div`
 `;
 const ContentWrapper = styled.div`
   flex-direction: column;
-  margin: 0 20px;
+  margin: 0 10px;
 `;
 const Content = styled.div`
   display: flex;

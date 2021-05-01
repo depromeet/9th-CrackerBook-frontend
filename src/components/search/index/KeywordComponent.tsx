@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Router from "next/router";
 
 const KeywordHeadWrapper = styled.div`
   position: relative;
@@ -68,6 +69,11 @@ const KeywordTitles = [
 ];
 
 export default function KeywordComponent(): JSX.Element {
+  const keywordRouter = ({v}) => {
+      Router.push({
+        pathname: `/search/result/${v}`,
+      });
+  };
   return (
     <>
       <KeywordHeadWrapper>
@@ -78,7 +84,7 @@ export default function KeywordComponent(): JSX.Element {
         <KeywordListWrapper>
           {KeywordTitles.map((v, index) => {
             return (
-              <LiLink key={index}>
+              <LiLink key={index} onClick={() => keywordRouter({v})}>
                 <BtnTag>{v}</BtnTag>
                 <LiIconBox>
                   <img src="/assets/search/cross.svg" />

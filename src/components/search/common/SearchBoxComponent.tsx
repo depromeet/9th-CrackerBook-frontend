@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 const SearchBoxWrapper = styled.div`
@@ -45,23 +45,25 @@ const InputSearch = styled.input`
   outline: none;
 `;
 
+
 export default function SearchBoxComponent(): JSX.Element {
+  const Router = useRouter();
   const [searchWord, setSearchWord] = useState("");
 
   const registerUser = async (event) => {
-    // console.log(Router.pathname);
     event.preventDefault();
     if (event.keyCode === 13) {
       Router.push({
-        pathname: "/search/detail",
+        pathname: `/search/result/${searchWord}`,
       });
     }
   };
+  const currentPath = Router.pathname === '/search' ? '/main/books' : '/search';
 
   return (
     <SearchBoxWrapper>
       <ArrowLeft>
-        <Link href="/main/books">
+        <Link href={currentPath}>
           <a>
             <img src="/assets/search/arrowleft.svg" />
           </a>
@@ -82,7 +84,9 @@ export default function SearchBoxComponent(): JSX.Element {
           </ClearIconBox>
         )}
 
-        <SearchIconBox>
+        <SearchIconBox onClick={() => Router.push({
+          pathname: `/search/result/${searchWord}`,
+        })}>
           <img src="/assets/search/search.svg" />
         </SearchIconBox>
       </SearchBoxInnerWrapper>
