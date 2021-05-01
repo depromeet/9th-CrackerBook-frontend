@@ -1,27 +1,9 @@
 import {
-    InfoBold, InfoContent,
-    InfoContentWrapper,
     StudyInfoWrapper
 } from "../../../../styles/detail/study/studyCommonStyle";
-import {
-    DivLine
-} from "../../../../styles/detail/common/commonStyle";
-import {Cover} from "./Cover";
-import {BookInfo} from "./BookInfo";
+import styled from "styled-components";
 
-export function StudyInfoComponent(): JSX.Element {
-    return (
-        <>
-            <Cover/>
-            <BookInfo/>
-            <DivLine/>
-            <StudyInfo />
-            <DivLine/>
-        </>
-    )
-}
-
-export function StudyInfo(): JSX.Element {
+export function StudyDetailInfo(): JSX.Element {
     return (
         <StudyInfoWrapper>
             <InfoContentWrapper>
@@ -79,3 +61,22 @@ export function StudyInfo(): JSX.Element {
     )
 }
 
+const InfoContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-top: 10px;
+`;
+
+const InfoBold = styled.div`
+  font-weight: 700;
+  color: #222222;
+  font-size: 14px;
+  padding-right: 10px;
+  min-width: 65px;
+`;
+
+const InfoContent = styled.div`
+  font-size: 14px;
+  color: #777777;
+`;

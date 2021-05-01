@@ -1,11 +1,11 @@
-import {StudyInfoComponent} from "./studyInfo/StudyInfo";
 import {Tab} from "./tab/Tab";
+import {StudyInfoIndexComponent} from "./studyInfo/StudyInfoIndex";
 
 export default function StudyDetailIndex():JSX.Element {
     
     return (
         <>
-            <StudyInfoComponent/>
+            <StudyInfoIndexComponent/>
             <Tab/>
         </>
     )

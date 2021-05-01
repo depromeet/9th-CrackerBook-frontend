@@ -44,26 +44,6 @@ const StudyInfoWrapper = styled.div`
   padding: 40px 12px 40px 20px;
 `;
 
-const InfoContentWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  padding-top: 10px;
-`;
-
-const InfoBold = styled.div`
-  font-weight: 700;
-  color: #222222;
-  font-size: 14px;
-  padding-right: 10px;
-  min-width: 65px;
-`;
-
-const InfoContent = styled.div`
-  font-size: 14px;
-  color: #777777;
-`;
-
 const InfoWrapper = styled.div`
   padding: 20px 20px;
 `;
@@ -78,9 +58,6 @@ export {
     NoticeBox,
     InfoWrapper,
     StudyInfoWrapper,
-    InfoContentWrapper,
-    InfoBold,
-    InfoContent,
     StudyContentCover,
     HostContent1,
     HostContent2,
