@@ -20,10 +20,6 @@ const TitleInfoWrapper = styled(TitleInfoStyle)`
   height: 190px;
 `;
 
-const TitleInner = styled.div`
-  padding: 50px 87px 0 20px;
-`;
-
 const ThisBookContentWrapper = styled.div`
   width: 95%;
   display: flex;
@@ -32,7 +28,6 @@ const ThisBookContentWrapper = styled.div`
 
 export {
   ThisBookContentWrapper,
-  TitleInner,
   MainBookCover,
   BookImg,
   TitleInfoWrapper,

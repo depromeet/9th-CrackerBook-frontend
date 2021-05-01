@@ -1,31 +1,9 @@
 import styled from "styled-components";
-import {Box, MainBookStyle, TitleInfoStyle} from "../common/commonStyle";
-
-const StudyBookCover = styled(MainBookStyle)`
-  width: 375px;
-  height: 490px;
-`;
-
-const StudyBookImg = styled.img`
-  width: 164px;
-  height: 236px;
-  border-radius: 2px 8px 8px 2px;
-  position: absolute;
-  top: 130px;
-  left: 104px;             
-  z-index: 10;
-`;
+import {Box, TitleInfoStyle} from "../common/commonStyle";
 
 const TitleStudyInfoWrapper = styled(TitleInfoStyle)`
   top: -150px;
   height: 175px;
-`;
-
-const HostBox = styled(Box)`
-  margin: 35px 20px 40px;
-  padding: 20px 100px 20px 20px;
-  display: flex;
-  align-items: center;
 `;
 
 const Profile = styled.img`
@@ -33,13 +11,6 @@ const Profile = styled.img`
   height: 48px;
   width: 48px;
   padding-right: 15px;
-`;
-
-const HostContentCover = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  width: 130px;
 `;
 
 const HostContent1 = styled.div`
@@ -67,12 +38,6 @@ const StudyContentCover = styled.div`
   color: #999999;
   padding-top: 2px;
   font-size: 12px;
-`;
-
-const Bar = styled.div`
-  color: #F1F1F3;
-  padding-left: 10px;
-  padding-right: 10px;
 `;
 
 const StudyInfoWrapper = styled.div`
@@ -116,15 +81,10 @@ export {
     InfoContentWrapper,
     InfoBold,
     InfoContent,
-    Bar,
     StudyContentCover,
-    HostBox,
     HostContent1,
     HostContent2,
     HostContent3,
-    HostContentCover,
     Profile,
-    TitleStudyInfoWrapper,
-    StudyBookImg,
-    StudyBookCover
+    TitleStudyInfoWrapper
 }
