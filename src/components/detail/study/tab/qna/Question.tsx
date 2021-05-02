@@ -1,26 +1,34 @@
 import styled from "styled-components";
 import {Profile} from "../../../../../styles/detail/common/commonStyle";
 
-export function Question(): JSX.Element {
+type QuestionType = {
+    img: string;
+    name: string;
+    date: string;
+    publish: string;
+    question: string;
+}
 
+export function Question(props: {question: QuestionType}): JSX.Element {
+    const questionData = props.question;
     return (
         <>
             <QuestionWrapper>
-                <Profile src='/assets/main/surprised.svg'/>
+                <Profile src={questionData.img}/>
                 <CotentWrapper>
                     <Name>
-                        제이호
+                        {questionData.name}
                     </Name>
                     <DateWrapper>
                         <Date>
-                            2021.04.12
+                            {questionData.date}
                         </Date>
                         <Publish>
-                            공개
+                            {questionData.date}
                         </Publish>
                     </DateWrapper>
                     <QuestionDiv>
-                        하이 ~ HI~~~ 숙제가 있나요?
+                        {questionData.question}
                     </QuestionDiv>
                 </CotentWrapper>
             </QuestionWrapper>

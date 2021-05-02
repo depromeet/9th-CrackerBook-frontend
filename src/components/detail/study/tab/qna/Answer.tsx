@@ -1,26 +1,32 @@
 import styled from "styled-components";
 import {Profile} from "../../../../../styles/detail/common/commonStyle";
 
-export function Answer(): JSX.Element {
+type AnswerType = {
+    img: string;
+    name: string;
+    date: string;
+    answer: string;
+}
 
+export function Answer(props: {answer: AnswerType}): JSX.Element {
+    const answerData = props.answer;
     return (
         <>
             <AnswerBox>
                 <Wrapper>
                     <HostWrapper>
-                        <Profile src='/assets/main/surprised.svg'/>
+                        <Profile src={answerData.img}/>
                         <Info>
                             <Name>
-                                빈센조
+                                {answerData.name}
                             </Name>
                             <Date>
-                                2021.04.12
+                                {answerData.date}
                             </Date>
                         </Info>
                     </HostWrapper>
                     <AnswerContent>
-                        ‘눈치껏 못 배웁니다, 일센스’ 책을 한 챕터씩 읽어오는 것이 숙제입니다.
-                        글 쓰는 것은 스터디 시간에 같이 하니 부담 없으셔도 됩니다. 관심 가져주셔서 감사합니다.
+                        {answerData.answer}
                     </AnswerContent>
                 </Wrapper>
             </AnswerBox>
