@@ -51,8 +51,8 @@ const ShareIcon = styled.img`
 
 const GoCreate = styled.div`
   color: #222222;
-  padding-left: 73px;
-  padding-right: 73px;
+  padding-left: 74px;
+  padding-right: 74px;
   cursor: pointer;
 `;
 
