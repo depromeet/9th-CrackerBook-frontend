@@ -131,7 +131,14 @@ const Date = styled.div`
   padding-bottom: 12px;
 `;
 
+const BottomBarStyle = styled.div`
+  position: -webkit-sticky; /* 사파리 브라우저 지원 */
+  position: sticky;
+  top: 0;
+`;
+
 export {
+  BottomBarStyle,
   Name,
   Date,
   Profile,
