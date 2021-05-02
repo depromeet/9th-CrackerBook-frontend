@@ -53,6 +53,7 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const search = (event) => {
     event.preventDefault();
+    setSearchWord(event.target.value);
     if (event.keyCode === 13) routeResult();
   };
 
@@ -76,9 +77,8 @@ export default function SearchBoxComponent(): JSX.Element {
         <InputSearch
           type="text"
           name="searchWord"
-          value={searchWord}
+          defaultValue={searchWord}
           placeholder="책, 저자, 스터디를 검색해주세요."
-          onChange={({ target: { value } }) => setSearchWord(value)}
           onKeyUp={search}
         />
         {searchWord && (
