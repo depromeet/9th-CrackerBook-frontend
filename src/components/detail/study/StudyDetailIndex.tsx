@@ -9,9 +9,8 @@ export default function StudyDetailIndex(): JSX.Element {
         <>
             <StudyInfoIndexComponent/>
             <Tab/>
-            <BottomBarStyle>
-                <BottomBar text='스터디 신청하기'/>
-            </BottomBarStyle>
+
+            <BottomBar text='스터디 신청하기' type='study'/>
         </>
 
     )

@@ -1,5 +1,7 @@
-import {ModalElement, ModalWrapper} from "../../../styles/detail/common/commonStyle";
+import {BottomBarStyle, ModalElement, ModalWrapper} from "../../../styles/detail/common/commonStyle";
 import styled from "styled-components";
+import {useState} from "react";
+import {ConfirmStudy} from "../confirmStudy/confirmStudy";
 
 type ModalPosition = {
     pageX: number;
@@ -19,16 +21,20 @@ export function Modal(props: { modalPosition: ModalPosition }): JSX.Element {
     );
 }
 
-export function BottomBar(props: {text: string}): JSX.Element {
-
-    return (
-        <BottomBarWrapper>
-            <BookLikeIcon src='/assets/main/bookLike.svg'/>
-            <ShareIcon src='/assets/detail/share.svg'/>
-            <GoCreate>{props.text}</GoCreate>
-        </BottomBarWrapper>
-    )
+export function BottomBar(props: { text: string, type: string }): JSX.Element {
+    const [confirmBox, setConfirmBox] = useState<boolean>(false);
+    return confirmBox ? <ConfirmStudy/>
+        : (
+            <BottomBarStyle>
+                <BottomBarWrapper>
+                    <BookLikeIcon src='/assets/main/bookLike.svg'/>
+                    <ShareIcon src='/assets/detail/share.svg'/>
+                    <GoCreate onClick={() => setConfirmBox(!confirmBox)}>{props.text}</GoCreate>
+                </BottomBarWrapper>
+            </BottomBarStyle>
+        );
 }
+
 
 const BottomBarWrapper = styled.div`
   background-color: #FFD262;
@@ -51,7 +57,7 @@ const ShareIcon = styled.img`
 
 const GoCreate = styled.div`
   color: #222222;
-  padding-left: 74px;
+  padding-left: 75px;
   padding-right: 74px;
   cursor: pointer;
 `;
