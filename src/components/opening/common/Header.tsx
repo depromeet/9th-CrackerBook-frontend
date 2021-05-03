@@ -12,7 +12,6 @@ const HeaderWrapper = styled.div`
   font-size: 16px;
   line-height: 23px;
   color: #222222;
-  border-bottom: 2px solid #ffd262;
 `;
 const ArrowLeft = styled.div`
   position: absolute;
@@ -20,16 +19,15 @@ const ArrowLeft = styled.div`
   height: 45px;
   line-height: 45px;
   left: 20px;
-  font-size: 19px;
 `;
 const Progress = styled.svg`
-  border-radius: 7px;
-  color: #35495e;
+  position: absolute;
+  color: #ffd262;
   .progress-container {
-    stroke: #eee;
+    stroke: #f1f1f3;
   }
   .progress-content {
-    stroke: #35495e;
+    stroke: #ffd262;
   }
 
   .progress-content > line {
@@ -52,30 +50,32 @@ export default function IndexComponent(props: {
   dashoffset: number;
 }): JSX.Element {
   return (
-    <HeaderWrapper>
-      <ArrowLeft>
-        <Link href="/main/books">
-          <a>
-            <img src="/assets/search/arrowleft.svg" />
-          </a>
-        </Link>
-      </ArrowLeft>
-      <div>스터디 개설</div>
-      <Progress dashoffset={props.dashoffset} height="150" width="150">
+    <>
+      <HeaderWrapper>
+        <ArrowLeft>
+          <Link href="/main/books">
+            <a>
+              <img src="/assets/search/arrowleft.svg" />
+            </a>
+          </Link>
+        </ArrowLeft>
+        <div>스터디 주최</div>
+      </HeaderWrapper>
+      <Progress dashoffset={props.dashoffset} height="375" width="375">
         <g className="progress-container">
-          <line x1="0" y1="50%" x2="100%" y2="50%" strokeWidth="20" />
+          <line x1="0" y1="0" x2="100%" y2="0" strokeWidth="2" />
         </g>
         <g className="progress-content">
           <line
             x1="0"
-            y1="50%"
+            y1="0"
             x2="100%"
-            y2="50%"
+            y2="0"
             fill="transparent"
-            strokeWidth="20"
+            strokeWidth="2"
           />
         </g>
       </Progress>
-    </HeaderWrapper>
+    </>
   );
 }

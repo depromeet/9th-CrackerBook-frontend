@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import IndexComponent from "../../src/components/opening/IndexComponent";
+import KindBookComponent from "../../src/components/opening/KindBookComponent";
 import HeaderComponent from "src/components/opening/common/Header";
 
 export default function Index(): JSX.Element {
@@ -12,7 +12,7 @@ export default function Index(): JSX.Element {
         <title>스터디 개설하기</title>
       </Head>
       <HeaderComponent dashoffset={dashoffset} />
-      <IndexComponent />
+      <KindBookComponent />
     </>
   );
 }
