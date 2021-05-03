@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import {BlackBackground} from "../../../styles/detail/common/commonStyle";
+import {useState} from "react";
 
 export function ConfirmStudy(): JSX.Element {
+    const [isPossibleStudy, setIsPossibleStudy] = useState<boolean>(true);
 
     return (
         <>

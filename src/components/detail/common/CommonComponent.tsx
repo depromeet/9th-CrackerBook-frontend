@@ -1,7 +1,7 @@
 import {BottomBarStyle, ModalElement, ModalWrapper} from "../../../styles/detail/common/commonStyle";
 import styled from "styled-components";
 import {useState} from "react";
-import {ConfirmStudy} from "../confirmStudy/confirmStudy";
+import {ConfirmStudy} from "../confirmStudy/ConfirmStudy";
 
 type ModalPosition = {
     pageX: number;
