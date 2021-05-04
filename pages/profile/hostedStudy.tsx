@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
-import ProfileArea from "../../src/components/profile/MyPage/ProfileArea";
-import StudyArea from "../../src/components/profile/MyPage/StudyArea";
+import ProfileArea from "../../src/components/profile/profileArea";
+import StudyArea from "../../src/components/profile/studyArea";
 
 
 // const ProfileArea = styled.div`

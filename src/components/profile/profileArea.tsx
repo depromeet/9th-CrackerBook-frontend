@@ -48,7 +48,9 @@ const ProfileImgArea = styled.div`
   border-radius: 100px;
 `;
 
-const EditProfile = styled.div`
+const EditProfile = styled.img`
+  /* Ellipse 71 */
+
   position: absolute;
   width: 26px;
   height: 26px;
@@ -63,6 +65,7 @@ const EditProfile = styled.div`
   border: 1px solid #F1F1F3;
   box-sizing: border-box;
   box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.15);
+
 `;
 
 const NameArea = styled.div`
@@ -114,27 +117,27 @@ export default function ProfileArea(): JSX.Element {
                     <img src="/assets/profile/profile1.svg"
                          />
                 </ProfileImgArea>
-                <EditProfile/>
+                <EditProfile src="/assets/profile/setting.svg"/>
             </ProfileBackground>
             <ButtonArea>
-                    <ButtonWrapper>
-                        <Link href={"/profile/Rewards"}>
-                            <ActivityButton>
-                                <img src="/assets/profile/activityrewards.svg" />
-                            </ActivityButton>
-                        </Link>
+                <ButtonWrapper>
+                    <Link href={"/profile/rewards"}>
+                        <ActivityButton>
+                            <img src="/assets/profile/activityrewards.svg" />
+                        </ActivityButton>
+                    </Link>
 
-                        <Link href={"/profile/InterestedBook"}>
-                            <ActivityButton>
-                            <img src="/assets/profile/interestbook.svg" />
-                            </ActivityButton>
-                        </Link>
-                        <Link href={"/profile/HostedStudy"}>
-                            <ActivityButton>
-                                <img src="/assets/profile/studypencil.svg" />
-                            </ActivityButton>
-                        </Link>
-                    </ButtonWrapper>
+                    <Link href={"/profile/interestedBook"}>
+                        <ActivityButton>
+                        <img src="/assets/profile/interestbook.svg" />
+                        </ActivityButton>
+                    </Link>
+                    <Link href={"/profile/hostedStudy"}>
+                        <ActivityButton>
+                            <img src="/assets/profile/studypencil.svg" />
+                        </ActivityButton>
+                    </Link>
+                </ButtonWrapper>
             </ButtonArea>
             <NameArea>{"빈센조"}</NameArea>
             <ProfileMessage>{"프로필 메시지"}</ProfileMessage>
