@@ -20,29 +20,46 @@ const ArrowLeft = styled.div`
   line-height: 45px;
   left: 20px;
 `;
-const Progress = styled.svg`
-  position: absolute;
-  color: #ffd262;
-  .progress-container {
-    stroke: #f1f1f3;
-  }
-  .progress-content {
-    stroke: #ffd262;
-  }
+// const Progress = styled.svg`
+//   position: absolute;
+//   z-index: auto;
+//   color: #ffd262;
+//   .progress-container {
+//     stroke: #f1f1f3;
+//   }
+//   .progress-content {
+//     stroke: #ffd262;
+//   }
 
-  .progress-content > line {
-    stroke-dasharray: 100%;
-    stroke-dashoffset: ${(props: { dashoffset: number }) => props.dashoffset}%;
-    animation: svg-progress 2s ease-out;
+//   .progress-content > line {
+//     stroke-dasharray: 100%;
+//     stroke-dashoffset: ${(props: { dashoffset: number }) => props.dashoffset}%;
+//     animation: svg-progress 2s ease-out;
+//   }
+//   @keyframes svg-progress {
+//     0% {
+//       stroke-dashoffset: 100%;
+//     }
+//     100% {
+//       stroke-dashoffset: ${(props: { dashoffset: number }) =>
+//         props.dashoffset}%;
+//     }
+//   }
+// `;
+const Progress = styled.progress`
+  appearance: none;
+  display: block;
+  width: 150px;
+  height: 20px;
+  border-radius: 7px;
+  color: #35495e;
+  ::progress-bar {
+    background-color: #eee;
+    border-radius: 8px;
   }
-  @keyframes svg-progress {
-    0% {
-      stroke-dashoffset: 100%;
-    }
-    100% {
-      stroke-dashoffset: ${(props: { dashoffset: number }) =>
-        props.dashoffset}%;
-    }
+  ::progress-value {
+    background-color: #35495e;
+    border-radius: 8px;
   }
 `;
 
@@ -61,7 +78,8 @@ export default function IndexComponent(props: {
         </ArrowLeft>
         <div>스터디 주최</div>
       </HeaderWrapper>
-      <Progress dashoffset={props.dashoffset} height="375" width="375">
+      <Progress value={props.dashoffset} max="100" />
+      {/* <Progress dashoffset={props.dashoffset} height="375" width="375">
         <g className="progress-container">
           <line x1="0" y1="0" x2="100%" y2="0" strokeWidth="2" />
         </g>
@@ -75,7 +93,7 @@ export default function IndexComponent(props: {
             strokeWidth="2"
           />
         </g>
-      </Progress>
+      </Progress> */}
     </>
   );
 }

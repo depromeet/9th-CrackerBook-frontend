@@ -4,7 +4,7 @@ import KindBookComponent from "../../src/components/opening/KindBookComponent";
 import HeaderComponent from "src/components/opening/common/Header";
 
 export default function Index(): JSX.Element {
-  const [dashoffset, setDashoffset] = useState(0);
+  const [dashoffset, setDashoffset] = useState(100);
 
   return (
     <>
