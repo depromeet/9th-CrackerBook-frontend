@@ -12,7 +12,7 @@ interface BookData {
   endData: string;
 }
 
-export default function Books(): JSX.Element {
+export default function Index(): JSX.Element {
   const [bookData, setBookData] = useState<Array<BookData>>();
   useEffect(() => {
     getBookData().then((book) => {

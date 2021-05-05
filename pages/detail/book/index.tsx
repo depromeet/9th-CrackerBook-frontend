@@ -1,6 +1,6 @@
 import BookDetailIndexComponent from "../../../src/components/detail/book/BookDetailIndex";
 
-export default function BookDetail(): JSX.Element {
+export default function Index(): JSX.Element {
   return (
     <>
       <BookDetailIndexComponent />
