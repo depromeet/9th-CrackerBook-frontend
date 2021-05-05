@@ -6,7 +6,7 @@ type ConfirmBoxType = {
     buttonComponent: JSX.Element
 }
 
-export function ConfirmModal(props: {param: ConfirmBoxType}): JSX.Element {
+export function ConfirmBox(props: {param: ConfirmBoxType}): JSX.Element {
     const confirmParam = props.param;
     return (
         <>
@@ -46,13 +46,13 @@ const Comment1 = styled.div`
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
-  padding: 32px 67px 10px 67px; 
+  padding: 32px 50px 10px 50px; 
 `;
 
 const Comment2 = styled.div`
   color: #777777;
   line-height: 21px;
-  padding: 0 80px 32px 80px;
+  padding: 0 70px 32px 70px;
 `;
 
 

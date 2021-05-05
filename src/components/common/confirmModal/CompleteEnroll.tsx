@@ -79,7 +79,7 @@ const Comment2 = styled.div`
   line-height: 20px;
 `;
 
-const Confirm = styled.div`
+const Confirm = styled.button`
   width: 311px;
   height: 62px;
   background-color: #FFD262;
@@ -88,4 +88,6 @@ const Confirm = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  outline: none;
 `;
