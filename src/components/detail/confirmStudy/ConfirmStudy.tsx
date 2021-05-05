@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {BlackBackground} from "../../../styles/detail/common/commonStyle";
 import {useState} from "react";
 import {CompleteEnroll} from "../completeEnroll/CompleteEnroll";
+import {GoLogin} from "../../common/goLogin/GoLogin";
 
 // const [isPossibleStudy, setIsPossibleStudy] = useState<boolean>(false);
 // const [showConfirmBox, setShowConfirmBox] = useState<boolean>(true);
@@ -16,7 +17,7 @@ export function ConfirmStudy(): JSX.Element {
     return (
         <>
             <BlackBackground>
-                <CompleteEnroll/>
+                <GoLogin/>
             </BlackBackground>
         </>
     )
