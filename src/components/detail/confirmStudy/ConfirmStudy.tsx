@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled, {DefaultTheme, StyledComponent} from "styled-components";
 import {BlackBackground} from "../../../styles/detail/common/commonStyle";
-import {useState} from "react";
 import {CompleteEnroll} from "../completeEnroll/CompleteEnroll";
-import {GoLogin} from "../../common/goLogin/GoLogin";
+import {ConfirmModal} from "../../common/confirmModal/ConfirmModal";
 
 // const [isPossibleStudy, setIsPossibleStudy] = useState<boolean>(false);
 // const [showConfirmBox, setShowConfirmBox] = useState<boolean>(true);
@@ -12,16 +11,56 @@ import {GoLogin} from "../../common/goLogin/GoLogin";
 // {
 //     isPossibleStudy ? enrollCompleteStudy() : goLoginModal()
 // }
+
 export function ConfirmStudy(): JSX.Element {
+    const param = {
+        mainComment: '로그인한 회원만 이용할 수 있어요.',
+        subComment: '스터디에 참여하시려면 로그인 해주세요',
+        buttonComponent: (
+            <ButtonComponent>
+                <CancelButton>
+                    취소
+                </CancelButton>
+                <ConfirmButton>
+                    확인
+                </ConfirmButton>
+            </ButtonComponent>
+        )
+    };
 
     return (
         <>
             <BlackBackground>
-                <GoLogin/>
+                <ConfirmModal param={param}/>
             </BlackBackground>
         </>
     )
 }
+
+const ButtonComponent= styled.div`
+  width: 311px;
+  background-color: #FFD262;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  justify-content: space-around;
+  height: 62px;
+`;
+
+const CancelButton = styled.button`
+  border-radius: 0 0 15px 15px;
+  background-color: #FFD262;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+`;
+
+const ConfirmButton = styled.button`
+  border-radius: 0 0 15px 15px;
+  background-color: #FFD262;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+`;
 
 function ConfirmComponent(): JSX.Element {
     // <CompleteEnroll/>
