@@ -47,19 +47,19 @@ const ArrowLeft = styled.div`
 //   }
 // `;
 const Progress = styled.progress`
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   display: block;
-  width: 150px;
-  height: 20px;
-  border-radius: 7px;
-  color: #35495e;
-  ::progress-bar {
-    background-color: #eee;
-    border-radius: 8px;
+  width: 375px;
+  height: 2px;
+  color: black;
+  ::-webkit-progress-bar {
+    background: #f1f1f3;
   }
-  ::progress-value {
-    background-color: #35495e;
-    border-radius: 8px;
+  ::-webkit-progress-value {
+    background: #ffd262;
+    transition: all 2.5s ease-in-out;
   }
 `;
 

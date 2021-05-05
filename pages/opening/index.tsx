@@ -1,10 +1,18 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import KindBookComponent from "../../src/components/opening/KindBookComponent";
 import HeaderComponent from "src/components/opening/common/Header";
 
 export default function Index(): JSX.Element {
-  const [dashoffset, setDashoffset] = useState(100);
+  const [dashoffset, setDashoffset] = useState(0);
+
+  useEffect(() => {
+    if (dashoffset > 0) return;
+
+    const timeout = setTimeout(() => setDashoffset(25), 100);
+
+    return () => clearTimeout(timeout);
+  }, [dashoffset]);
 
   return (
     <>
@@ -12,7 +20,7 @@ export default function Index(): JSX.Element {
         <title>스터디 개설하기</title>
       </Head>
       <HeaderComponent dashoffset={dashoffset} />
-      <KindBookComponent />
+      <KindBookComponent setDashoffset={setDashoffset} />
     </>
   );
 }

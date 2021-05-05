@@ -61,7 +61,9 @@ const FavoriteText = styled.div`
   color: #222222;
 `;
 
-export default function KindBookComponent(): JSX.Element {
+export default function KindBookComponent(props: {
+  setDashoffset: (index: number) => void;
+}): JSX.Element {
   const Router = useRouter();
   const [searchWord, setSearchWord] = useState(
     Router.query.name ? Router.query.name : "",
@@ -75,7 +77,7 @@ export default function KindBookComponent(): JSX.Element {
   };
 
   const routeResult = () =>
-    searchWord ? alert("준비 중") : alert("검색어를 입력해주세요.");
+    searchWord ? props.setDashoffset(50) : alert("검색어를 입력해주세요.");
 
   const clearSearchWord = () => {
     const node = inputRef.current as any;
