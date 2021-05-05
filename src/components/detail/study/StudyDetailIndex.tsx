@@ -1,6 +1,5 @@
 import {Tab} from "./tab/Tab";
 import {StudyInfoIndexComponent} from "./studyInfo/StudyInfoIndex";
-import {BottomBarStyle} from "../../../styles/detail/common/commonStyle";
 import {BottomBar} from "../common/CommonComponent";
 
 export default function StudyDetailIndex(): JSX.Element {
