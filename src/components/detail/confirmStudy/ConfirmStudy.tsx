@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import {BlackBackground} from "../../../styles/detail/common/commonStyle";
-import {CompleteEnroll} from "../../common/confirmModal/CompleteEnroll";
 import {ConfirmBox} from "../../common/confirmModal/ConfirmBox";
 
 export function ConfirmStudy(): JSX.Element {
+    // @ts-ignore
+    document.childNodes[1].setAttribute('style', 'overflow:hidden');
     const param = {
         mainComment: '로그인한 회원만 이용할 수 있어요.',
         subComment: '스터디에 참여하시려면 로그인 해주세요',
@@ -25,7 +26,10 @@ export function ConfirmStudy(): JSX.Element {
         subComment: '이 책으로 주최된 다른 스터디도 찾아보세요',
         buttonComponent: (
             <ButtonComponent>
-                <ConfirmButton>
+                <ConfirmButton onClick={() => {
+                    // @ts-ignore
+                    document.childNodes[1].setAttribute('style', 'overflow:auto');
+                }}>
                     확인
                 </ConfirmButton>
             </ButtonComponent>
