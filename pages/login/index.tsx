@@ -11,7 +11,7 @@ import {
 } from "../../src/styles/login/setNicnameStyle";
 import Link from "next/link";
 
-export default function SetNicName(): JSX.Element {
+export default function Index(): JSX.Element {
     return (
         <NicnameContainer>
             <GuideCommnet isFirstComment={true}>저는 닉네임</GuideCommnet>
@@ -25,7 +25,7 @@ export default function SetNicName(): JSX.Element {
                 <ExistCommnet>이미 존재하는 닉네임입니다.</ExistCommnet>
             </ExistWrapper>
             <StartBtnWrapper>
-                <Link href="/main/books">
+                <Link href="/main">
                     <StartBtn src="/assets/login/startBtn.png"/>
                 </Link>
             </StartBtnWrapper>

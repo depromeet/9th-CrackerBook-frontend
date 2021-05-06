@@ -13,11 +13,11 @@ export default function Component(): JSX.Element {
       <MobileTitle>CRACKER BOOK</MobileTitle>
       <NextDiv>
         <div>
-          <Link href="/login/setNicname">
+          <Link href="/login">
             <KakaoLoginBtn>카카오로 로그인</KakaoLoginBtn>
           </Link>
         </div>
-        <Link href="/main/books">
+        <Link href="/main">
           <GoMainBtn>서비스 둘러보기 &gt;</GoMainBtn>
         </Link>
       </NextDiv>

@@ -135,7 +135,7 @@ export function Title(props: { bookName: string }): JSX.Element {
 export function BookContainer(props: { img: string }): JSX.Element {
   return (
       <>
-        <Link href="/detail/book/bookDetail">
+        <Link href="/detail/book">
           <BookBox>
             <BookImg src={props.img} />
             <IconWrapper>

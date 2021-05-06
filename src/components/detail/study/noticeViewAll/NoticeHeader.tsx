@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 export function NoticeHeader(): JSX.Element {
 
     return (
         <>
             <Header>
-                <BackIcon src='assets/detail/back.svg'/>
+                <Link href='/detail/study/studyDetail'>
+                    <BackIcon src='assets/detail/back.svg'/>
+                </Link>
+
                 <Title>
                     스터디 공지
                 </Title>
@@ -26,6 +30,7 @@ const BackIcon = styled.img`
   height:18px;
   padding-left: 20px;
   padding-right: 20px;
+  cursor: pointer;
 `;
 
 const Title = styled.div`
