@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import KindBookComponent from "../../src/components/opening/KindBookComponent";
-import HeaderComponent from "src/components/opening/common/Header";
+import FooterComponent from "../../src/components/opening/common/FooterComponent";
+import HeaderComponent from "src/components/opening/common/HeaderComponent";
 
 export default function Index(): JSX.Element {
   const [dashoffset, setDashoffset] = useState(0);
@@ -21,6 +22,7 @@ export default function Index(): JSX.Element {
       </Head>
       <HeaderComponent dashoffset={dashoffset} />
       <KindBookComponent setDashoffset={setDashoffset} />
+      <FooterComponent />
     </>
   );
 }

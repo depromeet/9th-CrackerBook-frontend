@@ -15,7 +15,7 @@ const MainText = styled.div`
 const SearchBoxInnerWrapper = styled.div`
   position: relative;
   border-bottom: 1px solid #222222;
-  margin: 88px 0 10px 20px;
+  margin: 20px 0 10px 20px;
   line-height: 40px;
   height: 40px;
   padding: 0 0;
@@ -24,6 +24,10 @@ const CategoryWrapper = styled.div`
   position: relative;
   float: left;
   width: 100px;
+  height: 40px;
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  line-height: 20px;
   cursor: pointer;
 `;
 const OpenIconBox = styled.div`
@@ -68,6 +72,9 @@ const SearchInput = styled.input`
   ::placeholder {
     color: #999999;
   }
+  :disabled {
+    background: #ffffff;
+  }
   :-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset;
   }
@@ -84,11 +91,19 @@ const ClearIconBox = styled.div`
   right: 50px;
   cursor: pointer;
 `;
-const FavoriteWrapper = styled.div`
+const FavoriteBookWrapper = styled.div`
+  position: relative;
+  margin: 32px 0 0 20px;
+`;
+const FavoriteList = styled.div`
   position: relative;
   margin: 70px 0 0 20px;
 `;
-const FavoriteList = styled.div`
+const SearchResultWrapper = styled.div`
+  position: relative;
+  margin: 70px 0 0 20px;
+`;
+const ResultList = styled.div`
   position: relative;
   margin: 70px 0 0 20px;
 `;
@@ -100,7 +115,7 @@ const FavoriteText = styled.div`
   color: #222222;
   z-index: 0;
 `;
-const CategoryTitles = ["책", "저자", "관심책"];
+const CategoryTitles = ["책", "저자", "관심 책"];
 
 export default function KindBookComponent(props: {
   setDashoffset: (index: number) => void;
@@ -159,9 +174,12 @@ export default function KindBookComponent(props: {
           type="text"
           name="searchWord"
           defaultValue={searchWord}
-          placeholder="검색어를 검색해주세요."
+          placeholder={
+            category !== 2 ? `검색어를 검색해주세요` : `관심 책을 선택해주세요.`
+          }
           onKeyUp={search}
           ref={inputRef}
+          disabled={category === 2}
         />
         <SearchIconBox onClick={() => routeResult()}>
           <img src="/assets/search/search.svg" />
@@ -172,10 +190,15 @@ export default function KindBookComponent(props: {
           </ClearIconBox>
         )}
       </SearchBoxInnerWrapper>
-      <FavoriteWrapper>
-        <FavoriteText>관심 책으로 스터디 개설하기</FavoriteText>
-      </FavoriteWrapper>
-      <FavoriteList></FavoriteList>
+      {category === 2 && (
+        <FavoriteBookWrapper>
+          <FavoriteText>관심 책으로 스터디 개설하기</FavoriteText>
+          <FavoriteList></FavoriteList>
+        </FavoriteBookWrapper>
+      )}
+      <SearchResultWrapper>
+        <ResultList></ResultList>
+      </SearchResultWrapper>
     </KindBookWrapper>
   );
 }
