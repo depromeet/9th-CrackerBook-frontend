@@ -1,4 +1,5 @@
 import { AppProps } from "next/app";
+import { RecoilRoot } from "recoil";
 import GlobalStyle from "../src/styles/global";
 import theme from "../src/styles/theme";
 import { ThemeProvider } from "../src/styles/themed-components";
@@ -12,17 +13,19 @@ import {
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <AppContainer>
-        <Desktop>
-          <Title>Craker Book</Title>
-          <Img src="/assets/main/main.png" />
-        </Desktop>
-        <Mobile>
-          <Component {...pageProps} />
-        </Mobile>
-      </AppContainer>
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <AppContainer>
+          <Desktop>
+            <Title>Craker Book</Title>
+            <Img src="/assets/main/main.png" />
+          </Desktop>
+          <Mobile>
+            <Component {...pageProps} />
+          </Mobile>
+        </AppContainer>
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
