@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
-import { nextStepState } from "../states";
+import { nextStepState, currentStepState } from "../states";
 
 const Footer = styled.footer`
   position: fixed;
@@ -31,10 +31,31 @@ const TextDiv = styled.div`
 `;
 
 export default function FooterComponent(): JSX.Element {
-  const [nextStep, setNextStep] = useRecoilState(nextStepState);
+  const [nextStep] = useRecoilState(nextStepState);
+  const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
   return (
-    <Footer className={!nextStep && "disabled"}>
-      <TextDiv className={!nextStep && "disabled"}>다음 (1/4)</TextDiv>
-    </Footer>
+    <>
+      {nextStep ? (
+        <>
+          {currentStep !== 4 ? (
+            <Footer onClick={() => setCurrentStep(currentStep + 1)}>
+              <TextDiv>다음 ({currentStep}/4)</TextDiv>
+            </Footer>
+          ) : (
+            <Footer onClick={() => alert(`완료`)}>
+              <TextDiv>완료 ({currentStep}/4)</TextDiv>
+            </Footer>
+          )}
+        </>
+      ) : (
+        <Footer className="disabled">
+          {currentStep !== 4 ? (
+            <TextDiv className="disabled">다음 ({currentStep}/4)</TextDiv>
+          ) : (
+            <TextDiv className="disabled">완료 ({currentStep}/4)</TextDiv>
+          )}
+        </Footer>
+      )}
+    </>
   );
 }

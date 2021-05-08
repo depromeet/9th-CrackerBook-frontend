@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { useRecoilState } from "recoil";
+import { nextStepState, currentStepState } from "../states";
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -19,6 +21,7 @@ const ArrowLeft = styled.div`
   height: 45px;
   line-height: 45px;
   left: 20px;
+  cursor: pointer;
 `;
 // const Progress = styled.svg`
 //   position: absolute;
@@ -63,22 +66,28 @@ const Progress = styled.progress`
   }
 `;
 
-export default function IndexComponent(props: {
-  dashoffset: number;
-}): JSX.Element {
+export default function IndexComponent(): JSX.Element {
+  const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
+
   return (
     <>
       <HeaderWrapper>
         <ArrowLeft>
-          <Link href="/main/books">
-            <a>
+          {currentStep !== 1 ? (
+            <a onClick={() => setCurrentStep(currentStep - 1)}>
               <img src="/assets/search/arrowleft.svg" />
             </a>
-          </Link>
+          ) : (
+            <Link href="/main/books">
+              <a>
+                <img src="/assets/search/arrowleft.svg" />
+              </a>
+            </Link>
+          )}
         </ArrowLeft>
         <div>스터디 주최</div>
       </HeaderWrapper>
-      <Progress value={props.dashoffset} max="100" />
+      <Progress value={20 * currentStep} max="100" />
       {/* <Progress dashoffset={props.dashoffset} height="375" width="375">
         <g className="progress-container">
           <line x1="0" y1="0" x2="100%" y2="0" strokeWidth="2" />

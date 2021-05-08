@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useState, useRef } from "react";
 import { useSetRecoilState } from "recoil";
-import { nextStepState } from "./states";
+import { nextStepState } from "../states";
 
 const KindBookWrapper = styled.div`
   padding: 18px 0;
@@ -243,9 +243,7 @@ const Result = [
   },
 ];
 
-export default function KindBookComponent(props: {
-  setDashoffset: (index: number) => void;
-}): JSX.Element {
+export default function KindBookComponent(): JSX.Element {
   const Router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState(0);
@@ -261,8 +259,7 @@ export default function KindBookComponent(props: {
     setSearchWord(event.target.value);
     if (event.keyCode === 13) routeResult();
   };
-  const routeResult = () =>
-    searchWord ? props.setDashoffset(50) : alert("검색어를 입력해주세요.");
+  const routeResult = () => !searchWord && alert("검색어를 입력해주세요.");
   const clearSearchWord = () => {
     const node = inputRef.current;
     node.value = "";
