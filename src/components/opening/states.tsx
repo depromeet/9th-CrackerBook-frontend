@@ -9,14 +9,30 @@ const nextStepState = atom({
   key: `nextStep`,
   default: false,
 });
+const typeState = atom({
+  key: `type`,
+  default: "",
+});
+const typeEtcStringState = atom({
+  key: `typeEtcString`,
+  default: "",
+});
 // 1
 const categoryState = atom({
   key: `category`,
   default: 0,
 });
 // 2
-const typeState = atom({
-  key: `type`,
-  default: "",
+const showEtcTypeState = atom({
+  key: `showEtcType`,
+  default: false,
 });
-export { currentStepState, nextStepState, categoryState, typeState };
+
+export {
+  currentStepState,
+  nextStepState,
+  typeState,
+  typeEtcStringState,
+  categoryState,
+  showEtcTypeState,
+};

@@ -42,7 +42,6 @@ const Progress = styled.progress`
 
 export default function IndexComponent(): JSX.Element {
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
-
   return (
     <>
       <HeaderWrapper>

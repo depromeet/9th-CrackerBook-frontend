@@ -1,6 +1,11 @@
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
-import { nextStepState, currentStepState } from "../states";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import {
+  nextStepState,
+  currentStepState,
+  typeState,
+  showEtcTypeState,
+} from "../states";
 
 const Footer = styled.footer`
   position: fixed;
@@ -34,21 +39,35 @@ const TextDiv = styled.div`
 export default function FooterComponent(): JSX.Element {
   // const [nextStep] = useRecoilState(nextStepState);
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
+  const [showEtcType, setShowEtcType] = useRecoilState(showEtcTypeState);
+  const [type] = useRecoilState(typeState);
+
+  const nextStep = (event) => {
+    event.preventDefault();
+    if (currentStep === 2 && type === "etc") {
+      setShowEtcType(true);
+    } else {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
   return (
     <>
-      {/* {nextStep ? ( */}
-      <>
-        {currentStep !== 4 ? (
-          <Footer onClick={() => setCurrentStep(currentStep + 1)}>
-            <TextDiv>다음 ({currentStep}/4)</TextDiv>
-          </Footer>
-        ) : (
-          <Footer onClick={() => alert(`완료`)}>
-            <TextDiv>완료 ({currentStep}/4)</TextDiv>
-          </Footer>
-        )}
-      </>
-      {/* ) : (
+      {!showEtcType && (
+        <>
+          {/* {nextStep ? ( */}
+          <>
+            {currentStep !== 4 ? (
+              <Footer onClick={(event) => nextStep(event)}>
+                <TextDiv>다음 ({currentStep}/4)</TextDiv>
+              </Footer>
+            ) : (
+              <Footer onClick={() => alert(`완료`)}>
+                <TextDiv>완료 ({currentStep}/4)</TextDiv>
+              </Footer>
+            )}
+          </>
+          {/* ) : (
         <Footer className="disabled">
           {currentStep !== 4 ? (
             <TextDiv className="disabled">다음 ({currentStep}/4)</TextDiv>
@@ -57,6 +76,8 @@ export default function FooterComponent(): JSX.Element {
           )}
         </Footer>
       )} */}
+        </>
+      )}
     </>
   );
 }
