@@ -16,6 +16,7 @@ const Footer = styled.footer`
   &.disabled {
     cursor: default;
   }
+  z-index: 100;
 `;
 const TextDiv = styled.div`
   margin: 0 0 30px 0;

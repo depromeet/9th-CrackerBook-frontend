@@ -5,6 +5,7 @@ import { typeState } from "../states";
 const Wrapper = styled.div`
   position: absolute;
   top: 196px;
+  z-index: 0;
 `;
 const InnerWrapper = styled.div`
   position: relative;
@@ -35,13 +36,7 @@ export default function DebateComponent(): JSX.Element {
       {type === "debate" ? (
         <Wrapper>
           <InnerWrapper>
-            <svg
-              width="240"
-              height="284"
-              viewBox="0 0 240 284"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg width="240" height="284" viewBox="0 0 240 284">
               <g filter="url(#filter0_d)">
                 <path
                   cursor="pointer"

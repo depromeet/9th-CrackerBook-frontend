@@ -4,57 +4,58 @@ import { typeState } from "../states";
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 65px;
-  left: 13px;
-  z-index: 0;
+  top: 360px;
+  left: 158px;
+  z-index: 1;
 `;
 const InnerWrapper = styled.div`
   position: relative;
 `;
 const Text = styled.div`
   position: absolute;
-  left: 42px;
-  top: 45px;
+  left: 83px;
+  top: 47px;
   cursor: pointer;
   font-size: 14px;
   line-height: 20px;
   text-align: center;
 `;
+const Path = styled.path`
+  z-index: 10;
+`;
 const CheckIconBox = styled.div`
   position: absolute;
-  left: 78px;
-  top: 0px;
+  left: 147px;
+  top: 21px;
   cursor: pointer;
 `;
 
 // 토론, 발표, 글쓰기, 포트폴리오, 기타
 // "debate", "announcement", "writing", "portfolio", "etc"
-export default function AnnouncementComponent(): JSX.Element {
+export default function EtcComponent(): JSX.Element {
   const [type, setType] = useRecoilState(typeState);
 
   return (
     <>
-      {type === "announcement" ? (
+      {type === "etc" ? (
         <Wrapper>
           <InnerWrapper>
-            <svg width="159" height="162" viewBox="0 0 159 162">
+            <svg width="232" height="168" viewBox="0 0 232 168">
               <g filter="url(#filter0_d)">
-                <circle
+                <Path
                   cursor="pointer"
                   onClick={() => setType("")}
-                  cx="55"
-                  cy="55"
-                  r="55"
-                  fill="#9A6EC6"
+                  d="M88.9813 14.4964C46.5794 20.931 15.6054 55.9728 12.696 97.0322C11.9153 108.05 22.3562 115.637 33.2768 113.98L171.692 92.9751C182.613 91.3179 190.333 80.9748 186.318 70.6844C171.359 32.3367 131.383 8.06175 88.9813 14.4964Z"
+                  fill="#F26624"
                 />
               </g>
               <defs>
                 <filter
                   id="filter0_d"
-                  x="-3"
-                  y="0"
-                  width="162"
-                  height="162"
+                  x="0.783203"
+                  y="0.263687"
+                  width="239.9"
+                  height="167.447"
                   filterUnits="userSpaceOnUse"
                   colorInterpolationFilters="sRGB"
                 >
@@ -84,7 +85,7 @@ export default function AnnouncementComponent(): JSX.Element {
                 </filter>
               </defs>
             </svg>
-            <Text onClick={() => setType("")}>발표</Text>
+            <Text onClick={() => setType("")}>기타</Text>
             <CheckIconBox onClick={() => setType("")}>
               <img src="/assets/opening/check32.svg" />
             </CheckIconBox>
@@ -92,17 +93,15 @@ export default function AnnouncementComponent(): JSX.Element {
         </Wrapper>
       ) : (
         <Wrapper>
-          <svg width="110" height="110" viewBox="0 0 110 110">
-            <circle
+          <svg width="192" height="117" viewBox="0 0 192 117">
+            <Path
               cursor="pointer"
-              onClick={() => setType("announcement")}
-              cx="55"
-              cy="55"
-              r="55"
-              fill="#E8DFF1"
+              onClick={() => setType("etc")}
+              d="M88.9813 14.4964C46.5794 20.931 15.6054 55.9728 12.696 97.0322C11.9153 108.05 22.3562 115.637 33.2768 113.98L171.692 92.9751C182.613 91.3179 190.333 80.9748 186.318 70.6844C171.359 32.3367 131.383 8.06175 88.9813 14.4964Z"
+              fill="#FFDFC1"
             />
           </svg>
-          <Text onClick={() => setType("announcement")}>발표</Text>
+          <Text onClick={() => setType("etc")}>기타</Text>
         </Wrapper>
       )}
     </>
