@@ -13,9 +13,7 @@ export default function BookDetailIndexComponent(): JSX.Element {
               <DivLine />
               <TabContainer />
           </div>
-          <BottomBarStyle>
-              <BottomBar text='이 책으로 스터디 만들기' type='book'/>
-          </BottomBarStyle>
+          <BottomBar text='이 책으로 스터디 만들기' type='book'/>
       </>
   );
 }

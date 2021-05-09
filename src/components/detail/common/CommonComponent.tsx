@@ -29,7 +29,7 @@ export function BottomBar(props: { text: string, type: string }): JSX.Element {
                 <BottomBarWrapper>
                     <BookLikeIcon src='/assets/main/bookLike.svg'/>
                     <ShareIcon src='/assets/detail/share.svg'/>
-                    <GoCreate onClick={() => setConfirmBox(!confirmBox)}>{props.text}</GoCreate>
+                    <GoCreate onClick={() => setConfirmBox(!confirmBox)} type={props.type}>{props.text}</GoCreate>
                 </BottomBarWrapper>
             </BottomBarStyle>
         );
@@ -55,10 +55,10 @@ const ShareIcon = styled.img`
   cursor: pointer;
 `;
 
-const GoCreate = styled.div`
+const GoCreate = styled.div<{type: string}>`
   color: #222222;
-  padding-left: 75px;
-  padding-right: 74px;
+  padding-left: ${(props) => props.type === 'book' ? '48px' : '75px'};
+  padding-right: ${(props) => props.type === 'book' ? '47px' : '74px'};
   cursor: pointer;
 `;
 
