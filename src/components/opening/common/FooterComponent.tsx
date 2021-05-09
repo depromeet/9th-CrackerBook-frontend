@@ -35,19 +35,19 @@ export default function FooterComponent(): JSX.Element {
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
   return (
     <>
-      {nextStep ? (
-        <>
-          {currentStep !== 4 ? (
-            <Footer onClick={() => setCurrentStep(currentStep + 1)}>
-              <TextDiv>다음 ({currentStep}/4)</TextDiv>
-            </Footer>
-          ) : (
-            <Footer onClick={() => alert(`완료`)}>
-              <TextDiv>완료 ({currentStep}/4)</TextDiv>
-            </Footer>
-          )}
-        </>
-      ) : (
+      {/* {nextStep ? ( */}
+      <>
+        {currentStep !== 4 ? (
+          <Footer onClick={() => setCurrentStep(currentStep + 1)}>
+            <TextDiv>다음 ({currentStep}/4)</TextDiv>
+          </Footer>
+        ) : (
+          <Footer onClick={() => alert(`완료`)}>
+            <TextDiv>완료 ({currentStep}/4)</TextDiv>
+          </Footer>
+        )}
+      </>
+      {/* ) : (
         <Footer className="disabled">
           {currentStep !== 4 ? (
             <TextDiv className="disabled">다음 ({currentStep}/4)</TextDiv>
@@ -55,7 +55,7 @@ export default function FooterComponent(): JSX.Element {
             <TextDiv className="disabled">완료 ({currentStep}/4)</TextDiv>
           )}
         </Footer>
-      )}
+      )} */}
     </>
   );
 }
