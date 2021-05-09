@@ -32,7 +32,7 @@ const TextDiv = styled.div`
 `;
 
 export default function FooterComponent(): JSX.Element {
-  const [nextStep] = useRecoilState(nextStepState);
+  // const [nextStep] = useRecoilState(nextStepState);
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
   return (
     <>
