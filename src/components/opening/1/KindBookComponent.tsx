@@ -71,7 +71,7 @@ const SearchInput = styled.input`
   padding: 17px 0 0 0;
   border: 0;
   background: initial;
-  height: 10px;
+  height: 11px;
   outline: none;
   ::placeholder {
     color: #999999;
@@ -338,7 +338,7 @@ export default function KindBookComponent(): JSX.Element {
                   <Author>{v.author}</Author>
                   <CheckIconBox>
                     {categorySelected === index ? (
-                      <img src="/assets/opening/favoritecheck.svg" />
+                      <img src="/assets/opening/check26.svg" />
                     ) : (
                       <img src="/assets/opening/favorite.svg" />
                     )}

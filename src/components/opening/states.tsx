@@ -8,4 +8,8 @@ const nextStepState = atom({
   key: `nextStep`,
   default: false,
 });
-export { currentStepState, nextStepState };
+const typeState = atom({
+  key: `type`,
+  default: "",
+});
+export { currentStepState, nextStepState, typeState };

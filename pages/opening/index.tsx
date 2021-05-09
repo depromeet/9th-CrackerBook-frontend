@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { currentStepState } from "src/components/opening/states";
 import KindBookComponent from "src/components/opening/1/KindBookComponent";
