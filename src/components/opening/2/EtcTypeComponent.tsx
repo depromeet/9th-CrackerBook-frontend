@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import {
   currentStepState,
@@ -57,7 +57,7 @@ const IconText = styled.div`
   color: #222222;
 `;
 
-export default function KindTypeComponent(): JSX.Element {
+export default function EtcTypeComponent(): JSX.Element {
   const setCurrentStep = useSetRecoilState(currentStepState);
   const setShowEtcType = useSetRecoilState(showEtcTypeState);
   const setTypeEtcStringState = useSetRecoilState(typeEtcStringState);
