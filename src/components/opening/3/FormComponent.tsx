@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const FormWrapper = styled.div`
   padding: 0 20px 80px 20px;
@@ -64,8 +65,59 @@ const Textarea = styled.textarea`
     color: #999999;
   }
 `;
+const UlWrapper = styled.ul`
+  position: relative;
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+`;
+const LiList = styled.li`
+  float: left;
+  cursor: pointer;
+  display: block;
+  margin: 0 0 10px 0;
+`;
+const LiIcon = styled.img`
+  position: absolute;
+`;
+const LiText = styled.div`
+  margin: 3px 0 0 36px;
+  float: left;
+  font-size: 14px;
+  line-height: 20px;
+  color: #222222;
+  text-align: left;
+`;
+const LiInput = styled.input`
+  margin: 0 0 10px 36px;
+  padding: 20px;
+  width: 299px;
+  height: 46px;
+  border: 1px solid #f1f1f3;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  ::placeholder {
+    color: #999999;
+  }
+`;
+
+const DifficultyData = [
+  { label: "초급", value: "beginner" },
+  { label: "중급", value: "intermediate" },
+  { label: "고급", value: "advanced" },
+];
+const LocationData = [
+  { label: "온라인", value: "online" },
+  { label: "오프라인", value: "offline" },
+  { label: "온+오프라인", value: "bothline" },
+];
 
 export default function FormComponent(): JSX.Element {
+  const [difficulty, setDifficulty] = useState("");
+  const [location, setLocation] = useState("");
+
   return (
     <FormWrapper>
       <BoxWrapper>
@@ -89,11 +141,49 @@ export default function FormComponent(): JSX.Element {
       </BoxWrapper>
       <BoxWrapper>
         <Title>스터디 난이도</Title>
-        <Content></Content>
+        <Content>
+          <UlWrapper>
+            {DifficultyData.map((v, index) => {
+              return (
+                <LiList key={index} onClick={() => setDifficulty(v.value)}>
+                  {difficulty === v.value ? (
+                    <LiIcon src="/assets/opening/check26.svg" />
+                  ) : (
+                    <LiIcon src="/assets/opening/notcheck26.svg" />
+                  )}
+                  <LiText>{v.label}</LiText>
+                </LiList>
+              );
+            })}
+          </UlWrapper>
+        </Content>
       </BoxWrapper>
       <BoxWrapper>
         <Title>장소</Title>
-        <Content></Content>
+        <Content>
+          <UlWrapper>
+            {LocationData.map((v, index) => {
+              return (
+                <>
+                  <LiList key={index} onClick={() => setLocation(v.value)}>
+                    {location === v.value ? (
+                      <LiIcon src="/assets/opening/check26.svg" />
+                    ) : (
+                      <LiIcon src="/assets/opening/notcheck26.svg" />
+                    )}
+                    <LiText>{v.label}</LiText>
+                  </LiList>
+                  {index !== 0 && (
+                    <LiInput
+                      placeholder="모임 장소를 입력해주세요."
+                      disabled={location !== v.value}
+                    />
+                  )}
+                </>
+              );
+            })}
+          </UlWrapper>
+        </Content>
       </BoxWrapper>
     </FormWrapper>
   );
