@@ -114,10 +114,11 @@ export default function ProfileArea(): JSX.Element {
         <div>
             <ProfileBackground>
                 <ProfileImgArea>
-                    <img src="/assets/profile/profile1.svg"
-                         />
+                    <img src="/assets/profile/profile1.svg"/>
                 </ProfileImgArea>
-                <EditProfile src="/assets/profile/setting.svg"/>
+                <Link href="/profile/setting">
+                    <EditProfile src="/assets/profile/setting.svg"/>
+                </Link>
             </ProfileBackground>
             <ButtonArea>
                 <ButtonWrapper>
@@ -126,7 +127,6 @@ export default function ProfileArea(): JSX.Element {
                             <img src="/assets/profile/activityrewards.svg" />
                         </ActivityButton>
                     </Link>
-
                     <Link href={"/profile/interestedBook"}>
                         <ActivityButton>
                         <img src="/assets/profile/interestbook.svg" />

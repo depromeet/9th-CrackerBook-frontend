@@ -47,6 +47,14 @@ const TabButton = styled.div`
   }
 `
 
+const TabContentsArea = styled.div`
+  position: absolute;
+  width: 375px;
+  //height: 723px;
+  left: 0px;
+  top: 484px;
+`
+
 
 export default function StudyArea():JSX.Element {
 
@@ -82,7 +90,7 @@ export default function StudyArea():JSX.Element {
                     );
                 })}
             </StudyTabsArea>
-            <div className="contents">{tabContents[tab]}</div>
+            <TabContentsArea className="contents">{tabContents[tab]}</TabContentsArea>
         </div>
     );
 }
