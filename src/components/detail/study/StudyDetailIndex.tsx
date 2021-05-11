@@ -1,8 +1,15 @@
 import {Tab} from "./tab/Tab";
 import {StudyInfoIndexComponent} from "./studyInfo/StudyInfoIndex";
 import {BottomBar} from "../common/CommonComponent";
+import {useRecoilState} from "recoil";
+import {CompleteBoxState, EnrollConfirmBoxState} from "../../../state/detail/detailState";
+import {EnrollStudy} from "../enrollStudy/EnrollStudy";
+import {BlackBackground} from "../../../styles/detail/common/commonStyle";
+import {CompleteEnroll} from "../../common/confirmModal/CompleteEnroll";
 
 export default function StudyDetailIndex(): JSX.Element {
+    const [enrollSate] = useRecoilState<boolean>(EnrollConfirmBoxState);
+    const [completeBoxState] = useRecoilState<boolean>(CompleteBoxState);
 
     return (
         <>
@@ -10,6 +17,21 @@ export default function StudyDetailIndex(): JSX.Element {
             <Tab/>
 
             <BottomBar text='스터디 신청하기' type='study'/>
+
+            {
+                enrollSate && (
+                    <BlackBackground>
+                        <EnrollStudy/>
+                    </BlackBackground>
+                )
+            }
+            {
+                completeBoxState && (
+                    <BlackBackground>
+                        <CompleteEnroll/>
+                    </BlackBackground>
+                )
+            }
         </>
 
     )

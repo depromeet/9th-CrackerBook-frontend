@@ -2,6 +2,8 @@ import {BottomBarStyle, ModalElement, ModalWrapper} from "../../../styles/detail
 import styled from "styled-components";
 import {useState} from "react";
 import {ConfirmStudy} from "../confirmStudy/ConfirmStudy";
+import {atom, useRecoilState} from "recoil";
+import {ConfirmBoxState, EnrollConfirmBoxState} from "../../../state/detail/detailState";
 
 type ModalPosition = {
     pageX: number;
@@ -22,17 +24,21 @@ export function Modal(props: { modalPosition: ModalPosition }): JSX.Element {
 }
 
 export function BottomBar(props: { text: string, type: string }): JSX.Element {
-    const [confirmBox, setConfirmBox] = useState<boolean>(false);
-    return confirmBox ? <ConfirmStudy/>
-        : (
-            <BottomBarStyle>
-                <BottomBarWrapper>
-                    <BookLikeIcon src='/assets/main/bookLike.svg'/>
-                    <ShareIcon src='/assets/detail/share.svg'/>
-                    <GoCreate onClick={() => setConfirmBox(!confirmBox)} type={props.type}>{props.text}</GoCreate>
-                </BottomBarWrapper>
-            </BottomBarStyle>
-        );
+    const [confirmBox, setConfirmBox] = useRecoilState<boolean>(ConfirmBoxState);
+    const [enrollSate, setEnrollSate] = useRecoilState<boolean>(EnrollConfirmBoxState);
+    const conFirmBoxEvent = () => {
+        (props.type === 'book') ? setConfirmBox(!confirmBox) : setEnrollSate(!enrollSate);
+    }
+    return (
+        <BottomBarStyle>
+            <BottomBarWrapper>
+                <BookLikeIcon src='/assets/main/bookLike.svg'/>
+                <ShareIcon src='/assets/detail/share.svg'/>
+                <GoCreate onClick={conFirmBoxEvent} type={props.type}>{props.text}</GoCreate>
+            </BottomBarWrapper>
+        </BottomBarStyle>
+    );
+
 }
 
 
@@ -55,7 +61,7 @@ const ShareIcon = styled.img`
   cursor: pointer;
 `;
 
-const GoCreate = styled.div<{type: string}>`
+const GoCreate = styled.div<{ type: string }>`
   color: #222222;
   padding-left: ${(props) => props.type === 'book' ? '48px' : '75px'};
   padding-right: ${(props) => props.type === 'book' ? '47px' : '74px'};

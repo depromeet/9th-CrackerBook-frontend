@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import {BlackBackground} from "../../../styles/detail/common/commonStyle";
 import {ConfirmBox} from "../../common/confirmModal/ConfirmBox";
+import {useRecoilState} from "recoil";
+import {ConfirmBoxState} from "../../../state/detail/detailState";
 
 export function ConfirmStudy(): JSX.Element {
+    const [confirmBoxState, setConfirmBoxSate] = useRecoilState<boolean>(ConfirmBoxState);
     // @ts-ignore
     document.childNodes[1].setAttribute('style', 'overflow:hidden');
     const param = {
@@ -13,7 +16,7 @@ export function ConfirmStudy(): JSX.Element {
                 <CancelButton>
                     취소
                 </CancelButton>
-                <ConfirmButton>
+                <ConfirmButton onClick={() => setConfirmBoxSate(false)}>
                     확인
                 </ConfirmButton>
             </ButtonComponent>
@@ -29,6 +32,7 @@ export function ConfirmStudy(): JSX.Element {
                 <ConfirmButton onClick={() => {
                     // @ts-ignore
                     document.childNodes[1].setAttribute('style', 'overflow:auto');
+                    setConfirmBoxSate(false);
                 }}>
                     확인
                 </ConfirmButton>

@@ -1,7 +1,12 @@
 import styled from "styled-components";
+import {useRecoilState} from "recoil";
+import {CompleteBoxState} from "../../../state/detail/detailState";
+import Link from "next/link";
 
 export function CompleteEnroll(): JSX.Element {
-
+    const [completeBoxState, setCompleteBoxState] = useRecoilState<boolean>(CompleteBoxState);
+    // @ts-ignore
+    document.childNodes[1].setAttribute('style', 'overflow:hidden');
     return (
         <>
             <Wrapper>
@@ -17,9 +22,16 @@ export function CompleteEnroll(): JSX.Element {
                             가입한 메일로 스터디 공지를 확인해보세요.
                         </Comment2>
                     </CommentBox>
-                    <Confirm>
-                        확인
-                    </Confirm>
+                    <Link href='/main'>
+                        <Confirm onClick={() => {
+                            // @ts-ignore
+                            document.childNodes[1].setAttribute('style', 'overflow:auto');
+                            setCompleteBoxState(!completeBoxState);
+                        }
+                        }>
+                            확인
+                        </Confirm>
+                    </Link>
                 </CompleteWrapper>
             </Wrapper>
 
@@ -28,7 +40,7 @@ export function CompleteEnroll(): JSX.Element {
 }
 
 const Wrapper = styled.div`
-  display: flex;  
+  display: flex;
   flex-direction: column;
   position: absolute;
   left: 30px;

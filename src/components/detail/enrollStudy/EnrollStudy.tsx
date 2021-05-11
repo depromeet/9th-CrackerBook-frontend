@@ -1,10 +1,20 @@
 import styled from "styled-components";
+import {useRecoilState} from "recoil";
+import {CompleteBoxState, EnrollConfirmBoxState} from "../../../state/detail/detailState";
 
 export function EnrollStudy(): JSX.Element {
+    const [enrollSate, setEnrollState] = useRecoilState<boolean>(EnrollConfirmBoxState);
+    const [completeBoxState, setCompleteBoxState] = useRecoilState<boolean>(CompleteBoxState);
+    // @ts-ignore
+    document.childNodes[1].setAttribute('style', 'overflow:hidden');
     return (
         <ConfirmWrapper>
             <ConfirmBox>
-                <Close src='/assets/detail/close.svg'/>
+                <Close src='/assets/detail/close.svg' onClick={() => {
+                    // @ts-ignore
+                    document.childNodes[1].setAttribute('style', 'overflow:auto');
+                    setEnrollState(!enrollSate);
+                }}/>
                 <InnerBox>
                     <ContentBox>
                         <StudyName>
@@ -16,7 +26,10 @@ export function EnrollStudy(): JSX.Element {
                     </ContentBox>
                 </InnerBox>
             </ConfirmBox>
-            <ApplyButtom>스터디 신청하기</ApplyButtom>
+            <ApplyButtom onClick={() => {
+                setEnrollState(!enrollSate);
+                setCompleteBoxState(!completeBoxState);
+            }}>스터디 신청하기</ApplyButtom>
         </ConfirmWrapper>
     )
 }
