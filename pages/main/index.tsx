@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BooksComponent from "../../src/components/main/BooksComponent";
+import HeaderComponent from "../../src/components/common/Header";
 
 interface BookData {
   bookName: string;
@@ -22,6 +23,7 @@ export default function Index(): JSX.Element {
 
   return (
     <>
+      <HeaderComponent/>
       <BooksComponent bookData={bookData} />
     </>
   );

@@ -1,42 +1,48 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-const Header = styled.header`
-  position: relative;
-  width: 100%;
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    border-bottom: 1px solid #f4f4f4;
-  }
-`;
-const UL = styled.ul`
+export default function HeaderComponent(): JSX.Element {
+    return (
+        <HeaderWrapper>
+            <Link href='/main'>
+                <CrackerHeader>
+                    CRACKER BOOK
+                </CrackerHeader>
+            </Link>
+            <Link href='/search'>
+                <GlassWrapper>
+                    <GlassIcon src='/assets/detail/magnifyingGlass.svg'/>
+                </GlassWrapper>
+            </Link>
+        </HeaderWrapper>
+    );
+}
+
+const HeaderWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 50px;
-  padding: 0 30px;
+  height: 58px;
+  padding: 0 20px;
 `;
 
-export default function HeaderComponent(): JSX.Element {
-  return (
-    <Header>
-      <UL>
-        <Link href="/">
-          <a>Main</a>
-        </Link>
-        <Link href="/tabs/first">
-          <a>Sub1</a>
-        </Link>
-        <Link href="/tabs/second">
-          <a>Sub2</a>
-        </Link>
-        <Link href="/tabs/third">
-          <a>Sub3</a>
-        </Link>
-      </UL>
-    </Header>
-  );
-}
+const CrackerHeader = styled.div`
+  margin-left: 50px;
+  width: 80%;
+  color: #222222;
+  font-weight: 900;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+`;
+
+const GlassWrapper = styled.div`
+  width: 20%;
+  text-align: right;
+`;
+
+const GlassIcon = styled.img`
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+`;

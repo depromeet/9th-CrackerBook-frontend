@@ -15,20 +15,13 @@ const StudyTypeDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: 28px;
 `;
 
 const StudyTypeTitle = styled.div`
+  width: 56px;
   text-align: center;
   font-size: 12px;
-`;
-
-const StudyTypeImg = styled.img`
-  width: 52px;
-  height: 52px;
-  border-radius: 20px;
-  margin: 10px;
-  background-color: #f4f4f4;
-  text-align: center;
 `;
 
 const Hr = styled.hr`
@@ -284,7 +277,6 @@ export {
   MainContainer,
   StudyTypeWrapper,
   StudyTypeDiv,
-  StudyTypeImg,
   Hr,
   StudyTypeTitle,
   StudyTitle,

@@ -20,10 +20,6 @@ import {
   StudyImg,
   StudyInfoWrapper,
   StudyProfile, StudyTitle,
-  StudyTypeDiv,
-  StudyTypeImg,
-  StudyTypeTitle,
-  StudyTypeWrapper,
   TitleDiv,
   TitleWrapper,
   TotalView,
@@ -32,6 +28,7 @@ import Link from "next/link";
 import {useState} from "react";
 import {Modal} from "../detail/common/CommonComponent";
 import {ThisBookContentWrapper} from "../../styles/detail/book/bookDetailStyle";
+import BooksHeaderComponent from "./BooksHeaderComponent";
 
 interface BookData {
   bookName: string;
@@ -47,21 +44,13 @@ export default function BooksComponent(props: {
   bookData: Array<BookData>;
 }): JSX.Element {
   const data = props.bookData;
-  const array = new Array(5).fill(1);
-  const list = array.map((a, index) => (
-    <StudyTypeDiv>
-      <StudyTypeImg key={index} src="/assets/main/main.png" />
-      <StudyTypeTitle>토론</StudyTypeTitle>
-    </StudyTypeDiv>
-  ));
-
   return (
     <>
       {!data ? (
         <div>로딩중</div>
       ) : (
         <>
-          <StudyTypeWrapper>{list}</StudyTypeWrapper>
+          <BooksHeaderComponent/>
           <Hr />
           {data.map((book, index) => {
             return (
