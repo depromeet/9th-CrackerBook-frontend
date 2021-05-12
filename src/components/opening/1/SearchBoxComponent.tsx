@@ -35,8 +35,8 @@ const ModalWrapper = styled.div`
   box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   border-radius: 4px;
-  color: #677ac7;
   font-size: 14px;
+  color: #999999;
   width: 79px;
   top: 41px;
   z-index: 1;
@@ -48,11 +48,16 @@ const ModalElement = styled.div`
   border-collapse: collapse;
   display: flex;
   align-items: center;
-  margin: 0 20px;
   justify-content: left;
   &:last-child {
     border-bottom: 0;
-  },
+  }
+  &.on {
+    color: #677ac7;
+  }
+`;
+const ModalText = styled.div`
+  margin: 0 0 0 20px;
 `;
 const SearchInput = styled.input`
   float: left;
@@ -82,7 +87,7 @@ const ClearIconBox = styled.div`
   right: 50px;
   cursor: pointer;
 `;
-const CategoryTitles = ["책", "저자", "관심 책"];
+const CategoryTitles = ["책", "저자", "관심책"];
 
 export default function KindBookComponent(): JSX.Element {
   const Router = useRouter();
@@ -123,9 +128,17 @@ export default function KindBookComponent(): JSX.Element {
             setIsOpen(!isOpen);
           }}
         >
-          <ModalElement onClick={() => setCategory(0)}>책</ModalElement>
-          <ModalElement onClick={() => setCategory(1)}>저자</ModalElement>
-          <ModalElement onClick={() => setCategory(2)}>관심책</ModalElement>
+          {CategoryTitles.map((v, index) => {
+            return (
+              <ModalElement
+                key={index}
+                onClick={() => setCategory(index)}
+                className={category === index ? "on" : ""}
+              >
+                <ModalText>{v}</ModalText>
+              </ModalElement>
+            );
+          })}
         </ModalWrapper>
       )}
       <SearchInput

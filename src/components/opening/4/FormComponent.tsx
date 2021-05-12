@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { useState } from "react";
-import DateFnsUtils from "@date-io/date-fns";
-import { MuiPickersUtilsProvider, DateTimePicker } from "@material-ui/pickers";
+import amber from "@material-ui/core/colors/amber";
+import { DateTimePicker } from "@material-ui/pickers";
+import { createMuiTheme } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
 
 const FormWrapper = styled.div`
   padding: 0 0 80px 0;
@@ -17,6 +19,10 @@ const Title = styled.div`
 `;
 const TimeBoxWrapper = styled.div`
   padding: 40px 0 0 0;
+  height: 138px;
+`;
+const LiIcon = styled.img`
+  position: absolute;
 `;
 const TimeTitle = styled.div`
   padding: 0 20px;
@@ -29,7 +35,28 @@ const Content = styled.div`
   position: relative;
   padding: 10px 0;
 `;
-
+const TimeImgWrapper = styled.div`
+  width: 100%;
+  height: 88px;
+  border-top: 1px solid #f1f1f3;
+  border-bottom: 1px solid #f1f1f3;
+  z-index: 1;
+`;
+const TimeImgStart = styled.img`
+  position: absolute;
+  z-index: 1;
+`;
+const TimeImgEnd = styled.div`
+  position: absolute;
+  right: 0px;
+  width: 190px;
+  height: 88px;
+  z-index: 1;
+`;
+const DateTimePickerWrapper = styled.div`
+  position: absolute;
+  display: none;
+`;
 const UlWrapper = styled.ul`
   position: relative;
   display: flex;
@@ -45,9 +72,6 @@ const LiList = styled.li`
   &.on {
     cursor: default;
   }
-`;
-const LiIcon = styled.img`
-  position: absolute;
 `;
 const LiText = styled.div`
   margin: 3px 20px 0 36px;
@@ -91,6 +115,7 @@ const LiCircleText = styled.div`
   font-size: 12px;
   line-height: 17px;
 `;
+
 const LocationData = [
   { label: "매주", value: "oneweek" },
   { label: "격주", value: "twoweek" },
@@ -107,14 +132,25 @@ const WeekData = [
   { label: "토", value: "SAT" },
 ];
 
+const defaultMaterialTheme = createMuiTheme({
+  palette: {
+    primary: amber,
+  },
+});
+
 export default function FormComponent(): JSX.Element {
   const [selectedDate, handleDateChange] = useState(new Date());
+  const [isOpen, setIsOpen] = useState(false);
   const [repeat, setRepeat] = useState("");
   const [week, setWeek] = useState("");
-  const initWeek = (event, value) => {
+  const setRepeatFunction = (event, value) => {
     event.preventDefault();
     setRepeat(value);
     setWeek("");
+  };
+  const setWeekFunction = (event, value) => {
+    event.stopPropagation();
+    setWeek(value);
   };
 
   return (
@@ -122,49 +158,52 @@ export default function FormComponent(): JSX.Element {
       <TimeBoxWrapper>
         <TimeTitle>스터디 기간</TimeTitle>
         <Content>
-          <svg width="375" height="90" viewBox="0 0 375 90" fill="none">
-            <line y1="0.5" x2="375" y2="0.5" stroke="#F1F1F3" />
-            <line y1="88.5" x2="375" y2="88.5" stroke="#F1F1F3" />
-            <path d="M178 1L198 45L178 89" stroke="#F1F1F3" />
-          </svg>
+          <TimeImgWrapper>
+            <TimeImgStart
+              src="/assets/opening/period.svg"
+              onClick={() => setIsOpen(true)}
+            />
+            <TimeImgEnd onClick={() => setIsOpen(true)} />
+            <DateTimePickerWrapper>
+              <ThemeProvider theme={defaultMaterialTheme}>
+                <DateTimePicker
+                  value={selectedDate}
+                  open={isOpen}
+                  onOpen={() => setIsOpen(true)}
+                  onClose={() => setIsOpen(false)}
+                  onChange={handleDateChange}
+                ></DateTimePicker>
+              </ThemeProvider>
+            </DateTimePickerWrapper>
+          </TimeImgWrapper>
         </Content>
-        <input
-          type="datetime-local"
-          id="meeting-time"
-          name="meeting-time"
-          value="2018-06-12T19:30"
-          min="2018-06-07T00:00"
-          max="2018-06-14T00:00"
-        />
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <DateTimePicker
-            value={selectedDate}
-            onChange={handleDateChange}
-          ></DateTimePicker>
-        </MuiPickersUtilsProvider>
       </TimeBoxWrapper>
       <BoxWrapper>
         <Title>스터디 반복</Title>
         <Content>
           <UlWrapper>
-            {LocationData.map((v, index) => {
+            {LocationData.map((v, vindex) => {
               return (
-                <>
+                <LiList
+                  key={vindex}
+                  className={repeat === v.value ? "on" : ""}
+                  onClick={(event) => setRepeatFunction(event, v.value)}
+                >
                   {repeat === v.value ? (
-                    <LiList className="on" key={index}>
+                    <>
                       <LiIcon src="/assets/opening/check26.svg" />
-                      <div>
-                        <LiText>{v.label}</LiText>
-                        <LiSubText>총 스터디 횟수 20</LiSubText>
-                      </div>
-                      {repeat !== "norepeat" && (
+                      <LiText>{v.label}</LiText>
+                      <LiSubText>총 스터디 횟수 20</LiSubText>
+                      {repeat === "oneweek" && (
                         <LiCircleWrapper>
-                          {WeekData.map((w, index) => {
+                          {WeekData.map((w, windex) => {
                             return (
                               <LiCircle
-                                key={index}
+                                key={windex}
                                 className={week === w.value ? "on" : ""}
-                                onClick={() => setWeek(w.value)}
+                                onClick={(event) =>
+                                  setWeekFunction(event, w.value)
+                                }
                               >
                                 <LiCircleText>{w.label}</LiCircleText>
                               </LiCircle>
@@ -172,26 +211,42 @@ export default function FormComponent(): JSX.Element {
                           })}
                         </LiCircleWrapper>
                       )}
-                    </LiList>
+                    </>
                   ) : (
-                    <LiList
-                      key={index}
-                      onClick={(event) => initWeek(event, v.value)}
-                    >
+                    <>
                       <LiIcon src="/assets/opening/notcheck26.svg" />
                       <LiText>{v.label}</LiText>
-                    </LiList>
+                    </>
                   )}
-                </>
+                </LiList>
               );
             })}
           </UlWrapper>
         </Content>
       </BoxWrapper>
-      <BoxWrapper>
-        <Title>모집 기간</Title>
-        <Content></Content>
-      </BoxWrapper>
+      <TimeBoxWrapper>
+        <TimeTitle>모집 기간</TimeTitle>
+        <Content>
+          <TimeImgWrapper>
+            <TimeImgStart
+              src="/assets/opening/period.svg"
+              onClick={() => setIsOpen(true)}
+            />
+            <TimeImgEnd onClick={() => setIsOpen(true)} />
+            <DateTimePickerWrapper>
+              <ThemeProvider theme={defaultMaterialTheme}>
+                <DateTimePicker
+                  value={selectedDate}
+                  open={isOpen}
+                  onOpen={() => setIsOpen(true)}
+                  onClose={() => setIsOpen(false)}
+                  onChange={handleDateChange}
+                ></DateTimePicker>
+              </ThemeProvider>
+            </DateTimePickerWrapper>
+          </TimeImgWrapper>
+        </Content>
+      </TimeBoxWrapper>
     </FormWrapper>
   );
 }

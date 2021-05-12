@@ -46,6 +46,7 @@ const IconWrapper = styled.div`
 `;
 const IconInnerWrapper = styled.div`
   position: relative;
+  cursor: pointer;
 `;
 const IconText = styled.div`
   position: absolute;
@@ -72,7 +73,7 @@ export default function EtcTypeComponent(): JSX.Element {
       setShowEtcType(false);
       setCurrentStep(3);
     } else {
-      alert("검색어를 입력해주세요.");
+      alert("스터디 유형을 입력해주세요.");
     }
   };
 

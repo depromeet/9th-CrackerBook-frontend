@@ -73,6 +73,7 @@ const UlWrapper = styled.ul`
   flex-wrap: wrap;
 `;
 const LiList = styled.li`
+  position: relative;
   float: left;
   cursor: pointer;
   display: block;
@@ -80,6 +81,7 @@ const LiList = styled.li`
 `;
 const LiIcon = styled.img`
   position: absolute;
+  left: 0;
 `;
 const LiText = styled.div`
   margin: 3px 0 0 36px;
@@ -90,7 +92,7 @@ const LiText = styled.div`
   text-align: left;
 `;
 const LiInput = styled.input`
-  margin: 0 0 10px 36px;
+  margin: 10px 0 10px 36px;
   padding: 20px;
   width: 299px;
   height: 46px;
@@ -164,22 +166,20 @@ export default function FormComponent(): JSX.Element {
           <UlWrapper>
             {LocationData.map((v, index) => {
               return (
-                <>
-                  <LiList key={index} onClick={() => setLocation(v.value)}>
-                    {location === v.value ? (
-                      <LiIcon src="/assets/opening/check26.svg" />
-                    ) : (
-                      <LiIcon src="/assets/opening/notcheck26.svg" />
-                    )}
-                    <LiText>{v.label}</LiText>
-                  </LiList>
+                <LiList key={index} onClick={() => setLocation(v.value)}>
+                  {location === v.value ? (
+                    <LiIcon src="/assets/opening/check26.svg" />
+                  ) : (
+                    <LiIcon src="/assets/opening/notcheck26.svg" />
+                  )}
+                  <LiText>{v.label}</LiText>
                   {index !== 0 && (
                     <LiInput
                       placeholder="모임 장소를 입력해주세요."
                       disabled={location !== v.value}
                     />
                   )}
-                </>
+                </LiList>
               );
             })}
           </UlWrapper>
