@@ -5,7 +5,6 @@ import { typeState } from "../states";
 const Wrapper = styled.div`
   position: absolute;
   top: 196px;
-  z-index: 0;
 `;
 const InnerWrapper = styled.div`
   position: relative;

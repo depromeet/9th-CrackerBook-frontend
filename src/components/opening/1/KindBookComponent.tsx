@@ -23,7 +23,7 @@ export default function KindBookComponent(): JSX.Element {
     <KindBookWrapper>
       <MainText>
         어떤 책으로
-        <br />
+        {"\n"}
         스터디를 하고 싶으세요?
       </MainText>
       <SearchBoxComponent />

@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   position: absolute;
   top: 65px;
   left: 13px;
-  z-index: 0;
 `;
 const InnerWrapper = styled.div`
   position: relative;

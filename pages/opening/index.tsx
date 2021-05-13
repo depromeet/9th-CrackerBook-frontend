@@ -10,17 +10,19 @@ import HeaderComponent from "src/components/opening/common/HeaderComponent";
 
 export default function Index(): JSX.Element {
   const [currentStep] = useRecoilState(currentStepState);
-
+  const components = [
+    <KindBookComponent key="1" />,
+    <KindTypeComponent key="2" />,
+    <StudyInfoComponent key="3" />,
+    <StudyPeriodComponent key="4" />,
+  ];
   return (
     <>
       <Head>
         <title>스터디 개설하기</title>
       </Head>
       <HeaderComponent />
-      {currentStep === 1 && <KindBookComponent />}
-      {currentStep === 2 && <KindTypeComponent />}
-      {currentStep === 3 && <StudyInfoComponent />}
-      {currentStep === 4 && <StudyPeriodComponent />}
+      {components[currentStep - 1]}
       <FooterComponent />
     </>
   );

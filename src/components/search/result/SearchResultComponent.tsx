@@ -54,7 +54,7 @@ export default function SearchResultComponent(props: {
                 onClick={() => props.setTabSelected(index)}
               >
                 {v}
-                <br />
+                {"\n"}
                 (38)
               </UlDiv>
             );

@@ -45,7 +45,6 @@ const Profile = styled.div`
   margin-right: 20px;
 `;
 const Img = styled.img`
-  margin: 20px;
   height: 105px;
   width: 70px;
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.12));
@@ -82,13 +81,13 @@ const Content = styled.div`
   font-weight: 400;
   color: #677ac7;
 `;
-const Div = styled.div`
+const SubTitle = styled.div`
   margin: 0 0 4px 0;
   font-size: 14px;
   line-height: 20px;
   color: #777777;
 `;
-const SubDiv = styled.div`
+const SubContent = styled.div`
   margin: 0 0 4px 10px;
   font-size: 14px;
   line-height: 20px;
@@ -184,19 +183,20 @@ export default function ListComponent(): JSX.Element {
             onClick={() => setListSelected(index)}
           >
             <Profile>
-              <ImgShadow></ImgShadow>
-              <Img src="/assets/main/exBook.jpg" />
+              <ImgShadow>
+                <Img src="/assets/main/exBook.jpg" />
+              </ImgShadow>
             </Profile>
             <ContentWrapper>
               <Title>{v.title}</Title>
               <Content>
-                <Div>저자</Div>
-                <SubDiv>{v.author}</SubDiv>
+                <SubTitle>저자</SubTitle>
+                <SubContent>{v.author}</SubContent>
               </Content>
               <Content>
-                <Div>출판</Div>
-                <SubDiv>{v.publish}</SubDiv>
-                <SubDiv>{v.date}</SubDiv>
+                <SubTitle>출판</SubTitle>
+                <SubContent>{v.publish}</SubContent>
+                <SubContent>{v.date}</SubContent>
               </Content>
             </ContentWrapper>
           </LiLink>

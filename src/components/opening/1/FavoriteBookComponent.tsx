@@ -158,11 +158,7 @@ export default function KindBookComponent(): JSX.Element {
       <ListWrapper>
         {Result.map((v, index) => {
           return (
-            <LiLink
-              key={index}
-              className={categorySelected === index ? "on" : ""}
-              onClick={() => categorySelect(index)}
-            >
+            <LiLink key={index} onClick={() => categorySelect(index)}>
               <Profile>
                 <ImgShadow></ImgShadow>
                 <Img src="/assets/main/exBook.jpg" />

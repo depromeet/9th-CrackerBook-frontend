@@ -36,7 +36,7 @@ export default function StudyPeriodComponent(): JSX.Element {
     <KindBookWrapper>
       <MainText>
         스터디 기간과 모집 기간을
-        <br />
+        {"\n"}
         선택해주세요.
       </MainText>
       <SubText>

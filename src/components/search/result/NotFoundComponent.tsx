@@ -35,7 +35,7 @@ export default function NotFoundComponent(): JSX.Element {
       <NotFoundMain>검색 결과가 없습니다.</NotFoundMain>
       <NotFoundSub>
         다른 검색어를 입력하시거나
-        <br />
+        {"\n"}
         철자와 띄어쓰기를 확인해보세요.
       </NotFoundSub>
     </NotFoundWrapper>

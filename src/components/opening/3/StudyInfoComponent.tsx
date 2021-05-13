@@ -36,7 +36,7 @@ export default function StudyInfoComponent(): JSX.Element {
     <KindBookWrapper>
       <MainText>
         스터디에 대한 정보를
-        <br />
+        {"\n"}
         입력해주세요.
       </MainText>
       <SubText>

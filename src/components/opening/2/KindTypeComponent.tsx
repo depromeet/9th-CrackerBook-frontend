@@ -52,7 +52,7 @@ export default function KindTypeComponent(): JSX.Element {
     <KindBookWrapper>
       <MainText>
         어떤 유형으로
-        <br />
+        {"\n"}
         스터디를 하고 싶나요?
       </MainText>
       <SubText>

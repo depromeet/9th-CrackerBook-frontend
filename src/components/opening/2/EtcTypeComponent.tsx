@@ -81,7 +81,7 @@ export default function EtcTypeComponent(): JSX.Element {
     <BlackBackground>
       <ContentWrapper>
         저는 스터디 유형을 <Input placeholder="야간독서" ref={inputRef} />로
-        <br />
+        {"\n"}
         만들고 싶어요.
       </ContentWrapper>
       <IconWrapper onClick={(event) => nextStep(event)}>
