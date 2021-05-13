@@ -27,6 +27,11 @@ const showEtcTypeState = atom({
   key: `showEtcType`,
   default: false,
 });
+// 4
+const showCompleteState = atom({
+  key: `showComplete`,
+  default: false,
+});
 
 export {
   currentStepState,
@@ -35,4 +40,5 @@ export {
   typeEtcStringState,
   categoryState,
   showEtcTypeState,
+  showCompleteState,
 };

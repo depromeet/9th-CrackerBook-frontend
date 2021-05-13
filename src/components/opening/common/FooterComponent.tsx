@@ -5,7 +5,9 @@ import {
   currentStepState,
   typeState,
   showEtcTypeState,
+  showCompleteState,
 } from "../states";
+import CompleteComponent from "./CompleteComponent";
 
 const Footer = styled.footer`
   position: fixed;
@@ -40,6 +42,7 @@ export default function FooterComponent(): JSX.Element {
   // const [nextStep] = useRecoilState(nextStepState);
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
   const [showEtcType, setShowEtcType] = useRecoilState(showEtcTypeState);
+  const [showComplete, setShowComplete] = useRecoilState(showCompleteState);
   const [type] = useRecoilState(typeState);
 
   const nextStep = (event) => {
@@ -62,10 +65,11 @@ export default function FooterComponent(): JSX.Element {
                 <TextDiv>다음 ({currentStep}/4)</TextDiv>
               </Footer>
             ) : (
-              <Footer onClick={() => alert(`완료`)}>
+              <Footer onClick={() => setShowComplete(true)}>
                 <TextDiv>완료 ({currentStep}/4)</TextDiv>
               </Footer>
             )}
+            {showComplete && <CompleteComponent />}
           </>
           {/* ) : (
         <Footer className="disabled">
