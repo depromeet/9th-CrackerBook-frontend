@@ -3,15 +3,10 @@ import {
   BookImg, DownImg, DropDown,
   HeartCnt,
   HeartIconBookBox,
-  Hr,
   IconWrapper, IconWrapperContent, LikeDiv,
-  LikeInfoWrapper, LikeStudyTitleWrapper,
-  LikeStudyWrapper,
+  LikeStudyTitleWrapper,
   MainContainer, MoreBtn, NewBookProfile, NewBoxWrapper,
-  NewStudyWrapper,
-  RankBookImg,
-  RankBookWrapper, SmallBookImg,
-  StudyBackground,
+  SmallBookImg,
   StudyContent,
   StudyContentWrapper,
   StudyDiv,
@@ -81,9 +76,10 @@ interface BookData {
 }
 
 export function Title(props: { bookName: string }): JSX.Element {
+  const bookName = props.bookName.length > 11 ? props.bookName.slice(0, 10) + '...' : props.bookName;
   return (
       <>
-        <TitleDiv>&apos;{props.bookName}&lsquo;의</TitleDiv>
+        <TitleDiv>&apos;{bookName}&lsquo;의</TitleDiv>
         <TitleWrapper>
           <TitleDiv>스터디</TitleDiv>
           <TotalView>전체보기 &gt;</TotalView>
