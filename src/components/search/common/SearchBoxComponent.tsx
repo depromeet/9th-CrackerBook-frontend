@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const SearchBoxWrapper = styled.div`
   position: relative;
@@ -27,22 +27,26 @@ const SearchIconBox = styled.div`
   position: absolute;
   top: 3px;
   right: 20px;
+  cursor: pointer;
 `;
 const ClearIconBox = styled.div`
   position: absolute;
   top: 3px;
   right: 50px;
+  cursor: pointer;
 `;
 const InputSearch = styled.input`
   font-size: 14px;
   line-height: 20px;
-  color: #222222;
   border: 0;
   width: 100%;
   display: block;
   margin: 0;
   padding: 11px 0 0;
   outline: none;
+  ::placeholder {
+    color: #999999;
+  }
 `;
 
 export default function SearchBoxComponent(): JSX.Element {
@@ -50,6 +54,7 @@ export default function SearchBoxComponent(): JSX.Element {
   const [searchWord, setSearchWord] = useState(
     Router.query.name ? Router.query.name : "",
   );
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const search = (event) => {
     event.preventDefault();
@@ -63,6 +68,12 @@ export default function SearchBoxComponent(): JSX.Element {
           pathname: `/search/result/${searchWord}`,
         })
       : alert("검색어를 입력해주세요.");
+
+  const clearSearchWord = () => {
+    const node = inputRef.current;
+    node.value = "";
+    setSearchWord("");
+  };
 
   return (
     <SearchBoxWrapper>
@@ -80,9 +91,10 @@ export default function SearchBoxComponent(): JSX.Element {
           defaultValue={searchWord}
           placeholder="책, 저자, 스터디를 검색해주세요."
           onKeyUp={search}
+          ref={inputRef}
         />
         {searchWord && (
-          <ClearIconBox onClick={() => setSearchWord("")}>
+          <ClearIconBox onClick={() => clearSearchWord()}>
             <img src="/assets/search/searchclear.svg" />
           </ClearIconBox>
         )}
