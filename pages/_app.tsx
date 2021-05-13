@@ -1,4 +1,5 @@
 import { AppProps } from "next/app";
+import { RecoilRoot } from "recoil";
 import GlobalStyle from "../src/styles/global";
 import theme from "../src/styles/theme";
 import { ThemeProvider } from "../src/styles/themed-components";
@@ -9,14 +10,16 @@ import {
   Desktop,
   Img,
 } from "../src/styles/common/container";
-import {RecoilRoot} from "recoil";
-import styled from "styled-components";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-      <RecoilRoot>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <AppContainer>
             <Desktop>
               <Title>Craker Book</Title>
@@ -26,7 +29,8 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
               <Component {...pageProps} />
             </Mobile>
           </AppContainer>
-        </ThemeProvider>
-      </RecoilRoot>
+        </MuiPickersUtilsProvider>
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }

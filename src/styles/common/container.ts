@@ -31,15 +31,13 @@ const Img = styled.img`
 
 const Mobile = styled.section`
   position: relative;
-  width: 100%;
-  min-height: 80vh;
+  width: 375px;
   max-width: 375px;
-  margin: 0 0 0 calc(50% - 1px);
   zoom: 1.25;
+  min-height: 80vh;
+  margin: 0 0 0 calc(50% - 1px);
   background-color: ${({ theme }) => theme.colors.white};
   ${({ theme }) => theme.media.mobile`
-    position: relative;
-    max-width: 375px;
     min-height: 100vh;
     margin: 0 auto;
     zoom: 1;
