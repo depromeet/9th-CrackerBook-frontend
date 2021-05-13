@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
-import {useState} from "react";
+import React, {useState} from "react";
+import HorizontalStudy from "../common/study/horizontalStudy";
 
 
 const StudyTitle = styled.div`
@@ -31,29 +32,32 @@ const StudyTabsArea = styled.div`
   /* cracker white */
   background: #fff;
   display: flex;
+
 `;
 
 const TabButton = styled.div`
-  width: 33%;
+  width: 50%;
   height: 100%;
   text-align: center;
-  border-bottom: 2px solid #FFD262;
-  //border-bottom: 2px solid #FFD262;
-  display:table-cell;
-  vertical-align:middle;
+  
 
-  .p {
-    margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.on {
+    border-bottom: 2px solid #FFD262;
   }
+
 `
 
 const TabContentsArea = styled.div`
   position: absolute;
   width: 375px;
-  //height: 723px;
+  height: 723px;
   left: 0px;
-  top: 484px;
+  top: 500px;
 `
+
 
 
 export default function StudyArea():JSX.Element {
@@ -62,35 +66,38 @@ export default function StudyArea():JSX.Element {
     //     {id: "complete", name: "완료", count: 0},
     //     {id: "favorite", name: "찜한 스터디", count: 0},]
 
-    const arr = [{id: "proceed", name: "진행", count: 0},
-         {id: "complete", name: "완료", count: 0},
-        {id: "favorite", name: "찜한 스터디", count: 0},]
+    const arr = [{id: 0, name: "진행", count: 0},
+         {id: 1, name: "완료", count: 0},]
 
-    const [tab, setTab] = useState("")
 
-    const clickHandler = (tabName) => {
-        setTab(tabName);
+    const clickHandler = (tabName, index) => {
+        // setTab(tabName);
+        setTabSTate(index);
     };
 
-    const tabContents = {
-        proceed: <div>proceed</div>,
-        complete: <div>complete</div>,
-        favorite: <div>favorite</div>
-    }
+    const tabContents = ['proceed','complete']
+
+    const [tabState, setTabSTate] = React.useState(0);
 
     return (
         <div>
             <StudyTitle>{"나의 스터디"}</StudyTitle>
             <StudyTabsArea>
-                {arr.map((tab, idx) => {
+                {arr.map((tab, index) => {
                     return (
-                        <TabButton key={tab.id} onClick={() => clickHandler(tab.id)}>
-                            {tab.name}
+                        <TabButton key={tab.id} onClick={() => clickHandler(tab.id, index)}
+                                   className={tabState === index ? "on" : ""}>
+                            <div>{tab.name}</div>
                         </TabButton>
                     );
                 })}
             </StudyTabsArea>
-            <TabContentsArea className="contents">{tabContents[tab]}</TabContentsArea>
+            <TabContentsArea className="contents" >
+                {/*<div contents={tabContents[tabState]}>*/}
+                {/*    */}
+                {/*</div>*/}
+                <HorizontalStudy/>
+            </TabContentsArea>
         </div>
     );
 }

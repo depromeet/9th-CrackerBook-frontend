@@ -11,9 +11,14 @@ const ProfileBackground = styled.div`
 `;
 
 const ButtonArea = styled.div`
+  position: absolute;
+  
+  top: 253px;
+  
+
+  width: 100%;
   text-align: center;
-  top: 29.02%;
-  bottom: 62.7%;
+  
 `;
 
 const ButtonWrapper = styled.div`
@@ -21,16 +26,20 @@ const ButtonWrapper = styled.div`
 `;
 
 const ActivityButton = styled.div`
-  top: 29.02%;
-  bottom: 62.7%;
+ 
   height: 73px;
   width: 73px;
   margin: 0.5em;
-  text-align: center;
-  vertical-align: middle;
   
-  box-shadow: 3px 4px 14px rgba(0, 0, 0, 0.15);
+  background: #FFFFFF;
+  /* book shadow */
+
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
   border-radius: 26px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ProfileImgArea = styled.div`
@@ -40,12 +49,13 @@ const ProfileImgArea = styled.div`
   left: 148px;
   top: 75px;
 
-  //background: #8EDABC;
+
   /* cracker grey */
 
   border: 1px solid #F1F1F3;
   box-sizing: border-box;
   border-radius: 100px;
+  background-color: #F1F1F3;
 `;
 
 const EditProfile = styled.img`
@@ -65,7 +75,8 @@ const EditProfile = styled.img`
   border: 1px solid #F1F1F3;
   box-sizing: border-box;
   box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.15);
-
+  border-radius: 100px;
+  
 `;
 
 const NameArea = styled.div`
@@ -109,12 +120,27 @@ const ProfileButton = styled.img`
   padding-right: 5px;
 `;
 
+const ButtonNLabel = styled.div`
+  &.p{
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+}
+`
+
+const ProfileImage = styled.img`
+  width: 80px;
+  height: 80px;
+
+`
+
 export default function ProfileArea(): JSX.Element {
     return (
         <div>
             <ProfileBackground>
                 <ProfileImgArea>
-                    <img src="/assets/profile/profile1.svg"/>
+                    <ProfileImage src="/assets/profile/profile1.svg"/>
                 </ProfileImgArea>
                 <Link href="/profile/setting">
                     <EditProfile src="/assets/profile/setting.svg"/>
@@ -123,19 +149,28 @@ export default function ProfileArea(): JSX.Element {
             <ButtonArea>
                 <ButtonWrapper>
                     <Link href={"/profile/rewards"}>
-                        <ActivityButton>
-                            <img src="/assets/profile/activityrewards.svg" />
-                        </ActivityButton>
+                        <ButtonNLabel>
+                            <ActivityButton>
+                                <img src="/assets/profile/activityrewards.svg" />
+                            </ActivityButton>
+                            <p>활동 배지</p>
+                        </ButtonNLabel>
                     </Link>
                     <Link href={"/profile/interestedBook"}>
-                        <ActivityButton>
-                        <img src="/assets/profile/interestbook.svg" />
-                        </ActivityButton>
+                        <ButtonNLabel>
+                            <ActivityButton>
+                            <img src="/assets/profile/interestbook.svg" />
+                            </ActivityButton>
+                            <p>관심 목록</p>
+                        </ButtonNLabel>
                     </Link>
                     <Link href={"/profile/hostedStudy"}>
-                        <ActivityButton>
-                            <img src="/assets/profile/studypencil.svg" />
-                        </ActivityButton>
+                        <ButtonNLabel>
+                            <ActivityButton>
+                                <img src="/assets/profile/studypencil.svg" />
+                            </ActivityButton>
+                            <p>주최한 스터디</p>
+                        </ButtonNLabel>
                     </Link>
                 </ButtonWrapper>
             </ButtonArea>
