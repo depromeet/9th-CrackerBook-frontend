@@ -29,6 +29,8 @@ import {useState} from "react";
 import {Modal} from "../detail/common/CommonComponent";
 import {ThisBookContentWrapper} from "../../styles/detail/book/bookDetailStyle";
 import BooksHeaderComponent from "./BooksHeaderComponent";
+import LikeBookComponent from "./LikeBookComponent";
+import NewStudyComponent from "./NewStudyComponent";
 
 interface BookData {
   bookName: string;
@@ -51,7 +53,6 @@ export default function BooksComponent(props: {
       ) : (
         <>
           <BooksHeaderComponent/>
-          <Hr />
           {data.map((book, index) => {
             return (
               <MainContainer key={index}>
@@ -61,38 +62,8 @@ export default function BooksComponent(props: {
               </MainContainer>
             );
           })}
-
-          <LikeStudyWrapper>
-            <LikeTitleContainer />
-            <RankBookWrapper>
-              <LikeInfoWrapper>
-                <RankBookImg src="/assets/main/exBook.jpg" />
-                <LikeBookContainer />
-                <LikeBookNameContainer />
-                <LikeDateContainer />
-              </LikeInfoWrapper>
-              <LikeInfoWrapper>
-                <RankBookImg src="/assets/main/exBook.jpg" />
-                <LikeBookContainer />
-                <LikeBookNameContainer />
-                <LikeDateContainer />
-              </LikeInfoWrapper>
-              <LikeInfoWrapper>
-                <RankBookImg src="/assets/main/exBook.jpg" />
-                <LikeBookContainer />
-                <LikeBookNameContainer />
-                <LikeDateContainer />
-              </LikeInfoWrapper>
-            </RankBookWrapper>
-          </LikeStudyWrapper>
-
-          <StudyBackground>
-            <NewStudyWrapper>
-              <StudyContainer />
-              <NewStudyBox />
-              <MoreButton backgroundColor='#f1f1f3'/>
-            </NewStudyWrapper>
-          </StudyBackground>
+          <LikeBookComponent/>
+          <NewStudyComponent />
         </>
       )}
     </>

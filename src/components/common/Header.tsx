@@ -22,7 +22,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 58px;
-  padding: 0 20px;
+  padding: 20px;
 `;
 
 const CrackerHeader = styled.div`
