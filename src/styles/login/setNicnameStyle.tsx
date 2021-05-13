@@ -41,7 +41,7 @@ const ExistWrapper = styled.div`
 const ExistCommnet = styled.p`
   font-size: 14px;
   padding-top: 27px;
-  color: #777777;
+  color: #677ac7;
 `;
 
 const ExistIcon = styled.img`

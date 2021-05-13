@@ -1,47 +1,20 @@
 import styled from "styled-components";
 
-// const Card = styled.a`
-//   margin: 1rem;
-//   flex-basis: 45%;
-//   padding: 1.5rem;
-//   text-align: left;
-//   color: inherit;
-//   text-decoration: none;
-//   border: 1px solid #eaeaea;
-//   border-radius: 10px;
-//   transition: color 0.15s ease, border-color 0.15s ease;
-//
-//   &:hover,
-//   &:focus,
-//   &:active {
-//     color: #0070f3;
-//     border-color: #0070f3;
-//   }
-//
-//   h3 {
-//     margin: 0 0 1rem 0;
-//     font-size: 1.5rem;
-//   }
-//
-//   p {
-//     margin: 0;
-//     font-size: 1.25rem;
-//     line-height: 1.5;
-//   }
-// `;
-
 const MainContainer = styled.div`
   flex-direction: column;
   padding: 0 20px;
   text-align: center;
+  height: 100vh;
+  background-color: #ffd262;
 `;
 
 const MobileTitle = styled.div`
   height: 40vh;
-  margin-top: 15vh;
+  padding-top: 15vh;
   font-size: 20px;
-  color: #222222;
+  color: #000000;
   font-family: "Nunito", sans-serif;
+  font-weight: bold;
 `;
 
 const NextDiv = styled.div`
@@ -54,7 +27,7 @@ const NextDiv = styled.div`
 `;
 
 const KakaoLoginBtn = styled.button`
-  background-color: #cecece;
+  background-color: white;
   font-size: 14px;
   font-family: "Noto Sans KR", sans-serif;
   height: 33px;
@@ -63,10 +36,6 @@ const KakaoLoginBtn = styled.button`
   border: none;
   cursor: pointer;
   outline: none;
-
-  &:hover {
-    background-color: #ffd262;
-  }
 
   &:active {
     background-color: #ffd262;

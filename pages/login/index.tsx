@@ -26,7 +26,7 @@ export default function Index(): JSX.Element {
             </ExistWrapper>
             <StartBtnWrapper>
                 <Link href="/main">
-                    <StartBtn src="/assets/login/startBtn.png"/>
+                    <StartBtn src="/assets/login/startBtn.jpg"/>
                 </Link>
             </StartBtnWrapper>
         </NicnameContainer>

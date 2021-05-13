@@ -16,7 +16,6 @@ export default function BooksHeaderComponent(): JSX.Element {
                                 <StudyTypeTitle>{title[index]}</StudyTypeTitle>
                             </StudyTypeDiv>
                         );
-
                 })
             }
         </StudyTypeWrapper>

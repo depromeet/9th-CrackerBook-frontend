@@ -10,6 +10,7 @@ import {
   Img,
 } from "../src/styles/common/container";
 import {RecoilRoot} from "recoil";
+import styled from "styled-components";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
