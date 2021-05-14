@@ -12,14 +12,21 @@ import {
 } from "../src/styles/common/container";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <RecoilRoot>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <Head>
+            <title>My page title</title>
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+          </Head>
           <AppContainer>
             <Desktop>
               <Title>Craker Book</Title>
