@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import MainIndexComponent from "../../src/components/main/index/MainIndexComponent";
 import HeaderComponent from "../../src/components/common/Header";
-import FooterComponent from "../../src/components/common/Footer";
+import FooterComponent from "../../src/components/common/Footer/FooterIndex";
 
 interface BookData {
   bookName: string;
