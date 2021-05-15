@@ -1,4 +1,4 @@
-import {StudyTypeDiv, StudyTypeTitle, StudyTypeWrapper} from "../../styles/main/BooksStyle";
+import {StudyTypeDiv, StudyTypeTitle, StudyTypeWrapper} from "../../../styles/main/BooksStyle";
 import styled from "styled-components";
 
 export default function BooksHeaderComponent(): JSX.Element {

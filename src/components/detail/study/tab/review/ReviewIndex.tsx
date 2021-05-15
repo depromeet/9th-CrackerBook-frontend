@@ -2,7 +2,7 @@ import {InfoWrapper, ReviewWrapper} from "../../../../../styles/detail/study/stu
 import {EvaluationCount} from "./EvaluationCount";
 import styled from "styled-components";
 import {ReviewContent} from "./ReviewContent";
-import {MoreButton} from "../../../../main/BooksComponent";
+import {MoreButton} from "../../../../main/index/MainIndexComponent";
 
 export const ReviewIndex = (): JSX.Element => {
 

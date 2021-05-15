@@ -1,5 +1,5 @@
-import {NewStudyWrapper, StudyBackground} from "../../styles/main/BooksStyle";
-import {MoreButton, NewStudyBox, StudyContainer} from "./BooksComponent";
+import {NewStudyWrapper, StudyBackground} from "../../../styles/main/BooksStyle";
+import {MoreButton, NewStudyBox, StudyContainer} from "../index/MainIndexComponent";
 
 export default function NewStudyComponent(): JSX.Element {
     return (

@@ -1,5 +1,6 @@
 import styled, {keyframes} from "styled-components";
 import {useState} from "react";
+import {Link} from "@material-ui/core";
 
 
 export default function FooterComponent(): JSX.Element {
@@ -15,12 +16,14 @@ export default function FooterComponent(): JSX.Element {
 const HomeComponent = (): JSX.Element => {
 
     return (
-        <ButtomWrapper>
-            <ButttomImg src='/assets/main/home.svg'/>
-            <Text>
-                홈
-            </Text>
-        </ButtomWrapper>
+        <Link href='/main'>
+            <ButtomWrapper>
+                <ButttomImg src='/assets/main/home.svg'/>
+                <Text>
+                    홈
+                </Text>
+            </ButtomWrapper>
+        </Link>
     )
 };
 
@@ -90,6 +93,7 @@ const CookieIcon = styled.img`
   position: absolute;
   top: -49px;
   left: 0;
+  cursor: pointer;
 `;
 
 const boxFade = keyframes`

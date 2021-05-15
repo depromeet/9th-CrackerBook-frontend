@@ -1,6 +1,6 @@
 // import axios from "axios";
 import { useEffect, useState } from "react";
-import BooksComponent from "../../src/components/main/BooksComponent";
+import MainIndexComponent from "../../src/components/main/index/MainIndexComponent";
 import HeaderComponent from "../../src/components/common/Header";
 import FooterComponent from "../../src/components/common/Footer";
 
@@ -51,7 +51,7 @@ export default function Index(): JSX.Element {
   return (
     <>
       <HeaderComponent/>
-      <BooksComponent bookData={bookData} />
+      <MainIndexComponent bookData={bookData} />
       <FooterComponent/>
     </>
   );

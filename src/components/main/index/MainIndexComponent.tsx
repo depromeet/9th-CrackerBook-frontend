@@ -18,14 +18,15 @@ import {
   TitleDiv,
   TitleWrapper,
   TotalView,
-} from "../../styles/main/BooksStyle";
+} from "../../../styles/main/BooksStyle";
 import Link from "next/link";
 import {useState} from "react";
-import {Modal} from "../detail/common/CommonComponent";
-import {ThisBookContentWrapper} from "../../styles/detail/book/bookDetailStyle";
-import BooksHeaderComponent from "./BooksHeaderComponent";
-import LikeBookComponent from "./LikeBookComponent";
-import NewStudyComponent from "./NewStudyComponent";
+import {Modal} from "../../detail/common/CommonComponent";
+import {ThisBookContentWrapper} from "../../../styles/detail/book/bookDetailStyle";
+import BooksHeaderComponent from "../header/BooksHeaderComponent";
+import LikeBookComponent from "../likeStudy/LikeBookComponent";
+import NewStudyComponent from "../newStudy/NewStudyComponent";
+import OriginStudyComponent from "../originStudy/OriginStudyComponent";
 
 interface BookData {
   bookName: string;
@@ -37,7 +38,7 @@ interface BookData {
   endData: string;
 }
 
-export default function BooksComponent(props: {
+export default function MainIndexComponent(props: {
   bookData: Array<BookData>;
 }): JSX.Element {
   const data = props.bookData;
@@ -48,15 +49,7 @@ export default function BooksComponent(props: {
       ) : (
         <>
           <BooksHeaderComponent/>
-          {data.map((book, index) => {
-            return (
-              <MainContainer key={index}>
-                <Title bookName={book.bookName} />
-                <BookContainer img={book.img} />
-                <BookInfoContainer bookInfo={book} />
-              </MainContainer>
-            );
-          })}
+          <OriginStudyComponent bookData = {data}/>
           <LikeBookComponent/>
           <NewStudyComponent />
         </>
@@ -65,74 +58,8 @@ export default function BooksComponent(props: {
   );
 }
 
-interface BookData {
-  bookName: string;
-  img: string;
-  studyName: string;
-  host: string;
-  memberCnt: number;
-  startData: string;
-  endData: string;
-}
 
-export function Title(props: { bookName: string }): JSX.Element {
-  const bookName = props.bookName.length > 11 ? props.bookName.slice(0, 10) + '...' : props.bookName;
-  return (
-      <>
-        <TitleDiv>&apos;{bookName}&lsquo;의</TitleDiv>
-        <TitleWrapper>
-          <TitleDiv>스터디</TitleDiv>
-          <TotalView>전체보기 &gt;</TotalView>
-        </TitleWrapper>
-      </>
-  );
-}
 
-export function BookContainer(props: { img: string }): JSX.Element {
-  return (
-      <>
-        <Link href="/detail/book">
-          <BookBox>
-            <BookImg src={props.img} />
-            <IconWrapper>
-              <HeartIconBookBox src="/assets/main/bookLike.svg" />
-              <HeartCnt>14</HeartCnt>
-            </IconWrapper>
-          </BookBox>
-        </Link>
-      </>
-  );
-}
-
-export function BookInfoContainer(props: { bookInfo: BookData }): JSX.Element {
-  const bookData = props.bookInfo;
-  return (
-      <>
-        <StudyInfoWrapper>
-          <StudyProfile>
-            <StudyImg src="/assets/main/exBook.jpg" />
-            <StudyHost>{bookData.host}</StudyHost>
-          </StudyProfile>
-          <StudyContentWrapper>
-            <StudyContent isLike={false}>
-              <StudyIcon src="/assets/main/bookIcon.svg" />
-              <StudyDiv>토론</StudyDiv>
-              <StudyIcon src="/assets/main/memberIcon.svg" />
-              <div>멤버 3/6</div>
-            </StudyContent>
-            <StudyTitle isLike={false}>{bookData.studyName}</StudyTitle>
-            <StudyContent isLike={false}>
-              {bookData.startData} ~ {bookData.endData} 토 14:00
-            </StudyContent>
-          </StudyContentWrapper>
-          <IconWrapperContent>
-            <HeartIconBookBox src="/assets/main/heart.svg" />
-            <HeartCnt>6</HeartCnt>
-          </IconWrapperContent>
-        </StudyInfoWrapper>
-      </>
-  );
-}
 
 export function LikeBookContainer(): JSX.Element {
   return (
