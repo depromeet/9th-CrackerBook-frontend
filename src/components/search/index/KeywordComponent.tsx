@@ -77,11 +77,18 @@ export default function KeywordComponent(): JSX.Element {
     setKeywordTitles(keywordTitles.filter((_, i) => i !== index));
   };
 
+  const removeAllKeywordList = (event) => {
+    event.stopPropagation();
+    setKeywordTitles([]);
+  };
+
   return (
     <>
       <KeywordHeadWrapper>
         <TitSearch>최근 검색어</TitSearch>
-        <UtilSet>전체삭제</UtilSet>
+        <UtilSet onClick={(event) => removeAllKeywordList(event)}>
+          전체삭제
+        </UtilSet>
       </KeywordHeadWrapper>
       <KeywordSubWrapper>
         <KeywordListWrapper>

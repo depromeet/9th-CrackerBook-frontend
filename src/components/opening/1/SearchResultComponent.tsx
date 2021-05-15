@@ -170,7 +170,7 @@ const Result = [
   },
 ];
 
-export default function ListComponent(): JSX.Element {
+export default function SearchResultComponent(): JSX.Element {
   const [listSelected, setListSelected] = useState(-1);
 
   return (

@@ -144,7 +144,7 @@ const Result = [
   },
 ];
 
-export default function KindBookComponent(): JSX.Element {
+export default function FavoriteBookComponent(): JSX.Element {
   const [categorySelected, setCategorySelected] = useState(-1);
   const setNextStep = useSetRecoilState(nextStepState);
   const categorySelect = (index) => {

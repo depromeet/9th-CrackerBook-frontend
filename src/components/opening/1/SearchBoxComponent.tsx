@@ -60,10 +60,9 @@ const ModalText = styled.div`
   margin: 0 0 0 20px;
 `;
 const SearchInput = styled.input`
-  float: left;
   font-size: 14px;
   line-height: 20px;
-  padding: 15px 0 0 0;
+  padding: 15px 0;
   border: 0;
   background: initial;
   height: 14px;
@@ -89,7 +88,7 @@ const ClearIconBox = styled.div`
 `;
 const CategoryTitles = ["책", "저자", "관심책"];
 
-export default function KindBookComponent(): JSX.Element {
+export default function SearchBoxComponent(): JSX.Element {
   const Router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useRecoilState(categoryState);
@@ -146,7 +145,7 @@ export default function KindBookComponent(): JSX.Element {
         name="searchWord"
         defaultValue={searchWord}
         placeholder={
-          category !== 2 ? `검색어를 검색해주세요` : `관심 책을 선택해주세요.`
+          category !== 2 ? `검색어를 검색해주세요.` : `관심 책을 선택해주세요.`
         }
         onKeyUp={search}
         ref={inputRef}
