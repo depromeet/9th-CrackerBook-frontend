@@ -8,14 +8,14 @@ const StudyTypeWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 0 0 10px;
 `;
 
 const StudyTypeDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 28px;
+  margin-right: 20px;
 `;
 
 const StudyTypeTitle = styled.div`
