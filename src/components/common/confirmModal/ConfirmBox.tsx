@@ -26,9 +26,9 @@ export function ConfirmBox(props: {param: ConfirmBoxType}): JSX.Element {
 }
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 290px;
-  left: 32px;
+  position: fixed;
+  bottom: 370px;
+  left: 128px;
   text-align: center;
   border-radius: 15px;
   display: flex;
