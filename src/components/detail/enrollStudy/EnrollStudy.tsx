@@ -72,7 +72,7 @@ const InnerBox = styled.div`
   border-radius: 15px;
   margin: 0 20px 32px 20px;
   border: 1px solid #FFD262;
-  box-shadow: 1px 3px 9px 7px #f4f4f4;
+  box-shadow: 0 -3px 7px -6px grey;
 `;
 
 const ContentBox = styled.div`

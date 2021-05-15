@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import BooksComponent from "../../src/components/main/BooksComponent";
 import HeaderComponent from "../../src/components/common/Header";
+import FooterComponent from "../../src/components/common/Footer";
 
 interface BookData {
   bookName: string;
@@ -51,6 +52,7 @@ export default function Index(): JSX.Element {
     <>
       <HeaderComponent/>
       <BooksComponent bookData={bookData} />
+      <FooterComponent/>
     </>
   );
 }

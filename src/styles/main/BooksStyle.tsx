@@ -78,8 +78,8 @@ const SmallBookImg = styled.img`
 
 const IconWrapper = styled.div`
   position: relative;
-  right: -94px;
-  top: -83px;
+  right: -91px;
+  top: -78px;
 `;
 
 const IconWrapperContent = styled.div`
