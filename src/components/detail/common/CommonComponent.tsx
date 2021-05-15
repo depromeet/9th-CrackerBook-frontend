@@ -1,5 +1,5 @@
 import {BottomBarStyle, ModalElement, ModalWrapper} from "../../../styles/detail/common/commonStyle";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {useState} from "react";
 import {ConfirmStudy} from "../confirmStudy/ConfirmStudy";
 import {atom, useRecoilState} from "recoil";
@@ -32,6 +32,9 @@ export function BottomBar(props: { text: string, type: string }): JSX.Element {
     return (
         <BottomBarStyle>
             <BottomBarWrapper>
+                <WannaBeBubble>이 책으로 스터디 하고 싶어요.</WannaBeBubble>
+                <BubblePointBackground/>
+                <BubblePoint/>
                 <BookLikeIcon src='/assets/main/bookLike.svg'/>
                 <ShareIcon src='/assets/detail/share.svg'/>
                 <GoCreate onClick={conFirmBoxEvent} type={props.type}>{props.text}</GoCreate>
@@ -43,6 +46,7 @@ export function BottomBar(props: { text: string, type: string }): JSX.Element {
 
 
 const BottomBarWrapper = styled.div`
+  position: relative;
   background-color: #FFD262;
   display: flex;
   align-items: center;
@@ -68,4 +72,47 @@ const GoCreate = styled.div<{ type: string }>`
   cursor: pointer;
 `;
 
+const boxFade = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
 
+const WannaBeBubble = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFD262;
+  position: absolute;
+  border: 1px solid black;
+  width: 167px;
+  height: 30px;
+  top: -40px;
+  left: 13px;
+  font-size: 12px;
+  border-radius: 10px;
+  animation: ${boxFade} 1s 1s 1 linear forwards;
+`;
+
+const BubblePoint = styled.div`
+  position: absolute;
+  top: -9px;
+  left: 27px;
+  border-top: 7px solid #FFD262;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  animation: ${boxFade} 1s 1s 1 linear forwards;
+`;
+
+const BubblePointBackground = styled.div`
+  position: absolute;
+  top: -9px;
+  left: 26px;
+  border-top: 8px solid black;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  animation: ${boxFade} 1s 1s 1 linear forwards;
+`;
