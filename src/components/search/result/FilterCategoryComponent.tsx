@@ -33,21 +33,27 @@ const BtnTag = styled.div`
   }
 `;
 
-const CategoryTitles = ["발표", "토론", "글쓰기", "포트폴리오", "배고프다"];
+const kindTitles = [
+  { label: "토론", value: "debate" },
+  { label: "발표", value: "announcement" },
+  { label: "글쓰기", value: "writing" },
+  { label: "포트폴리오", value: "portfolio" },
+  { label: "기타", value: "etc" },
+];
 
-export default function CategoryComponent(): JSX.Element {
+export default function FilterCategoryComponent(): JSX.Element {
   const [selected, setSelected] = useState(0);
 
   return (
     <CategoryWrapper>
-      {CategoryTitles.map((v, index) => {
+      {kindTitles.map((v, index) => {
         return (
           <LiLink key={index}>
             <BtnTag
               className={selected === index ? "on" : ""}
               onClick={() => setSelected(index)}
             >
-              {v}
+              {v.label}
             </BtnTag>
           </LiLink>
         );
