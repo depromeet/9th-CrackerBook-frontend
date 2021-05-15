@@ -180,18 +180,23 @@ export default function SearchBoxComponent(): JSX.Element {
                 ? `검색어를 검색해주세요.`
                 : `스터디를 선택해주세요.`
             }
+            disabled={category === 2}
             onKeyUp={search}
             ref={inputRef}
           />
-          {searchWord && (
-            <ClearIconBox onClick={() => clearSearchWord()}>
-              <img src="/assets/search/searchclear.svg" />
-            </ClearIconBox>
-          )}
 
-          <SearchIconBox onClick={() => routeResult()}>
-            <img src="/assets/search/search.svg" />
-          </SearchIconBox>
+          {category !== 2 && (
+            <>
+              <SearchIconBox onClick={() => routeResult()}>
+                <img src="/assets/search/search.svg" />
+              </SearchIconBox>
+              {searchWord && (
+                <ClearIconBox onClick={() => clearSearchWord()}>
+                  <img src="/assets/search/searchclear.svg" />
+                </ClearIconBox>
+              )}
+            </>
+          )}
         </SearchBoxInnerWrapper>
       </SearchBoxWrapper>
     </>
