@@ -56,7 +56,7 @@ const MyPageComponent = (): JSX.Element => {
 
 const FooterWrapper = styled.div`
   padding: 0 40px;
-  width: 298px;
+  width: 296px;
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -64,6 +64,7 @@ const FooterWrapper = styled.div`
   height: 93px;
   position: fixed;
   bottom: 0;
+  box-shadow: 0px -2px 6px #e0e0e0;
 `;
 
 const ButtomWrapper = styled.div`

@@ -1,6 +1,5 @@
 import {StudyTypeDiv, StudyTypeTitle, StudyTypeWrapper} from "../../../styles/main/BooksStyle";
 import styled from "styled-components";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
