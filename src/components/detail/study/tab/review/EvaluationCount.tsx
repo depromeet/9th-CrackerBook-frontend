@@ -13,7 +13,7 @@ export function EvaluationCount(): JSX.Element {
 export function EvaluationIcon(): JSX.Element {
     const evaluationList = ['아쉬웠어요', '좋아요', '최고에요'];
     const evaluationCnt = ['1건', '5건', '10건'];
-    const evaluationIcon = ['/assets/detail/sorry.svg', '/assets/detail/likeStudy.svg', '/assets/detail/best.svg']
+    const evaluationIcon = ['/assets/detail/sorry.svg', '/assets/detail/like.svg', '/assets/detail/best.svg']
     return (
         <IconWrapper>
             {evaluationList.map((evaluation, index) => {

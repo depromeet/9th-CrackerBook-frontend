@@ -42,9 +42,9 @@ export function CompleteEnroll(): JSX.Element {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 30px;
-  top: 138px;
+  position: fixed;
+  left: 127px;
+  top: 173px;
 `;
 
 const Icon = styled.img`
