@@ -75,9 +75,11 @@ const ModalWrapper = styled.div<ModalPosition>`
   color: #999999;
   width: 68px;
   height: 100px;
-  top: ${(props) => props.pageY + "px"};
-  right: 20px;
+  top: 25px;
+  right: 5px;
   position: absolute;
+  box-shadow: 2px 1px 8px 0px #bbbbbb;
+  border-radius: 4px;
 `;
 
 const ModalElement = styled.div`
@@ -86,6 +88,8 @@ const ModalElement = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
+  border-bottom: 1px solid #e6e5e5;
 `;
 
 const MainBookStyle = styled.div`

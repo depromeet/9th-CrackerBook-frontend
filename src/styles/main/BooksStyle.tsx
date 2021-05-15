@@ -198,6 +198,7 @@ const LikeStudyTitleWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
 `;
 
 const RankBookWrapper = styled.div`

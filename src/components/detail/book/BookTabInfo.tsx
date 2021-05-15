@@ -6,13 +6,11 @@ export function BookTabInfo(): JSX.Element {
     return (
         <>
             <StudyBackground>
-                <Link href='/detail/study/studyDetail'>
                     <NewStudyWrapper>
                         <BookStudyContainer />
                         <ThisBookBox />
                         <MoreButton backgroundColor='#f1f1f3'/>
                     </NewStudyWrapper>
-                </Link>
             </StudyBackground>
         </>
     )
