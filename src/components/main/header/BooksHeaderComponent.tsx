@@ -9,7 +9,8 @@ export default function BooksHeaderComponent(): JSX.Element {
     const [headerState, setHeaderState] = useRecoilState<string>(HeaderTextState);
     const srcList = ['/assets/main/chats.svg', '/assets/main/microphone.svg', '/assets/main/note.svg', '/assets/main/desktop.svg', '/assets/main/etc.svg'];
     const title = ['토론', '발표', '글쓰기', '포트폴리오', '기타'];
-    const type = ['debate', 'announcement', 'writing', 'portfolio', 'etc', 'none'];
+    const type = ['debate', 'announcement', 'writing', 'portfolio', 'etc', 'main', 'detail'];
+
     return (
         <StudyTypeWrapper>
             <Swiper

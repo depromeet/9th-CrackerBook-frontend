@@ -46,7 +46,7 @@ export default function MainIndexComponent(props: {
             ) : (
                 <>
                     <BooksHeaderComponent/>
-                    { categoryState === 'none' ?
+                    { categoryState === 'main' ?
                         <>
                             <OriginStudyComponent bookData={data}/>
                             <LikeBookComponent/>

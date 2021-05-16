@@ -30,7 +30,7 @@ export default function HeaderComponent(): JSX.Element {
         <HeaderWrapper>
             {
                 headerState !== 'CrackerBook' ? <BackButton src="/assets/detail/back.svg" onClick={() => {
-                    setCategoryState('none');
+                    setCategoryState('main');
                     setHeaderState('CrackerBook');
                 }}/> : ''
             }
@@ -69,6 +69,7 @@ const TitleHeader = styled.div`
   color: #222222;
   font-size: 16px;
   text-align: center;
+  font-weight: 500;
 `;
 
 const GlassWrapper = styled.div`
