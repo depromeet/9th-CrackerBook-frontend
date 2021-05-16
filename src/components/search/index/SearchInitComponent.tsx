@@ -4,6 +4,7 @@ const SearchInit = styled.div`
   text-align: center;
   font-size: 14px;
   line-height: 20px;
+  margin: 182px 0;
 `;
 
 export default function SearchInitComponent(): JSX.Element {

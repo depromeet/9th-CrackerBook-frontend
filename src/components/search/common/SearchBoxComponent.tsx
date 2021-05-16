@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useRef } from "react";
-import { useRecoilState } from "recoil";
-import { categoryState } from "../states";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { categoryState, inputClickState } from "../states";
 
 const SearchBoxWrapper = styled.div`
   position: relative;
@@ -107,6 +107,7 @@ export default function SearchBoxComponent(): JSX.Element {
   const Router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useRecoilState(categoryState);
+  const setInputClick = useSetRecoilState(inputClickState);
   const [searchWord, setSearchWord] = useState(
     Router.query.name ? Router.query.name : "",
   );
@@ -180,9 +181,12 @@ export default function SearchBoxComponent(): JSX.Element {
                 ? `검색어를 검색해주세요.`
                 : `스터디를 선택해주세요.`
             }
+            onClick={() => setInputClick(true)}
+            onBlur={() => setInputClick(false)}
             disabled={category === 2}
             onKeyUp={search}
             ref={inputRef}
+            autoComplete="off"
           />
 
           {category !== 2 && (

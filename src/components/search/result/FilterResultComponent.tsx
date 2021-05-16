@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: relative;
-  margin: 10px 20px 10px;
+  margin: 20px;
 `;
 const Title = styled.div`
   font-family: "Nunito", sans-serif;

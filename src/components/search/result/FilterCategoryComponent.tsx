@@ -5,12 +5,12 @@ const CategoryWrapper = styled.ul`
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin: 10px 10px 10px 20px;
+  margin: 20px 20px 0 20px;
 `;
 
 const LiLink = styled.li`
   float: left;
-  margin: 0 10px 10px 0;
+  margin: 0 10px 0 0;
   cursor: pointer;
   display: block;
 `;
