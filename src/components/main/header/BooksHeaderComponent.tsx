@@ -41,9 +41,9 @@ const ImgWrapper = styled.div`
   text-align: center;
   border-radius: 20px;
   padding: 10px;
-  box-shadow: 3px 3px 14px 2px #f4f4f4;
+  box-shadow: 3px 3px 14px 2px #f3f3f3;
   margin-bottom: 4px;
-
+  cursor: pointer;
 `;
 
 const StudyTypeImg = styled.img`
