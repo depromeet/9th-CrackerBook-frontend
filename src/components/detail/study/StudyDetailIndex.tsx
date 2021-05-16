@@ -1,6 +1,6 @@
 import {Tab} from "./tab/Tab";
 import {StudyInfoIndexComponent} from "./studyInfo/StudyInfoIndex";
-import {BottomBar} from "../common/CommonComponent";
+import {BottomBar} from "../common/BottomBarComponent";
 import {useRecoilState} from "recoil";
 import {CompleteBoxState, EnrollConfirmBoxState} from "../../../state/detail/detailState";
 import {EnrollStudy} from "../enrollStudy/EnrollStudy";

@@ -1,32 +1,28 @@
 import {
-    BookBox,
-    BookImg, DownImg, DropDown,
+    DownImg, DropDown,
     HeartCnt,
     HeartIconBookBox,
-    IconWrapper, IconWrapperContent, LikeDiv,
+    IconWrapperContent, LikeDiv,
     LikeStudyTitleWrapper,
-    MainContainer, MoreBtn, NewBookProfile, NewBoxWrapper, NewStudyWrapper,
+    MoreBtn, NewBookProfile, NewBoxWrapper,
     SmallBookImg,
     StudyContent,
     StudyContentWrapper,
     StudyDiv,
-    StudyHost,
     StudyIcon,
-    StudyImg,
-    StudyInfoWrapper,
-    StudyProfile, StudyTitle,
+    StudyTitle,
     TitleDiv,
-    TitleWrapper,
     TotalView,
 } from "../../../styles/main/BooksStyle";
 import Link from "next/link";
 import {useState} from "react";
-import {Modal} from "../../detail/common/CommonComponent";
 import {ThisBookContentWrapper} from "../../../styles/detail/book/bookDetailStyle";
 import BooksHeaderComponent from "../header/BooksHeaderComponent";
 import LikeBookComponent from "../likeStudy/LikeBookComponent";
 import NewStudyComponent from "../newStudy/NewStudyComponent";
 import OriginStudyComponent from "../originStudy/OriginStudyComponent";
+import {Modal} from "@material-ui/core";
+import {SelectModal} from "../../detail/common/SelectModal";
 
 interface BookData {
     bookName: string;
@@ -85,9 +81,7 @@ export function LikeTitleContainer(): JSX.Element {
 
 export function BookStudyContainer(): JSX.Element {
     const [isOpen, setIsOpen] = useState(false);
-    const [pagePosition, setPagePosition] = useState({pageX: 0, pageY: 0});
     const viewModal = (e) => {
-        setPagePosition({pageX: e.clientX, pageY: e.clientY - 10});
         setIsOpen(!isOpen);
     };
     return (
@@ -96,7 +90,7 @@ export function BookStudyContainer(): JSX.Element {
             <TotalView onClick={viewModal}>
                 모집중 <DropDown src="/assets/detail/dropDown.svg"/>
             </TotalView>
-            {isOpen ? <Modal modalPosition={pagePosition}/> : ""}
+            {isOpen ? <SelectModal/> : ""}
         </LikeStudyTitleWrapper>
     );
 }

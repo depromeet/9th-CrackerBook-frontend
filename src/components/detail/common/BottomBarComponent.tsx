@@ -1,31 +1,26 @@
-import {BottomBarStyle, ModalElement, ModalWrapper} from "../../../styles/detail/common/commonStyle";
+import {BottomBarStyle} from "../../../styles/detail/common/commonStyle";
 import styled, {keyframes} from "styled-components";
-import {useState} from "react";
-import {ConfirmStudy} from "../confirmStudy/ConfirmStudy";
-import {atom, useRecoilState} from "recoil";
-import {ConfirmBoxState, EnrollConfirmBoxState} from "../../../state/detail/detailState";
+import {SetterOrUpdater, useRecoilState} from "recoil";
+import {ConfirmBoxState, EnrollConfirmBoxState, ShowToastState} from "../../../state/detail/detailState";
+import {useRouter} from 'next/router';
+import ShowToastComponent from "../../common/showToast/ShowToastComponent";
 
-type ModalPosition = {
-    pageX: number;
-    pageY: number;
-};
 
-export function Modal(props: { modalPosition: ModalPosition }): JSX.Element {
-    return (
-        <ModalWrapper
-            pageX={props.modalPosition.pageX}
-            pageY={props.modalPosition.pageY}
-        >
-            <ModalElement>모집중</ModalElement>
-            <ModalElement>진행중</ModalElement>
-            <ModalElement>종료</ModalElement>
-        </ModalWrapper>
-    );
+const copyLink = async (props: {link: string, setState: SetterOrUpdater<boolean>}) => {
+    const link = 'localhost:3000' + props.link;
+    await navigator.clipboard.writeText(link);
+    props.setState(true);
+    setTimeout(() => {
+        props.setState(false);
+    }, 2500)
 }
 
 export function BottomBar(props: { text: string, type: string }): JSX.Element {
+    const [openShowToast, setOpenShowToast] = useRecoilState<boolean>(ShowToastState);
+    const router = useRouter();
     const [confirmBox, setConfirmBox] = useRecoilState<boolean>(ConfirmBoxState);
     const [enrollSate, setEnrollSate] = useRecoilState<boolean>(EnrollConfirmBoxState);
+
     const conFirmBoxEvent = () => {
         (props.type === 'book') ? setConfirmBox(!confirmBox) : setEnrollSate(!enrollSate);
     }
@@ -36,8 +31,11 @@ export function BottomBar(props: { text: string, type: string }): JSX.Element {
                 <BubblePointBackground/>
                 <BubblePoint/>
                 <BookLikeIcon src='/assets/main/bookLike.svg'/>
-                <ShareIcon src='/assets/detail/share.svg'/>
+                <ShareIcon src='/assets/detail/share.svg' onClick={() => copyLink({link: router.route, setState: setOpenShowToast})}/>
                 <GoCreate onClick={conFirmBoxEvent} type={props.type}>{props.text}</GoCreate>
+                {
+                    openShowToast && <ShowToastComponent text = {'URL주소가 클립보드에 복사되었습니다.'}/>
+                }
             </BottomBarWrapper>
         </BottomBarStyle>
     );

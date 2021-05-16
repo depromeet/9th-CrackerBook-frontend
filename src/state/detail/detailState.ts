@@ -10,6 +10,11 @@ const EnrollConfirmBoxState = atom<boolean>({
   default: false,
 });
 
+const ShowToastState = atom<boolean>({
+  key: "ShowToastState",
+  default: false,
+});
+
 const LoginBoxState = atom<boolean>({
   key: "LoginBoxState",
   default: false,
@@ -25,4 +30,5 @@ export {
   EnrollConfirmBoxState,
   LoginBoxState,
   CompleteBoxState,
+  ShowToastState,
 };

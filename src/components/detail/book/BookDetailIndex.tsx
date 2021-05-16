@@ -1,7 +1,7 @@
 import {DivLine} from "../../../styles/detail/common/commonStyle";
 import {BookCover, BookInfo} from "./BookInfo";
 import {TabContainer} from "./BookTab";
-import {BottomBar} from "../common/CommonComponent";
+import {BottomBar} from "../common/BottomBarComponent";
 import {useRecoilState} from "recoil";
 import {ConfirmBoxState} from "../../../state/detail/detailState";
 import {ConfirmStudy} from "../confirmStudy/ConfirmStudy";

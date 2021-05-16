@@ -69,7 +69,7 @@ const SearchButton = styled.img`
   cursor: pointer;
 `;
 
-const ModalWrapper = styled.div<ModalPosition>`
+const ModalWrapper = styled.div`
   background-color: white;
   text-align: center;
   color: #999999;
