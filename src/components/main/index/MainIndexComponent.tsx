@@ -20,6 +20,9 @@ import LikeBookComponent from "../likeStudy/LikeBookComponent";
 import NewStudyComponent from "../newStudy/NewStudyComponent";
 import OriginStudyComponent from "../originStudy/OriginStudyComponent";
 import {SelectModal} from "../../detail/common/SelectModal";
+import {useRecoilState} from "recoil";
+import {CategoryTypeState} from "../../../state/main/mainState";
+import CategoryComponent from "../category/CategoryComponent";
 
 interface BookData {
     bookName: string;
@@ -35,6 +38,7 @@ export default function MainIndexComponent(props: {
     bookData: Array<BookData>;
 }): JSX.Element {
     const data = props.bookData;
+    const [categoryState, setCategoryState] = useRecoilState<string>(CategoryTypeState);
     return (
         <>
             {!data ? (
@@ -42,9 +46,17 @@ export default function MainIndexComponent(props: {
             ) : (
                 <>
                     <BooksHeaderComponent/>
-                    <OriginStudyComponent bookData={data}/>
-                    <LikeBookComponent/>
-                    <NewStudyComponent/>
+                    { categoryState === 'none' ?
+                        <>
+                            <OriginStudyComponent bookData={data}/>
+                            <LikeBookComponent/>
+                            <NewStudyComponent/>
+                        </> :
+                        <>
+                            <CategoryComponent type={categoryState}/>
+                        </>
+                    }
+
                 </>
             )}
         </>
