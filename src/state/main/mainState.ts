@@ -5,4 +5,9 @@ const CategoryTypeState = atom<string>({
   default: "none",
 });
 
-export { CategoryTypeState };
+const HeaderTextState = atom<string>({
+  key: "HeaderTextState",
+  default: "CrackerBook",
+});
+
+export { CategoryTypeState, HeaderTextState };
