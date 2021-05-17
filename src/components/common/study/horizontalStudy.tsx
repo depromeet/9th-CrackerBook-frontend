@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BookWithShadow from "../book/BookWithShadow";
+import Link from "next/link";
 
 const ListWrapper = styled.ul`
   position: relative;
@@ -13,7 +14,7 @@ const Title = styled.div`
   width: 173px;
   color: #222222;
 `;
-const LiLink = styled.li`
+const LiArea = styled.li`
   position: relative;
   display: flex;
   margin: 0 0 30px 0;
@@ -133,19 +134,50 @@ line-height: 16px;
 
 color: #777777;
 `
+const ProgressBar = styled.div`
+  width: 97px;
+  height: 1px;
+  border: 2px solid #F1F1F3;
+`
+const Gage = styled.div`
+  /* cracker yellow */
+  height: 1px;
+  //width: 30px;
+  border: 2px solid #FFD262;
+`
+const ProgressArea = styled.div`
+    display: flex;
+`
+const PercentFont = styled.p`
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
 
+  /* cracker yellow */
+  color: #FFD262;
+
+`
 const Result = [
-    "사용자의 마음을 움직이는 UX 디자인의 힘",
-    "이것이 UX/UI디자인이다",
+    "사용자의 마음을 움직이는 UX 디자인의 힘"
 ];
 
-export default function HorizontalStudy(): JSX.Element {
+
+
+export default function HorizontalStudy(props:any): JSX.Element {
+
+    // props['routingUrl'] = props? props.routingUrl? props.routingUrl : '' : ''
+
     return (
         <>
             <ListWrapper>
-                {Result.map((v, index) => {
+                {Result.map((title, index,) => {
                     return (
-                        <LiLink key={index}>
+                        <LiArea key={index}>
                             <BookWithShadow width={51} height={74}/>
                             <ContentWrapper>
                                 <Content>
@@ -154,14 +186,21 @@ export default function HorizontalStudy(): JSX.Element {
                                     <Icon src="/assets/main/memberIcon.svg" />
                                     <IconText>멤버 3/6</IconText>
                                 </Content>
-                                <Title>{v}</Title>
+                                <Link href={"/"+(props.routingUrl?props.routingUrl:'')}>
+                                    <Title>{title}</Title>
+                                </Link>
                                 <DateArea>2017.04.12 ~ 2017.04.12</DateArea>
+                                <>{props && props.progress &&
+                                <ProgressArea>
+                                    <ProgressBar/>
+                                    <Gage style={{width: props.percent}}/>
+                                    <PercentFont>{props.percent}%</PercentFont>
+                                </ProgressArea>}</>
                             </ContentWrapper>
-                            {/*<div>*/}
                                 <LikeImg src="/assets/profile/heart.svg" />
-                            {/*</div>*/}
-                        </LiLink>
-                    );
+                </LiArea>
+
+                    )
                 })}
             </ListWrapper>
         </>

@@ -164,7 +164,7 @@ export default function ProfileArea(): JSX.Element {
                             <p>관심 목록</p>
                         </ButtonNLabel>
                     </Link>
-                    <Link href={"/profile/hostedStudy"}>
+                    <Link href={"/profile/hostStudyList"}>
                         <ButtonNLabel>
                             <ActivityButton>
                                 <img src="/assets/profile/studypencil.svg" />

@@ -9,20 +9,25 @@ import {
   Desktop,
   Img,
 } from "../src/styles/common/container";
+import {
+  RecoilRoot,
+} from 'recoil';
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <AppContainer>
-        <Desktop>
-          <Title>Craker Book</Title>
-          <Img src="/assets/main/main.png" />
-        </Desktop>
-        <Mobile>
-          <Component {...pageProps} />
-        </Mobile>
-      </AppContainer>
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <AppContainer>
+          <Desktop>
+            <Title>Craker Book</Title>
+            <Img src="/assets/main/main.png" />
+          </Desktop>
+          <Mobile>
+            <Component {...pageProps} />
+          </Mobile>
+        </AppContainer>
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
