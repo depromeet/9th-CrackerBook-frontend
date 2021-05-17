@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 const CategoryTypeState = atom<string>({
   key: "CategoryTypeState",
-  default: "none",
+  default: "main",
 });
 
 const HeaderTextState = atom<string>({

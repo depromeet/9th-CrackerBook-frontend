@@ -15,7 +15,6 @@ import {
 import Link from "next/link";
 import {useState} from "react";
 import {ThisBookContentWrapper} from "../../../styles/detail/book/bookDetailStyle";
-import BooksHeaderComponent from "../header/BooksHeaderComponent";
 import LikeBookComponent from "../likeStudy/LikeBookComponent";
 import NewStudyComponent from "../newStudy/NewStudyComponent";
 import OriginStudyComponent from "../originStudy/OriginStudyComponent";
@@ -23,6 +22,8 @@ import {SelectModal} from "../../detail/common/SelectModal";
 import {useRecoilValue} from "recoil";
 import {CategoryTypeState} from "../../../state/main/mainState";
 import CategoryComponent from "../category/CategoryComponent";
+import DetailIndexComponent from "../detail/DetailIndexComponent";
+import BooksHeaderComponent from "../header/BooksHeaderComponent";
 
 interface BookData {
     bookName: string;
@@ -34,30 +35,53 @@ interface BookData {
     endData: string;
 }
 
+const viewComponent = (props: { categoryState: string, data: Array<BookData> }): JSX.Element => {
+    let view: JSX.Element;
+    switch (props.categoryState) {
+        case 'main' :
+            view = (
+                <>
+                    <OriginStudyComponent bookData={props.data}/>
+                    <LikeBookComponent/>
+                    <NewStudyComponent/>
+                </>
+            )
+            break;
+        case 'detail' :
+            view = (
+                <>
+                    <DetailIndexComponent/>
+                </>
+            )
+            break;
+        default :
+            view = (
+                <>
+                    <CategoryComponent type={props.categoryState}/>
+                </>
+            )
+    }
+    return view;
+}
+
 export default function MainIndexComponent(props: {
     bookData: Array<BookData>;
 }): JSX.Element {
     const data = props.bookData;
-    const categoryState  = useRecoilValue<string>(CategoryTypeState);
+    const categoryState = useRecoilValue<string>(CategoryTypeState);
     return (
         <>
             {!data ? (
                 <div>로딩중</div>
             ) : (
+
                 <>
                     <BooksHeaderComponent/>
-                    { categoryState === 'main' ?
-                        <>
-                            <OriginStudyComponent bookData={data}/>
-                            <LikeBookComponent/>
-                            <NewStudyComponent/>
-                        </> :
-                        <>
-                            <CategoryComponent type={categoryState}/>
-                        </>
+                    {
+                        viewComponent({categoryState, data})
                     }
-
                 </>
+
             )}
         </>
     );
@@ -106,7 +130,8 @@ export function ThisBookBox(): JSX.Element {
     );
 }
 
-export function MoreButton(props: { backgroundColor: string }): JSX.Element {
+export function MoreButton(props: { backgroundColor: string }
+): JSX.Element {
     return (
         <MoreBtn background={props.backgroundColor}>
             더 보기 <DownImg src="/assets/main/caretDown.svg"/>
