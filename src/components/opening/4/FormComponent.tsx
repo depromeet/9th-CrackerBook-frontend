@@ -44,37 +44,71 @@ const Content = styled.div`
   position: relative;
   padding: 10px 0;
 `;
-const TimeImgWrapper = styled.div`
-  width: 100%;
+const TimeStartWrapper = styled.div`
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 88px;
+  border-top: 1px solid #f1f1f3;
+  border-bottom: 1px solid #f1f1f3;
+`;
+const TimeEndWrapper = styled.div`
+  position: relative;
+  float: right;
+  width: 50%;
   height: 88px;
   border-top: 1px solid #f1f1f3;
   border-bottom: 1px solid #f1f1f3;
 `;
 const StartImg = styled.img`
   position: absolute;
+  cursor: pointer;
 `;
 const DateStartText = styled.div`
   position: absolute;
+  top: 20px;
+  left: 40px;
+  width: 140px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #222222;
+  cursor: pointer;
 `;
 const TimeStartText = styled.div`
   position: absolute;
-  top: 30px;
-`;
-const EndImg = styled.div`
-  position: absolute;
-  right: 0px;
-  width: 190px;
-  height: 88px;
+  top: 36px;
+  left: 40px;
+  width: 140px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 35px;
+  color: #222222;
+  cursor: pointer;
 `;
 const DateEndText = styled.div`
   position: absolute;
-  top: 60px;
-  right: 0px;
+  top: 20px;
+  left: 40px;
+  width: 140px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 16px;
+  color: #222222;
+  cursor: pointer;
 `;
 const TimeEndText = styled.div`
   position: absolute;
-  top: 80px;
-  right: 0px;
+  top: 36px;
+  left: 40px;
+  width: 140px;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 35px;
+  color: #222222;
+  cursor: pointer;
 `;
 const DateTimePickerWrapper = styled.div`
   position: absolute;
@@ -194,48 +228,46 @@ export default function FormComponent(): JSX.Element {
       <TimeBoxWrapper>
         <TimeTitle>스터디 기간</TimeTitle>
         <Content>
-          <TimeImgWrapper>
-            <StartImg
-              src="/assets/opening/period.svg"
-              onClick={() => setIsOpenStudyStart(true)}
-            />
-            <DateTimePickerWrapper>
-              <ThemeProvider theme={defaultMaterialTheme}>
-                <DateTimePicker
-                  value={periodStudyStart}
-                  open={isOpenStudyStart}
-                  onOpen={() => setIsOpenStudyStart(true)}
-                  onClose={() => setIsOpenStudyStart(false)}
-                  onChange={(date) => setPeriodStudyStart(dayjs(date))}
-                ></DateTimePicker>
-              </ThemeProvider>
-            </DateTimePickerWrapper>
+          <TimeStartWrapper onClick={() => setIsOpenStudyStart(true)}>
+            <StartImg src="/assets/opening/period.svg" />
             <DateStartText>
               {periodStudyStart.locale("ko").format("YY년 MM월 DD일(ddd)")}
             </DateStartText>
             <TimeStartText>
-              {periodStudyStart.locale("en").format("A HH:mm")}
+              {periodStudyStart.locale("en").format("A H:mm")}
             </TimeStartText>
-            <EndImg onClick={() => setIsOpenStudyEnd(true)} />
-            <DateTimePickerWrapper>
-              <ThemeProvider theme={defaultMaterialTheme}>
-                <DateTimePicker
-                  value={periodStudyEnd}
-                  open={isOpenStudyEnd}
-                  onOpen={() => setIsOpenStudyEnd(true)}
-                  onClose={() => setIsOpenStudyEnd(false)}
-                  onChange={(date) => setPeriodStudyEnd(dayjs(date))}
-                ></DateTimePicker>
-                <DateEndText></DateEndText>
-              </ThemeProvider>
-            </DateTimePickerWrapper>
+          </TimeStartWrapper>
+          <TimeEndWrapper onClick={() => setIsOpenStudyEnd(true)}>
             <DateEndText>
               {periodStudyEnd.locale("ko").format("YY년 MM월 DD일(ddd)")}
             </DateEndText>
             <TimeEndText>
-              {periodStudyEnd.locale("en").format("A HH:mm")}
+              {periodStudyEnd.locale("en").format("A H:mm")}
             </TimeEndText>
-          </TimeImgWrapper>
+          </TimeEndWrapper>
+          <DateTimePickerWrapper>
+            <ThemeProvider theme={defaultMaterialTheme}>
+              <DateTimePicker
+                value={periodStudyStart}
+                open={isOpenStudyStart}
+                onOpen={() => setIsOpenStudyStart(true)}
+                onClose={() => setIsOpenStudyStart(false)}
+                onChange={(date) => setPeriodStudyStart(dayjs(date))}
+              ></DateTimePicker>
+            </ThemeProvider>
+          </DateTimePickerWrapper>
+          <DateTimePickerWrapper>
+            <ThemeProvider theme={defaultMaterialTheme}>
+              <DateTimePicker
+                value={periodStudyEnd}
+                open={isOpenStudyEnd}
+                onOpen={() => setIsOpenStudyEnd(true)}
+                onClose={() => setIsOpenStudyEnd(false)}
+                onChange={(date) => setPeriodStudyEnd(dayjs(date))}
+              ></DateTimePicker>
+              <DateEndText></DateEndText>
+            </ThemeProvider>
+          </DateTimePickerWrapper>
         </Content>
       </TimeBoxWrapper>
       <BoxWrapper>
@@ -287,51 +319,48 @@ export default function FormComponent(): JSX.Element {
       <TimeBoxWrapper>
         <TimeTitle>모집 기간</TimeTitle>
         <Content>
-          <TimeImgWrapper>
-            <StartImg
-              src="/assets/opening/period.svg"
-              onClick={() => setIsOpenRecruitmentStart(true)}
-            />
-            <DateTimePickerWrapper>
-              <ThemeProvider theme={defaultMaterialTheme}>
-                <DateTimePicker
-                  value={periodRecruitmentStart}
-                  open={isOpenRecruitmentStart}
-                  onOpen={() => setIsOpenRecruitmentStart(true)}
-                  onClose={() => setIsOpenRecruitmentStart(false)}
-                  onChange={(date) => setPeriodRecruitmentStart(dayjs(date))}
-                ></DateTimePicker>
-                <DateStartText></DateStartText>
-              </ThemeProvider>
-            </DateTimePickerWrapper>
+          <TimeStartWrapper onClick={() => setIsOpenRecruitmentStart(true)}>
+            <StartImg src="/assets/opening/period.svg" />
             <DateStartText>
               {periodRecruitmentStart
                 .locale("ko")
                 .format("YY년 MM월 DD일(ddd)")}
             </DateStartText>
             <TimeStartText>
-              {periodRecruitmentStart.locale("en").format("A HH:mm")}
+              {periodRecruitmentStart.locale("en").format("A H:mm")}
             </TimeStartText>
-            <EndImg onClick={() => setIsOpenRecruitmentEnd(true)} />
-            <DateTimePickerWrapper>
-              <ThemeProvider theme={defaultMaterialTheme}>
-                <DateTimePicker
-                  value={periodRecruitmentEnd}
-                  open={isOpenRecruitmentEnd}
-                  onOpen={() => setIsOpenRecruitmentEnd(true)}
-                  onClose={() => setIsOpenRecruitmentEnd(false)}
-                  onChange={(date) => setPeriodRecruitmentEnd(dayjs(date))}
-                ></DateTimePicker>
-                <DateEndText></DateEndText>
-              </ThemeProvider>
-            </DateTimePickerWrapper>
+          </TimeStartWrapper>
+          <TimeEndWrapper onClick={() => setIsOpenRecruitmentEnd(true)}>
             <DateEndText>
               {periodRecruitmentEnd.locale("ko").format("YY년 MM월 DD일(ddd)")}
             </DateEndText>
             <TimeEndText>
-              {periodRecruitmentEnd.locale("en").format("A HH:mm")}
+              {periodRecruitmentEnd.locale("en").format("A H:mm")}
             </TimeEndText>
-          </TimeImgWrapper>
+          </TimeEndWrapper>
+          <DateTimePickerWrapper>
+            <ThemeProvider theme={defaultMaterialTheme}>
+              <DateTimePicker
+                value={periodRecruitmentStart}
+                open={isOpenRecruitmentStart}
+                onOpen={() => setIsOpenRecruitmentStart(true)}
+                onClose={() => setIsOpenRecruitmentStart(false)}
+                onChange={(date) => setPeriodRecruitmentStart(dayjs(date))}
+              ></DateTimePicker>
+            </ThemeProvider>
+          </DateTimePickerWrapper>
+          <DateTimePickerWrapper>
+            <ThemeProvider theme={defaultMaterialTheme}>
+              <DateTimePicker
+                value={periodRecruitmentEnd}
+                open={isOpenRecruitmentEnd}
+                onOpen={() => setIsOpenRecruitmentEnd(true)}
+                onClose={() => setIsOpenRecruitmentEnd(false)}
+                onChange={(date) => setPeriodRecruitmentEnd(dayjs(date))}
+              ></DateTimePicker>
+              <DateEndText></DateEndText>
+            </ThemeProvider>
+          </DateTimePickerWrapper>
         </Content>
       </TimeBoxWrapper>
     </FormWrapper>
