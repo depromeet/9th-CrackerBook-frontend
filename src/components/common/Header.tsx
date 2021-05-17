@@ -1,16 +1,22 @@
 import styled from "styled-components";
 import Link from "next/link";
 import {BackButton} from "../../styles/detail/common/commonStyle";
-import {useRecoilState, useSetRecoilState} from "recoil";
+import {useRecoilState} from "recoil";
 import {CategoryTypeState, HeaderTextState} from "../../state/main/mainState";
 
-const headerElement = (headerState: string): JSX.Element => {
-    switch (headerState) {
-        case 'CrackerBook' :
+const headerElement = (categoryState: string , headerState: string): JSX.Element => {
+    switch (categoryState) {
+        case 'main' :
             return (
                 <CrackerHeader>
                     CRACKER BOOK
                 </CrackerHeader>
+            )
+        case 'detail' :
+            return (
+                <TitleHeader>
+                    ' {headerState} '의 스터디
+                </TitleHeader>
             )
         default:
             return (
@@ -22,9 +28,9 @@ const headerElement = (headerState: string): JSX.Element => {
 }
 
 export default function HeaderComponent(): JSX.Element {
-    const setCategoryState = useSetRecoilState<string>(CategoryTypeState);
+    const [categoryState, setCategoryState] = useRecoilState<string>(CategoryTypeState);
     const [headerState, setHeaderState] = useRecoilState<string>(HeaderTextState);
-    const header = headerElement(headerState);
+    const header = headerElement(categoryState, headerState);
 
     return (
         <HeaderWrapper>

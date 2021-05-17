@@ -35,13 +35,36 @@ interface BookData {
     endData: string;
 }
 
-const viewComponent = (props: { categoryState: string, data: Array<BookData> }): JSX.Element => {
+export default function MainIndexComponent(props: {
+    bookData: Array<BookData>;
+}): JSX.Element {
+    const data = props.bookData;
+    const categoryState = useRecoilValue<string>(CategoryTypeState);
+    return (
+        <>
+            {!data ? (
+                <div>로딩중</div>
+            ) : (
+
+                <>
+                    <BooksHeaderComponent/>
+                    {
+                        viewComponent(categoryState, data)
+                    }
+                </>
+
+            )}
+        </>
+    );
+}
+
+const viewComponent = (categoryState: string, data: Array<BookData>): JSX.Element => {
     let view: JSX.Element;
-    switch (props.categoryState) {
+    switch (categoryState) {
         case 'main' :
             view = (
                 <>
-                    <OriginStudyComponent bookData={props.data}/>
+                    <OriginStudyComponent bookData={data}/>
                     <LikeBookComponent/>
                     <NewStudyComponent/>
                 </>
@@ -57,34 +80,11 @@ const viewComponent = (props: { categoryState: string, data: Array<BookData> }):
         default :
             view = (
                 <>
-                    <CategoryComponent type={props.categoryState}/>
+                    <CategoryComponent type={categoryState}/>
                 </>
             )
     }
     return view;
-}
-
-export default function MainIndexComponent(props: {
-    bookData: Array<BookData>;
-}): JSX.Element {
-    const data = props.bookData;
-    const categoryState = useRecoilValue<string>(CategoryTypeState);
-    return (
-        <>
-            {!data ? (
-                <div>로딩중</div>
-            ) : (
-
-                <>
-                    <BooksHeaderComponent/>
-                    {
-                        viewComponent({categoryState, data})
-                    }
-                </>
-
-            )}
-        </>
-    );
 }
 
 export function BookStudyContainer(): JSX.Element {
