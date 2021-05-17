@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import {BackButton} from "../../styles/detail/common/commonStyle";
-import {useRecoilState} from "recoil";
+import {useRecoilState, useSetRecoilState} from "recoil";
 import {CategoryTypeState, HeaderTextState} from "../../state/main/mainState";
 
 const headerElement = (headerState: string): JSX.Element => {
@@ -22,7 +22,7 @@ const headerElement = (headerState: string): JSX.Element => {
 }
 
 export default function HeaderComponent(): JSX.Element {
-    const [categoryState, setCategoryState] = useRecoilState<string>(CategoryTypeState);
+    const setCategoryState = useSetRecoilState<string>(CategoryTypeState);
     const [headerState, setHeaderState] = useRecoilState<string>(HeaderTextState);
     const header = headerElement(headerState);
 

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import {BlackBackground} from "../../../styles/detail/common/commonStyle";
 import {ConfirmBox} from "../../common/confirmModal/ConfirmBox";
-import {useRecoilState} from "recoil";
+import {useSetRecoilState} from "recoil";
 import {ConfirmBoxState} from "../../../state/detail/detailState";
 
 export function ConfirmStudy(): JSX.Element {
-    const [confirmBoxState, setConfirmBoxSate] = useRecoilState<boolean>(ConfirmBoxState);
+    const setConfirmBoxSate = useSetRecoilState<boolean>(ConfirmBoxState);
     // @ts-ignore
     document.childNodes[1].setAttribute('style', 'overflow:hidden');
     const param = {

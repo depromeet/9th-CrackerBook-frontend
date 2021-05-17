@@ -1,10 +1,10 @@
 import {TitleDiv, TitleWrapper, TotalView} from "../../../styles/main/BooksStyle";
-import {useRecoilState} from "recoil";
+import {useSetRecoilState} from "recoil";
 import {CategoryTypeState, HeaderTextState} from "../../../state/main/mainState";
 
 export default function TitleComponent(props: { bookName: string }): JSX.Element {
-    const [categoryState, setCategoryState] = useRecoilState<string>(CategoryTypeState);
-    const [headerState, setHeaderState] = useRecoilState<string>(HeaderTextState);
+    const setCategoryState = useSetRecoilState<string>(CategoryTypeState);
+    const setHeaderState = useSetRecoilState<string>(HeaderTextState);
     const bookName = props.bookName.length > 11 ? props.bookName.slice(0, 10) + '...' : props.bookName;
     return (
         <>
