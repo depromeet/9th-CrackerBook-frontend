@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useState, useRef } from "react";
 import { useRecoilState } from "recoil";
-import { categoryState } from "../states";
+import { categoryState } from "../../states/opening";
 
 const SearchBoxInnerWrapper = styled.div`
   position: relative;

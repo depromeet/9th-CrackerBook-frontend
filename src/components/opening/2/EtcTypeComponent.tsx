@@ -1,11 +1,8 @@
 import { useRef } from "react";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import {
-  currentStepState,
-  showEtcTypeState,
-  typeEtcStringState,
-} from "../states";
+import { currentStepState, showEtcTypeState } from "../../states/opening";
+import { typeEtcStringState } from "../../states/form";
 
 const BlackBackground = styled.div`
   background-color: rgba(0, 0, 0, 80%);

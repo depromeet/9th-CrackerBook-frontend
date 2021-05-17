@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
-import { currentStepState } from "../states";
+import { currentStepState } from "../../states/opening";
 
 const HeaderWrapper = styled.div`
   display: flex;

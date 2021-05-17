@@ -110,6 +110,7 @@ const DifficultyData = [
   { label: "중급", value: "intermediate" },
   { label: "고급", value: "advanced" },
 ];
+
 const LocationData = [
   { label: "온라인", value: "online" },
   { label: "오프라인", value: "offline" },

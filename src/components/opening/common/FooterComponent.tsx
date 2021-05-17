@@ -3,10 +3,10 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import {
   nextStepState,
   currentStepState,
-  typeState,
   showEtcTypeState,
   showCompleteState,
-} from "../states";
+} from "../../states/opening";
+import { typeState } from "../../states/form";
 import CompleteComponent from "./CompleteComponent";
 
 const Footer = styled.footer`

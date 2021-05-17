@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
-import { typeState } from "../states";
+import { typeState } from "../../states/form";
 
 const Wrapper = styled.div`
   position: absolute;

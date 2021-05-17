@@ -6,7 +6,7 @@ import PortfolioComponent from "./PortfolioComponent";
 import EtcComponent from "./EtcComponent";
 import EtcTypeComponent from "./EtcTypeComponent";
 import { useRecoilState } from "recoil";
-import { showEtcTypeState } from "../states";
+import { showEtcTypeState } from "../../states/opening";
 
 const KindBookWrapper = styled.div`
   padding: 18px 0;

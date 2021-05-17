@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { useSetRecoilState } from "recoil";
-import { nextStepState } from "../states";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { nextStepState } from "../../states/opening";
+import { bookState } from "../../states/book";
 
 const FavoriteBookWrapper = styled.div`
   position: relative;
@@ -91,61 +92,10 @@ const FavoriteText = styled.div`
   color: #222222;
   z-index: 0;
 `;
-const Result = [
-  {
-    title:
-      "책 하나 제가 했습니다. 긴 제목의 책이 필요해서 정말 제목이 긴 책 이름으로",
-    author: "이성용",
-  },
-  {
-    title: "코로나 팬데믹 리포트",
-    author: "차우준",
-  },
-  {
-    title: "드론과 현장 : 산림 편",
-    author: "김신지",
-  },
-  {
-    title: "비전공자를 위해 이해할 수 있는 정말 긴 책 제목의 책",
-    author: "김신지",
-  },
-  {
-    title: "드론과 현장 : 산림 편",
-    author: "김신지",
-  },
-  {
-    title: "노자 도덕경",
-    author: "도덕경",
-  },
-  {
-    title:
-      "책 하나 제가 했습니다. 긴 제목의 책이 필요해서 정말 제목이 긴 책 이름으로",
-    author: "이성용",
-  },
-  {
-    title: "코로나 팬데믹 리포트",
-    author: "차우준",
-  },
-  {
-    title: "드론과 현장 : 산림 편",
-    author: "김신지",
-  },
-  {
-    title: "비전공자를 위해 이해할 수 있는 정말 긴 책 제목의 책",
-    author: "김신지",
-  },
-  {
-    title: "드론과 현장 : 산림 편",
-    author: "김신지",
-  },
-  {
-    title: "노자 도덕경",
-    author: "도덕경",
-  },
-];
 
 export default function FavoriteBookComponent(): JSX.Element {
   const [categorySelected, setCategorySelected] = useState(-1);
+  const [book] = useRecoilState(bookState);
   const setNextStep = useSetRecoilState(nextStepState);
   const categorySelect = (index) => {
     setCategorySelected(index);
@@ -156,15 +106,15 @@ export default function FavoriteBookComponent(): JSX.Element {
     <FavoriteBookWrapper>
       <FavoriteText>관심 책으로 스터디 개설하기</FavoriteText>
       <ListWrapper>
-        {Result.map((v, index) => {
+        {book.map((b, index) => {
           return (
             <LiLink key={index} onClick={() => categorySelect(index)}>
               <Profile>
                 <ImgShadow></ImgShadow>
                 <Img src="/assets/main/exBook.jpg" />
               </Profile>
-              <Title>{v.title}</Title>
-              <Author>{v.author}</Author>
+              <Title>{b.title}</Title>
+              <Author>{b.author}</Author>
               <CheckIconBox>
                 {categorySelected === index ? (
                   <img src="/assets/opening/check26.svg" />

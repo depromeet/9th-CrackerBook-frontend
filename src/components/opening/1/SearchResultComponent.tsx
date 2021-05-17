@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useRecoilState } from "recoil";
+import { bookState } from "../../states/book";
 
 const ListWrapper = styled.ul`
   position: relative;
@@ -9,7 +11,6 @@ const Title = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: box;
-
   margin: 0 0 10px;
   font-weight: 500;
   font-size: 16px;
@@ -93,89 +94,14 @@ const SubContent = styled.div`
   line-height: 20px;
   color: #222222;
 `;
-const Result = [
-  {
-    title:
-      "책 하나 제가 했습니다. 긴 제목의 책이 필요해서 정말 제목이 긴 책 이름으로",
-    author: "이성용",
-    publish: "맹그로브숲",
-    date: "2021.02.22",
-  },
-  {
-    title: "코로나 팬데믹 리포트",
-    author: "차우준",
-    publish: "민음사",
-    date: "2021.04.09",
-  },
-  {
-    title: "드론과 현장 : 산림 편",
-    author: "김신지",
-    publish: "맹그로브숲",
-    date: "2021.02.22",
-  },
-  {
-    title: "비전공자를 위해 이해할 수 있는 정말 긴 책 제목의 책",
-    author: "김신지",
-    publish: "맹그로브숲",
-    date: "2021.02.22",
-  },
-  {
-    title: "드론과 현장 : 산림 편",
-    author: "김신지",
-    publish: "맹그로브숲",
-    date: "2021.02.22",
-  },
-  {
-    title: "노자 도덕경",
-    author: "도덕경",
-    publish: "민음사",
-    date: "2021.04.09",
-  },
-  {
-    title:
-      "책 하나 제가 했습니다. 긴 제목의 책이 필요해서 정말 제목이 긴 책 이름으로",
-    author: "이성용",
-    publish: "맹그로브숲",
-    date: "2021.02.22",
-  },
-  {
-    title: "코로나 팬데믹 리포트",
-    author: "차우준",
-    publish: "민음사",
-    date: "2021.04.09",
-  },
-  {
-    title: "드론과 현장 : 산림 편",
-    author: "김신지",
-    publish: "맹그로브숲",
-    date: "2021.02.22",
-  },
-  {
-    title: "비전공자를 위해 이해할 수 있는 정말 긴 책 제목의 책",
-    author: "김신지",
-    publish: "민음사",
-    date: "2021.04.09",
-  },
-  {
-    title: "드론과 현장 : 산림 편",
-    author: "김신지",
-    publish: "맹그로브숲",
-    date: "2021.02.22",
-  },
-  {
-    title: "노자 도덕경",
-    author: "도덕경",
-    publish: "민음사",
-    date: "2021.04.09",
-  },
-];
 
 export default function SearchResultComponent(): JSX.Element {
   const [listSelected, setListSelected] = useState(-1);
+  const [book] = useRecoilState(bookState);
 
   return (
     <ListWrapper>
-      {Result.map((v, index) => {
+      {book.map((b, index) => {
         return (
           <LiLink
             key={index}
@@ -188,15 +114,15 @@ export default function SearchResultComponent(): JSX.Element {
               </ImgShadow>
             </Profile>
             <ContentWrapper>
-              <Title>{v.title}</Title>
+              <Title>{b.title}</Title>
               <Content>
                 <SubTitle>저자</SubTitle>
-                <SubContent>{v.author}</SubContent>
+                <SubContent>{b.author}</SubContent>
               </Content>
               <Content>
                 <SubTitle>출판</SubTitle>
-                <SubContent>{v.publish}</SubContent>
-                <SubContent>{v.date}</SubContent>
+                <SubContent>{b.publish}</SubContent>
+                <SubContent>{b.date}</SubContent>
               </Content>
             </ContentWrapper>
           </LiLink>

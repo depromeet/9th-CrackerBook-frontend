@@ -3,7 +3,7 @@ import SearchBoxComponent from "./SearchBoxComponent";
 import FavoriteBookComponent from "./FavoriteBookComponent";
 import SearchResultComponent from "./SearchResultComponent";
 import { useRecoilState } from "recoil";
-import { categoryState } from "../states";
+import { categoryState } from "../../states/opening";
 
 const KindBookWrapper = styled.div`
   padding: 18px 0;

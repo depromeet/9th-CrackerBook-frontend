@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useRef } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { categoryState, inputClickState } from "../states";
+import { categoryState, inputClickState } from "../../states/search";
 
 const SearchBoxWrapper = styled.div`
   position: relative;

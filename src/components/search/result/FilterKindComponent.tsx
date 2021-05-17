@@ -26,7 +26,7 @@ const Li = styled.li`
   }
 `;
 
-const TabTitles = ["전체", "책", "스터디"];
+const TabTitles = ["책", "저자", "스터디"];
 
 export default function FilterKindComponent(props: {
   tabSelected: number;

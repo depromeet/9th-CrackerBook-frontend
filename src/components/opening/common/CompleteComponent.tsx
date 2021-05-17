@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useSetRecoilState } from "recoil";
-import { showCompleteState } from "../states";
+import { showCompleteState } from "../../states/opening";
 
 const BlackBackground = styled.div`
   background-color: rgba(0, 0, 0, 80%);

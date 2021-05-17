@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRecoilState } from "recoil";
-import { currentStepState } from "src/components/opening/states";
+import { currentStepState } from "src/components/states/opening";
 import KindBookComponent from "src/components/opening/1/KindBookComponent";
 import KindTypeComponent from "src/components/opening/2/KindTypeComponent";
 import StudyInfoComponent from "src/components/opening/3/StudyInfoComponent";
@@ -11,10 +11,10 @@ import HeaderComponent from "src/components/opening/common/HeaderComponent";
 export default function Index(): JSX.Element {
   const [currentStep] = useRecoilState(currentStepState);
   const components = [
-    <KindBookComponent key="1" />,
-    <KindTypeComponent key="2" />,
-    <StudyInfoComponent key="3" />,
-    <StudyPeriodComponent key="4" />,
+    <KindBookComponent key="KindBook" />,
+    <KindTypeComponent key="KindType" />,
+    <StudyInfoComponent key="StudyInfo" />,
+    <StudyPeriodComponent key="StudyPeriod" />,
   ];
   return (
     <>

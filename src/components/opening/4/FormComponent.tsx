@@ -115,7 +115,6 @@ const LiCircleText = styled.div`
   font-size: 12px;
   line-height: 17px;
 `;
-
 const LocationData = [
   { label: "매주", value: "oneweek" },
   { label: "격주", value: "twoweek" },

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
+import { useRecoilState } from "recoil";
+import { studyState } from "../../states/study";
 
 const ListWrapper = styled.ul`
   margin: 20px 30px;
@@ -84,19 +86,13 @@ const Date = styled.div`
   color: #777777;
 `;
 
-const Result = [
-  "UX 디자인 실습하기",
-  "달리기 수업",
-  "숨쉬기 수업",
-  "오래자기 챌린지",
-];
-
-export default function ListComponent(): JSX.Element {
+export default function ListStudyComponent(): JSX.Element {
+  const [study] = useRecoilState(studyState);
   return (
     <>
       <ListHeaderComponent title={"스터디"} />
       <ListWrapper>
-        {Result.map((v, index) => {
+        {study.map((s, index) => {
           return (
             <LiLink key={index}>
               <Profile>
@@ -105,12 +101,12 @@ export default function ListComponent(): JSX.Element {
               </Profile>
               <Content>
                 <Icon src="/assets/main/bookIcon.svg" />
-                <IconText>토론</IconText>
+                <IconText>{s.category}</IconText>
                 <Icon src="/assets/main/memberIcon.svg" />
-                <IconText>멤버 3/6</IconText>
+                <IconText>멤버 {s.members}/6</IconText>
               </Content>
-              <Title>{v}</Title>
-              <Date>04.26 ~ 05.26 토 14:00</Date>
+              <Title>{s.title}</Title>
+              <Date>{s.date}</Date>
             </LiLink>
           );
         })}
