@@ -17,6 +17,7 @@ const MainText = styled.div`
   font-size: 24px;
   line-height: 35px;
   color: #222222;
+  white-space: pre-line;
 `;
 const SubText = styled.div`
   font-size: 16px;
@@ -51,9 +52,8 @@ export default function KindTypeComponent(): JSX.Element {
   return (
     <KindBookWrapper>
       <MainText>
-        어떤 유형으로
-        {"\n"}
-        스터디를 하고 싶나요?
+        {`어떤 유형으로
+        스터디를 하고 싶나요?`}
       </MainText>
       <SubText>
         <TitleText>책 제목입니다</TitleText>

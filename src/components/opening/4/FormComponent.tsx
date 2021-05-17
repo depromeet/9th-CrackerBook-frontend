@@ -1,5 +1,12 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { useRecoilState } from "recoil";
+import {
+  periodStudyStartState,
+  periodStudyEndState,
+  periodRecruitmentStartState,
+  periodRecruitmentEndState,
+} from "../../states/form";
 import amber from "@material-ui/core/colors/amber";
 import { DateTimePicker } from "@material-ui/pickers";
 import { createMuiTheme } from "@material-ui/core";
@@ -40,18 +47,29 @@ const TimeImgWrapper = styled.div`
   height: 88px;
   border-top: 1px solid #f1f1f3;
   border-bottom: 1px solid #f1f1f3;
-  z-index: 1;
 `;
-const TimeImgStart = styled.img`
+const StartImg = styled.img`
   position: absolute;
-  z-index: 1;
 `;
-const TimeImgEnd = styled.div`
+const DateStartText = styled.div`
+  position: absolute;
+`;
+const TimeStartText = styled.div`
+  position: absolute;
+`;
+const EndImg = styled.div`
   position: absolute;
   right: 0px;
   width: 190px;
   height: 88px;
-  z-index: 1;
+`;
+const DateEndText = styled.div`
+  position: absolute;
+  top: 80px;
+  right: 0px;
+`;
+const TimeEndText = styled.div`
+  position: absolute;
 `;
 const DateTimePickerWrapper = styled.div`
   position: absolute;
@@ -138,8 +156,22 @@ const defaultMaterialTheme = createMuiTheme({
 });
 
 export default function FormComponent(): JSX.Element {
-  const [selectedDate, handleDateChange] = useState(new Date());
-  const [isOpen, setIsOpen] = useState(false);
+  const [periodStudyStart, setPeriodStudyStart] = useRecoilState(
+    periodStudyStartState,
+  );
+  const [periodStudyEnd, setPeriodStudyEnd] = useRecoilState(
+    periodStudyEndState,
+  );
+  const [periodRecruitmentStart, setPeriodRecruitmentStart] = useRecoilState(
+    periodRecruitmentStartState,
+  );
+  const [periodRecruitmentEnd, setPeriodRecruitmentEnd] = useRecoilState(
+    periodRecruitmentEndState,
+  );
+  const [isOpenStudyStart, setIsOpenStudyStart] = useState(false);
+  const [isOpenStudyEnd, setIsOpenStudyEnd] = useState(false);
+  const [isOpenRecruitmentStart, setIsOpenRecruitmentStart] = useState(false);
+  const [isOpenRecruitmentEnd, setIsOpenRecruitmentEnd] = useState(false);
   const [repeat, setRepeat] = useState("");
   const [week, setWeek] = useState("");
   const setRepeatFunction = (event, value) => {
@@ -158,22 +190,36 @@ export default function FormComponent(): JSX.Element {
         <TimeTitle>스터디 기간</TimeTitle>
         <Content>
           <TimeImgWrapper>
-            <TimeImgStart
+            <StartImg
               src="/assets/opening/period.svg"
-              onClick={() => setIsOpen(true)}
+              onClick={() => setIsOpenStudyStart(true)}
             />
-            <TimeImgEnd onClick={() => setIsOpen(true)} />
             <DateTimePickerWrapper>
               <ThemeProvider theme={defaultMaterialTheme}>
                 <DateTimePicker
-                  value={selectedDate}
-                  open={isOpen}
-                  onOpen={() => setIsOpen(true)}
-                  onClose={() => setIsOpen(false)}
-                  onChange={handleDateChange}
+                  value={periodStudyStart}
+                  open={isOpenStudyStart}
+                  onOpen={() => setIsOpenStudyStart(true)}
+                  onClose={() => setIsOpenStudyStart(false)}
+                  onChange={(date) => setPeriodStudyStart(date)}
                 ></DateTimePicker>
               </ThemeProvider>
             </DateTimePickerWrapper>
+            <DateStartText>{periodStudyStart.toUTCString()}</DateStartText>
+            <EndImg onClick={() => setIsOpenStudyEnd(true)} />
+            <DateTimePickerWrapper>
+              <ThemeProvider theme={defaultMaterialTheme}>
+                <DateTimePicker
+                  value={periodStudyEnd}
+                  open={isOpenStudyEnd}
+                  onOpen={() => setIsOpenStudyEnd(true)}
+                  onClose={() => setIsOpenStudyEnd(false)}
+                  onChange={(date) => setPeriodStudyEnd(date)}
+                ></DateTimePicker>
+                <DateEndText></DateEndText>
+              </ThemeProvider>
+            </DateTimePickerWrapper>
+            <DateEndText>{periodStudyEnd.toUTCString()}</DateEndText>
           </TimeImgWrapper>
         </Content>
       </TimeBoxWrapper>
@@ -227,22 +273,39 @@ export default function FormComponent(): JSX.Element {
         <TimeTitle>모집 기간</TimeTitle>
         <Content>
           <TimeImgWrapper>
-            <TimeImgStart
+            <StartImg
               src="/assets/opening/period.svg"
-              onClick={() => setIsOpen(true)}
+              onClick={() => setIsOpenRecruitmentStart(true)}
             />
-            <TimeImgEnd onClick={() => setIsOpen(true)} />
             <DateTimePickerWrapper>
               <ThemeProvider theme={defaultMaterialTheme}>
                 <DateTimePicker
-                  value={selectedDate}
-                  open={isOpen}
-                  onOpen={() => setIsOpen(true)}
-                  onClose={() => setIsOpen(false)}
-                  onChange={handleDateChange}
+                  value={periodRecruitmentStart}
+                  open={isOpenRecruitmentStart}
+                  onOpen={() => setIsOpenRecruitmentStart(true)}
+                  onClose={() => setIsOpenRecruitmentStart(false)}
+                  onChange={(date) => setPeriodRecruitmentStart(date)}
                 ></DateTimePicker>
+                <DateStartText></DateStartText>
               </ThemeProvider>
             </DateTimePickerWrapper>
+            <DateStartText>
+              {periodRecruitmentStart.toUTCString()}
+            </DateStartText>
+            <EndImg onClick={() => setIsOpenRecruitmentEnd(true)} />
+            <DateTimePickerWrapper>
+              <ThemeProvider theme={defaultMaterialTheme}>
+                <DateTimePicker
+                  value={periodRecruitmentEnd}
+                  open={isOpenRecruitmentEnd}
+                  onOpen={() => setIsOpenRecruitmentEnd(true)}
+                  onClose={() => setIsOpenRecruitmentEnd(false)}
+                  onChange={(date) => setPeriodRecruitmentEnd(date)}
+                ></DateTimePicker>
+                <DateEndText></DateEndText>
+              </ThemeProvider>
+            </DateTimePickerWrapper>
+            <DateEndText>{periodRecruitmentEnd.toUTCString()}</DateEndText>
           </TimeImgWrapper>
         </Content>
       </TimeBoxWrapper>

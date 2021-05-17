@@ -63,6 +63,7 @@ const Comment2 = styled.div`
   color: #777777;
   padding-bottom: 12px;
   line-height: 20px;
+  white-space: pre-line;
 `;
 
 const Confirm = styled.button`
@@ -89,9 +90,8 @@ export default function CompleteComponent(): JSX.Element {
             <Icon src="/assets/opening/completeCheck.svg" />
             <Comment1>스터디 주최 완료</Comment1>
             <Comment2>
-              축하합니다! 스터디가 개설되었습니다.
-              {"\n"}
-              성공적인 스터디 운영을 응원합니다.
+              {`축하합니다! 스터디가 개설되었습니다.
+              성공적인 스터디 운영을 응원합니다.`}
             </Comment2>
           </CommentBox>
           <Link href="/main/books">

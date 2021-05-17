@@ -25,8 +25,10 @@ const Footer = styled.footer`
   }
   z-index: 100;
 `;
-const TextDiv = styled.div`
+const Text = styled.div`
   margin: 0 0 30px 0;
+  width: 200px;
+  text-align: center;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
@@ -62,11 +64,11 @@ export default function FooterComponent(): JSX.Element {
           <>
             {currentStep !== 4 ? (
               <Footer onClick={(event) => nextStep(event)}>
-                <TextDiv>다음 ({currentStep}/4)</TextDiv>
+                <Text>다음 ({currentStep}/4)</Text>
               </Footer>
             ) : (
               <Footer onClick={() => setShowComplete(true)}>
-                <TextDiv>완료 ({currentStep}/4)</TextDiv>
+                <Text>완료 ({currentStep}/4)</Text>
               </Footer>
             )}
             {showComplete && <CompleteComponent />}
@@ -74,9 +76,9 @@ export default function FooterComponent(): JSX.Element {
           {/* ) : (
         <Footer className="disabled">
           {currentStep !== 4 ? (
-            <TextDiv className="disabled">다음 ({currentStep}/4)</TextDiv>
+            <Text className="disabled">다음 ({currentStep}/4)</Text>
           ) : (
-            <TextDiv className="disabled">완료 ({currentStep}/4)</TextDiv>
+            <Text className="disabled">완료 ({currentStep}/4)</Text>
           )}
         </Footer>
       )} */}

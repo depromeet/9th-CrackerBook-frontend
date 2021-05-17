@@ -14,6 +14,7 @@ const MainText = styled.div`
   font-size: 24px;
   line-height: 35px;
   color: #222222;
+  white-space: pre-line;
 `;
 
 export default function KindBookComponent(): JSX.Element {
@@ -22,9 +23,8 @@ export default function KindBookComponent(): JSX.Element {
   return (
     <KindBookWrapper>
       <MainText>
-        어떤 책으로
-        {"\n"}
-        스터디를 하고 싶으세요?
+        {`어떤 책으로
+        스터디를 하고 싶으세요?`}
       </MainText>
       <SearchBoxComponent />
       {category !== 2 ? <SearchResultComponent /> : <FavoriteBookComponent />}

@@ -10,6 +10,7 @@ const MainText = styled.div`
   font-size: 24px;
   line-height: 35px;
   color: #222222;
+  white-space: pre-line;
 `;
 const SubText = styled.div`
   font-size: 16px;
@@ -35,9 +36,8 @@ export default function StudyInfoComponent(): JSX.Element {
   return (
     <KindBookWrapper>
       <MainText>
-        스터디에 대한 정보를
-        {"\n"}
-        입력해주세요.
+        {`스터디에 대한 정보를
+        입력해주세요.`}
       </MainText>
       <SubText>
         <TitleText>책 제목입니다</TitleText>
