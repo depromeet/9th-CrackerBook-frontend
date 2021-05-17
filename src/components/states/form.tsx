@@ -1,4 +1,9 @@
 import { atom } from "recoil";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const typeState = atom({
   key: `type`,
@@ -10,19 +15,19 @@ const typeEtcStringState = atom({
 });
 const periodStudyStartState = atom({
   key: `periodStudyStart`,
-  default: new Date(),
+  default: dayjs(new Date()).tz("Asia/Seoul"),
 });
 const periodStudyEndState = atom({
   key: `periodStudyEnd`,
-  default: new Date(),
+  default: dayjs(new Date()),
 });
 const periodRecruitmentStartState = atom({
   key: `periodRecruitmentStart`,
-  default: new Date(),
+  default: dayjs(new Date()),
 });
 const periodRecruitmentEndState = atom({
   key: `periodRecruitmentEnd`,
-  default: new Date(),
+  default: dayjs(new Date()),
 });
 
 export {

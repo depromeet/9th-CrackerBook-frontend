@@ -11,6 +11,8 @@ import amber from "@material-ui/core/colors/amber";
 import { DateTimePicker } from "@material-ui/pickers";
 import { createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
+import dayjs from "dayjs";
+import "dayjs/locale/ko";
 
 const FormWrapper = styled.div`
   padding: 0 0 80px 0;
@@ -56,6 +58,7 @@ const DateStartText = styled.div`
 `;
 const TimeStartText = styled.div`
   position: absolute;
+  top: 30px;
 `;
 const EndImg = styled.div`
   position: absolute;
@@ -65,11 +68,13 @@ const EndImg = styled.div`
 `;
 const DateEndText = styled.div`
   position: absolute;
-  top: 80px;
+  top: 60px;
   right: 0px;
 `;
 const TimeEndText = styled.div`
   position: absolute;
+  top: 80px;
+  right: 0px;
 `;
 const DateTimePickerWrapper = styled.div`
   position: absolute;
@@ -201,11 +206,16 @@ export default function FormComponent(): JSX.Element {
                   open={isOpenStudyStart}
                   onOpen={() => setIsOpenStudyStart(true)}
                   onClose={() => setIsOpenStudyStart(false)}
-                  onChange={(date) => setPeriodStudyStart(date)}
+                  onChange={(date) => setPeriodStudyStart(dayjs(date))}
                 ></DateTimePicker>
               </ThemeProvider>
             </DateTimePickerWrapper>
-            <DateStartText>{periodStudyStart.toUTCString()}</DateStartText>
+            <DateStartText>
+              {periodStudyStart.locale("ko").format("YY년 MM월 DD일(ddd)")}
+            </DateStartText>
+            <TimeStartText>
+              {periodStudyStart.locale("en").format("A HH:mm")}
+            </TimeStartText>
             <EndImg onClick={() => setIsOpenStudyEnd(true)} />
             <DateTimePickerWrapper>
               <ThemeProvider theme={defaultMaterialTheme}>
@@ -214,12 +224,17 @@ export default function FormComponent(): JSX.Element {
                   open={isOpenStudyEnd}
                   onOpen={() => setIsOpenStudyEnd(true)}
                   onClose={() => setIsOpenStudyEnd(false)}
-                  onChange={(date) => setPeriodStudyEnd(date)}
+                  onChange={(date) => setPeriodStudyEnd(dayjs(date))}
                 ></DateTimePicker>
                 <DateEndText></DateEndText>
               </ThemeProvider>
             </DateTimePickerWrapper>
-            <DateEndText>{periodStudyEnd.toUTCString()}</DateEndText>
+            <DateEndText>
+              {periodStudyEnd.locale("ko").format("YY년 MM월 DD일(ddd)")}
+            </DateEndText>
+            <TimeEndText>
+              {periodStudyEnd.locale("en").format("A HH:mm")}
+            </TimeEndText>
           </TimeImgWrapper>
         </Content>
       </TimeBoxWrapper>
@@ -284,14 +299,19 @@ export default function FormComponent(): JSX.Element {
                   open={isOpenRecruitmentStart}
                   onOpen={() => setIsOpenRecruitmentStart(true)}
                   onClose={() => setIsOpenRecruitmentStart(false)}
-                  onChange={(date) => setPeriodRecruitmentStart(date)}
+                  onChange={(date) => setPeriodRecruitmentStart(dayjs(date))}
                 ></DateTimePicker>
                 <DateStartText></DateStartText>
               </ThemeProvider>
             </DateTimePickerWrapper>
             <DateStartText>
-              {periodRecruitmentStart.toUTCString()}
+              {periodRecruitmentStart
+                .locale("ko")
+                .format("YY년 MM월 DD일(ddd)")}
             </DateStartText>
+            <TimeStartText>
+              {periodRecruitmentStart.locale("en").format("A HH:mm")}
+            </TimeStartText>
             <EndImg onClick={() => setIsOpenRecruitmentEnd(true)} />
             <DateTimePickerWrapper>
               <ThemeProvider theme={defaultMaterialTheme}>
@@ -300,12 +320,17 @@ export default function FormComponent(): JSX.Element {
                   open={isOpenRecruitmentEnd}
                   onOpen={() => setIsOpenRecruitmentEnd(true)}
                   onClose={() => setIsOpenRecruitmentEnd(false)}
-                  onChange={(date) => setPeriodRecruitmentEnd(date)}
+                  onChange={(date) => setPeriodRecruitmentEnd(dayjs(date))}
                 ></DateTimePicker>
                 <DateEndText></DateEndText>
               </ThemeProvider>
             </DateTimePickerWrapper>
-            <DateEndText>{periodRecruitmentEnd.toUTCString()}</DateEndText>
+            <DateEndText>
+              {periodRecruitmentEnd.locale("ko").format("YY년 MM월 DD일(ddd)")}
+            </DateEndText>
+            <TimeEndText>
+              {periodRecruitmentEnd.locale("en").format("A HH:mm")}
+            </TimeEndText>
           </TimeImgWrapper>
         </Content>
       </TimeBoxWrapper>
