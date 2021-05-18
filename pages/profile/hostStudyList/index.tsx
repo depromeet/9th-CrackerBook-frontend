@@ -1,5 +1,4 @@
 import HorizontalStudy from "../../../src/components/common/study/horizontalStudy"
-// "/src/components/common/study/horizontalStudy";
 
 
 

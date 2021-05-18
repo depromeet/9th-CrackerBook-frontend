@@ -1,19 +1,22 @@
-import Link from "next/link";
-import styled from "styled-components";
 import ProfileArea from "../../src/components/profile/profileArea";
 import StudyArea from "../../src/components/profile/studyArea";
+import styled from "styled-components";
 
-
-// const ProfileArea = styled.div`
-//   height: 359px;
-// `;
+const HalfView = styled.div`
+  height: 50vh;
+`
 
 
 export default function Index():JSX.Element {
     return (
         <div>
-            <ProfileArea/>
-            <StudyArea/>
+            <HalfView>
+                <ProfileArea/>
+            </HalfView>
+            <HalfView>
+                <StudyArea/>
+            </HalfView>
+
         </div>
     );
 }

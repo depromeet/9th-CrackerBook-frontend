@@ -1,19 +1,9 @@
-import Link from "next/link";
 import styled from "styled-components";
-import ProfileArea from "../../src/components/profile/profileArea";
-import StudyArea from "../../src/components/profile/studyArea";
-
-
-// const ProfileArea = styled.div`
-//   height: 359px;
-// `;
 
 const ProfileImgArea = styled.div`
-  //position: absolute;
   width: 100px;
   height: 100px;
   left: 138px;
-  //top: 110px;
   margin: auto;
   margin-top: 1em;
   
@@ -31,8 +21,6 @@ const ProfileImg = styled.img`
   border-radius: 100px;
 `
 const InfoArea = styled.div`
-    //position: absolute;
-    //top: 242px;
   width: 100%;
   padding: 20px;
   height: auto;
@@ -42,12 +30,10 @@ const SaveBtn = styled.div`
   width: 100%;
   height: 90px;
   bottom: 0px;
-  //text-align: center;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  /* cracker yellow */
   background: #FFD262;
 `
 
@@ -77,7 +63,6 @@ const InfoTitle = styled.p`
   font-size: 16px;
   line-height: 23px;
   margin-top: 1em;
-  /* text1 */
 
   color: #222222;
 
@@ -86,8 +71,6 @@ const SnsIcon = styled.img`
   width: 46px;
   height: 46px;
   margin: 10px;
-  //box-sizing: border-box;
-  //border-radius: 100px;
 `
 
 const SnsInfo = styled.div`

@@ -2,16 +2,15 @@ import Link from "next/link";
 import styled from "styled-components";
 import React, {useState} from "react";
 import HorizontalStudy from "../common/study/horizontalStudy";
+import TabView from "../common/tabView";
+import StudyList from "./interestedBook/studyList";
+import BookList from "./interestedBook/bookList";
 
 
 const StudyTitle = styled.div`
-
-  position: absolute;
-
+  
   height: 30px;
-  left: 20px;
-  top: 392px;
-
+  margin-left: 2vw;
   font-family: Noto Sans KR;
   font-size: 20px;
   font-style: normal;
@@ -64,10 +63,6 @@ const TabContentsArea = styled.div`
 
 export default function StudyArea():JSX.Element {
 
-    // const x  = [{id: "proceed", name: "진행", count: 0},
-    //     {id: "complete", name: "완료", count: 0},
-    //     {id: "favorite", name: "찜한 스터디", count: 0},]
-
     const arr = [{id: 0, name: "진행", count: 0},
          {id: 1, name: "완료", count: 0},]
 
@@ -80,27 +75,21 @@ export default function StudyArea():JSX.Element {
     const tabContents = ['proceed','complete']
 
     const [tabState, setTabSTate] = React.useState(0);
+    const tabInfo = [
+        {tabName: "진행",
+            tabContents: <HorizontalStudy progress ={true} percent={15}routingUrl={''}/>
+        },
+        {tabName: "완료",
+            tabContents: <HorizontalStudy progress ={true} percent={15}routingUrl={''}/>
+        },
+    ];
 
     return (
         <div>
             <StudyTitle>{"나의 스터디"}</StudyTitle>
-            <StudyTabsArea>
-                {arr.map((tab, index) => {
-                    return (
-                        <TabButton key={tab.id} onClick={() => clickHandler(tab.id, index)}
-                                   className={tabState === index ? "on" : ""}>
-                            <div>{tab.name}</div>
-                        </TabButton>
-                    );
-                })}
-            </StudyTabsArea>
-            <TabContentsArea className="contents" >
-                {/*<div contents={tabContents[tabState]}>*/}
-                {/*    */}
-                {/*</div>*/}
-                <HorizontalStudy progress ={true} percent={15}
-                                 routingUrl={''}/>
-            </TabContentsArea>
+            <TabView
+                tabInfo = {tabInfo}
+            />
         </div>
     );
 }

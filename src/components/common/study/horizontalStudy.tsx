@@ -4,7 +4,8 @@ import Link from "next/link";
 
 const ListWrapper = styled.ul`
   position: relative;
-  margin: 20px 20px;
+  //margin: 20px 20px;
+  margin: 2vw;
 `;
 const Title = styled.div`
   margin: 0 0 10px;
@@ -27,44 +28,13 @@ const LiArea = styled.li`
   box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 `;
-const Profile = styled.div`
-  position: relative;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-right: 20px;
-`;
-const Img = styled.img`
-  height: 115px;
-  width: 80px;
-  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.12));
-  border-radius: 0px 5px 5px 0px;
-  background: linear-gradient(
-          270deg,
-          rgba(207, 207, 207, 0) 27.95%,
-          rgba(136, 136, 136, 0.426) 100%
-  );
-  mix-blend-mode: multiply;
-`;
-const ImgShadow = styled.div`
-  position: absolute;
-  top: 0px;
-  height: 115px;
-  width: 13.33px;
-  background: linear-gradient(
-          270deg,
-          rgba(207, 207, 207, 0) 27.95%,
-          rgba(136, 136, 136, 0.426) 100%
-  );
-  mix-blend-mode: multiply;
-  z-index: 0;
-`;
+
+
 const ContentWrapper = styled.div`
   flex-direction: column;
-  //margin: 0 10px;
   width: 173px;
 `;
+
 const Content = styled.div`
   display: flex;
   align-items: center;
@@ -72,27 +42,8 @@ const Content = styled.div`
   font-weight: 400;
   color: #677ac7;
 `;
-const Div = styled.div`
-  margin: 0 0 4px 0;
-  font-size: 14px;
-  line-height: 20px;
-  color: #777777;
-`;
-const SubDiv = styled.div`
-  margin: 0 0 4px 10px;
-  font-size: 14px;
-  line-height: 20px;
-  color: #222222;
-`;
-const LikeImgBorder = styled.img`
-  position: absolute;
-  z-index: 10;
-  top: 0px;
-  right: 0px;
-  font-size: 14px;
-  color: #999999;
-  cursor: pointer;
-`;
+
+
 const LikeImg = styled.img`
   position: absolute;
   z-index: 10;
@@ -103,8 +54,6 @@ const LikeImg = styled.img`
   cursor: pointer;
   top: 42.69%;
 
-
-
 `;
 
 const Icon = styled.img`
@@ -113,6 +62,7 @@ const Icon = styled.img`
   filter: invert(79%) sepia(47%) saturate(7439%) hue-rotate(204deg)
     brightness(84%) contrast(83%);
 `;
+
 const IconText = styled.div`
   margin: 0 10px 0 4px;
   font-weight: 500;
@@ -130,24 +80,27 @@ font-weight: normal;
 font-size: 12px;
 line-height: 16px;
 /* identical to box height */
-
-
-color: #777777;
+  
+//color: #777777;
 `
+
 const ProgressBar = styled.div`
   width: 97px;
   height: 1px;
   border: 2px solid #F1F1F3;
 `
+
 const Gage = styled.div`
   /* cracker yellow */
   height: 1px;
   //width: 30px;
   border: 2px solid #FFD262;
 `
+
 const ProgressArea = styled.div`
     display: flex;
 `
+
 const PercentFont = styled.p`
   font-family: Nunito;
   font-style: normal;
@@ -162,6 +115,7 @@ const PercentFont = styled.p`
   color: #FFD262;
 
 `
+
 const Result = [
     "사용자의 마음을 움직이는 UX 디자인의 힘"
 ];
@@ -169,8 +123,6 @@ const Result = [
 
 
 export default function HorizontalStudy(props:any): JSX.Element {
-
-    // props['routingUrl'] = props? props.routingUrl? props.routingUrl : '' : ''
 
     return (
         <>
