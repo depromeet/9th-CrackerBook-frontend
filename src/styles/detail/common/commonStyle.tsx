@@ -139,6 +139,7 @@ const BottomBarStyle = styled.div`
   //position: -webkit-sticky; /* 사파리 브라우저 지원 */
   position: fixed;
   bottom: 0;
+  z-index: 10;
 `;
 
 const BlackBackground = styled.div`

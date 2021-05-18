@@ -37,6 +37,7 @@ export function EnrollStudy(): JSX.Element {
 const ConfirmWrapper = styled.div`
   position: fixed;
   bottom: 0;
+  z-index: 10;
 `;
 
 const ApplyButtom = styled.div`
