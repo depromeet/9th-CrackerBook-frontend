@@ -39,6 +39,9 @@ const Input = styled.input`
     color: #999999;
   }
 `;
+const ImgCursor = styled.img`
+  cursor: pointer;
+`;
 const ContentNumber = styled.div`
   margin: 3px 20px 0 20px;
   font-size: 14px;
@@ -122,10 +125,10 @@ const LocationData = [
 export default function FormComponent(): JSX.Element {
   const [difficulty, setDifficulty] = useState("");
   const [location, setLocation] = useState("");
-  const [personnel, setPersonnel] = useState(0);
+  const [personnel, setPersonnel] = useState(1);
   const setPersonnelFunction = (event, value) => {
     event.preventDefault();
-    setPersonnel(value === -1 ? 0 : value);
+    setPersonnel(value === 0 ? 1 : value);
   };
 
   return (
@@ -146,14 +149,14 @@ export default function FormComponent(): JSX.Element {
         <Title>인원</Title>
         <ContentFloatLeft>
           <div>
-            <img
+            <ImgCursor
               src="/assets/opening/formminus.svg"
               onClick={(event) => setPersonnelFunction(event, personnel - 1)}
             />
           </div>
           <ContentNumber>{personnel}</ContentNumber>
           <div>
-            <img
+            <ImgCursor
               src="/assets/opening/formplus.svg"
               onClick={(event) => setPersonnelFunction(event, personnel + 1)}
             />

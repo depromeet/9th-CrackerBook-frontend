@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
-const bookState = atom({
-  key: `book`,
+const bookListState = atom({
+  key: `booklist`,
   default: [
     {
       title:
@@ -80,4 +80,4 @@ const bookState = atom({
   ],
 });
 
-export { bookState };
+export { bookListState };

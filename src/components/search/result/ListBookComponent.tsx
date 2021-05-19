@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
 import { useRecoilState } from "recoil";
-import { bookState } from "../../states/book";
+import { bookListState } from "../../states/book";
 
 const ListWrapper = styled.ul`
   position: relative;
@@ -105,7 +105,7 @@ const LikeImg = styled.img`
 `;
 
 export default function ListComponent(): JSX.Element {
-  const [book] = useRecoilState(bookState);
+  const [book] = useRecoilState(bookListState);
 
   return (
     <>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
-import { bookState } from "../../states/book";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { bookListState } from "../../states/book";
+import { nextStepState } from "src/components/states/opening";
 
 const ListWrapper = styled.ul`
   position: relative;
@@ -97,7 +98,12 @@ const SubContent = styled.div`
 
 export default function SearchResultComponent(): JSX.Element {
   const [listSelected, setListSelected] = useState(-1);
-  const [book] = useRecoilState(bookState);
+  const [book] = useRecoilState(bookListState);
+  const setNextStep = useSetRecoilState(nextStepState);
+  const bookSelect = (index) => {
+    setListSelected(index);
+    setNextStep(2);
+  };
 
   return (
     <ListWrapper>
@@ -106,7 +112,7 @@ export default function SearchResultComponent(): JSX.Element {
           <LiLink
             key={index}
             className={listSelected === index ? "on" : ""}
-            onClick={() => setListSelected(index)}
+            onClick={() => bookSelect(index)}
           >
             <Profile>
               <ImgShadow>

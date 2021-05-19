@@ -7,7 +7,7 @@ const currentStepState = atom({
 });
 const nextStepState = atom({
   key: `nextStep`,
-  default: false,
+  default: 1,
 });
 // 1
 const categoryState = atom({

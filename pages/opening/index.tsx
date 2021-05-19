@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { useRecoilState } from "recoil";
 import { currentStepState } from "src/components/states/opening";
-import KindBookComponent from "src/components/opening/1/KindBookComponent";
-import KindTypeComponent from "src/components/opening/2/KindTypeComponent";
-import StudyInfoComponent from "src/components/opening/3/StudyInfoComponent";
-import StudyPeriodComponent from "src/components/opening/4/StudyPeriodComponent";
+import KindBookComponent from "src/components/opening/KindBookComponent";
+import KindTypeComponent from "src/components/opening/KindTypeComponent";
+import StudyInfoComponent from "src/components/opening/StudyInfoComponent";
+import StudyPeriodComponent from "src/components/opening/StudyPeriodComponent";
 import FooterComponent from "src/components/opening/common/FooterComponent";
 import HeaderComponent from "src/components/opening/common/HeaderComponent";
 

@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useSetRecoilState } from "recoil";
-import { showCompleteState } from "../../states/opening";
+import { showCompleteState, currentStepState } from "../../states/opening";
 
 const BlackBackground = styled.div`
   background-color: rgba(0, 0, 0, 80%);
@@ -81,6 +81,7 @@ const Confirm = styled.button`
 
 export default function CompleteComponent(): JSX.Element {
   const setShowComplete = useSetRecoilState(showCompleteState);
+  const setCurrentStep = useSetRecoilState(currentStepState);
 
   // @ts-ignore
   document.childNodes[1].setAttribute("style", "overflow:hidden");
@@ -103,6 +104,7 @@ export default function CompleteComponent(): JSX.Element {
                 // @ts-ignore
                 document.childNodes[1].setAttribute("style", "overflow:auto");
                 setShowComplete(false);
+                setCurrentStep(1);
               }}
             >
               확인

@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { nextStepState } from "../../states/opening";
-import { bookState } from "../../states/book";
+import { bookListState } from "../../states/book";
+import { formState } from "../../states/form";
 
 const FavoriteBookWrapper = styled.div`
   position: relative;
@@ -94,21 +95,25 @@ const FavoriteText = styled.div`
 `;
 
 export default function FavoriteBookComponent(): JSX.Element {
-  const [categorySelected, setCategorySelected] = useState(-1);
-  const [book] = useRecoilState(bookState);
+  const [bookSelected, setBookSelected] = useState(-1);
+  const [bookList] = useRecoilState(bookListState);
+  const [form, setForm] = useRecoilState(formState);
   const setNextStep = useSetRecoilState(nextStepState);
-  const categorySelect = (index) => {
-    setCategorySelected(index);
-    setNextStep(true);
+  const bookSelect = (index, b) => {
+    const temp = form;
+    temp.book = b;
+    setForm(temp);
+    setBookSelected(index);
+    setNextStep(2);
   };
 
   return (
     <FavoriteBookWrapper>
       <FavoriteText>관심 책으로 스터디 개설하기</FavoriteText>
       <ListWrapper>
-        {book.map((b, index) => {
+        {bookList.map((b, index) => {
           return (
-            <LiLink key={index} onClick={() => categorySelect(index)}>
+            <LiLink key={index} onClick={() => bookSelect(index, b)}>
               <Profile>
                 <ImgShadow></ImgShadow>
                 <Img src="/assets/main/exBook.jpg" />
@@ -116,7 +121,7 @@ export default function FavoriteBookComponent(): JSX.Element {
               <Title>{b.title}</Title>
               <Author>{b.author}</Author>
               <CheckIconBox>
-                {categorySelected === index ? (
+                {bookSelected === index ? (
                   <img src="/assets/opening/check26.svg" />
                 ) : (
                   <img src="/assets/opening/favorite.svg" />
