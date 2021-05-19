@@ -1,5 +1,5 @@
-import ProfileArea from "../../src/components/profile/profileArea";
-import StudyArea from "../../src/components/profile/studyArea";
+import ProfileArea from "../../src/components/profile/ProfileArea";
+import StudyArea from "../../src/components/profile/StudyArea";
 import styled from "styled-components";
 
 const HalfView = styled.div`

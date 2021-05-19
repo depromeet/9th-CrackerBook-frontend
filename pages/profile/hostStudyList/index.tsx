@@ -1,4 +1,4 @@
-import HorizontalStudy from "../../../src/components/common/study/horizontalStudy"
+import HorizontalStudy from "../../../src/components/common/study/HorizontalStudy"
 
 
 

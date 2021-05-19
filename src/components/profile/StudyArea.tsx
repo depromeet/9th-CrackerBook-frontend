@@ -1,10 +1,10 @@
 import Link from "next/link";
 import styled from "styled-components";
 import React, {useState} from "react";
-import HorizontalStudy from "../common/study/horizontalStudy";
-import TabView from "../common/tabView";
-import StudyList from "./interestedBook/studyList";
-import BookList from "./interestedBook/bookList";
+import HorizontalStudy from "../common/study/HorizontalStudy";
+import TabView from "../common/TabView";
+import StudyList from "./interestedBook/StudyList";
+import BookList from "./interestedBook/BookList";
 
 
 const StudyTitle = styled.div`

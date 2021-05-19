@@ -1,5 +1,4 @@
-import BookWithShadow from "../../common/book/BookWithShadow";
-import HorizontalStudy from "../../common/study/horizontalStudy";
+import HorizontalStudy from "../../common/study/HorizontalStudy";
 
 export default function StudyList(): JSX.Element {
     return (

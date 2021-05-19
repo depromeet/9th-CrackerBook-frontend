@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import React from "react";
-import StudyList from "src/components/profile/interestedBook/studyList";
-import BookList from "src/components/profile/interestedBook/bookList";
-import TabView from "../../src/components/common/tabView";
+import StudyList from "src/components/profile/interestedBook/StudyList";
+import BookList from "src/components/profile/interestedBook/BookList";
+import TabView from "../../src/components/common/TabView";
 
 
 export default function InterestedBook():JSX.Element {

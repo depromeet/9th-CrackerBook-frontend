@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import HorizontalStudy from "../../../src/components/common/study/horizontalStudy";
+import HorizontalStudy from "../../../src/components/common/study/HorizontalStudy";
 import React from "react";
+import Attendance from "../../../src/components/profile/hostStudyList/Attendance";
 
 
 const StudyInfoArea = styled.div`
@@ -53,7 +54,7 @@ export default function Detail(): JSX.Element {
     const arr = [{id: 0, name: "출석부", count: 0},
         {id: 1, name: "공지사항", count: 0},]
 
-    const tabContents = ['proceed','complete']
+    const tabContents = [<Attendance/>,'complete']
 
     const clickHandler = (tabName, index) => {
         // setTab(tabName);
