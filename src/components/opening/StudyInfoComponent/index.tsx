@@ -1,12 +1,7 @@
 import { useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { nextStepState } from "src/components/states/opening";
-import {
-  bookState,
-  difficultyState,
-  nameState,
-  placeState,
-} from "src/components/states/studyForm";
+import { studyFormState } from "src/components/states/studyForm";
 import styled from "styled-components";
 import FormComponent from "./FormComponent";
 
@@ -51,12 +46,11 @@ const AuthorText = styled.div`
 `;
 export default function StudyInfoComponent(): JSX.Element {
   const setNextStep = useSetRecoilState(nextStepState);
-  const [book] = useRecoilState(bookState);
-  const [name] = useRecoilState(nameState);
-  const [difficulty] = useRecoilState(difficultyState);
-  const [place] = useRecoilState(placeState);
+  const [studyForm] = useRecoilState(studyFormState);
   useEffect(() => {
-    name === "" || difficulty === "" || place === ""
+    studyForm.name === "" ||
+    studyForm.difficulty === "" ||
+    studyForm.place === ""
       ? setNextStep(3)
       : setNextStep(4);
   });
@@ -68,9 +62,9 @@ export default function StudyInfoComponent(): JSX.Element {
         입력해주세요.`}
       </MainText>
       <SubText>
-        <TitleText>{book.title}</TitleText>
+        <TitleText>{studyForm.book.title}</TitleText>
         <Divider />
-        <AuthorText>{book.author}</AuthorText>
+        <AuthorText>{studyForm.book.author}</AuthorText>
       </SubText>
       <FormComponent />
     </KindBookWrapper>

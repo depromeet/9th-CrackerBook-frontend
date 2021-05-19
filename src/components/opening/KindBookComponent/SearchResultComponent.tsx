@@ -4,7 +4,7 @@ import {
   resultListIndexState,
   resultListState,
 } from "src/components/states/opening";
-import { bookState } from "src/components/states/studyForm";
+import { studyFormState } from "src/components/states/studyForm";
 
 const ListWrapper = styled.ul`
   position: relative;
@@ -101,10 +101,10 @@ export default function SearchResultComponent(): JSX.Element {
   const [resultListIndex, setResultListIndex] = useRecoilState(
     resultListIndexState,
   );
-  const setBook = useSetRecoilState(bookState);
+  const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const [resultList] = useRecoilState(resultListState);
-  const bookSelect = (index, b) => {
-    setBook(b);
+  const bookSelect = (index, book) => {
+    setStudyForm({ ...studyForm, book });
     setResultListIndex(index);
   };
 

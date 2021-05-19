@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { currentStepState, showEtcTypeState } from "../../states/opening";
-import { typeEtcStringState } from "../../states/studyForm";
+import { studyFormState } from "../../states/studyForm";
 
 const BlackBackground = styled.div`
   background-color: rgba(0, 0, 0, 80%);
@@ -58,7 +58,7 @@ const IconText = styled.div`
 export default function EtcTypeComponent(): JSX.Element {
   const setCurrentStep = useSetRecoilState(currentStepState);
   const setShowEtcType = useSetRecoilState(showEtcTypeState);
-  const setTypeEtcStringState = useSetRecoilState(typeEtcStringState);
+  const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const nextStep = (event) => {
@@ -66,7 +66,7 @@ export default function EtcTypeComponent(): JSX.Element {
     const node = inputRef.current;
 
     if (node.value) {
-      setTypeEtcStringState(node.value);
+      setStudyForm({ ...studyForm, typeEtcString: node.value });
       setShowEtcType(false);
       setCurrentStep(3);
     } else {

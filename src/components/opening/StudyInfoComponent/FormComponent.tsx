@@ -1,14 +1,7 @@
 import styled from "styled-components";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useRecoilState } from "recoil";
-import {
-  difficultyState,
-  introductionState,
-  nameState,
-  personnelState,
-  placeDetailState,
-  placeState,
-} from "src/components/states/studyForm";
+import { studyFormState } from "src/components/states/studyForm";
 
 const FormWrapper = styled.div`
   padding: 0 20px 80px 20px;
@@ -132,24 +125,18 @@ const LocationData = [
 ];
 
 export default function FormComponent(): JSX.Element {
-  const [name, setName] = useRecoilState(nameState);
+  const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const nameRef = useRef<HTMLInputElement>(null);
-  const [introduction, setIntroduction] = useRecoilState(introductionState);
   const introductionRef = useRef<HTMLTextAreaElement>(null);
-  const [personnel, setPersonnel] = useRecoilState(personnelState);
-  const [difficulty, setDifficulty] = useRecoilState(difficultyState);
-  const [place, setPlace] = useRecoilState(placeState);
-  const [placeDetail, setPlaceDetail] = useRecoilState(placeDetailState);
   const placeDetailRef = useRef<HTMLInputElement>(null);
 
   const setPersonnelFunction = (event, value) => {
     event.preventDefault();
-    setPersonnel(value === 0 ? 1 : value);
+    setStudyForm({ ...studyForm, personnel: value === 0 ? 1 : value });
   };
-  const setPlaceFunction = (event, value) => {
+  const setPlaceFunction = (event, place) => {
     event.preventDefault();
-    setPlaceDetail("");
-    setPlace(value);
+    setStudyForm({ ...studyForm, placeDetail: "", place });
   };
 
   return (
@@ -158,8 +145,10 @@ export default function FormComponent(): JSX.Element {
         <Title>스터디명</Title>
         <Content>
           <Input
-            defaultValue={name}
-            onKeyUp={() => setName(nameRef.current.value)}
+            defaultValue={studyForm.name}
+            onKeyUp={() =>
+              setStudyForm({ ...studyForm, name: nameRef.current.value })
+            }
             ref={nameRef}
             placeholder="예) 초보 에세이 글쓰기"
           />
@@ -169,8 +158,13 @@ export default function FormComponent(): JSX.Element {
         <Title>스터디소개</Title>
         <Content>
           <Textarea
-            defaultValue={introduction}
-            onKeyUp={() => setIntroduction(introductionRef.current.value)}
+            defaultValue={studyForm.introduction}
+            onKeyUp={() =>
+              setStudyForm({
+                ...studyForm,
+                introduction: introductionRef.current.value,
+              })
+            }
             ref={introductionRef}
             placeholder="스터디를 소개해보세요."
           />
@@ -182,14 +176,18 @@ export default function FormComponent(): JSX.Element {
           <div>
             <ImgCursor
               src="/assets/opening/formminus.svg"
-              onClick={(event) => setPersonnelFunction(event, personnel - 1)}
+              onClick={(event) =>
+                setPersonnelFunction(event, studyForm.personnel - 1)
+              }
             />
           </div>
-          <ContentNumber>{personnel}</ContentNumber>
+          <ContentNumber>{studyForm.personnel}</ContentNumber>
           <div>
             <ImgCursor
               src="/assets/opening/formplus.svg"
-              onClick={(event) => setPersonnelFunction(event, personnel + 1)}
+              onClick={(event) =>
+                setPersonnelFunction(event, studyForm.personnel + 1)
+              }
             />
           </div>
           <RightText>명</RightText>
@@ -201,8 +199,16 @@ export default function FormComponent(): JSX.Element {
           <UlWrapper>
             {DifficultyData.map((v, index) => {
               return (
-                <LiList key={index} onClick={() => setDifficulty(v.value)}>
-                  {difficulty === v.value ? (
+                <LiList
+                  key={index}
+                  onClick={() =>
+                    setStudyForm({
+                      ...studyForm,
+                      difficulty: v.value,
+                    })
+                  }
+                >
+                  {studyForm.difficulty === v.value ? (
                     <LiIcon src="/assets/opening/check26.svg" />
                   ) : (
                     <LiIcon src="/assets/opening/notcheck26.svg" />
@@ -224,19 +230,22 @@ export default function FormComponent(): JSX.Element {
                   key={index}
                   onClick={(event) => setPlaceFunction(event, v.value)}
                 >
-                  {place === v.value ? (
+                  {studyForm.place === v.value ? (
                     <>
                       <LiIcon src="/assets/opening/check26.svg" />
                       <LiText>{v.label}</LiText>
                       {index !== 0 && (
                         <LiInput
                           placeholder="모임 장소를 입력해주세요."
-                          defaultValue={placeDetail}
+                          defaultValue={studyForm.placeDetail}
                           onKeyUp={() =>
-                            setPlaceDetail(placeDetailRef.current.value)
+                            setStudyForm({
+                              ...studyForm,
+                              placeDetail: placeDetailRef.current.value,
+                            })
                           }
                           ref={placeDetailRef}
-                          disabled={place !== v.value}
+                          disabled={studyForm.place !== v.value}
                         />
                       )}
                     </>

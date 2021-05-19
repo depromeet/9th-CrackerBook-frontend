@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   nextStepState,
   currentStepState,
   showEtcTypeState,
   showCompleteState,
 } from "../../states/opening";
-import { typeState } from "../../states/studyForm";
+import { studyFormState } from "../../states/studyForm";
 
 const Footer = styled.footer`
   position: fixed;
@@ -45,11 +45,11 @@ export default function FooterComponent(): JSX.Element {
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
   const [showEtcType, setShowEtcType] = useRecoilState(showEtcTypeState);
   const [showComplete, setShowComplete] = useRecoilState(showCompleteState);
-  const [type] = useRecoilState(typeState);
+  const [studyForm] = useRecoilState(studyFormState);
 
   const currentStepPlus = (event) => {
     event.preventDefault();
-    if (currentStep === 2 && type === "etc") {
+    if (currentStep === 2 && studyForm.type === "etc") {
       setShowEtcType(true);
     } else {
       setCurrentStep(currentStep + 1);

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
-import { typeState } from "../../states/studyForm";
+import { studyFormState } from "../../states/studyForm";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -29,18 +29,18 @@ const CheckIconBox = styled.div`
 // 토론, 발표, 글쓰기, 포트폴리오, 기타
 // "debate", "announcement", "writing", "portfolio", "etc"
 export default function AnnouncementComponent(): JSX.Element {
-  const [type, setType] = useRecoilState(typeState);
+  const [studyForm, setStudyForm] = useRecoilState(studyFormState);
 
   return (
     <>
-      {type === "announcement" ? (
+      {studyForm.type === "announcement" ? (
         <Wrapper>
           <InnerWrapper>
             <svg width="159" height="162" viewBox="0 0 159 162">
               <g filter="url(#filter0_d)">
                 <circle
                   cursor="pointer"
-                  onClick={() => setType("")}
+                  onClick={() => setStudyForm({ ...studyForm, type: "" })}
                   cx="55"
                   cy="55"
                   r="55"
@@ -83,8 +83,12 @@ export default function AnnouncementComponent(): JSX.Element {
                 </filter>
               </defs>
             </svg>
-            <Text onClick={() => setType("")}>발표</Text>
-            <CheckIconBox onClick={() => setType("")}>
+            <Text onClick={() => setStudyForm({ ...studyForm, type: "" })}>
+              발표
+            </Text>
+            <CheckIconBox
+              onClick={() => setStudyForm({ ...studyForm, type: "" })}
+            >
               <img src="/assets/opening/check32.svg" />
             </CheckIconBox>
           </InnerWrapper>
@@ -94,14 +98,20 @@ export default function AnnouncementComponent(): JSX.Element {
           <svg width="110" height="110" viewBox="0 0 110 110">
             <circle
               cursor="pointer"
-              onClick={() => setType("announcement")}
+              onClick={() =>
+                setStudyForm({ ...studyForm, type: "announcement" })
+              }
               cx="55"
               cy="55"
               r="55"
               fill="#E8DFF1"
             />
           </svg>
-          <Text onClick={() => setType("announcement")}>발표</Text>
+          <Text
+            onClick={() => setStudyForm({ ...studyForm, type: "announcement" })}
+          >
+            발표
+          </Text>
         </Wrapper>
       )}
     </>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
-import { typeState } from "../../states/studyForm";
+import { studyFormState } from "../../states/studyForm";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -29,18 +29,18 @@ const CheckIconBox = styled.div`
 // 토론, 발표, 글쓰기, 포트폴리오, 기타
 // "debate", "announcement", "writing", "portfolio", "etc"
 export default function PortfolioComponent(): JSX.Element {
-  const [type, setType] = useRecoilState(typeState);
+  const [studyForm, setStudyForm] = useRecoilState(studyFormState);
 
   return (
     <>
-      {type === "portfolio" ? (
+      {studyForm.type === "portfolio" ? (
         <Wrapper>
           <InnerWrapper>
             <svg width="187" height="245" viewBox="0 0 187 245">
               <g filter="url(#filter0_d)">
                 <rect
                   cursor="pointer"
-                  onClick={() => setType("")}
+                  onClick={() => setStudyForm({ ...studyForm, type: "" })}
                   y="85"
                   width="170"
                   height="170"
@@ -85,8 +85,12 @@ export default function PortfolioComponent(): JSX.Element {
                 </filter>
               </defs>
             </svg>
-            <Text onClick={() => setType("")}>포트폴리오</Text>
-            <CheckIconBox onClick={() => setType("")}>
+            <Text onClick={() => setStudyForm({ ...studyForm, type: "" })}>
+              포트폴리오
+            </Text>
+            <CheckIconBox
+              onClick={() => setStudyForm({ ...studyForm, type: "" })}
+            >
               <img src="/assets/opening/check32.svg" />
             </CheckIconBox>
           </InnerWrapper>
@@ -96,7 +100,7 @@ export default function PortfolioComponent(): JSX.Element {
           <svg width="171" height="233" viewBox="0 0 171 233">
             <rect
               cursor="pointer"
-              onClick={() => setType("portfolio")}
+              onClick={() => setStudyForm({ ...studyForm, type: "portfolio" })}
               y="85"
               width="170"
               height="170"
@@ -105,7 +109,11 @@ export default function PortfolioComponent(): JSX.Element {
               fill="#FFDBD0"
             />
           </svg>
-          <Text onClick={() => setType("portfolio")}>포트폴리오</Text>
+          <Text
+            onClick={() => setStudyForm({ ...studyForm, type: "portfolio" })}
+          >
+            포트폴리오
+          </Text>
         </Wrapper>
       )}
     </>

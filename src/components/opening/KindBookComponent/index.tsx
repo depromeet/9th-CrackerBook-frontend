@@ -4,7 +4,7 @@ import FavoriteBookComponent from "./FavoriteBookComponent";
 import SearchResultComponent from "./SearchResultComponent";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { categoryState, nextStepState } from "../../states/opening";
-import { bookState } from "../../states/studyForm";
+import { studyFormState } from "../../states/studyForm";
 import { useEffect } from "react";
 
 const KindBookWrapper = styled.div`
@@ -21,11 +21,11 @@ const MainText = styled.div`
 
 export default function KindBookComponent(): JSX.Element {
   const [category] = useRecoilState(categoryState);
-  const [book] = useRecoilState(bookState);
+  const [studyForm] = useRecoilState(studyFormState);
   const setNextStep = useSetRecoilState(nextStepState);
 
   useEffect(() => {
-    book.title === "" ? setNextStep(1) : setNextStep(2);
+    studyForm.book.title === "" ? setNextStep(1) : setNextStep(2);
   });
 
   return (

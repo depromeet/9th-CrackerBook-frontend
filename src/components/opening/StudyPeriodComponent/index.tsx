@@ -6,14 +6,7 @@ import {
 import CompleteComponent from "./CompleteComponent";
 import styled from "styled-components";
 import FormComponent from "./FormComponent";
-import {
-  bookState,
-  periodRecruitmentEndState,
-  periodRecruitmentStartState,
-  periodStudyEndState,
-  periodStudyStartState,
-  repeatState,
-} from "src/components/states/studyForm";
+import { studyFormState } from "src/components/states/studyForm";
 import { useEffect } from "react";
 
 const KindBookWrapper = styled.div`
@@ -59,16 +52,11 @@ const AuthorText = styled.div`
 export default function StudyPeriodComponent(): JSX.Element {
   const setNextStep = useSetRecoilState(nextStepState);
   const [showComplete] = useRecoilState(showCompleteState);
-  const [book] = useRecoilState(bookState);
-  const [repeat] = useRecoilState(repeatState);
-  const [periodStudyStart] = useRecoilState(periodStudyStartState);
-  const [periodStudyEnd] = useRecoilState(periodStudyEndState);
-  const [periodRecruitmentStart] = useRecoilState(periodRecruitmentStartState);
-  const [periodRecruitmentEnd] = useRecoilState(periodRecruitmentEndState);
+  const [studyForm] = useRecoilState(studyFormState);
   useEffect(() => {
-    repeat === "" ||
-    periodStudyStart >= periodStudyEnd ||
-    periodRecruitmentStart >= periodRecruitmentEnd
+    studyForm.repeat === "" ||
+    studyForm.periodStudyStart >= studyForm.periodStudyEnd ||
+    studyForm.periodRecruitmentStart >= studyForm.periodRecruitmentEnd
       ? setNextStep(4)
       : setNextStep(5);
   });
@@ -79,9 +67,9 @@ export default function StudyPeriodComponent(): JSX.Element {
         선택해주세요.`}
       </MainText>
       <SubText>
-        <TitleText>{book.title}</TitleText>
+        <TitleText>{studyForm.book.title}</TitleText>
         <Divider />
-        <AuthorText>{book.author}</AuthorText>
+        <AuthorText>{studyForm.book.author}</AuthorText>
       </SubText>
       <FormComponent />
       {showComplete && <CompleteComponent />}

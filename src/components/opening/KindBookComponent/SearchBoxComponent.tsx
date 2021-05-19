@@ -7,7 +7,7 @@ import {
   resultListState,
   searchKeywordState,
 } from "../../states/opening";
-import { bookState } from "src/components/states/studyForm";
+import { studyFormState } from "src/components/states/studyForm";
 import { bookListState } from "src/components/states/book";
 
 const SearchBoxInnerWrapper = styled.div`
@@ -98,7 +98,7 @@ export default function SearchBoxComponent(): JSX.Element {
   const setResultList = useSetRecoilState(resultListState);
   const setResultListIndex = useSetRecoilState(resultListIndexState);
   const [searchWord, setSearchWord] = useRecoilState(searchKeywordState);
-  const setBook = useSetRecoilState(bookState);
+  const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const search = (event) => {
@@ -121,7 +121,7 @@ export default function SearchBoxComponent(): JSX.Element {
   };
   const setCategoryFunction = (index) => {
     setCategory(index);
-    setBook({ title: "", author: "" });
+    setStudyForm({ ...studyForm, book: { title: "", author: "" } });
   };
   const clearSearchWord = () => {
     inputRef.current.value = "";

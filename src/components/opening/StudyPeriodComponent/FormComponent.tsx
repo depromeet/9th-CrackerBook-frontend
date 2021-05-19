@@ -1,14 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
-import {
-  periodStudyStartState,
-  periodStudyEndState,
-  periodRecruitmentStartState,
-  periodRecruitmentEndState,
-  repeatState,
-  repeatWeekState,
-} from "../../states/studyForm";
+import { studyFormState } from "../../states/studyForm";
 import amber from "@material-ui/core/colors/amber";
 import { DateTimePicker } from "@material-ui/pickers";
 import { createMuiTheme } from "@material-ui/core";
@@ -197,32 +190,18 @@ const defaultMaterialTheme = createMuiTheme({
 });
 
 export default function FormComponent(): JSX.Element {
-  const [periodStudyStart, setPeriodStudyStart] = useRecoilState(
-    periodStudyStartState,
-  );
-  const [periodStudyEnd, setPeriodStudyEnd] = useRecoilState(
-    periodStudyEndState,
-  );
-  const [periodRecruitmentStart, setPeriodRecruitmentStart] = useRecoilState(
-    periodRecruitmentStartState,
-  );
-  const [periodRecruitmentEnd, setPeriodRecruitmentEnd] = useRecoilState(
-    periodRecruitmentEndState,
-  );
+  const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const [isOpenStudyStart, setIsOpenStudyStart] = useState(false);
   const [isOpenStudyEnd, setIsOpenStudyEnd] = useState(false);
   const [isOpenRecruitmentStart, setIsOpenRecruitmentStart] = useState(false);
   const [isOpenRecruitmentEnd, setIsOpenRecruitmentEnd] = useState(false);
-  const [repeat, setRepeat] = useRecoilState(repeatState);
-  const [repeatWeek, setRepeatWeek] = useRecoilState(repeatWeekState);
-  const setRepeatFunction = (event, value) => {
+  const setRepeatFunction = (event, repeat) => {
     event.preventDefault();
-    setRepeat(value);
-    setRepeatWeek("");
+    setStudyForm({ ...studyForm, repeat, repeatWeek: "" });
   };
-  const setRepeatWeekFunction = (event, value) => {
+  const setRepeatWeekFunction = (event, repeatWeek) => {
     event.stopPropagation();
-    setRepeatWeek(value);
+    setStudyForm({ ...studyForm, repeatWeek });
   };
 
   return (
@@ -233,39 +212,47 @@ export default function FormComponent(): JSX.Element {
           <TimeStartWrapper onClick={() => setIsOpenStudyStart(true)}>
             <StartImg src="/assets/opening/period.svg" />
             <DateStartText>
-              {periodStudyStart.locale("ko").format("YY년 MM월 DD일(ddd)")}
+              {studyForm.periodStudyStart
+                .locale("ko")
+                .format("YY년 MM월 DD일(ddd)")}
             </DateStartText>
             <TimeStartText>
-              {periodStudyStart.locale("en").format("A H:mm")}
+              {studyForm.periodStudyStart.locale("en").format("A H:mm")}
             </TimeStartText>
           </TimeStartWrapper>
           <TimeEndWrapper onClick={() => setIsOpenStudyEnd(true)}>
             <DateEndText>
-              {periodStudyEnd.locale("ko").format("YY년 MM월 DD일(ddd)")}
+              {studyForm.periodStudyEnd
+                .locale("ko")
+                .format("YY년 MM월 DD일(ddd)")}
             </DateEndText>
             <TimeEndText>
-              {periodStudyEnd.locale("en").format("A H:mm")}
+              {studyForm.periodStudyEnd.locale("en").format("A H:mm")}
             </TimeEndText>
           </TimeEndWrapper>
           <DateTimePickerWrapper>
             <ThemeProvider theme={defaultMaterialTheme}>
               <DateTimePicker
-                value={periodStudyStart}
+                value={studyForm.periodStudyStart}
                 open={isOpenStudyStart}
                 onOpen={() => setIsOpenStudyStart(true)}
                 onClose={() => setIsOpenStudyStart(false)}
-                onChange={(date) => setPeriodStudyStart(dayjs(date))}
+                onChange={(date) =>
+                  setStudyForm({ ...studyForm, periodStudyStart: dayjs(date) })
+                }
               ></DateTimePicker>
             </ThemeProvider>
           </DateTimePickerWrapper>
           <DateTimePickerWrapper>
             <ThemeProvider theme={defaultMaterialTheme}>
               <DateTimePicker
-                value={periodStudyEnd}
+                value={studyForm.periodStudyEnd}
                 open={isOpenStudyEnd}
                 onOpen={() => setIsOpenStudyEnd(true)}
                 onClose={() => setIsOpenStudyEnd(false)}
-                onChange={(date) => setPeriodStudyEnd(dayjs(date))}
+                onChange={(date) =>
+                  setStudyForm({ ...studyForm, periodStudyEnd: dayjs(date) })
+                }
               ></DateTimePicker>
               <DateEndText></DateEndText>
             </ThemeProvider>
@@ -280,21 +267,23 @@ export default function FormComponent(): JSX.Element {
               return (
                 <LiList
                   key={vindex}
-                  className={repeat === v.value ? "on" : ""}
+                  className={studyForm.repeat === v.value ? "on" : ""}
                   onClick={(event) => setRepeatFunction(event, v.value)}
                 >
-                  {repeat === v.value ? (
+                  {studyForm.repeat === v.value ? (
                     <>
                       <LiIcon src="/assets/opening/check26.svg" />
                       <LiText>{v.label}</LiText>
                       <LiSubText>총 스터디 횟수 20</LiSubText>
-                      {repeat === "oneweek" && (
+                      {studyForm.repeat === "oneweek" && (
                         <LiCircleWrapper>
                           {WeekData.map((w, windex) => {
                             return (
                               <LiCircle
                                 key={windex}
-                                className={repeatWeek === w.value ? "on" : ""}
+                                className={
+                                  studyForm.repeatWeek === w.value ? "on" : ""
+                                }
                                 onClick={(event) =>
                                   setRepeatWeekFunction(event, w.value)
                                 }
@@ -324,41 +313,53 @@ export default function FormComponent(): JSX.Element {
           <TimeStartWrapper onClick={() => setIsOpenRecruitmentStart(true)}>
             <StartImg src="/assets/opening/period.svg" />
             <DateStartText>
-              {periodRecruitmentStart
+              {studyForm.periodRecruitmentStart
                 .locale("ko")
                 .format("YY년 MM월 DD일(ddd)")}
             </DateStartText>
             <TimeStartText>
-              {periodRecruitmentStart.locale("en").format("A H:mm")}
+              {studyForm.periodRecruitmentStart.locale("en").format("A H:mm")}
             </TimeStartText>
           </TimeStartWrapper>
           <TimeEndWrapper onClick={() => setIsOpenRecruitmentEnd(true)}>
             <DateEndText>
-              {periodRecruitmentEnd.locale("ko").format("YY년 MM월 DD일(ddd)")}
+              {studyForm.periodRecruitmentEnd
+                .locale("ko")
+                .format("YY년 MM월 DD일(ddd)")}
             </DateEndText>
             <TimeEndText>
-              {periodRecruitmentEnd.locale("en").format("A H:mm")}
+              {studyForm.periodRecruitmentEnd.locale("en").format("A H:mm")}
             </TimeEndText>
           </TimeEndWrapper>
           <DateTimePickerWrapper>
             <ThemeProvider theme={defaultMaterialTheme}>
               <DateTimePicker
-                value={periodRecruitmentStart}
+                value={studyForm.periodRecruitmentStart}
                 open={isOpenRecruitmentStart}
                 onOpen={() => setIsOpenRecruitmentStart(true)}
                 onClose={() => setIsOpenRecruitmentStart(false)}
-                onChange={(date) => setPeriodRecruitmentStart(dayjs(date))}
+                onChange={(date) =>
+                  setStudyForm({
+                    ...studyForm,
+                    periodRecruitmentStart: dayjs(date),
+                  })
+                }
               ></DateTimePicker>
             </ThemeProvider>
           </DateTimePickerWrapper>
           <DateTimePickerWrapper>
             <ThemeProvider theme={defaultMaterialTheme}>
               <DateTimePicker
-                value={periodRecruitmentEnd}
+                value={studyForm.periodRecruitmentEnd}
                 open={isOpenRecruitmentEnd}
                 onOpen={() => setIsOpenRecruitmentEnd(true)}
                 onClose={() => setIsOpenRecruitmentEnd(false)}
-                onChange={(date) => setPeriodRecruitmentEnd(dayjs(date))}
+                onChange={(date) =>
+                  setStudyForm({
+                    ...studyForm,
+                    periodRecruitmentEnd: dayjs(date),
+                  })
+                }
               ></DateTimePicker>
               <DateEndText></DateEndText>
             </ThemeProvider>

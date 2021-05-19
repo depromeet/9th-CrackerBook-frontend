@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
-import { typeState } from "../../states/studyForm";
+import { studyFormState } from "../../states/studyForm";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -29,18 +29,18 @@ const CheckIconBox = styled.div`
 // 토론, 발표, 글쓰기, 포트폴리오, 기타
 // "debate", "announcement", "write", "portfolio", "etc"
 export default function WriteComponent(): JSX.Element {
-  const [type, setType] = useRecoilState(typeState);
+  const [studyForm, setStudyForm] = useRecoilState(studyFormState);
 
   return (
     <>
-      {type === "write" ? (
+      {studyForm.type === "write" ? (
         <Wrapper>
           <InnerWrapper>
             <svg width="180" height="180" viewBox="0 0 180 180">
               <g filter="url(#filter0_d)">
                 <path
                   cursor="pointer"
-                  onClick={() => setType("")}
+                  onClick={() => setStudyForm({ ...studyForm, type: "" })}
                   d="M0.262791 20.6411C0.262792 5.24505 16.9295 -4.3775 30.2628 3.32051L135.263 63.9423C148.596 71.6403 148.596 90.8853 135.263 98.5833L30.2628 159.205C16.9295 166.903 0.26279 157.281 0.262793 141.885L0.262791 20.6411Z"
                   fill="#8EDABC"
                 />
@@ -81,8 +81,12 @@ export default function WriteComponent(): JSX.Element {
                 </filter>
               </defs>
             </svg>
-            <Text onClick={() => setType("")}>글쓰기</Text>
-            <CheckIconBox onClick={() => setType("")}>
+            <Text onClick={() => setStudyForm({ ...studyForm, type: "" })}>
+              글쓰기
+            </Text>
+            <CheckIconBox
+              onClick={() => setStudyForm({ ...studyForm, type: "" })}
+            >
               <img src="/assets/opening/check32.svg" />
             </CheckIconBox>
           </InnerWrapper>
@@ -92,12 +96,14 @@ export default function WriteComponent(): JSX.Element {
           <svg width="146" height="162" viewBox="0 0 146 162">
             <path
               cursor="pointer"
-              onClick={() => setType("write")}
+              onClick={() => setStudyForm({ ...studyForm, type: "write" })}
               d="M0.262791 20.6411C0.262792 5.24505 16.9295 -4.3775 30.2628 3.32051L135.263 63.9423C148.596 71.6403 148.596 90.8853 135.263 98.5833L30.2628 159.205C16.9295 166.903 0.26279 157.281 0.262793 141.885L0.262791 20.6411Z"
               fill="#D2F3E6"
             />
           </svg>
-          <Text onClick={() => setType("write")}>글쓰기</Text>
+          <Text onClick={() => setStudyForm({ ...studyForm, type: "write" })}>
+            글쓰기
+          </Text>
         </Wrapper>
       )}
     </>
