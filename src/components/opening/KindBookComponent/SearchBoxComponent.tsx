@@ -1,8 +1,14 @@
 import styled from "styled-components";
-import { useRouter } from "next/router";
 import { useState, useRef } from "react";
-import { useRecoilState } from "recoil";
-import { categoryState } from "../../states/opening";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import {
+  categoryState,
+  resultListIndexState,
+  resultListState,
+  searchKeywordState,
+} from "../../states/opening";
+import { bookState } from "src/components/states/form";
+import { bookListState } from "src/components/states/book";
 
 const SearchBoxInnerWrapper = styled.div`
   position: relative;
@@ -89,23 +95,39 @@ const ClearIconBox = styled.div`
 const CategoryTitles = ["책", "저자", "관심책"];
 
 export default function SearchBoxComponent(): JSX.Element {
-  const Router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [bookList] = useRecoilState(bookListState);
   const [category, setCategory] = useRecoilState(categoryState);
-  const [searchWord, setSearchWord] = useState(
-    Router.query.name ? Router.query.name : "",
-  );
+  const setResultList = useSetRecoilState(resultListState);
+  const setResultListIndex = useSetRecoilState(resultListIndexState);
+  const [searchWord, setSearchWord] = useRecoilState(searchKeywordState);
+  const setBook = useSetRecoilState(bookState);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const search = (event) => {
     event.preventDefault();
-    setSearchWord(event.target.value);
     if (event.keyCode === 13) routeResult();
   };
-  const routeResult = () => !searchWord && alert("검색어를 입력해주세요.");
+  const routeResult = () => {
+    setSearchWord(inputRef.current.value);
+    setResultListIndex(-1);
+    inputRef.current.value
+      ? setResultList(
+          bookList.filter(
+            (b) =>
+              (category === 0
+                ? b.title.indexOf(inputRef.current.value)
+                : b.author.indexOf(inputRef.current.value)) !== -1,
+          ),
+        )
+      : alert("검색어를 입력해주세요.");
+  };
+  const setCategoryFunction = (index) => {
+    setCategory(index);
+    setBook({ title: "" });
+  };
   const clearSearchWord = () => {
-    const node = inputRef.current;
-    node.value = "";
+    inputRef.current.value = "";
     setSearchWord("");
   };
 
@@ -131,7 +153,7 @@ export default function SearchBoxComponent(): JSX.Element {
             return (
               <ModalElement
                 key={index}
-                onClick={() => setCategory(index)}
+                onClick={() => setCategoryFunction(index)}
                 className={category === index ? "on" : ""}
               >
                 <ModalText>{v}</ModalText>

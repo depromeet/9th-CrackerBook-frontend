@@ -5,9 +5,9 @@ import timezone from "dayjs/plugin/timezone";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-const formState = atom({
-  key: `form`,
-  default: { book: "" },
+const bookState = atom({
+  key: `book`,
+  default: { title: "" },
 });
 const typeState = atom({
   key: `type`,
@@ -35,7 +35,7 @@ const periodRecruitmentEndState = atom({
 });
 
 export {
-  formState,
+  bookState,
   typeState,
   typeEtcStringState,
   periodStudyStartState,

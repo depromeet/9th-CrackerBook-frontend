@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { nextStepState } from "../../states/opening";
 import { bookListState } from "../../states/book";
-import { formState } from "../../states/form";
+import { bookState } from "../../states/form";
 
 const FavoriteBookWrapper = styled.div`
   position: relative;
@@ -97,14 +97,10 @@ const FavoriteText = styled.div`
 export default function FavoriteBookComponent(): JSX.Element {
   const [bookSelected, setBookSelected] = useState(-1);
   const [bookList] = useRecoilState(bookListState);
-  const [form, setForm] = useRecoilState(formState);
-  const setNextStep = useSetRecoilState(nextStepState);
-  const bookSelect = (index, b) => {
-    const temp = form;
-    temp.book = b;
-    setForm(temp);
+  const setBook = useSetRecoilState(bookState);
+  const bookSelect = (index, book) => {
     setBookSelected(index);
-    setNextStep(2);
+    setBook(book);
   };
 
   return (

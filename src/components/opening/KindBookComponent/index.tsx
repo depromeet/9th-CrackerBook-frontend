@@ -2,8 +2,10 @@ import styled from "styled-components";
 import SearchBoxComponent from "./SearchBoxComponent";
 import FavoriteBookComponent from "./FavoriteBookComponent";
 import SearchResultComponent from "./SearchResultComponent";
-import { useRecoilState } from "recoil";
-import { categoryState } from "../../states/opening";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { categoryState, nextStepState } from "../../states/opening";
+import { bookState } from "../../states/form";
+import { useEffect } from "react";
 
 const KindBookWrapper = styled.div`
   padding: 18px 0;
@@ -19,6 +21,11 @@ const MainText = styled.div`
 
 export default function KindBookComponent(): JSX.Element {
   const [category] = useRecoilState(categoryState);
+  const [book] = useRecoilState(bookState);
+  const setNextStep = useSetRecoilState(nextStepState);
+  useEffect(() => {
+    book.title === "" ? setNextStep(1) : setNextStep(2);
+  });
 
   return (
     <KindBookWrapper>
