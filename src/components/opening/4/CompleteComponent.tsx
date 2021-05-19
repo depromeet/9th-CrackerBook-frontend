@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import styled from "styled-components";
 import Link from "next/link";
 import { useSetRecoilState } from "recoil";
@@ -20,7 +21,6 @@ const Wrapper = styled.div`
   top: 138px;
   z-index: 2;
 `;
-
 const Icon = styled.img`
   width: 60px;
   height: 60px;
@@ -81,6 +81,9 @@ const Confirm = styled.button`
 
 export default function CompleteComponent(): JSX.Element {
   const setShowComplete = useSetRecoilState(showCompleteState);
+
+  // @ts-ignore
+  document.childNodes[1].setAttribute("style", "overflow:hidden");
   return (
     <BlackBackground>
       <Wrapper>
@@ -95,7 +98,15 @@ export default function CompleteComponent(): JSX.Element {
             </Comment2>
           </CommentBox>
           <Link href="/main/books">
-            <Confirm onClick={() => setShowComplete(false)}>확인</Confirm>
+            <Confirm
+              onClick={() => {
+                // @ts-ignore
+                document.childNodes[1].setAttribute("style", "overflow:auto");
+                setShowComplete(false);
+              }}
+            >
+              확인
+            </Confirm>
           </Link>
         </CompleteWrapper>
       </Wrapper>

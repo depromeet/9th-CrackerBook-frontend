@@ -1,8 +1,12 @@
+import { useRecoilState } from "recoil";
+import { showCompleteState } from "src/components/states/opening";
+import CompleteComponent from "./CompleteComponent";
 import styled from "styled-components";
 import FormComponent from "./FormComponent";
 
 const KindBookWrapper = styled.div`
   padding: 18px 0;
+  overflow: hidden;
 `;
 const MainText = styled.div`
   margin: 0 20px 10px 20px;
@@ -33,6 +37,7 @@ const AuthorText = styled.div`
   font-weight: 300;
 `;
 export default function StudyPeriodComponent(): JSX.Element {
+  const [showComplete] = useRecoilState(showCompleteState);
   return (
     <KindBookWrapper>
       <MainText>
@@ -45,6 +50,7 @@ export default function StudyPeriodComponent(): JSX.Element {
         <AuthorText>책 저자</AuthorText>
       </SubText>
       <FormComponent />
+      {showComplete && <CompleteComponent />}
     </KindBookWrapper>
   );
 }

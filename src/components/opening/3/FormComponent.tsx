@@ -7,6 +7,9 @@ const FormWrapper = styled.div`
 const BoxWrapper = styled.div`
   padding: 40px 0 0 0;
 `;
+const BoxWrapperFloatLeft = styled.div`
+  padding: 40px 0 40px 0;
+`;
 const Title = styled.div`
   font-weight: 500;
   font-size: 16px;
@@ -16,6 +19,13 @@ const Title = styled.div`
 const Content = styled.div`
   position: relative;
   padding: 10px 0;
+`;
+const ContentFloatLeft = styled.div`
+  position: relative;
+  padding: 10px 0;
+  div {
+    float: left;
+  }
 `;
 const Input = styled.input`
   padding: 20px;
@@ -29,23 +39,15 @@ const Input = styled.input`
     color: #999999;
   }
 `;
-const InputMarginRight = styled.input`
-  margin: 0 10px 0 0;
-  padding: 20px;
-  width: 312px;
-  height: 46px;
-  border: 1px solid #f1f1f3;
+const ContentNumber = styled.div`
+  margin: 3px 20px 0 20px;
   font-size: 14px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  ::placeholder {
-    color: #999999;
-  }
+  line-height: 19px;
+  text-align: center;
+  color: #222222;
 `;
 const RightText = styled.div`
-  position: absolute;
-  top: 23px;
-  right: 0;
+  margin: 3px 4px;
   font-size: 14px;
   line-height: 20px;
   color: #222222;
@@ -120,6 +122,11 @@ const LocationData = [
 export default function FormComponent(): JSX.Element {
   const [difficulty, setDifficulty] = useState("");
   const [location, setLocation] = useState("");
+  const [personnel, setPersonnel] = useState(0);
+  const setPersonnelFunction = (event, value) => {
+    event.preventDefault();
+    setPersonnel(value === -1 ? 0 : value);
+  };
 
   return (
     <FormWrapper>
@@ -135,13 +142,25 @@ export default function FormComponent(): JSX.Element {
           <Textarea placeholder="스터디를 소개해보세요." />
         </Content>
       </BoxWrapper>
-      <BoxWrapper>
+      <BoxWrapperFloatLeft>
         <Title>인원</Title>
-        <Content>
-          <InputMarginRight placeholder="스터디 인원을 입력해주세요." />
+        <ContentFloatLeft>
+          <div>
+            <img
+              src="/assets/opening/formminus.svg"
+              onClick={(event) => setPersonnelFunction(event, personnel - 1)}
+            />
+          </div>
+          <ContentNumber>{personnel}</ContentNumber>
+          <div>
+            <img
+              src="/assets/opening/formplus.svg"
+              onClick={(event) => setPersonnelFunction(event, personnel + 1)}
+            />
+          </div>
           <RightText>명</RightText>
-        </Content>
-      </BoxWrapper>
+        </ContentFloatLeft>
+      </BoxWrapperFloatLeft>
       <BoxWrapper>
         <Title>스터디 난이도</Title>
         <Content>
