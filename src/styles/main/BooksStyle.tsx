@@ -112,6 +112,7 @@ const NewBoxWrapper = styled.div`
   padding: 32px 20px;
   background-color: #ffffff;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 const StudyProfile = styled.div`
@@ -223,8 +224,11 @@ const StudyBackground = styled.div`
 `;
 
 const NewStudyWrapper = styled.div`
+  padding: 80px 20px 160px 20px;
+`;
+
+const ThisBookWrapper = styled.div`
   padding: 80px 20px 80px 20px;
-  cursor: pointer;
 `;
 
 const DropDown = styled.img``;
@@ -247,6 +251,7 @@ const DownImg = styled.img`
 `;
 
 export {
+  ThisBookWrapper,
   DropDown,
   DownImg,
   MoreBtn,
