@@ -6,6 +6,7 @@ import {CompleteBoxState, EnrollConfirmBoxState} from "../../../state/detail/det
 import {EnrollStudy} from "../enrollStudy/EnrollStudy";
 import {BlackBackground} from "../../../styles/detail/common/commonStyle";
 import {CompleteEnroll} from "../../common/confirmModal/CompleteEnroll";
+import styled from "styled-components";
 
 export default function StudyDetailIndex(): JSX.Element {
     const [enrollSate] = useRecoilState<boolean>(EnrollConfirmBoxState);
@@ -36,3 +37,4 @@ export default function StudyDetailIndex(): JSX.Element {
 
     )
 }
+

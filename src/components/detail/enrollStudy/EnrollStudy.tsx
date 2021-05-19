@@ -9,6 +9,7 @@ export function EnrollStudy(): JSX.Element {
     document.childNodes[1].setAttribute('style', 'overflow:hidden');
     return (
         <ConfirmWrapper>
+
             <ConfirmBox>
                 <Close src='/assets/detail/close.svg' onClick={() => {
                     // @ts-ignore
@@ -33,6 +34,8 @@ export function EnrollStudy(): JSX.Element {
         </ConfirmWrapper>
     )
 }
+
+
 
 const ConfirmWrapper = styled.div`
   position: fixed;

@@ -10,25 +10,32 @@ export function ConfirmBox(props: {param: ConfirmBoxType}): JSX.Element {
     const confirmParam = props.param;
     return (
         <>
-            <Wrapper>
-                <CommentWrapper>
-                    <Comment1>
-                        {confirmParam.mainComment}
-                    </Comment1>
-                    <Comment2>
-                        {confirmParam.subComment}
-                    </Comment2>
-                </CommentWrapper>
-                {confirmParam.buttonComponent}
-            </Wrapper>
+          <RelativeWrapper>
+              <Wrapper>
+                  <CommentWrapper>
+                      <Comment1>
+                          {confirmParam.mainComment}
+                      </Comment1>
+                      <Comment2>
+                          {confirmParam.subComment}
+                      </Comment2>
+                  </CommentWrapper>
+                  {confirmParam.buttonComponent}
+              </Wrapper>
+          </RelativeWrapper>
+
          </>
     )
 }
 
+const RelativeWrapper = styled.div`
+  position: relative;
+`;
+
 const Wrapper = styled.div`
-  position: fixed;
-  bottom: 370px;
-  left: 128px;
+  position: absolute;
+  left: 33px;
+  top: 173px;
   text-align: center;
   border-radius: 15px;
   display: flex;

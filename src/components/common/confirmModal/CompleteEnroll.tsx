@@ -9,41 +9,49 @@ export function CompleteEnroll(): JSX.Element {
     document.childNodes[1].setAttribute('style', 'overflow:hidden');
     return (
         <>
+            <RelativeWrapper>
+
             <Wrapper>
-                <IconCharacter src='/assets/detail/complete.svg'/>
-                <CompleteWrapper>
-                    <CommentBox>
-                        <Icon src='/assets/detail/completeCheck.svg'/>
-                        <Comment1>
-                            스터디 신청 완료
-                        </Comment1>
-                        <Comment2>
-                            스터디 시작일은 2021.05.22 토 12:00 입니다.
-                            가입한 메일로 스터디 공지를 확인해보세요.
-                        </Comment2>
-                    </CommentBox>
-                    <Link href='/main'>
-                        <Confirm onClick={() => {
-                            // @ts-ignore
-                            document.childNodes[1].setAttribute('style', 'overflow:auto');
-                            setCompleteBoxState(!completeBoxState);
-                        }
-                        }>
-                            확인
-                        </Confirm>
-                    </Link>
-                </CompleteWrapper>
+                    <IconCharacter src='/assets/detail/complete.svg'/>
+                    <CompleteWrapper>
+                        <CommentBox>
+                            <Icon src='/assets/detail/completeCheck.svg'/>
+                            <Comment1>
+                                스터디 신청 완료
+                            </Comment1>
+                            <Comment2>
+                                스터디 시작일은 2021.05.22 토 12:00 입니다.
+                                가입한 메일로 스터디 공지를 확인해보세요.
+                            </Comment2>
+                        </CommentBox>
+                        <Link href='/main'>
+                            <Confirm onClick={() => {
+                                // @ts-ignore
+                                document.childNodes[1].setAttribute('style', 'overflow:auto');
+                                setCompleteBoxState(!completeBoxState);
+                            }
+                            }>
+                                확인
+                            </Confirm>
+                        </Link>
+                    </CompleteWrapper>
+
             </Wrapper>
+        </RelativeWrapper>
 
         </>
     )
 }
 
+const RelativeWrapper = styled.div`
+  position: relative;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  position: fixed;
-  left: 127px;
+  position: absolute;
+  left: 33px;
   top: 173px;
 `;
 
