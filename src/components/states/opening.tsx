@@ -9,7 +9,7 @@ const nextStepState = atom({
   key: `nextStep`,
   default: 1,
 });
-// 1
+// 1 - KindBookComponent
 const categoryState = atom({
   key: `category`,
   default: 0,
@@ -26,12 +26,12 @@ const resultListIndexState = atom({
   key: `resultListIndex`,
   default: -1,
 });
-// 2
+// 2 - KindTypeComponent
 const showEtcTypeState = atom({
   key: `showEtcType`,
   default: false,
 });
-// 4
+// 4 - StudyPeriodComponent
 const showCompleteState = atom({
   key: `showComplete`,
   default: false,

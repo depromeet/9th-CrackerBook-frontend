@@ -20,6 +20,30 @@ const typeEtcStringState = atom({
   default: "",
 });
 // 3 - StudyInfoComponent
+const nameState = atom({
+  key: `name`,
+  default: "",
+});
+const introductionState = atom({
+  key: `introduction`,
+  default: "",
+});
+const personnelState = atom({
+  key: `personnel`,
+  default: 1,
+});
+const difficultyState = atom({
+  key: `difficulty`,
+  default: "",
+});
+const placeState = atom({
+  key: `place`,
+  default: "",
+});
+const placeDetailState = atom({
+  key: `placeDetail`,
+  default: "",
+});
 // 4 - StudyPeriodComponent
 const periodStudyStartState = atom({
   key: `periodStudyStart`,
@@ -42,6 +66,12 @@ export {
   bookState,
   typeState,
   typeEtcStringState,
+  nameState,
+  introductionState,
+  personnelState,
+  difficultyState,
+  placeState,
+  placeDetailState,
   periodStudyStartState,
   periodStudyEndState,
   periodRecruitmentStartState,

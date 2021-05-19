@@ -1,5 +1,14 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useRecoilState } from "recoil";
+import {
+  difficultyState,
+  introductionState,
+  nameState,
+  personnelState,
+  placeDetailState,
+  placeState,
+} from "src/components/states/studyForm";
 
 const FormWrapper = styled.div`
   padding: 0 20px 80px 20px;
@@ -123,9 +132,16 @@ const LocationData = [
 ];
 
 export default function FormComponent(): JSX.Element {
-  const [difficulty, setDifficulty] = useState("");
-  const [location, setLocation] = useState("");
-  const [personnel, setPersonnel] = useState(1);
+  const [name, setName] = useRecoilState(nameState);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const [introduction, setIntroduction] = useRecoilState(introductionState);
+  const introductionRef = useRef<HTMLTextAreaElement>(null);
+  const [personnel, setPersonnel] = useRecoilState(personnelState);
+  const [difficulty, setDifficulty] = useRecoilState(difficultyState);
+  const [place, setPlace] = useRecoilState(placeState);
+  const [placeDetail, setPlaceDetail] = useRecoilState(placeDetailState);
+  const placeDetailRef = useRef<HTMLInputElement>(null);
+
   const setPersonnelFunction = (event, value) => {
     event.preventDefault();
     setPersonnel(value === 0 ? 1 : value);
@@ -136,13 +152,23 @@ export default function FormComponent(): JSX.Element {
       <BoxWrapper>
         <Title>스터디명</Title>
         <Content>
-          <Input placeholder="예) 초보 에세이 글쓰기" />
+          <Input
+            defaultValue={name}
+            onKeyUp={() => setName(nameRef.current.value)}
+            ref={nameRef}
+            placeholder="예) 초보 에세이 글쓰기"
+          />
         </Content>
       </BoxWrapper>
       <BoxWrapper>
         <Title>스터디소개</Title>
         <Content>
-          <Textarea placeholder="스터디를 소개해보세요." />
+          <Textarea
+            defaultValue={introduction}
+            onKeyUp={() => setIntroduction(introductionRef.current.value)}
+            ref={introductionRef}
+            placeholder="스터디를 소개해보세요."
+          />
         </Content>
       </BoxWrapper>
       <BoxWrapperFloatLeft>
@@ -189,17 +215,28 @@ export default function FormComponent(): JSX.Element {
           <UlWrapper>
             {LocationData.map((v, index) => {
               return (
-                <LiList key={index} onClick={() => setLocation(v.value)}>
-                  {location === v.value ? (
+                <LiList
+                  key={index}
+                  onClick={() => {
+                    setPlaceDetail("");
+                    setPlace(v.value);
+                  }}
+                >
+                  {place === v.value ? (
                     <LiIcon src="/assets/opening/check26.svg" />
                   ) : (
                     <LiIcon src="/assets/opening/notcheck26.svg" />
                   )}
                   <LiText>{v.label}</LiText>
-                  {index !== 0 && (
+                  {place === v.value && index !== 0 && (
                     <LiInput
                       placeholder="모임 장소를 입력해주세요."
-                      disabled={location !== v.value}
+                      defaultValue={placeDetail}
+                      onKeyUp={() =>
+                        setPlaceDetail(placeDetailRef.current.value)
+                      }
+                      ref={placeDetailRef}
+                      disabled={place !== v.value}
                     />
                   )}
                 </LiList>

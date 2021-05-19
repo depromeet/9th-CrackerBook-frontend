@@ -1,5 +1,12 @@
-import { useRecoilState } from "recoil";
-import { bookState } from "src/components/states/studyForm";
+import { useEffect } from "react";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { nextStepState } from "src/components/states/opening";
+import {
+  bookState,
+  difficultyState,
+  nameState,
+  placeState,
+} from "src/components/states/studyForm";
 import styled from "styled-components";
 import FormComponent from "./FormComponent";
 
@@ -43,7 +50,16 @@ const AuthorText = styled.div`
   font-weight: 300;
 `;
 export default function StudyInfoComponent(): JSX.Element {
+  const setNextStep = useSetRecoilState(nextStepState);
   const [book] = useRecoilState(bookState);
+  const [name] = useRecoilState(nameState);
+  const [difficulty] = useRecoilState(difficultyState);
+  const [place] = useRecoilState(placeState);
+  useEffect(() => {
+    name === "" || difficulty === "" || place === ""
+      ? setNextStep(3)
+      : setNextStep(4);
+  });
 
   return (
     <KindBookWrapper>
