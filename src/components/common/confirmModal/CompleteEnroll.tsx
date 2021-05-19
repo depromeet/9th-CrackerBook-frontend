@@ -1,46 +1,46 @@
 import styled from "styled-components";
-import {useRecoilState} from "recoil";
-import {CompleteBoxState} from "../../../state/detail/detailState";
+import { useRecoilState } from "recoil";
+import { CompleteBoxState } from "../../../state/detail/detailState";
 import Link from "next/link";
 
 export function CompleteEnroll(): JSX.Element {
-    const [completeBoxState, setCompleteBoxState] = useRecoilState<boolean>(CompleteBoxState);
-    // @ts-ignore
-    document.childNodes[1].setAttribute('style', 'overflow:hidden');
-    return (
-        <>
-            <RelativeWrapper>
+  const [completeBoxState, setCompleteBoxState] = useRecoilState<boolean>(CompleteBoxState);
+  // @ts-ignore
+  document.childNodes[1].setAttribute("style", "overflow:hidden");
+  return (
+    <>
+      <RelativeWrapper>
 
-            <Wrapper>
-                    <IconCharacter src='/assets/detail/complete.svg'/>
-                    <CompleteWrapper>
-                        <CommentBox>
-                            <Icon src='/assets/detail/completeCheck.svg'/>
-                            <Comment1>
-                                스터디 신청 완료
-                            </Comment1>
-                            <Comment2>
-                                스터디 시작일은 2021.05.22 토 12:00 입니다.
-                                가입한 메일로 스터디 공지를 확인해보세요.
-                            </Comment2>
-                        </CommentBox>
-                        <Link href='/main'>
-                            <Confirm onClick={() => {
-                                // @ts-ignore
-                                document.childNodes[1].setAttribute('style', 'overflow:auto');
-                                setCompleteBoxState(!completeBoxState);
-                            }
-                            }>
-                                확인
-                            </Confirm>
-                        </Link>
-                    </CompleteWrapper>
+        <Wrapper>
+          <IconCharacter src="/assets/detail/complete.svg" />
+          <CompleteWrapper>
+            <CommentBox>
+              <Icon src="/assets/detail/completeCheck.svg" />
+              <Comment1>
+                스터디 신청 완료
+              </Comment1>
+              <Comment2>
+                스터디 시작일은 2021.05.22 토 12:00 입니다.
+                가입한 메일로 스터디 공지를 확인해보세요.
+              </Comment2>
+            </CommentBox>
+            <Link href="/main">
+              <Confirm onClick={() => {
+                // @ts-ignore
+                document.childNodes[1].setAttribute("style", "overflow:auto");
+                setCompleteBoxState(!completeBoxState);
+              }
+              }>
+                확인
+              </Confirm>
+            </Link>
+          </CompleteWrapper>
 
-            </Wrapper>
-        </RelativeWrapper>
+        </Wrapper>
+      </RelativeWrapper>
 
-        </>
-    )
+    </>
+  );
 }
 
 const RelativeWrapper = styled.div`
@@ -50,9 +50,9 @@ const RelativeWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 33px;
-  top: 173px;
+  position: fixed;
+  bottom: 37%;
+  margin-left: 30px;
 `;
 
 const Icon = styled.img`
