@@ -1,9 +1,20 @@
-import { useRecoilState } from "recoil";
-import { showCompleteState } from "src/components/states/opening";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import {
+  nextStepState,
+  showCompleteState,
+} from "src/components/states/opening";
 import CompleteComponent from "./CompleteComponent";
 import styled from "styled-components";
 import FormComponent from "./FormComponent";
-import { bookState } from "src/components/states/studyForm";
+import {
+  bookState,
+  periodRecruitmentEndState,
+  periodRecruitmentStartState,
+  periodStudyEndState,
+  periodStudyStartState,
+  repeatState,
+} from "src/components/states/studyForm";
+import { useEffect } from "react";
 
 const KindBookWrapper = styled.div`
   padding: 18px 0;
@@ -46,8 +57,21 @@ const AuthorText = styled.div`
   font-weight: 300;
 `;
 export default function StudyPeriodComponent(): JSX.Element {
+  const setNextStep = useSetRecoilState(nextStepState);
   const [showComplete] = useRecoilState(showCompleteState);
   const [book] = useRecoilState(bookState);
+  const [repeat] = useRecoilState(repeatState);
+  const [periodStudyStart] = useRecoilState(periodStudyStartState);
+  const [periodStudyEnd] = useRecoilState(periodStudyEndState);
+  const [periodRecruitmentStart] = useRecoilState(periodRecruitmentStartState);
+  const [periodRecruitmentEnd] = useRecoilState(periodRecruitmentEndState);
+  useEffect(() => {
+    repeat === "" ||
+    periodStudyStart >= periodStudyEnd ||
+    periodRecruitmentStart >= periodRecruitmentEnd
+      ? setNextStep(4)
+      : setNextStep(5);
+  });
   return (
     <KindBookWrapper>
       <MainText>

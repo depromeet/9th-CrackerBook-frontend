@@ -47,11 +47,19 @@ const placeDetailState = atom({
 // 4 - StudyPeriodComponent
 const periodStudyStartState = atom({
   key: `periodStudyStart`,
-  default: dayjs(new Date()).tz("Asia/Seoul"),
+  default: dayjs(new Date()),
 });
 const periodStudyEndState = atom({
   key: `periodStudyEnd`,
   default: dayjs(new Date()),
+});
+const repeatState = atom({
+  key: `repeat`,
+  default: "",
+});
+const repeatWeekState = atom({
+  key: `repeatWeek`,
+  default: "",
 });
 const periodRecruitmentStartState = atom({
   key: `periodRecruitmentStart`,
@@ -74,6 +82,8 @@ export {
   placeDetailState,
   periodStudyStartState,
   periodStudyEndState,
+  repeatState,
+  repeatWeekState,
   periodRecruitmentStartState,
   periodRecruitmentEndState,
 };

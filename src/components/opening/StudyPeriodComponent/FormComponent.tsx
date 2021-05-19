@@ -6,6 +6,8 @@ import {
   periodStudyEndState,
   periodRecruitmentStartState,
   periodRecruitmentEndState,
+  repeatState,
+  repeatWeekState,
 } from "../../states/studyForm";
 import amber from "@material-ui/core/colors/amber";
 import { DateTimePicker } from "@material-ui/pickers";
@@ -211,16 +213,16 @@ export default function FormComponent(): JSX.Element {
   const [isOpenStudyEnd, setIsOpenStudyEnd] = useState(false);
   const [isOpenRecruitmentStart, setIsOpenRecruitmentStart] = useState(false);
   const [isOpenRecruitmentEnd, setIsOpenRecruitmentEnd] = useState(false);
-  const [repeat, setRepeat] = useState("");
-  const [week, setWeek] = useState("");
+  const [repeat, setRepeat] = useRecoilState(repeatState);
+  const [repeatWeek, setRepeatWeek] = useRecoilState(repeatWeekState);
   const setRepeatFunction = (event, value) => {
     event.preventDefault();
     setRepeat(value);
-    setWeek("");
+    setRepeatWeek("");
   };
-  const setWeekFunction = (event, value) => {
+  const setRepeatWeekFunction = (event, value) => {
     event.stopPropagation();
-    setWeek(value);
+    setRepeatWeek(value);
   };
 
   return (
@@ -292,9 +294,9 @@ export default function FormComponent(): JSX.Element {
                             return (
                               <LiCircle
                                 key={windex}
-                                className={week === w.value ? "on" : ""}
+                                className={repeatWeek === w.value ? "on" : ""}
                                 onClick={(event) =>
-                                  setWeekFunction(event, w.value)
+                                  setRepeatWeekFunction(event, w.value)
                                 }
                               >
                                 <LiCircleText>{w.label}</LiCircleText>

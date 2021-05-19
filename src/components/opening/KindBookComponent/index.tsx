@@ -23,6 +23,7 @@ export default function KindBookComponent(): JSX.Element {
   const [category] = useRecoilState(categoryState);
   const [book] = useRecoilState(bookState);
   const setNextStep = useSetRecoilState(nextStepState);
+
   useEffect(() => {
     book.title === "" ? setNextStep(1) : setNextStep(2);
   });

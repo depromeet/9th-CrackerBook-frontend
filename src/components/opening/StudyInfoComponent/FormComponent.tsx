@@ -146,6 +146,11 @@ export default function FormComponent(): JSX.Element {
     event.preventDefault();
     setPersonnel(value === 0 ? 1 : value);
   };
+  const setPlaceFunction = (event, value) => {
+    event.preventDefault();
+    setPlaceDetail("");
+    setPlace(value);
+  };
 
   return (
     <FormWrapper>
@@ -217,27 +222,29 @@ export default function FormComponent(): JSX.Element {
               return (
                 <LiList
                   key={index}
-                  onClick={() => {
-                    setPlaceDetail("");
-                    setPlace(v.value);
-                  }}
+                  onClick={(event) => setPlaceFunction(event, v.value)}
                 >
                   {place === v.value ? (
-                    <LiIcon src="/assets/opening/check26.svg" />
+                    <>
+                      <LiIcon src="/assets/opening/check26.svg" />
+                      <LiText>{v.label}</LiText>
+                      {index !== 0 && (
+                        <LiInput
+                          placeholder="모임 장소를 입력해주세요."
+                          defaultValue={placeDetail}
+                          onKeyUp={() =>
+                            setPlaceDetail(placeDetailRef.current.value)
+                          }
+                          ref={placeDetailRef}
+                          disabled={place !== v.value}
+                        />
+                      )}
+                    </>
                   ) : (
-                    <LiIcon src="/assets/opening/notcheck26.svg" />
-                  )}
-                  <LiText>{v.label}</LiText>
-                  {place === v.value && index !== 0 && (
-                    <LiInput
-                      placeholder="모임 장소를 입력해주세요."
-                      defaultValue={placeDetail}
-                      onKeyUp={() =>
-                        setPlaceDetail(placeDetailRef.current.value)
-                      }
-                      ref={placeDetailRef}
-                      disabled={place !== v.value}
-                    />
+                    <>
+                      <LiIcon src="/assets/opening/notcheck26.svg" />
+                      <LiText>{v.label}</LiText>
+                    </>
                   )}
                 </LiList>
               );

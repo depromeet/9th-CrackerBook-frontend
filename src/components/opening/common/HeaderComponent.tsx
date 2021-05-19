@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { useRecoilState } from "recoil";
+import { useRouter } from "next/router";
+import { useRecoilState, useResetRecoilState } from "recoil";
 import { currentStepState } from "../../states/opening";
 
 const HeaderWrapper = styled.div`
@@ -41,7 +42,16 @@ const Progress = styled.progress`
 `;
 
 export default function IndexComponent(): JSX.Element {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
+
+  const resetState = (event) => {
+    event.preventDefault();
+    if (confirm("메인으로 이동하시겠습니까?")) {
+      router.push("/main/books");
+    }
+  };
+
   return (
     <>
       <HeaderWrapper>
@@ -50,13 +60,9 @@ export default function IndexComponent(): JSX.Element {
             <img src="/assets/search/arrowleft.svg" />
           </ArrowLeft>
         ) : (
-          <Link href="/main/books">
-            <ArrowLeft>
-              <a>
-                <img src="/assets/search/arrowleft.svg" />
-              </a>
-            </ArrowLeft>
-          </Link>
+          <ArrowLeft onClick={(event) => resetState(event)}>
+            <img src="/assets/search/arrowleft.svg" />
+          </ArrowLeft>
         )}
         <div>스터디 주최</div>
       </HeaderWrapper>

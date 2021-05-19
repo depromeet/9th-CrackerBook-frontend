@@ -7,7 +7,6 @@ import {
   showCompleteState,
 } from "../../states/opening";
 import { typeState } from "../../states/studyForm";
-import CompleteComponent from "../StudyPeriodComponent/CompleteComponent";
 
 const Footer = styled.footer`
   position: fixed;
@@ -45,7 +44,7 @@ export default function FooterComponent(): JSX.Element {
   const [nextStep] = useRecoilState(nextStepState);
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
   const [showEtcType, setShowEtcType] = useRecoilState(showEtcTypeState);
-  const setShowComplete = useSetRecoilState(showCompleteState);
+  const [showComplete, setShowComplete] = useRecoilState(showCompleteState);
   const [type] = useRecoilState(typeState);
 
   const currentStepPlus = (event) => {
@@ -59,7 +58,7 @@ export default function FooterComponent(): JSX.Element {
 
   return (
     <>
-      {!showEtcType && (
+      {!showEtcType && !showComplete && (
         <>
           {nextStep > currentStep ? (
             <>
