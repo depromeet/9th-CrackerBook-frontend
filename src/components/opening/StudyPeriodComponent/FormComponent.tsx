@@ -6,7 +6,7 @@ import {
   periodStudyEndState,
   periodRecruitmentStartState,
   periodRecruitmentEndState,
-} from "../../states/form";
+} from "../../states/studyForm";
 import amber from "@material-ui/core/colors/amber";
 import { DateTimePicker } from "@material-ui/pickers";
 import { createMuiTheme } from "@material-ui/core";

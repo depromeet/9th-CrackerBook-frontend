@@ -7,7 +7,7 @@ import {
   resultListState,
   searchKeywordState,
 } from "../../states/opening";
-import { bookState } from "src/components/states/form";
+import { bookState } from "src/components/states/studyForm";
 import { bookListState } from "src/components/states/book";
 
 const SearchBoxInnerWrapper = styled.div`
@@ -71,13 +71,10 @@ const SearchInput = styled.input`
   padding: 15px 0;
   border: 0;
   background: initial;
-  height: 14px;
+  height: 15px;
   outline: none;
   ::placeholder {
     color: #999999;
-  }
-  :-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset;
   }
 `;
 const SearchIconBox = styled.div`
@@ -124,7 +121,7 @@ export default function SearchBoxComponent(): JSX.Element {
   };
   const setCategoryFunction = (index) => {
     setCategory(index);
-    setBook({ title: "" });
+    setBook({ title: "", author: "" });
   };
   const clearSearchWord = () => {
     inputRef.current.value = "";
@@ -170,6 +167,7 @@ export default function SearchBoxComponent(): JSX.Element {
           category !== 2 ? `검색어를 검색해주세요.` : `관심 책을 선택해주세요.`
         }
         onKeyUp={search}
+        autoComplete="off"
         ref={inputRef}
         disabled={category === 2}
       />

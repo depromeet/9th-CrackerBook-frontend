@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { nextStepState } from "../../states/opening";
 import { bookListState } from "../../states/book";
-import { bookState } from "../../states/form";
+import { bookState } from "../../states/studyForm";
 
 const FavoriteBookWrapper = styled.div`
   position: relative;
@@ -68,7 +67,6 @@ const Title = styled.div`
   font-size: 14px;
   line-height: 137.5%;
   color: #222222;
-  white-space: nowrap;
   overflow: hidden;
   white-space: normal;
   -webkit-line-clamp: 2;

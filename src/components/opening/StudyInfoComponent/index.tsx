@@ -1,3 +1,5 @@
+import { useRecoilState } from "recoil";
+import { bookState } from "src/components/states/studyForm";
 import styled from "styled-components";
 import FormComponent from "./FormComponent";
 
@@ -18,9 +20,17 @@ const SubText = styled.div`
   color: #677ac7;
 `;
 const TitleText = styled.div`
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
   float: left;
   margin: 0 0 0 20px;
   font-weight: 500;
+  max-width: 250px;
+  overflow: hidden;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 const Divider = styled.div`
   float: left;
@@ -33,6 +43,8 @@ const AuthorText = styled.div`
   font-weight: 300;
 `;
 export default function StudyInfoComponent(): JSX.Element {
+  const [book] = useRecoilState(bookState);
+
   return (
     <KindBookWrapper>
       <MainText>
@@ -40,9 +52,9 @@ export default function StudyInfoComponent(): JSX.Element {
         입력해주세요.`}
       </MainText>
       <SubText>
-        <TitleText>책 제목입니다</TitleText>
+        <TitleText>{book.title}</TitleText>
         <Divider />
-        <AuthorText>책 저자</AuthorText>
+        <AuthorText>{book.author}</AuthorText>
       </SubText>
       <FormComponent />
     </KindBookWrapper>

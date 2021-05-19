@@ -8,7 +8,7 @@ import EtcTypeComponent from "./EtcTypeComponent";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { nextStepState, showEtcTypeState } from "../../states/opening";
 import { useEffect } from "react";
-import { typeState } from "src/components/states/form";
+import { bookState, typeState } from "src/components/states/studyForm";
 
 const KindBookWrapper = styled.div`
   padding: 18px 0;
@@ -27,9 +27,17 @@ const SubText = styled.div`
   color: #677ac7;
 `;
 const TitleText = styled.div`
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
   float: left;
   margin: 0 0 0 20px;
   font-weight: 500;
+  max-width: 250px;
+  overflow: hidden;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 const Divider = styled.div`
   float: left;
@@ -52,6 +60,7 @@ export default function KindTypeComponent(): JSX.Element {
   const [type] = useRecoilState(typeState);
   const [showEtcType] = useRecoilState(showEtcTypeState);
   const setNextStep = useSetRecoilState(nextStepState);
+  const [book] = useRecoilState(bookState);
   useEffect(() => {
     type === "" ? setNextStep(2) : setNextStep(3);
   });
@@ -63,9 +72,9 @@ export default function KindTypeComponent(): JSX.Element {
         스터디를 하고 싶나요?`}
       </MainText>
       <SubText>
-        <TitleText>책 제목입니다</TitleText>
+        <TitleText>{book.title}</TitleText>
         <Divider />
-        <AuthorText>책 저자</AuthorText>
+        <AuthorText>{book.author}</AuthorText>
       </SubText>
       <SvgWrapper>
         <DebateComponent />

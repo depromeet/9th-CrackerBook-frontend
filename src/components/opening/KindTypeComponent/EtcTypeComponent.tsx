@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { currentStepState, showEtcTypeState } from "../../states/opening";
-import { typeEtcStringState } from "../../states/form";
+import { typeEtcStringState } from "../../states/studyForm";
 
 const BlackBackground = styled.div`
   background-color: rgba(0, 0, 0, 80%);

@@ -6,7 +6,7 @@ import {
   showEtcTypeState,
   showCompleteState,
 } from "../../states/opening";
-import { typeState } from "../../states/form";
+import { typeState } from "../../states/studyForm";
 import CompleteComponent from "../StudyPeriodComponent/CompleteComponent";
 
 const Footer = styled.footer`

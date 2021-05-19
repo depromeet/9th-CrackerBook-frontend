@@ -1,11 +1,10 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import {
   resultListIndexState,
   resultListState,
 } from "src/components/states/opening";
-import { bookState } from "src/components/states/form";
+import { bookState } from "src/components/states/studyForm";
 
 const ListWrapper = styled.ul`
   position: relative;
@@ -21,7 +20,6 @@ const Title = styled.div`
   line-height: 23px;
   width: 173px;
   color: #222222;
-  white-space: nowrap;
   overflow: hidden;
   white-space: normal;
   -webkit-line-clamp: 2;

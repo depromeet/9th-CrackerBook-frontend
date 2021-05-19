@@ -4,7 +4,7 @@ import FavoriteBookComponent from "./FavoriteBookComponent";
 import SearchResultComponent from "./SearchResultComponent";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { categoryState, nextStepState } from "../../states/opening";
-import { bookState } from "../../states/form";
+import { bookState } from "../../states/studyForm";
 import { useEffect } from "react";
 
 const KindBookWrapper = styled.div`
