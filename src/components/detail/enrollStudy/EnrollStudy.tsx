@@ -1,40 +1,39 @@
 import styled from "styled-components";
-import {useRecoilState} from "recoil";
-import {CompleteBoxState, EnrollConfirmBoxState} from "../../../state/detail/detailState";
+import { useRecoilState } from "recoil";
+import { CompleteBoxState, EnrollConfirmBoxState } from "../../../state/detail/detailState";
 
 export function EnrollStudy(): JSX.Element {
-    const [enrollSate, setEnrollState] = useRecoilState<boolean>(EnrollConfirmBoxState);
-    const [completeBoxState, setCompleteBoxState] = useRecoilState<boolean>(CompleteBoxState);
-    // @ts-ignore
-    document.childNodes[1].setAttribute('style', 'overflow:hidden');
-    return (
-        <ConfirmWrapper>
+  const [enrollSate, setEnrollState] = useRecoilState<boolean>(EnrollConfirmBoxState);
+  const [completeBoxState, setCompleteBoxState] = useRecoilState<boolean>(CompleteBoxState);
+  // @ts-ignore
+  document.body.style.overflow = "hidden";
+  return (
+    <ConfirmWrapper>
 
-            <ConfirmBox>
-                <Close src='/assets/detail/close.svg' onClick={() => {
-                    // @ts-ignore
-                    document.childNodes[1].setAttribute('style', 'overflow:auto');
-                    setEnrollState(!enrollSate);
-                }}/>
-                <InnerBox>
-                    <ContentBox>
-                        <StudyName>
-                            '일센스'가 있는 살미이 되기 위해서는?
-                        </StudyName>
-                        <Date>
-                            2021.04.26 ~ 05.21 토 14:00
-                        </Date>
-                    </ContentBox>
-                </InnerBox>
-            </ConfirmBox>
-            <ApplyButtom onClick={() => {
-                setEnrollState(!enrollSate);
-                setCompleteBoxState(!completeBoxState);
-            }}>스터디 신청하기</ApplyButtom>
-        </ConfirmWrapper>
-    )
+      <ConfirmBox>
+        <Close src="/assets/detail/close.svg" onClick={() => {
+          // @ts-ignore
+          document.body.style.overflow = "auto";
+          setEnrollState(!enrollSate);
+        }} />
+        <InnerBox>
+          <ContentBox>
+            <StudyName>
+              '일센스'가 있는 살미이 되기 위해서는?
+            </StudyName>
+            <Date>
+              2021.04.26 ~ 05.21 토 14:00
+            </Date>
+          </ContentBox>
+        </InnerBox>
+      </ConfirmBox>
+      <ApplyButtom onClick={() => {
+        setEnrollState(!enrollSate);
+        setCompleteBoxState(!completeBoxState);
+      }}>스터디 신청하기</ApplyButtom>
+    </ConfirmWrapper>
+  );
 }
-
 
 
 const ConfirmWrapper = styled.div`

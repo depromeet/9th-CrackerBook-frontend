@@ -6,7 +6,7 @@ import Link from "next/link";
 export function CompleteEnroll(): JSX.Element {
   const [completeBoxState, setCompleteBoxState] = useRecoilState<boolean>(CompleteBoxState);
   // @ts-ignore
-  document.childNodes[1].setAttribute("style", "overflow:hidden");
+  document.body.style.overflow = "hidden";
   return (
     <>
       <RelativeWrapper>
@@ -27,7 +27,7 @@ export function CompleteEnroll(): JSX.Element {
             <Link href="/main">
               <Confirm onClick={() => {
                 // @ts-ignore
-                document.childNodes[1].setAttribute("style", "overflow:auto");
+                document.body.style.overflow = 'auto';
                 setCompleteBoxState(!completeBoxState);
               }
               }>
