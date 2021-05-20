@@ -1,24 +1,29 @@
 import styled from "styled-components";
-import {BackButton, MainBookStyle, SearchButton} from "../../../../styles/detail/common/commonStyle";
+import { BackButton, MainBookStyle, SearchButton } from "../../../../styles/detail/common/commonStyle";
+import Link from "next/link";
 
 export function Cover(): JSX.Element {
-    return (
-        <>
-            <StudyBookImg src="/assets/main/exBook.jpg"/>
-            <StudyDetailCover/>
-        </>
-    )
+  return (
+    <>
+      <StudyBookImg src="/assets/main/exBook.jpg" />
+      <StudyDetailCover />
+    </>
+  );
 }
 
 export function StudyDetailCover(): JSX.Element {
-    return (
-        <>
-            <StudyBookCover>
-                <BackButton src="/assets/detail/back.svg"/>
-                <SearchButton src="/assets/detail/magnifyingGlass.svg"/>
-            </StudyBookCover>
-        </>
-    )
+  return (
+    <>
+      <StudyBookCover>
+        <Link href="/detail/book">
+          <BackButton src="/assets/detail/back.svg" />
+        </Link>
+        <Link href="/search">
+          <SearchButton src="/assets/detail/magnifyingGlass.svg" />
+        </Link>
+      </StudyBookCover>
+    </>
+  );
 }
 
 const StudyBookImg = styled.img`
@@ -27,7 +32,7 @@ const StudyBookImg = styled.img`
   border-radius: 2px 8px 8px 2px;
   position: absolute;
   top: 130px;
-  left: 104px;             
+  left: 104px;
   z-index: 10;
 `;
 

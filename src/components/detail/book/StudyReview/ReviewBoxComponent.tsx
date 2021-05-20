@@ -103,7 +103,7 @@ const BoxWrappers = styled.div`
 const BoxWrapper = styled.div`
   margin: 0 85px;
   width: 225px;
-  height: 334px;
+  height: 360px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 2px 9px 0 #d4d3d3;
@@ -122,6 +122,7 @@ const ReviewIcon = styled.img`
 
 const Review = styled.div`
   padding: 0 20px 20px 32px;
+  line-height: 21px;
 `;
 
 const ReviewerWrapper = styled.div`
