@@ -15,17 +15,17 @@ const boxTranslate = keyframes`
   0% {
     transform: translateY(70px);
   }
-  
-  20% {
-    transform: translateY(0);
-  }
 
-  80% {
+  1% {
+    transform: translateY(69px);
+  }
+  
+  50% {
     transform: translateY(0);
   }
   
   100% {
-    transform: translateY(70px);
+    transform: translateY(90px);
   }
 `;
 
