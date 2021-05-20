@@ -22,13 +22,12 @@ const LiArea = styled.li`
 
   /* cracker white */
 
-  background: #FFFFFF;
+  background: #ffffff;
   /* text box Shadow */
 
   box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 `;
-
 
 const ContentWrapper = styled.div`
   flex-direction: column;
@@ -43,7 +42,6 @@ const Content = styled.div`
   color: #677ac7;
 `;
 
-
 const LikeImg = styled.img`
   position: absolute;
   z-index: 10;
@@ -53,7 +51,6 @@ const LikeImg = styled.img`
   color: #999999;
   cursor: pointer;
   top: 42.69%;
-
 `;
 
 const Icon = styled.img`
@@ -74,32 +71,32 @@ const IconText = styled.div`
 `;
 
 const DateArea = styled.p`
-font-family: Nunito;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 16px;
-/* identical to box height */
-  
-//color: #777777;
-`
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height */
+
+  //color: #777777;
+`;
 
 const ProgressBar = styled.div`
   width: 97px;
   height: 1px;
-  border: 2px solid #F1F1F3;
-`
+  border: 2px solid #f1f1f3;
+`;
 
 const Gage = styled.div`
   /* cracker yellow */
   height: 1px;
   //width: 30px;
-  border: 2px solid #FFD262;
-`
+  border: 2px solid #ffd262;
+`;
 
 const ProgressArea = styled.div`
-    display: flex;
-`
+  display: flex;
+`;
 
 const PercentFont = styled.p`
   font-family: Nunito;
@@ -112,49 +109,45 @@ const PercentFont = styled.p`
   padding-left: 1em;
 
   /* cracker yellow */
-  color: #FFD262;
+  color: #ffd262;
+`;
 
-`
+const Result = ["사용자의 마음을 움직이는 UX 디자인의 힘"];
 
-const Result = [
-    "사용자의 마음을 움직이는 UX 디자인의 힘"
-];
-
-
-
-export default function HorizontalStudy(props:any): JSX.Element {
-
-    return (
-        <>
-            <ListWrapper>
-                {Result.map((title, index,) => {
-                    return (
-                        <LiArea key={index}>
-                            <BookWithShadow width={51} height={74}/>
-                            <ContentWrapper>
-                                <Content>
-                                    <Icon src="/assets/main/bookIcon.svg" />
-                                    <IconText>토론</IconText>
-                                    <Icon src="/assets/main/memberIcon.svg" />
-                                    <IconText>멤버 3/6</IconText>
-                                </Content>
-                                <Link href={"/"+(props.routingUrl?props.routingUrl:'')}>
-                                    <Title>{title}</Title>
-                                </Link>
-                                <DateArea>2017.04.12 ~ 2017.04.12</DateArea>
-                                <>{props && props.progress &&
-                                <ProgressArea>
-                                    <ProgressBar/>
-                                    <Gage style={{width: props.percent}}/>
-                                    <PercentFont>{props.percent}%</PercentFont>
-                                </ProgressArea>}</>
-                            </ContentWrapper>
-                                <LikeImg src="/assets/profile/heart.svg" />
-                </LiArea>
-
-                    )
-                })}
-            </ListWrapper>
-        </>
-    );
+export default function HorizontalStudy(props: any): JSX.Element {
+  return (
+    <>
+      <ListWrapper>
+        {Result.map((title, index) => {
+          return (
+            <LiArea key={index}>
+              <BookWithShadow width={51} height={74} />
+              <ContentWrapper>
+                <Content>
+                  <Icon src="/assets/main/bookIcon.svg" />
+                  <IconText>토론</IconText>
+                  <Icon src="/assets/main/memberIcon.svg" />
+                  <IconText>멤버 3/6</IconText>
+                </Content>
+                <Link href={"/" + (props.routingUrl ? props.routingUrl : "")}>
+                  <Title>{title}</Title>
+                </Link>
+                <DateArea>2017.04.12 ~ 2017.04.12</DateArea>
+                <>
+                  {props && props.progress && (
+                    <ProgressArea>
+                      <ProgressBar />
+                      <Gage style={{ width: props.percent }} />
+                      <PercentFont>{props.percent}%</PercentFont>
+                    </ProgressArea>
+                  )}
+                </>
+              </ContentWrapper>
+              <LikeImg src="/assets/profile/heart.svg" />
+            </LiArea>
+          );
+        })}
+      </ListWrapper>
+    </>
+  );
 }

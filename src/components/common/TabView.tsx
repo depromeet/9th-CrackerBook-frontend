@@ -12,55 +12,55 @@ const TabButton = styled.div`
   width: 50%;
   height: 62px;
   text-align: center;
-  
 
   display: flex;
   justify-content: center;
   align-items: center;
   &.on {
-    border-bottom: 2px solid #FFD262;
+    border-bottom: 2px solid #ffd262;
   }
-`
+`;
 const TabContentsArea = styled.div`
   height: 100%;
-  background: #F1F1F3;
-`
+  background: #f1f1f3;
+  padding-top: 1vh;
+`;
 
-interface tabInfo{
-    name: string,
-    index: number
+interface tabInfo {
+  name: string;
+  index: number;
 }
 
-export default function TabView(props):JSX.Element {
+export default function TabView(props: { tabInfo }): JSX.Element {
+  const tabList: tabInfo[] = [];
 
-    let tabList: tabInfo[]= [];
+  props.tabInfo.forEach(function (infoObj, index) {
+    tabList.push({ name: infoObj.tabName, index: index });
+  });
 
-    props.tabInfo.forEach(function (infoObj, index){
-        tabList.push({name: infoObj.tabName, index: index})
-    })
+  const [tabState, setTabSTate] = React.useState(0);
 
-    const [tabState, setTabSTate] = React.useState(0);
+  const clickHandler = (index) => {
+    setTabSTate(index);
+  };
 
-    const clickHandler = (index) => {
-        setTabSTate(index);
-    };
-
-    return (
-        <>
-            <TabBar>
-                {tabList.map((tab, index) => {
-                    return (
-                        <TabButton style={{width: (100/tabList.length)+'%'}}
-                            key={tab.index} onClick={() => clickHandler(index)}
-                                   className={tabState === index ? "on" : ""}>
-                            <div>{tab.name}</div>
-                        </TabButton>
-                    );
-                })}
-            </TabBar>
-            <TabContentsArea>
-                {props.tabInfo[tabState].tabContents}
-            </TabContentsArea>
-        </>
-    );
+  return (
+    <>
+      <TabBar>
+        {tabList.map((tab, index) => {
+          return (
+            <TabButton
+              style={{ width: 100 / tabList.length + "%" }}
+              key={tab.index}
+              onClick={() => clickHandler(index)}
+              className={tabState === index ? "on" : ""}
+            >
+              <div>{tab.name}</div>
+            </TabButton>
+          );
+        })}
+      </TabBar>
+      <TabContentsArea>{props.tabInfo[tabState].tabContents}</TabContentsArea>
+    </>
+  );
 }

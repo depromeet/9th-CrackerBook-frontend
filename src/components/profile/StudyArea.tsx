@@ -1,14 +1,12 @@
 import Link from "next/link";
 import styled from "styled-components";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import HorizontalStudy from "../common/study/HorizontalStudy";
 import TabView from "../common/TabView";
 import StudyList from "./interestedBook/StudyList";
 import BookList from "./interestedBook/BookList";
 
-
 const StudyTitle = styled.div`
-  
   height: 30px;
   margin-left: 2vw;
   font-family: Noto Sans KR;
@@ -31,23 +29,20 @@ const StudyTabsArea = styled.div`
   /* cracker white */
   background: #fff;
   display: flex;
-
 `;
 
 const TabButton = styled.div`
   width: 50%;
   height: 100%;
   text-align: center;
-  
 
   display: flex;
   justify-content: center;
   align-items: center;
   &.on {
-    border-bottom: 2px solid #FFD262;
+    border-bottom: 2px solid #ffd262;
   }
-
-`
+`;
 
 const TabContentsArea = styled.div`
   position: absolute;
@@ -56,40 +51,50 @@ const TabContentsArea = styled.div`
   left: 0px;
   top: 500px;
 
-  background: #F1F1F3;
-`
+  background: #f1f1f3;
+`;
 
+export default function StudyArea(): JSX.Element {
+  const arr = [
+    { id: 0, name: "진행", count: 0 },
+    { id: 1, name: "완료", count: 0 },
+  ];
 
+  const clickHandler = (tabName, index) => {
+    // setTab(tabName);
+    setTabSTate(index);
+  };
 
-export default function StudyArea():JSX.Element {
+  const tabContents = ["proceed", "complete"];
 
-    const arr = [{id: 0, name: "진행", count: 0},
-         {id: 1, name: "완료", count: 0},]
+  const [tabState, setTabSTate] = React.useState(0);
+  const tabInfo = [
+    {
+      tabName: "진행",
+      tabContents: (
+        <HorizontalStudy
+          progress={true}
+          percent={15}
+          routingurl={"detail/book/bookDetail"}
+        />
+      ),
+    },
+    {
+      tabName: "완료",
+      tabContents: (
+        <HorizontalStudy
+          progress={true}
+          percent={15}
+          routingurl={"detail/book/bookDetail"}
+        />
+      ),
+    },
+  ];
 
-
-    const clickHandler = (tabName, index) => {
-        // setTab(tabName);
-        setTabSTate(index);
-    };
-
-    const tabContents = ['proceed','complete']
-
-    const [tabState, setTabSTate] = React.useState(0);
-    const tabInfo = [
-        {tabName: "진행",
-            tabContents: <HorizontalStudy progress ={true} percent={15}routingUrl={''}/>
-        },
-        {tabName: "완료",
-            tabContents: <HorizontalStudy progress ={true} percent={15}routingUrl={''}/>
-        },
-    ];
-
-    return (
-        <div>
-            <StudyTitle>{"나의 스터디"}</StudyTitle>
-            <TabView
-                tabInfo = {tabInfo}
-            />
-        </div>
-    );
+  return (
+    <div>
+      <StudyTitle>{"나의 스터디"}</StudyTitle>
+      <TabView tabInfo={tabInfo} />
+    </div>
+  );
 }

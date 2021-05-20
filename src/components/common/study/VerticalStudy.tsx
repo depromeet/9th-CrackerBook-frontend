@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import BookWithShadow from "../book/BookWithShadow";
 
-
-
 const LiLink = styled.li`
   float: left;
   cursor: pointer;
@@ -49,20 +47,18 @@ const Date = styled.div`
   color: #777777;
 `;
 
-
-
 export default function VerticalStudy(prop): JSX.Element {
-    return (
-        <LiLink key={prop.index}>
-           <BookWithShadow/>
-            <Content>
-                <Icon src="/assets/main/bookIcon.svg" />
-                <IconText>토론</IconText>
-                <Icon src="/assets/main/memberIcon.svg" />
-                <IconText>멤버 3/6</IconText>
-            </Content>
-            <Title>{prop.title}</Title>
-            <Date>04.26 ~ 05.26 토 14:00</Date>
-        </LiLink>
-    );
+  return (
+    <LiLink key={prop.index}>
+      <BookWithShadow />
+      <Content>
+        <Icon src="/assets/main/bookIcon.svg" />
+        <IconText>토론</IconText>
+        <Icon src="/assets/main/memberIcon.svg" />
+        <IconText>멤버 3/6</IconText>
+      </Content>
+      <Title>{prop.title}</Title>
+      <Date>04.26 ~ 05.26 토 14:00</Date>
+    </LiLink>
+  );
 }

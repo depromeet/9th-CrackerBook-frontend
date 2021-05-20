@@ -2,13 +2,15 @@ import styled from "styled-components";
 import HorizontalStudy from "../../../src/components/common/study/HorizontalStudy";
 import React from "react";
 import Attendance from "../../../src/components/profile/hostStudyList/Attendance";
-
+import TabView from "../../../src/components/common/TabView";
+import StudyList from "../../../src/components/profile/interestedBook/StudyList";
+import BookList from "../../../src/components/profile/interestedBook/BookList";
+import Notice from "../../../src/components/profile/hostStudyList/Notice";
 
 const StudyInfoArea = styled.div`
   display: inline-flex;
   height: 268px;
-  
-`
+`;
 const StudyTabsArea = styled.div`
   position: absolute;
   width: 100%;
@@ -19,65 +21,43 @@ const StudyTabsArea = styled.div`
   /* cracker white */
   background: #fff;
   display: flex;
-
 `;
 
 const TabButton = styled.div`
   width: 50%;
   height: 100%;
   text-align: center;
-  
 
   display: flex;
   justify-content: center;
   align-items: center;
   &.on {
-    border-bottom: 2px solid #FFD262;
+    border-bottom: 2px solid #ffd262;
   }
-
-`
+`;
 
 const TabContentsArea = styled.div`
   position: absolute;
   width: 375px;
+  height: 100%;
   //height: 723px;
   left: 0px;
   top: 328px;
 
-  background: #F1F1F3;
-`
-
+  background: #f1f1f3;
+`;
 
 export default function Detail(): JSX.Element {
-    const [tabState, setTabSTate] = React.useState(0);
-
-    const arr = [{id: 0, name: "출석부", count: 0},
-        {id: 1, name: "공지사항", count: 0},]
-
-    const tabContents = [<Attendance/>,'complete']
-
-    const clickHandler = (tabName, index) => {
-        // setTab(tabName);
-        setTabSTate(index);
-    };
-    return (
-        <>
-            <StudyInfoArea>
-                <HorizontalStudy progress={true} percent={30}/>
-            </StudyInfoArea>
-            <StudyTabsArea>
-                {arr.map((tab, index) => {
-                    return (
-                        <TabButton key={tab.id} onClick={() => clickHandler(tab.id, index)}
-                                   className={tabState === index ? "on" : ""}>
-                            <div>{tab.name}</div>
-                        </TabButton>
-                    );
-                })}
-            </StudyTabsArea>
-            <TabContentsArea className="contents" >
-                {tabContents[tabState]}
-            </TabContentsArea>
-        </>
-    );
+  const tabInfo = [
+    { tabName: "출석부", tabContents: <Attendance /> },
+    { tabName: "공지사항", tabContents: <Notice /> },
+  ];
+  return (
+    <>
+      <StudyInfoArea>
+        <HorizontalStudy progress={true} percent={30} />
+      </StudyInfoArea>
+      <TabView tabInfo={tabInfo} />
+    </>
+  );
 }

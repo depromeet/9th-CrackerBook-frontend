@@ -1,68 +1,84 @@
 import styled from "styled-components";
 import Link from "next/link";
+
+const TableView = styled.table`
+  width: 95%;
+  margin-left: 5%;
+  margin-top: 5%;
+`;
 const TableHeader = styled.thead`
-  width: 100%;
-  height: 60px;
-
-  /* cracker yellow */
-
-  background: #FFD262;
+  background: #ffd262;
   border-radius: 10px 0px 0px 0px;
-  '$tr':{
-  width: 100%;
-}
+  margin-top: 8%;
+`;
+
+const HeaderTh = styled.th`
+  height: 60px;
+  vertical-align: middle;
+`;
+const TableBody = styled.tbody`
+  background: #ffffff;
+`;
+const BodyTd = styled.td`
+  height: 60px;
+  text-align: center;
+  vertical-align: middle;
 `;
 
 export default function Attendance(): JSX.Element {
-    return (
-        <>
-            <table>
-                <TableHeader>
-                    <tr>
-                        <th>{/*이름*/}</th>
-                        <th>01</th>
-                        <th>02</th>
-                        <th>03</th>
-                        <th>04</th>
-                        <th>
-                            <img src={"/assets/profile/nextPage.svg"}/>
-                        </th>
-                    </tr>
-                </TableHeader>
+  return (
+    <>
+      <TableView>
+        <TableHeader>
+          <tr>
+            <HeaderTh style={{ borderRadius: "10px 0px 0px 0px" }}>
+              {/*이름*/}
+            </HeaderTh>
+            <HeaderTh>01</HeaderTh>
+            <HeaderTh>02</HeaderTh>
+            <HeaderTh>03</HeaderTh>
+            <HeaderTh>04</HeaderTh>
+            <HeaderTh>
+              <img src={"/assets/profile/nextPage.svg"} />
+            </HeaderTh>
+          </tr>
+        </TableHeader>
 
-                <tbody>
-                    <tr>
-                        <td>빈센조</td>
-                        <td>
-                            <img src={"/assets/profile/attendance.svg"}/>
-                        </td>
-                        <td>
-                            <img src={"/assets/profile/attendance.svg"}/>
-                        </td>
-                        <td>
-                            <img src={"/assets/profile/attendance.svg"}/>
-                        </td>
-                        <td>
-                            <img src={"/assets/profile/attendance.svg"}/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>빈센조</td>
-                        <td>
-                            <img src={"/assets/profile/attendance.svg"}/>
-                        </td>
-                        <td>
-                            <img src={"/assets/profile/attendance.svg"}/>
-                        </td>
-                        <td>
-                            <img src={"/assets/profile/attendance.svg"}/>
-                        </td>
-                        <td>
-                            <img src={"/assets/profile/attendance.svg"}/>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </>
-    );
+        <TableBody>
+          <tr>
+            <BodyTd>빈센조</BodyTd>
+            <BodyTd>
+              <img src={"/assets/profile/attendance.svg"} />
+            </BodyTd>
+            <BodyTd>
+              <img src={"/assets/profile/attendance.svg"} />
+            </BodyTd>
+            <BodyTd>
+              <img src={"/assets/profile/attendance.svg"} />
+            </BodyTd>
+            <BodyTd>
+              <img src={"/assets/profile/attendance.svg"} />
+            </BodyTd>
+            <BodyTd />
+          </tr>
+          <tr>
+            <BodyTd>빈센조</BodyTd>
+            <BodyTd>
+              <img src={"/assets/profile/attendance.svg"} />
+            </BodyTd>
+            <BodyTd>
+              <img src={"/assets/profile/attendance.svg"} />
+            </BodyTd>
+            <BodyTd>
+              <img src={"/assets/profile/attendance.svg"} />
+            </BodyTd>
+            <BodyTd>
+              <img src={"/assets/profile/attendance.svg"} />
+            </BodyTd>
+            <BodyTd />
+          </tr>
+        </TableBody>
+      </TableView>
+    </>
+  );
 }
