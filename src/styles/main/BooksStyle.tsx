@@ -49,7 +49,7 @@ const TitleDiv = styled.div`
 
 const TotalView = styled.div`
   font-size: 14px;
-  color: #677ac7;
+  color: #999999;
   text-align: right;
   cursor: pointer;
 `;
