@@ -1,6 +1,6 @@
 import {
   LikeDiv,
-  LikeInfoWrapper, LikeStudyTitleWrapper,
+  LikeInfoWrapper, LikeRank, LikeStudyTitleWrapper,
   LikeStudyWrapper,
   RankBookImg,
   RankBookWrapper, StudyContent, StudyIcon, StudyTitle,
@@ -24,6 +24,7 @@ export default function LikeBookComponent(): JSX.Element {
               <LikeBookContainer />
               <LikeBookNameContainer />
               <LikeDateContainer />
+              <LikeRank src="/assets/main/like1.svg" />
             </LikeInfoWrapper>
           </SwiperSlide>
           <SwiperSlide>
@@ -32,14 +33,16 @@ export default function LikeBookComponent(): JSX.Element {
               <LikeBookContainer />
               <LikeBookNameContainer />
               <LikeDateContainer />
+              <LikeRank src="/assets/main/like2.svg" />
             </LikeInfoWrapper>
           </SwiperSlide>
           <SwiperSlide>
             <LikeInfoWrapper>
-              <RankBookImg src="/assets/main/exBook.jpg" loading="lazy"/>
+              <RankBookImg src="/assets/main/exBook.jpg" loading="lazy" />
               <LikeBookContainer />
               <LikeBookNameContainer />
               <LikeDateContainer />
+              <LikeRank src="/assets/main/like3.svg" />
             </LikeInfoWrapper>
           </SwiperSlide>
         </Swiper>

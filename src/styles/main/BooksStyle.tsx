@@ -55,7 +55,7 @@ const TotalView = styled.div`
 `;
 
 const BookBox = styled.div`
-  background-color: #f1f1f3;
+  background-color: #F9D1B4;
   border-radius: 10px;
   width: 335px;
   height: 226px;
@@ -63,6 +63,7 @@ const BookBox = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
+  z-index: 0;
 `;
 
 const BookImg = styled.img`
@@ -219,7 +220,16 @@ const RankBookImg = styled.img`
 `;
 
 const LikeInfoWrapper = styled.div`
+  position: relative;
   margin: 10px 15px 0 0;
+`;
+
+const LikeRank = styled.img`
+  position: absolute;
+  width: 24px;
+  height: 27px;
+  top: -4px;
+  left: 2px;
 `;
 
 const StudyBackground = styled.div`
@@ -264,6 +274,7 @@ export {
   StudyBackground,
   NewStudyWrapper,
   LikeDiv,
+  LikeRank,
   LikeInfoWrapper,
   RankBookWrapper,
   RankBookImg,

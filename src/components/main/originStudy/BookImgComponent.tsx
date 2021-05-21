@@ -29,6 +29,7 @@ const ImgWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   margin-right: 20px;
+  z-index: 1;
 `;
 
 const Img = styled.img`
