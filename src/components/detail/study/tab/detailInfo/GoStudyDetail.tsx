@@ -1,25 +1,25 @@
-import {StudyIntroTitle} from "../../../../../styles/detail/study/detailInfoStyle";
+import { StudyIntroTitle } from "../../../../../styles/detail/study/detailInfoStyle";
 import styled from "styled-components";
 
 export const GoStudyDetail = (): JSX.Element => {
-    return (
-        <>
-            <StudyIntroTitle>
-                책 상세정보
-            </StudyIntroTitle>
-            <BookBox/>
-        </>
-    )
-}
+  return (
+    <>
+      <StudyIntroTitle>
+        책 상세정보
+      </StudyIntroTitle>
+      <BookBox />
+    </>
+  );
+};
 
 export const BookBox = (): JSX.Element => {
 
-    return (
-        <BookBoxStyle>
-            <BookImg src="/assets/main/exBook.jpg"/>
-        </BookBoxStyle>
-    )
-}
+  return (
+    <BookBoxStyle>
+      <BookImg src="/assets/main/exBook.jpg" loading="lazy" />
+    </BookBoxStyle>
+  );
+};
 
 const BookBoxStyle = styled.div`
   border-radius: 10px 10px 10px 10px;

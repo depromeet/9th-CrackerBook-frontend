@@ -6,7 +6,7 @@ export default function ReviewBoxComponent(): JSX.Element {
   return (
     <BoxWrappers>
       <Swiper
-        spaceBetween= {110}
+        spaceBetween={110}
         slidesPerView={2}
         loop={true}
         initialSlide={0}
@@ -17,7 +17,7 @@ export default function ReviewBoxComponent(): JSX.Element {
         <SwiperSlide>
           <BoxWrapper>
             <IconWrapper>
-              <ReviewIcon src="/assets/detail/best.svg" />
+              <ReviewIcon src="/assets/detail/best.svg" loading="lazy" />
               <div>
                 최고에요1
               </div>
@@ -28,7 +28,7 @@ export default function ReviewBoxComponent(): JSX.Element {
               함께 읽으니까 너무 좋았어요 ...
             </Review>
             <ReviewerWrapper>
-              <Profile src="/assets/detail/best.svg" />
+              <Profile src="/assets/detail/best.svg" loading="lazy" />
               <Wrapper>
                 <Host>
                   겁내지 않고 글 쓰는 법
@@ -43,7 +43,7 @@ export default function ReviewBoxComponent(): JSX.Element {
         <SwiperSlide>
           <BoxWrapper>
             <IconWrapper>
-              <ReviewIcon src="/assets/detail/best.svg" />
+              <ReviewIcon src="/assets/detail/best.svg" loading="lazy" />
               <div>
                 최고에요2
               </div>
@@ -54,7 +54,7 @@ export default function ReviewBoxComponent(): JSX.Element {
               읽으니까 너무 좋았어요 ...
             </Review>
             <ReviewerWrapper>
-              <Profile src="/assets/detail/best.svg" />
+              <Profile src="/assets/detail/best.svg" loading="lazy" />
               <Wrapper>
                 <Host>
                   겁내지 않고 글 쓰는 법
@@ -69,7 +69,7 @@ export default function ReviewBoxComponent(): JSX.Element {
         <SwiperSlide>
           <BoxWrapper>
             <IconWrapper>
-              <ReviewIcon src="/assets/detail/best.svg" />
+              <ReviewIcon src="/assets/detail/best.svg" loading="lazy" />
               <div>
                 최고에요3
               </div>
@@ -80,7 +80,7 @@ export default function ReviewBoxComponent(): JSX.Element {
               함께 읽으니까 너무 좋았어요 ...
             </Review>
             <ReviewerWrapper>
-              <Profile src="/assets/detail/best.svg" />
+              <Profile src="/assets/detail/best.svg" loading="lazy" />
               <Wrapper>
                 <Host>
                   겁내지 않고 글 쓰는 법
