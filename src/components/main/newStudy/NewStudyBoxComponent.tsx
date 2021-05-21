@@ -18,10 +18,10 @@ export default function NewStudyBox(): JSX.Element {
         </NewBookProfile>
         <StudyContentWrapper>
           <StudyContent isLike={false}>
-            <StudyIcon src="/assets/main/bookIcon.svg" loading="lazy" />
+            <StudyIcon src="/assets/main/miniBook.svg" loading="lazy" />
             <StudyDiv>토론</StudyDiv>
-            <StudyIcon src="/assets/main/memberIcon.svg" loading="lazy" />
-            <div>멤버 3/6</div>
+            <StudyIcon src="/assets/main/member.svg" loading="lazy" />
+            <StudyDiv>멤버 3/6</StudyDiv>
           </StudyContent>
           <StudyTitle isLike={false}>직장인 북클럽</StudyTitle>
           <StudyContent isLike={false}>

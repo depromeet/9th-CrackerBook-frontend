@@ -174,7 +174,8 @@ const StudyDiv = styled.div`
 `;
 
 const LikeDiv = styled.div`
-  margin-right: 5px;
+  margin-right: 3px;
+  color: #677AC7;
 `;
 
 const StudyTitle = styled.div<InfoType>`

@@ -52,10 +52,10 @@ export default function LikeBookComponent(): JSX.Element {
 export function LikeBookContainer(): JSX.Element {
   return (
     <StudyContent isLike={true}>
-      <StudyIcon src="/assets/main/bookIcon.svg" />
+      <StudyIcon src="/assets/main/miniBook.svg" />
       <LikeDiv>토론</LikeDiv>
-      <StudyIcon src="/assets/main/memberIcon.svg" />
-      <div>멤버 3/6</div>
+      <StudyIcon src="/assets/main/member.svg" />
+      <LikeDiv>멤버 3/6</LikeDiv>
     </StudyContent>
   );
 }

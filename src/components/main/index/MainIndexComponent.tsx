@@ -112,10 +112,10 @@ export function ThisBookBox(): JSX.Element {
         <NewBoxWrapper>
           <ThisBookContentWrapper>
             <StudyContent isLike={false}>
-              <StudyIcon src="/assets/main/bookIcon.svg" />
+              <StudyIcon src="/assets/main/miniBook.svg" />
               <StudyDiv>토론</StudyDiv>
-              <StudyIcon src="/assets/main/memberIcon.svg" />
-              <div>멤버 3/6</div>
+              <StudyIcon src="/assets/main/member.svg" />
+              <StudyDiv>멤버 3/6</StudyDiv>
             </StudyContent>
             <StudyTitle isLike={false}>직장인 북클럽</StudyTitle>
             <StudyContent isLike={false}>
