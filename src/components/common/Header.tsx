@@ -1,53 +1,51 @@
 import styled from "styled-components";
 import Link from "next/link";
-import {BackButton} from "../../styles/detail/common/commonStyle";
-import {useRecoilState} from "recoil";
-import {CategoryTypeState, HeaderTextState} from "../../state/main/mainState";
+import { BackButton } from "../../styles/detail/common/commonStyle";
+import { useRecoilState } from "recoil";
+import { CategoryTypeState, HeaderTextState } from "../../state/main/mainState";
 
-const headerElement = (categoryState: string , headerState: string): JSX.Element => {
-    switch (categoryState) {
-        case 'main' :
-            return (
-                <CrackerHeader>
-                    CRACKER BOOK
-                </CrackerHeader>
-            )
-        case 'detail' :
-            return (
-                <TitleHeader>
-                    ' {headerState} '의 스터디
-                </TitleHeader>
-            )
-        default:
-            return (
-                <TitleHeader>
-                    {headerState}
-                </TitleHeader>
-            )
-    }
-}
+const headerElement = (categoryState: string, headerState: string): JSX.Element => {
+  switch (categoryState) {
+    case "main" :
+      return (
+        <CrackerHeader src="/assets/main/HeaderTitle.svg" />
+      );
+    case "detail" :
+      return (
+        <TitleHeader>
+          ' {headerState} '의 스터디
+        </TitleHeader>
+      );
+    default:
+      return (
+        <TitleHeader>
+          {headerState}
+        </TitleHeader>
+      );
+  }
+};
 
 export default function HeaderComponent(): JSX.Element {
-    const [categoryState, setCategoryState] = useRecoilState<string>(CategoryTypeState);
-    const [headerState, setHeaderState] = useRecoilState<string>(HeaderTextState);
-    const header = headerElement(categoryState, headerState);
+  const [categoryState, setCategoryState] = useRecoilState<string>(CategoryTypeState);
+  const [headerState, setHeaderState] = useRecoilState<string>(HeaderTextState);
+  const header = headerElement(categoryState, headerState);
 
-    return (
-        <HeaderWrapper>
-            {
-                headerState !== 'CrackerBook' ? <BackButton src="/assets/detail/back.svg" onClick={() => {
-                    setCategoryState('main');
-                    setHeaderState('CrackerBook');
-                }}/> : ''
-            }
-            {header}
-            <Link href='/search'>
-                <GlassWrapper>
-                    <GlassIcon src='/assets/detail/magnifyingGlass.svg'/>
-                </GlassWrapper>
-            </Link>
-        </HeaderWrapper>
-    );
+  return (
+    <HeaderWrapper>
+      {
+        headerState !== "CrackerBook" ? <BackButton src="/assets/detail/back.svg" onClick={() => {
+          setCategoryState("main");
+          setHeaderState("CrackerBook");
+        }} /> : ""
+      }
+      {header}
+      <Link href="/search">
+        <GlassWrapper>
+          <GlassIcon src="/assets/detail/magnifyingGlass.svg" />
+        </GlassWrapper>
+      </Link>
+    </HeaderWrapper>
+  );
 }
 
 const HeaderWrapper = styled.div`
@@ -57,10 +55,11 @@ const HeaderWrapper = styled.div`
   padding: 20px;
 `;
 
-const CrackerHeader = styled.div`
-  margin-left: 50px;
+const CrackerHeader = styled.img`
+  margin-left: 100px;
   padding-top: 8px;
-  width: 80%;
+  width: 154px;
+  height: 16px;
   color: #222222;
   font-weight: 900;
   font-family: "Nunito", sans-serif;
@@ -69,7 +68,7 @@ const CrackerHeader = styled.div`
 `;
 
 const TitleHeader = styled.div`
-  margin-left: 50px;
+  margin-left: auto;
   padding-top: 8px;
   width: 80%;
   color: #222222;
@@ -79,7 +78,7 @@ const TitleHeader = styled.div`
 `;
 
 const GlassWrapper = styled.div`
-  width: 20%;
+  width: 25%;
   text-align: right;
   padding-top: 8px;
 `;

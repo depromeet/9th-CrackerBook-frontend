@@ -68,7 +68,7 @@ const viewComponent = (categoryState: string, data: Array<BookData>): JSX.Elemen
           <OriginStudyComponent bookData={data} />
           <LikeBookComponent />
           <NewStudyComponent />
-          <FabMainComponent/>
+          <FabMainComponent />
         </>
       );
       break;
