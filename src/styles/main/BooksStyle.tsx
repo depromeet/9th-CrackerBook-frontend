@@ -83,6 +83,7 @@ const IconWrapper = styled.div`
 `;
 
 const IconWrapperContent = styled.div`
+  padding-top: 7px;
   width: 6%;
   justify-content: center;
   flex-direction: column;
@@ -168,6 +169,8 @@ const StudyIcon = styled.img`
 
 const StudyDiv = styled.div`
   margin-right: 15px;
+  padding-top: 2px;
+  color: #677AC7;
 `;
 
 const LikeDiv = styled.div`
@@ -233,7 +236,7 @@ const ThisBookWrapper = styled.div`
 
 const DropDown = styled.img``;
 
-const MoreBtn = styled.div<{background: string}>`
+const MoreBtn = styled.div<{ background: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,5 +292,5 @@ export {
   TitleDiv,
   TotalView,
   TitleWrapper,
-  BookBox,
+  BookBox
 };
