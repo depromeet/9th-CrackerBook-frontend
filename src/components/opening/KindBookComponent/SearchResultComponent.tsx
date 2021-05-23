@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   resultListIndexState,
   resultListState,

@@ -1,6 +1,18 @@
 // import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSetRecoilState } from "recoil";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
+import { studyFormState } from "src/components/states/studyForm";
 import BooksComponent from "../../src/components/main/BooksComponent";
+import {
+  currentStepState,
+  nextStepState,
+  resultListIndexState,
+} from "src/components/states/opening";
 
 interface BookData {
   bookName: string;
@@ -14,6 +26,12 @@ interface BookData {
 
 export default function Books(): JSX.Element {
   const [bookData, setBookData] = useState<Array<BookData>>();
+  // init opening
+  const setStudyForm = useSetRecoilState(studyFormState);
+  const setCurrentStep = useSetRecoilState(currentStepState);
+  const setNextStep = useSetRecoilState(nextStepState);
+  const setResultListIndex = useSetRecoilState(resultListIndexState);
+  // END : init opening
   useEffect(() => {
     setBookData([
       {
@@ -44,6 +62,28 @@ export default function Books(): JSX.Element {
         endData: "2021.09.21",
       },
     ]);
+    // init opening
+    setCurrentStep(1);
+    setNextStep(1);
+    setResultListIndex(-1);
+    setStudyForm({
+      book: { title: "", author: "" },
+      type: "",
+      typeEtcString: "",
+      name: "",
+      introduction: "",
+      personnel: 1,
+      difficulty: "",
+      place: "",
+      placeDetail: "",
+      periodStudyStart: dayjs(new Date()),
+      periodStudyEnd: dayjs(new Date()),
+      repeat: "",
+      repeatWeek: "",
+      periodRecruitmentStart: dayjs(new Date()),
+      periodRecruitmentEnd: dayjs(new Date()),
+    });
+    // END : init opening
   }, []);
 
   return (

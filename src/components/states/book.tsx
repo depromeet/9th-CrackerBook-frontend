@@ -4,10 +4,28 @@ const bookListState = atom({
   key: `booklist`,
   default: [
     {
+      title: "화성 갈 거니까",
+      author: "일론머스크",
+      publish: "도지코인",
+      date: "2021.02.22",
+    },
+    {
+      title: "민태님이 안 된다고 했다",
+      author: "김민태",
+      publish: "민태사",
+      date: "2021.02.22",
+    },
+    {
       title:
         "책 하나 제가 했습니다. 긴 제목의 책이 필요해서 정말 제목이 긴 책 이름으로",
       author: "이성용",
       publish: "맹그로브숲",
+      date: "2021.02.22",
+    },
+    {
+      title: "가나다라마바사",
+      author: "세종대왕",
+      publish: "세종대왕",
       date: "2021.02.22",
     },
     {

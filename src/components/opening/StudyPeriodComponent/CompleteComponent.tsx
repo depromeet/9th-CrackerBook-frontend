@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import styled from "styled-components";
-import Link from "next/link";
-import { useSetRecoilState } from "recoil";
-import { showCompleteState, currentStepState } from "../../states/opening";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { showCompleteState } from "../../states/opening";
+import { studyFormState } from "src/components/states/studyForm";
+import { useRouter } from "next/router";
 
 const BlackBackground = styled.div`
   background-color: rgba(0, 0, 0, 80%);
@@ -80,8 +81,9 @@ const Confirm = styled.button`
 `;
 
 export default function CompleteComponent(): JSX.Element {
+  const router = useRouter();
   const setShowComplete = useSetRecoilState(showCompleteState);
-  const setCurrentStep = useSetRecoilState(currentStepState);
+  const [studyForm] = useRecoilState(studyFormState);
 
   // @ts-ignore
   document.childNodes[1].setAttribute("style", "overflow:hidden");
@@ -91,25 +93,24 @@ export default function CompleteComponent(): JSX.Element {
         <IconCharacter src="/assets/opening/complete.svg" />
         <CompleteWrapper>
           <CommentBox>
-            <Icon src="/assets/opening/completeCheck.svg" />
+            <Icon src="/assets/opening/completecheck.svg" />
             <Comment1>스터디 주최 완료</Comment1>
             <Comment2>
               {`축하합니다! 스터디가 개설되었습니다.
               성공적인 스터디 운영을 응원합니다.`}
             </Comment2>
           </CommentBox>
-          <Link href="/main/books">
-            <Confirm
-              onClick={() => {
-                // @ts-ignore
-                document.childNodes[1].setAttribute("style", "overflow:auto");
-                setShowComplete(false);
-                setCurrentStep(1);
-              }}
-            >
-              확인
-            </Confirm>
-          </Link>
+          <Confirm
+            onClick={() => {
+              // @ts-ignore
+              document.childNodes[1].setAttribute("style", "overflow:auto");
+              setShowComplete(false);
+              alert(JSON.stringify(studyForm));
+              router.push("/main/books");
+            }}
+          >
+            확인
+          </Confirm>
         </CompleteWrapper>
       </Wrapper>
     </BlackBackground>

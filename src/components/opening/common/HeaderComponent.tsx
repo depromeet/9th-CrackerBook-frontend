@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useRecoilState, useResetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { currentStepState } from "../../states/opening";
 
 const HeaderWrapper = styled.div`
@@ -39,9 +38,13 @@ const Progress = styled.progress`
     background: #ffd262;
     transition: all 2.5s ease-in-out;
   }
+  ${({ theme }) => theme.media.mobile`
+    width: 100vh;
+    max-width: 100vh;
+  `};
 `;
 
-export default function IndexComponent(): JSX.Element {
+export default function HeaderComponent(): JSX.Element {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
 

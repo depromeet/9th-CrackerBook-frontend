@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 const AppContainer = styled.div`
   min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #eeeeee;
   ${({ theme }) => theme.media.mobile`
-    background-color: #999999;
+    background-color: #ffffff;
   `};
 `;
 
@@ -38,6 +38,8 @@ const Mobile = styled.section`
   margin: 0 0 0 calc(50% - 1px);
   background-color: ${({ theme }) => theme.colors.white};
   ${({ theme }) => theme.media.mobile`
+    width: 100vh;
+    max-width: 100vh;
     min-height: 100vh;
     margin: 0 auto;
     zoom: 1;
