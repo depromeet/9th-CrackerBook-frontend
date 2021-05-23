@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import SearchBoxComponent from "src/components/search/common/SearchBoxComponent";
 import FilterCategoryComponent from "src/components/search/result/FilterCategoryComponent";
 import FilterResultComponent from "src/components/search/result/FilterResultComponent";
-import NotFoundComponent from "src/components/search/result/NotFoundComponent";
+import NotFoundComponent from "src/components/common/NotFoundComponent";
 import FilterKindComponent from "src/components/search/result/FilterKindComponent";
 import ListBookComponent from "src/components/search/result/ListBookComponent";
 import ListAuthorComponent from "src/components/search/result/ListAuthorComponent";

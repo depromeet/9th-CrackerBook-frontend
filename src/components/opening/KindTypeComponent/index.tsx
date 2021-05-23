@@ -20,7 +20,7 @@ const SvgInnerWrapper = styled.div`
   top: 50%;
   left: 50%;
   margin-left: -187px;
-  margin-top: -290px;
+  margin-top: -335px;
 `;
 
 // 토론, 발표, 글쓰기, 포트폴리오, 기타

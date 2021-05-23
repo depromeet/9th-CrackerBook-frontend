@@ -5,6 +5,7 @@ import {
   resultListState,
 } from "src/components/states/opening";
 import { studyFormState } from "src/components/states/studyForm";
+import NotFoundComponent from "src/components/common/NotFoundComponent";
 
 const ListWrapper = styled.ul`
   position: relative;
@@ -110,33 +111,35 @@ export default function SearchResultComponent(): JSX.Element {
 
   return (
     <ListWrapper>
-      {resultList.map((b, index) => {
-        return (
-          <LiLink
-            key={index}
-            className={resultListIndex === index ? "on" : ""}
-            onClick={() => bookSelect(index, b)}
-          >
-            <Profile>
-              <ImgShadow>
-                <Img src="/assets/main/exBook.jpg" />
-              </ImgShadow>
-            </Profile>
-            <ContentWrapper>
-              <Title>{b.title}</Title>
-              <Content>
-                <SubTitle>저자</SubTitle>
-                <SubContent>{b.author}</SubContent>
-              </Content>
-              <Content>
-                <SubTitle>출판</SubTitle>
-                <SubContent>{b.publish}</SubContent>
-                <SubContent>{b.date}</SubContent>
-              </Content>
-            </ContentWrapper>
-          </LiLink>
-        );
-      })}
+      {resultList.length
+        ? resultList.map((b, index) => {
+            return (
+              <LiLink
+                key={index}
+                className={resultListIndex === index ? "on" : ""}
+                onClick={() => bookSelect(index, b)}
+              >
+                <Profile>
+                  <ImgShadow>
+                    <Img src="/assets/main/exBook.jpg" />
+                  </ImgShadow>
+                </Profile>
+                <ContentWrapper>
+                  <Title>{b.title}</Title>
+                  <Content>
+                    <SubTitle>저자</SubTitle>
+                    <SubContent>{b.author}</SubContent>
+                  </Content>
+                  <Content>
+                    <SubTitle>출판</SubTitle>
+                    <SubContent>{b.publish}</SubContent>
+                    <SubContent>{b.date}</SubContent>
+                  </Content>
+                </ContentWrapper>
+              </LiLink>
+            );
+          })
+        : resultListIndex === -1 && <NotFoundComponent />}
     </ListWrapper>
   );
 }

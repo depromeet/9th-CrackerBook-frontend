@@ -103,9 +103,9 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const search = (event) => {
     event.preventDefault();
-    if (event.keyCode === 13) routeResult();
+    if (event.keyCode === 13) searchResult();
   };
-  const routeResult = () => {
+  const searchResult = () => {
     setSearchWord(inputRef.current.value);
     setResultListIndex(-1);
     inputRef.current.value
@@ -171,7 +171,7 @@ export default function SearchBoxComponent(): JSX.Element {
         ref={inputRef}
         disabled={category === 2}
       />
-      <SearchIconBox onClick={() => routeResult()}>
+      <SearchIconBox onClick={() => searchResult()}>
         <img src="/assets/search/search.svg" />
       </SearchIconBox>
       {searchWord && (

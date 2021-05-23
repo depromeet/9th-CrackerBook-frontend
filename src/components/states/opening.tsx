@@ -24,7 +24,7 @@ const resultListState = atom({
 });
 const resultListIndexState = atom({
   key: `resultListIndex`,
-  default: -1,
+  default: -2, // -2 === init, -1 === firstSearch
 });
 // 2 - KindTypeComponent
 const showEtcTypeState = atom({

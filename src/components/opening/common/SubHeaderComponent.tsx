@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
-import { nextStepState } from "../../states/opening";
+import { currentStepState } from "../../states/opening";
 import { studyFormState } from "../../states/studyForm";
 
 const MainText = styled.div`
@@ -42,7 +42,7 @@ const AuthorText = styled.div`
 
 export default function KindBookComponent(): JSX.Element {
   const [studyForm] = useRecoilState(studyFormState);
-  const [nextStep] = useRecoilState(nextStepState);
+  const [currentStep] = useRecoilState(currentStepState);
 
   return (
     <>
@@ -50,7 +50,7 @@ export default function KindBookComponent(): JSX.Element {
         {`어떤 책으로
         스터디를 하고 싶으세요?`}
       </MainText>
-      {nextStep !== 1 && (
+      {currentStep !== 1 && (
         <SubText>
           <TitleText>{studyForm.book.title}</TitleText>
           <Divider />
