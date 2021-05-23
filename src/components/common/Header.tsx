@@ -12,13 +12,13 @@ const headerElement = (categoryState: string, headerState: string): JSX.Element 
       );
     case "detail" :
       return (
-        <TitleHeader>
+        <TitleHeader categoryType={categoryState}>
           ' {headerState} '의 스터디
         </TitleHeader>
       );
     default:
       return (
-        <TitleHeader>
+        <TitleHeader categoryType={categoryState}>
           {headerState}
         </TitleHeader>
       );
@@ -26,7 +26,9 @@ const headerElement = (categoryState: string, headerState: string): JSX.Element 
 };
 
 export default function HeaderComponent(): JSX.Element {
-  const [categoryState, setCategoryState] = useRecoilState<string>(CategoryTypeState);
+  const [categoryState, setCategoryState] = useRecoilState<string>(
+    CategoryTypeState,
+  );
   const [headerState, setHeaderState] = useRecoilState<string>(HeaderTextState);
   const header = headerElement(categoryState, headerState);
 
@@ -57,20 +59,18 @@ const HeaderWrapper = styled.div`
 
 const CrackerHeader = styled.img`
   margin-left: 100px;
-  padding-top: 8px;
+  padding-top: 1px;
   width: 154px;
   height: 16px;
   color: #222222;
-  font-weight: 900;
-  font-family: "Nunito", sans-serif;
-  font-size: 18px;
   text-align: center;
 `;
 
-const TitleHeader = styled.div`
-  margin-left: auto;
-  padding-top: 8px;
-  width: 80%;
+const TitleHeader = styled.div<{ categoryType: string }>`
+  margin-left: ${(props) => props.categoryType === "detail" ? "55px" : "100px"};
+  padding-top: 1px;
+  width: ${(props) => (props.categoryType === "detail" ? "334px" : "154px")};
+  height: 16px;
   color: #222222;
   font-size: 16px;
   text-align: center;
