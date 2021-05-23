@@ -1,13 +1,11 @@
-import { useRecoilState, useSetRecoilState } from "recoil";
-import {
-  nextStepState,
-  showCompleteState,
-} from "src/components/states/opening";
-import CompleteComponent from "./CompleteComponent";
-import styled from "styled-components";
-import FormComponent from "./FormComponent";
-import { studyFormState } from "src/components/states/studyForm";
 import { useEffect } from "react";
+import styled from "styled-components";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import CompleteComponent from "src/components/common/CompleteComponent";
+import FormComponent from "./FormComponent";
+import { showCompleteState } from "src/components/states";
+import { nextStepState } from "src/components/states/opening";
+import { studyFormState } from "src/components/states/studyForm";
 
 const KindBookWrapper = styled.div`
   padding: 18px 0;
@@ -72,7 +70,14 @@ export default function StudyPeriodComponent(): JSX.Element {
         <AuthorText>{studyForm.book.author}</AuthorText>
       </SubText>
       <FormComponent />
-      {showComplete && <CompleteComponent />}
+      {showComplete && (
+        <CompleteComponent
+          route={"/main/books"}
+          header={"스터디 주최 완료"}
+          content={`축하합니다! 스터디가 개설되었습니다.
+          성공적인 스터디 운영을 응원합니다.`}
+        />
+      )}
     </KindBookWrapper>
   );
 }

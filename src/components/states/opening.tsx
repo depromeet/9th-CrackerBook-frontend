@@ -31,11 +31,6 @@ const showEtcTypeState = atom({
   key: `showEtcType`,
   default: false,
 });
-// 4 - StudyPeriodComponent
-const showCompleteState = atom({
-  key: `showComplete`,
-  default: false,
-});
 
 export {
   currentStepState,
@@ -45,5 +40,4 @@ export {
   resultListState,
   resultListIndexState,
   showEtcTypeState,
-  showCompleteState,
 };

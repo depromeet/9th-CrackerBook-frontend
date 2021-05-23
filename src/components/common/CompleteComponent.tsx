@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import styled from "styled-components";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { showCompleteState } from "../../states/opening";
-import { studyFormState } from "src/components/states/studyForm";
+import { useSetRecoilState } from "recoil";
+import { showCompleteState } from "src/components/states";
 import { useRouter } from "next/router";
 
 const BlackBackground = styled.div`
@@ -52,14 +51,14 @@ const CommentBox = styled.div`
   border-radius: 15px 15px 0 0;
 `;
 
-const Comment1 = styled.div`
+const Header = styled.div`
   font-weight: bold;
   font-size: 24px;
   text-align: center;
   padding-bottom: 10px;
 `;
 
-const Comment2 = styled.div`
+const Content = styled.div`
   font-size: 14px;
   color: #777777;
   padding-bottom: 12px;
@@ -80,10 +79,20 @@ const Confirm = styled.button`
   outline: none;
 `;
 
-export default function CompleteComponent(): JSX.Element {
+export default function CompleteComponent(props: {
+  route: string;
+  header: string;
+  content: string;
+}): JSX.Element {
   const router = useRouter();
   const setShowComplete = useSetRecoilState(showCompleteState);
-  const [studyForm] = useRecoilState(studyFormState);
+
+  const closeCompleteComponent = () => {
+    // @ts-ignore
+    document.childNodes[1].setAttribute("style", "overflow:auto");
+    setShowComplete(false);
+    router.push(props.route);
+  };
 
   // @ts-ignore
   document.childNodes[1].setAttribute("style", "overflow:hidden");
@@ -94,23 +103,10 @@ export default function CompleteComponent(): JSX.Element {
         <CompleteWrapper>
           <CommentBox>
             <Icon src="/assets/opening/completecheck.svg" />
-            <Comment1>스터디 주최 완료</Comment1>
-            <Comment2>
-              {`축하합니다! 스터디가 개설되었습니다.
-              성공적인 스터디 운영을 응원합니다.`}
-            </Comment2>
+            <Header>{props.header}</Header>
+            <Content>{props.content}</Content>
           </CommentBox>
-          <Confirm
-            onClick={() => {
-              // @ts-ignore
-              document.childNodes[1].setAttribute("style", "overflow:auto");
-              setShowComplete(false);
-              alert(JSON.stringify(studyForm));
-              router.push("/main/books");
-            }}
-          >
-            확인
-          </Confirm>
+          <Confirm onClick={() => closeCompleteComponent()}>확인</Confirm>
         </CompleteWrapper>
       </Wrapper>
     </BlackBackground>

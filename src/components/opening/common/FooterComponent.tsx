@@ -4,8 +4,8 @@ import {
   nextStepState,
   currentStepState,
   showEtcTypeState,
-  showCompleteState,
 } from "../../states/opening";
+import { showCompleteState } from "src/components/states";
 import { studyFormState } from "../../states/studyForm";
 
 const Footer = styled.footer`
