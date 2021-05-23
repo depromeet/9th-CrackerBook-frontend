@@ -1,8 +1,6 @@
 import { useRecoilState } from "recoil";
-import { studyFormState } from "../../states/studyForm";
+import { studyFormState } from "src/components/states/studyForm";
 
-// 토론, 발표, 글쓰기, 포트폴리오, 기타
-// "debate", "announcement", "writing", "portfolio", "etc"
 export default function AnnouncementComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
 

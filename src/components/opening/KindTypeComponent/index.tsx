@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import DebateComponent from "./DebateComponent";
-import AnnouncementSvgComponent from "./AnnouncementSvgComponent";
-import WriteComponent from "./WriteComponent";
-import PortfolioComponent from "./PortfolioComponent";
-import EtcComponent from "./EtcComponent";
+import DebateComponent from "./svg/DebateComponent";
+import AnnouncementComponent from "./svg/AnnouncementComponent";
+import FilterComponent from "./svg/common/FilterComponent";
+import WriteComponent from "./svg/WriteComponent";
+import PortfolioComponent from "./svg/PortfolioComponent";
+import EtcComponent from "./svg/EtcComponent";
 import EtcTypeComponent from "./EtcTypeComponent";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { nextStepState, showEtcTypeState } from "../../states/opening";
@@ -62,7 +63,7 @@ const SvgInnerWrapper = styled.div`
 `;
 
 // 토론, 발표, 글쓰기, 포트폴리오, 기타
-// "debate", "announcement", "writing", "portfolio", "etc"
+// "debate", "announcement", "write", "portfolio", "etc"
 export default function KindTypeComponent(): JSX.Element {
   const [studyForm] = useRecoilState(studyFormState);
   const [showEtcType] = useRecoilState(showEtcTypeState);
@@ -91,22 +92,12 @@ export default function KindTypeComponent(): JSX.Element {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <AnnouncementSvgComponent />
-            {/* 글쓰기 */}
-            {true ? (
-              <></>
-            ) : (
-              <>
-                <path
-                  d="M149.263 89.6411C149.263 74.2451 165.929 64.6225 179.263 72.3205L284.263 132.942C297.596 140.64 297.596 159.885 284.263 167.583L179.263 228.205C165.93 235.903 149.263 226.281 149.263 210.885L149.263 89.6411Z"
-                  fill="#D2F3E6"
-                />
-                <path
-                  d="M188.444 154.502H195.892V151.338H187.268V152.248H194.744V153.634H187.31V156.882H196.2V155.972H188.444V154.502ZM195.57 149.154C195.85 147.74 195.85 146.662 195.85 145.808V145.01H187.38V145.934H194.716C194.716 146.76 194.702 147.768 194.422 149.154H185.924V150.078H197.32V149.154H195.57ZM210.045 150.904C208.393 150.204 207.525 148.622 207.525 147.096V145.5H206.363V147.096C206.363 148.328 205.747 149.84 204.487 150.708C203.213 149.812 202.569 148.258 202.569 147.096V145.5H201.435V147.096C201.435 148.482 200.525 150.176 198.915 150.904L199.531 151.786C200.721 151.212 201.561 150.148 201.995 148.958C202.387 150.176 203.213 151.338 204.473 151.926C205.733 151.352 206.545 150.232 206.951 149.028C207.371 150.218 208.211 151.24 209.415 151.786L210.045 150.904ZM198.803 154.418V155.37H210.185V154.418H198.803ZM212.423 145.836V146.76H217.141C216.903 149.742 215.223 152.15 211.849 153.76L212.465 154.698C216.637 152.654 218.303 149.462 218.303 145.836H212.423ZM220.837 144.478V157.036H221.985V144.478H220.837Z"
-                  fill="#222222"
-                />
-              </>
-            )}
+            <DebateComponent />
+            <PortfolioComponent />
+            <AnnouncementComponent />
+            <WriteComponent />
+            <FilterComponent />
+            <EtcComponent />
             {/* 기타 */}
             {true ? (
               <></>
@@ -154,39 +145,6 @@ export default function KindTypeComponent(): JSX.Element {
                 />
               </>
             )}
-            <filter
-              id="filter2_d"
-              x="-3"
-              y="89"
-              width="162"
-              height="162"
-              filterUnits="userSpaceOnUse"
-              colorInterpolationFilters="sRGB"
-            >
-              <feFlood floodOpacity="0" result="BackgroundImageFix" />
-              <feColorMatrix
-                in="SourceAlpha"
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-              />
-              <feOffset dx="10" dy="10" />
-              <feGaussianBlur stdDeviation="13" />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow"
-              />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow"
-                result="shape"
-              />
-            </filter>
           </svg>
 
           {/* <DebateComponent />
