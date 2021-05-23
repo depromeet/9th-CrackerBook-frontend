@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {MainBookStyle, TitleInfoStyle} from "../common/commonStyle";
+import { MainBookStyle, TitleInfoStyle } from "../common/commonStyle";
 
 const MainBookCover = styled(MainBookStyle)`
   width: 375px;
@@ -20,14 +20,9 @@ const TitleInfoWrapper = styled(TitleInfoStyle)`
   height: 190px;
 `;
 
-const ThisBookContentWrapper = styled.div`
-  width: 95%;
-  display: flex;
-  flex-direction: column;
-`;
+
 
 export {
-  ThisBookContentWrapper,
   MainBookCover,
   BookImg,
   TitleInfoWrapper,

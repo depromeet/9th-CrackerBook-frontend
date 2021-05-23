@@ -7,10 +7,11 @@ import {
   StudyHost, StudyIcon,
   StudyImg,
   StudyInfoWrapper,
-  StudyProfile, StudyTitle
+  StudyProfile,
+  StudyTitle
 } from "../../../styles/main/BooksStyle";
 
-interface BookData {
+type BookData = {
   bookName: string;
   img: string;
   studyName: string;

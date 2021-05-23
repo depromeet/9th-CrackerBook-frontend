@@ -4,7 +4,7 @@ import MainIndexComponent from "../../src/components/main/index/MainIndexCompone
 import HeaderComponent from "../../src/components/common/Header";
 import FooterComponent from "../../src/components/common/Footer/FooterIndex";
 
-interface BookData {
+type BookData = {
   bookName: string;
   img: string;
   studyName: string;

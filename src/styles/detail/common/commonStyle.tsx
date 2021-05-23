@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-interface ModalPosition {
-  pageX: number;
-  pageY: number;
-}
-
 const Title = styled.div`
   font-size: 32px;
   color: #222222;

@@ -5,7 +5,7 @@ import BookInfoComponent from "./BookInfoComponent";
 import TitleComponent from "./TitleComponent";
 import BookImgComponent from "./BookImgComponent";
 
-interface BookData {
+type BookData = {
   bookName: string;
   img: string;
   studyName: string;

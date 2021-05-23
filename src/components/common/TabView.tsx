@@ -26,7 +26,7 @@ const TabContentsArea = styled.div`
   padding-top: 1vh;
 `;
 
-interface tabInfo {
+type tabInfo = {
   name: string;
   index: number;
 }
