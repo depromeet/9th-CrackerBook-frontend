@@ -8,6 +8,9 @@ const AppContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #eeeeee;
+  ${({ theme }) => theme.media.tablet`
+    background-color: #ffffff;
+  `};
   ${({ theme }) => theme.media.mobile`
     background-color: #ffffff;
   `};
@@ -18,6 +21,9 @@ const Desktop = styled.section`
   position: fixed;
   top: 43%;
   left: 13%;
+  ${({ theme }) => theme.media.tablet`
+    display: none;
+  `};
   ${({ theme }) => theme.media.mobile`
     display: none;
   `};
@@ -37,9 +43,13 @@ const Mobile = styled.section`
   min-height: 80vh;
   margin: 0 0 0 calc(50% - 1px);
   background-color: ${({ theme }) => theme.colors.white};
+  ${({ theme }) => theme.media.tablet`
+    min-height: 100vh;
+    margin: 0 auto;
+    zoom: 1;
+    overflow: hidden;
+  `};
   ${({ theme }) => theme.media.mobile`
-    width: 100vh;
-    max-width: 100vh;
     min-height: 100vh;
     margin: 0 auto;
     zoom: 1;

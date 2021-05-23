@@ -24,10 +24,6 @@ const Footer = styled.footer`
     background: #dddddd;
   }
   z-index: 100;
-  ${({ theme }) => theme.media.mobile`
-    width: 100%;
-    max-width: 100%;
-  `};
 `;
 const Text = styled.div`
   margin: 0 0 30px 0;

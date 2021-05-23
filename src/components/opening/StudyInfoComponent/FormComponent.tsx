@@ -40,6 +40,10 @@ const Input = styled.input`
   ::placeholder {
     color: #999999;
   }
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #ffd262;
+  }
 `;
 const ImgCursor = styled.img`
   cursor: pointer;
@@ -70,6 +74,10 @@ const Textarea = styled.textarea`
   resize: none;
   ::placeholder {
     color: #999999;
+  }
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #ffd262;
   }
 `;
 const UlWrapper = styled.ul`
@@ -109,6 +117,10 @@ const LiInput = styled.input`
   border-radius: 10px;
   ::placeholder {
     color: #999999;
+  }
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #ffd262;
   }
 `;
 

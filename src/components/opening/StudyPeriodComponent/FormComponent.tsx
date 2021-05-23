@@ -197,11 +197,27 @@ export default function FormComponent(): JSX.Element {
   const [isOpenRecruitmentEnd, setIsOpenRecruitmentEnd] = useState(false);
   const setRepeatFunction = (event, repeat) => {
     event.preventDefault();
-    setStudyForm({ ...studyForm, repeat, repeatWeek: "" });
+
+    studyForm.repeat !== repeat &&
+      setStudyForm({ ...studyForm, repeat, repeatWeek: [] });
   };
-  const setRepeatWeekFunction = (event, repeatWeek) => {
+
+  const onRepeatWeek = (event, value) => {
     event.stopPropagation();
-    setStudyForm({ ...studyForm, repeatWeek });
+    setStudyForm({
+      ...studyForm,
+      repeatWeek: [...studyForm.repeatWeek, value],
+    });
+  };
+  const offRepeatWeek = (event, value) => {
+    event.stopPropagation();
+    const repeatWeek = [...studyForm.repeatWeek];
+    repeatWeek.splice(repeatWeek.indexOf(value), 1);
+
+    setStudyForm({
+      ...studyForm,
+      repeatWeek,
+    });
   };
 
   return (
@@ -275,17 +291,25 @@ export default function FormComponent(): JSX.Element {
                       <LiIcon src="/assets/opening/check26.svg" />
                       <LiText>{v.label}</LiText>
                       <LiSubText>총 스터디 횟수 20</LiSubText>
-                      {studyForm.repeat === "oneweek" && (
+                      {studyForm.repeat !== "norepeat" && (
                         <LiCircleWrapper>
                           {WeekData.map((w, windex) => {
-                            return (
+                            return studyForm.repeatWeek.indexOf(w.value) !==
+                              -1 ? (
                               <LiCircle
                                 key={windex}
-                                className={
-                                  studyForm.repeatWeek === w.value ? "on" : ""
-                                }
+                                className="on"
                                 onClick={(event) =>
-                                  setRepeatWeekFunction(event, w.value)
+                                  offRepeatWeek(event, w.value)
+                                }
+                              >
+                                <LiCircleText>{w.label}</LiCircleText>
+                              </LiCircle>
+                            ) : (
+                              <LiCircle
+                                key={windex}
+                                onClick={(event) =>
+                                  onRepeatWeek(event, w.value)
                                 }
                               >
                                 <LiCircleText>{w.label}</LiCircleText>

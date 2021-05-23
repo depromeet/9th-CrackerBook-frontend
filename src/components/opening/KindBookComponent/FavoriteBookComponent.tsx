@@ -9,8 +9,10 @@ const FavoriteBookWrapper = styled.div`
   margin: 32px 0 0 20px;
 `;
 const ListWrapper = styled.ul`
-  overflow: auto;
-  margin: 20px 0;
+  display: grid;
+  grid-auto-rows: 220px;
+  grid-template-columns: repeat(3, 120px);
+  margin: 20px 0 0 0;
 `;
 const LiLink = styled.li`
   position: relative;
@@ -19,10 +21,6 @@ const LiLink = styled.li`
   display: block;
   width: 97px;
   height: 201px;
-  margin: 0 22px 20px 0;
-  &:nth-child(3n) {
-    margin: 0;
-  }
 `;
 const Profile = styled.div`
   position: relative;
