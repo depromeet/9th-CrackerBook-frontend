@@ -24,6 +24,31 @@ export default function AnnouncementComponent(): JSX.Element {
               fill="#222222"
             />
           </g>
+          <rect
+            cursor="pointer"
+            onClick={() => setStudyForm({ ...studyForm, type: "" })}
+            x="91"
+            y="105"
+            width="32"
+            height="32"
+            rx="12"
+            fill="#FFD262"
+          />
+          <path
+            cursor="pointer"
+            onClick={() => setStudyForm({ ...studyForm, type: "" })}
+            d="M100.846 119.523L105.914 124.692L113.153 117.308"
+            stroke="#222222"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            cursor="pointer"
+            onClick={() => setStudyForm({ ...studyForm, type: "" })}
+            d="M149 69H294V231H149V69Z"
+            fill="#C4C4C4"
+            fillOpacity="0.01"
+          />
         </>
       ) : (
         <>

@@ -35,6 +35,9 @@ const Input = styled.input`
   ::placeholder {
     color: #999999;
   }
+  :focus {
+    outline: none;
+  }
 `;
 const IconWrapper = styled.div`
   position: absolute;

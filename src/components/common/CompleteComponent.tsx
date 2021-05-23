@@ -94,7 +94,8 @@ export default function CompleteComponent(props: {
     router.push(props.route);
   };
 
-  // @ts-ignore
+  window.scrollTo(0, 0);
+  // @ts-ignore>
   document.childNodes[1].setAttribute("style", "overflow:hidden");
   return (
     <BlackBackground>
