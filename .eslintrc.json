@@ -7,10 +7,11 @@
   "extends": [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "prettier"
   ],
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
+    "prettier/prettier": "error",
     "react/react-in-jsx-scope": 0
   },
   "settings": {

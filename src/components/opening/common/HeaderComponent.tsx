@@ -38,14 +38,6 @@ const Progress = styled.progress`
     background: #ffd262;
     transition: all 2.5s ease-in-out;
   }
-  ${({ theme }) => theme.media.tablet`
-    width: 100vh;
-    max-width: 100vh;
-  `};
-  ${({ theme }) => theme.media.mobile`
-    width: 100vh;
-    max-width: 100vh;
-  `};
 `;
 
 export default function HeaderComponent(): JSX.Element {

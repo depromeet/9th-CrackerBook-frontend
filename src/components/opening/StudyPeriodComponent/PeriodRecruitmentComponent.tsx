@@ -106,6 +106,38 @@ export default function FormComponent(): JSX.Element {
   const [isOpenRecruitmentStart, setIsOpenRecruitmentStart] = useState(false);
   const [isOpenRecruitmentEnd, setIsOpenRecruitmentEnd] = useState(false);
 
+  const setStartTime = (date) => {
+    let periodRecruitmentStart = dayjs(date);
+    if (periodRecruitmentStart > studyForm.periodRecruitmentEnd) {
+      alert(`시작 시간은 끝나는 시간보다 늦을 수 없습니다!`);
+      periodRecruitmentStart = periodRecruitmentStart.set(
+        "minute",
+        studyForm.periodRecruitmentEnd.minute() - 1,
+      );
+    }
+
+    setStudyForm({
+      ...studyForm,
+      periodRecruitmentStart,
+    });
+  };
+
+  const setEndTime = (date) => {
+    let periodRecruitmentEnd = dayjs(date);
+    if (periodRecruitmentEnd < studyForm.periodRecruitmentStart) {
+      alert(`끝나는 시간은 시작 시간보다 빠를 수 없습니다!`);
+      periodRecruitmentEnd = periodRecruitmentEnd.set(
+        "minute",
+        studyForm.periodRecruitmentStart.minute() + 1,
+      );
+    }
+
+    setStudyForm({
+      ...studyForm,
+      periodRecruitmentEnd,
+    });
+  };
+
   return (
     <TimeContentWrapper>
       <TimeTitle>모집 기간</TimeTitle>
@@ -118,7 +150,7 @@ export default function FormComponent(): JSX.Element {
               .format("YY년 MM월 DD일(ddd)")}
           </DateStartText>
           <TimeStartText>
-            {studyForm.periodRecruitmentStart.locale("en").format("A H:mm")}
+            {studyForm.periodRecruitmentStart.locale("en").format("A hh:mm")}
           </TimeStartText>
         </TimeStartWrapper>
         <TimeEndWrapper onClick={() => setIsOpenRecruitmentEnd(true)}>
@@ -128,34 +160,26 @@ export default function FormComponent(): JSX.Element {
               .format("YY년 MM월 DD일(ddd)")}
           </DateEndText>
           <TimeEndText>
-            {studyForm.periodRecruitmentEnd.locale("en").format("A H:mm")}
+            {studyForm.periodRecruitmentEnd.locale("en").format("A hh:mm")}
           </TimeEndText>
         </TimeEndWrapper>
         <DateTimePickerWrapper>
           <ThemeProvider theme={defaultMaterialTheme}>
             <DateTimePicker
               value={studyForm.periodRecruitmentStart}
+              maxDate={studyForm.periodRecruitmentEnd}
               open={isOpenRecruitmentStart}
               onOpen={() => setIsOpenRecruitmentStart(true)}
               onClose={() => setIsOpenRecruitmentStart(false)}
-              onChange={(date) =>
-                setStudyForm({
-                  ...studyForm,
-                  periodRecruitmentStart: dayjs(date),
-                })
-              }
+              onChange={(date) => setStartTime(date)}
             ></DateTimePicker>
             <DateTimePicker
               value={studyForm.periodRecruitmentEnd}
+              minDate={studyForm.periodRecruitmentStart}
               open={isOpenRecruitmentEnd}
               onOpen={() => setIsOpenRecruitmentEnd(true)}
               onClose={() => setIsOpenRecruitmentEnd(false)}
-              onChange={(date) =>
-                setStudyForm({
-                  ...studyForm,
-                  periodRecruitmentEnd: dayjs(date),
-                })
-              }
+              onChange={(date) => setEndTime(date)}
             ></DateTimePicker>
           </ThemeProvider>
         </DateTimePickerWrapper>

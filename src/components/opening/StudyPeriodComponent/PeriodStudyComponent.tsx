@@ -117,7 +117,7 @@ export default function PeriodStudyComponent(): JSX.Element {
               .format("YY년 MM월 DD일(ddd)")}
           </DateStartText>
           <TimeStartText>
-            {studyForm.periodStudyStart.locale("en").format("A H:mm")}
+            {studyForm.periodStudyStart.locale("en").format("A hh:mm")}
           </TimeStartText>
         </TimeStartWrapper>
         <TimeEndWrapper onClick={() => setIsOpenStudyEnd(true)}>
@@ -127,7 +127,7 @@ export default function PeriodStudyComponent(): JSX.Element {
               .format("YY년 MM월 DD일(ddd)")}
           </DateEndText>
           <TimeEndText>
-            {studyForm.periodStudyEnd.locale("en").format("A H:mm")}
+            {studyForm.periodStudyEnd.locale("en").format("A hh:mm")}
           </TimeEndText>
         </TimeEndWrapper>
         <DateTimePickerWrapper>

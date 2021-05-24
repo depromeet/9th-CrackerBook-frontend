@@ -103,6 +103,7 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const search = (event) => {
     event.preventDefault();
+    setIsOpen(false);
     if (event.keyCode === 13) searchResult();
   };
   const searchResult = () => {

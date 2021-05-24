@@ -115,8 +115,12 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const search = (event) => {
     event.preventDefault();
+    setIsOpen(false);
     setSearchWord(event.target.value);
-    if (event.keyCode === 13) routeResult();
+    if (event.keyCode === 13) {
+      routeResult();
+      setInputClick(false);
+    }
   };
 
   const routeResult = () =>
