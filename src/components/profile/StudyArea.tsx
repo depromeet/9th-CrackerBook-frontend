@@ -61,21 +61,26 @@ export default function StudyArea(): JSX.Element {
   ];
 
   const clickHandler = (tabName, index) => {
-    // setTab(tabName);
     setTabSTate(index);
   };
 
   const tabContents = ["proceed", "complete"];
 
   const [tabState, setTabSTate] = React.useState(0);
+
+  const studyInfo = {
+    title:'사용자의 마음을 움직이는 UX 디자인의 힘',
+    type: '토론',
+    routingUrl: 'detail/book/bookDetail',
+    progressPercent: 15
+  }
+
   const tabInfo = [
     {
       tabName: "진행",
       tabContents: (
         <HorizontalStudy
-          progress={true}
-          percent={15}
-          routingurl={"detail/book/bookDetail"}
+            studyInfo ={studyInfo}
         />
       ),
     },
@@ -83,9 +88,7 @@ export default function StudyArea(): JSX.Element {
       tabName: "완료",
       tabContents: (
         <HorizontalStudy
-          progress={true}
-          percent={15}
-          routingurl={"detail/book/bookDetail"}
+            studyInfo ={studyInfo}
         />
       ),
     },

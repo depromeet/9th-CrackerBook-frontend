@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import React from "react";
 
-const WriteArea = styled.div`
-  width: 100%;
-  display: flex;
+const Wrapper = styled.div`
+    width: 100%;
   text-align: center;
+`
+const WriteArea = styled.div`
+  //width: 100%;
+  display: inline-flex ;
 `;
 
 const InputBox = styled.input`
@@ -35,6 +38,12 @@ const ResisterBtn = styled.div`
   width: 80px;
   height: 80px;
   margin: 1vmin;
+
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   /* cracker yellow */
 
@@ -109,11 +118,26 @@ const NoticeContents = styled.div`
 export default function Notice(props): JSX.Element {
   return (
     <>
-      <WriteArea>
-        <InputBox></InputBox>
-        <ResisterBtn></ResisterBtn>
-      </WriteArea>
+        <Wrapper>
+          <WriteArea>
+            <InputBox></InputBox>
+            <ResisterBtn>
+              <div>등록</div>
+            </ResisterBtn>
+          </WriteArea>
+        </Wrapper>
       <BoardArea>
+        <NoticeCard>
+          <ProfileArea>
+            <ProfileImage src="/assets/profile/profile1.svg" />
+            <div>
+              <UserName>빈센조</UserName>
+              <WritingTime>2021.05.05</WritingTime>
+            </div>
+          </ProfileArea>
+          <NoticeContents>공지사항 내용 입니다.</NoticeContents>
+        </NoticeCard>
+
         <NoticeCard>
           <ProfileArea>
             <ProfileImage src="/assets/profile/profile1.svg" />
