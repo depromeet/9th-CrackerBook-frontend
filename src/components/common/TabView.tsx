@@ -16,14 +16,18 @@ const TabButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  color: #999999;
   &.on {
     border-bottom: 2px solid #ffd262;
+    color: #222222;
   }
 `;
 const TabContentsArea = styled.div`
   height: 100%;
   background: #f1f1f3;
   padding-top: 1vh;
+  padding-bottom: 1vh;
 `;
 
 interface tabInfo {
@@ -45,7 +49,7 @@ export default function TabView(props: { tabInfo }): JSX.Element {
   };
 
   return (
-    <>
+    <div style={{height: '100%'}}>
       <TabBar>
         {tabList.map((tab, index) => {
           return (
@@ -61,6 +65,6 @@ export default function TabView(props: { tabInfo }): JSX.Element {
         })}
       </TabBar>
       <TabContentsArea>{props.tabInfo[tabState].tabContents}</TabContentsArea>
-    </>
+    </div>
   );
 }
