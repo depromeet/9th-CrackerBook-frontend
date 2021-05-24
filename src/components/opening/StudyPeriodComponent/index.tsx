@@ -1,10 +1,17 @@
+import styled from "styled-components";
 import { useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import CompleteComponent from "src/components/common/CompleteComponent";
-import FormComponent from "./FormComponent";
 import { showCompleteState } from "src/components/states";
 import { nextStepState } from "src/components/states/opening";
 import { studyFormState } from "src/components/states/studyForm";
+import PeriodStudyComponent from "./PeriodStudyComponent";
+import PeriodRecruitmentComponent from "./PeriodRecruitmentComponent";
+import RepeatComponent from "./RepeatComponent";
+import CompleteComponent from "src/components/common/CompleteComponent";
+
+const FormWrapper = styled.div`
+  padding: 0 0 80px 0;
+`;
 
 export default function StudyPeriodComponent(): JSX.Element {
   const setNextStep = useSetRecoilState(nextStepState);
@@ -19,7 +26,11 @@ export default function StudyPeriodComponent(): JSX.Element {
   });
   return (
     <>
-      <FormComponent />
+      <FormWrapper>
+        <PeriodStudyComponent />
+        <RepeatComponent />
+        <PeriodRecruitmentComponent />
+      </FormWrapper>
       {showComplete && (
         <CompleteComponent
           route={"/main/books"}
