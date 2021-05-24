@@ -1,21 +1,35 @@
 import Link from "next/link";
 import styled from "styled-components";
+import KakaoLogin from "react-kakao-login";
 
-export default function Component(): JSX.Element {
+const successKaKaoLogin = (props: { response }) => {
+  debugger
+};
+
+const failKakaoLogin = (props: { error }) => {
+  debugger
+};
+
+export default function IndexComponent(): JSX.Element {
   return (
     <MainContainer>
       <ImgWrapper>
-        <MobileTitle src='/assets/main/mainTitle.svg'/>
-        <MainIcon src='/assets/main/mainIcon.svg'/>
+        <MobileTitle src="/assets/main/mainTitle.svg" />
+        <MainIcon src="/assets/main/mainIcon.svg" />
       </ImgWrapper>
       <NextDiv>
         <div>
-          <Link href="/login">
-            <KakaoLoginBtn>
-              <KakaoIcon src='/assets/main/kakao.svg'/>
-              카카오로 로그인
-            </KakaoLoginBtn>
-          </Link>
+          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+          {/*@ts-ignore*/}
+          <KakaoLogin
+            onSuccess={successKaKaoLogin}
+            onFail={failKakaoLogin}
+            token={"8975849c679f23f51fe72cd0a1581921"}
+            needProfile={true}
+          >
+            <KakaoIcon src="/assets/main/kakao.svg" />
+            카카오로 로그인
+          </KakaoLogin>
         </div>
         <Link href="/main">
           <GoMainBtn>서비스 둘러보기 &gt;</GoMainBtn>
@@ -79,6 +93,7 @@ const KakaoLoginBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
   &:active {
     background-color: #ffd262;
     box-shadow: 0 1px #666;
