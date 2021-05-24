@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 import Router from "next/router";
+import { useRecoilState } from "recoil";
+import { historyState } from "../states/search";
 
 const KeywordHeadWrapper = styled.div`
   position: relative;
@@ -63,23 +65,15 @@ const LiIconBox = styled.div`
 `;
 
 export default function KeywordComponent(): JSX.Element {
-  const [keywordTitles, setKeywordTitles] = useState([
-    "전체",
-    "난배고프다",
-    "도레미파솔라시",
-    "조선왕조실록",
-    "백엔드개발",
-    "프론트엔드",
-  ]);
-
+  const [history, setHistory] = useRecoilState(historyState);
   const removeKeywordList = (event, index) => {
     event.stopPropagation();
-    setKeywordTitles(keywordTitles.filter((_, i) => i !== index));
+    setHistory(history.filter((_, i) => i !== index));
   };
 
   const removeAllKeywordList = (event) => {
     event.stopPropagation();
-    setKeywordTitles([]);
+    setHistory([]);
   };
 
   return (
@@ -92,7 +86,7 @@ export default function KeywordComponent(): JSX.Element {
       </KeywordHeadWrapper>
       <KeywordSubWrapper>
         <KeywordListWrapper>
-          {keywordTitles.map((v, index) => {
+          {history.map((v, index) => {
             return (
               <LiLink
                 key={index}

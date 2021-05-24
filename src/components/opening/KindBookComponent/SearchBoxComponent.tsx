@@ -92,7 +92,7 @@ const ClearIconBox = styled.div`
 const CategoryTitles = ["책", "저자", "관심책"];
 
 export default function SearchBoxComponent(): JSX.Element {
-  const [isOpen, setIsOpen] = useState(false);
+  const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
   const [bookList] = useRecoilState(bookListState);
   const [category, setCategory] = useRecoilState(categoryState);
   const setResultList = useSetRecoilState(resultListState);
@@ -103,12 +103,13 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const search = (event) => {
     event.preventDefault();
-    setIsOpen(false);
+    setCatagoryIsOpen(false);
     if (event.keyCode === 13) searchResult();
   };
   const searchResult = () => {
     setSearchWord(inputRef.current.value);
     setResultListIndex(-1);
+    // search sample
     inputRef.current.value
       ? setResultList(
           bookList.filter(
@@ -133,7 +134,7 @@ export default function SearchBoxComponent(): JSX.Element {
     <SearchBoxInnerWrapper>
       <CategoryWrapper
         onClick={() => {
-          setIsOpen(!isOpen);
+          setCatagoryIsOpen(!catagoryIsOpen);
         }}
       >
         {CategoryTitles[category]}
@@ -141,10 +142,10 @@ export default function SearchBoxComponent(): JSX.Element {
           <img src="/assets/opening/dropDown.svg" />
         </OpenIconBox>
       </CategoryWrapper>
-      {isOpen && (
+      {catagoryIsOpen && (
         <ModalWrapper
           onClick={() => {
-            setIsOpen(!isOpen);
+            setCatagoryIsOpen(!catagoryIsOpen);
           }}
         >
           {CategoryTitles.map((v, index) => {

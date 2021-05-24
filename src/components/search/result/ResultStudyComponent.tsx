@@ -2,7 +2,8 @@ import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
 import { useRecoilState } from "recoil";
-import { studyState } from "../../states/study";
+import { resultStudyListState } from "src/components/states/search";
+import NotFoundComponent from "src/components/common/NotFoundComponent";
 
 const ListWrapper = styled.ul`
   margin: 20px 30px;
@@ -86,30 +87,35 @@ const Date = styled.div`
   color: #777777;
 `;
 
-export default function ListStudyComponent(): JSX.Element {
-  const [study] = useRecoilState(studyState);
+export default function ResultStudyComponent(): JSX.Element {
+  const [resultStudyList] = useRecoilState(resultStudyListState);
+
   return (
     <>
       <ListHeaderComponent title={"스터디"} />
       <ListWrapper>
-        {study.map((s, index) => {
-          return (
-            <LiLink key={index}>
-              <Profile>
-                <ImgShadow></ImgShadow>
-                <Img src="/assets/main/exBook.jpg" />
-              </Profile>
-              <Content>
-                <Icon src="/assets/main/bookIcon.svg" />
-                <IconText>{s.category}</IconText>
-                <Icon src="/assets/main/memberIcon.svg" />
-                <IconText>멤버 {s.members}/6</IconText>
-              </Content>
-              <Title>{s.title}</Title>
-              <Date>{s.date}</Date>
-            </LiLink>
-          );
-        })}
+        {resultStudyList.length ? (
+          resultStudyList.map((s, index) => {
+            return (
+              <LiLink key={index}>
+                <Profile>
+                  <ImgShadow></ImgShadow>
+                  <Img src="/assets/main/exBook.jpg" />
+                </Profile>
+                <Content>
+                  <Icon src="/assets/main/bookIcon.svg" />
+                  <IconText>{s.category}</IconText>
+                  <Icon src="/assets/main/memberIcon.svg" />
+                  <IconText>멤버 {s.members}/6</IconText>
+                </Content>
+                <Title>{s.title}</Title>
+                <Date>{s.date}</Date>
+              </LiLink>
+            );
+          })
+        ) : (
+          <NotFoundComponent />
+        )}
       </ListWrapper>
       <ListFooterComponent />
     </>

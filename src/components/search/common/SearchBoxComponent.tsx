@@ -3,7 +3,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useRef } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { categoryState, inputClickState } from "../../states/search";
+import {
+  categoryState,
+  historyState,
+  inputClickState,
+  resultAuthorListState,
+  resultStudyListState,
+} from "../../states/search";
+import { bookListState } from "src/components/states/book";
+import { resultTitleListState } from "src/components/states/search";
+import { studyListState } from "src/components/states/study";
 
 const SearchBoxWrapper = styled.div`
   position: relative;
@@ -105,8 +114,14 @@ const CategoryTitles = ["책", "저자", "스터디"];
 
 export default function SearchBoxComponent(): JSX.Element {
   const Router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
+  const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
+  const [bookList] = useRecoilState(bookListState);
+  const [studyList] = useRecoilState(studyListState);
+  const setResultTitleList = useSetRecoilState(resultTitleListState);
+  const setResultAuthorList = useSetRecoilState(resultAuthorListState);
+  const setResultStudyList = useSetRecoilState(resultStudyListState);
   const [category, setCategory] = useRecoilState(categoryState);
+  const [history, setHistory] = useRecoilState(historyState);
   const setInputClick = useSetRecoilState(inputClickState);
   const [searchWord, setSearchWord] = useState(
     Router.query.name ? Router.query.name : "",
@@ -115,24 +130,41 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const search = (event) => {
     event.preventDefault();
-    setIsOpen(false);
-    setSearchWord(event.target.value);
+    setCatagoryIsOpen(false);
     if (event.keyCode === 13) {
-      routeResult();
       setInputClick(false);
+      searchResult();
     }
   };
 
-  const routeResult = () =>
-    searchWord
-      ? Router.push({
-          pathname: `/search/result/${searchWord}`,
-        })
-      : alert("검색어를 입력해주세요.");
+  const searchResult = () => {
+    setSearchWord(inputRef.current.value);
+    if (inputRef.current.value) {
+      // search sample - book
+      setResultTitleList(
+        bookList.filter((b) => b.title.indexOf(inputRef.current.value) !== -1),
+      );
+      // search sample - author
+      setResultAuthorList(
+        bookList.filter((b) => b.author.indexOf(inputRef.current.value) !== -1),
+      );
+      // search sample - study
+      setResultStudyList(
+        studyList.filter((s) => s.title.indexOf(inputRef.current.value) !== -1),
+      );
+      Router.push({
+        pathname: `/search/result/${inputRef.current.value}`,
+      });
+      // history
+      const historySplice = [...history];
+      const historyIndex = historySplice.indexOf(`${inputRef.current.value}`);
+      historyIndex !== -1 && historySplice.splice(historyIndex, 1);
+      setHistory([`${inputRef.current.value}`, ...historySplice]);
+    } else alert("검색어를 입력해주세요.");
+  };
 
   const clearSearchWord = () => {
-    const node = inputRef.current;
-    node.value = "";
+    inputRef.current.value = "";
     setSearchWord("");
   };
 
@@ -149,7 +181,7 @@ export default function SearchBoxComponent(): JSX.Element {
         <SearchBoxInnerWrapper>
           <CategoryWrapper
             onClick={() => {
-              setIsOpen(!isOpen);
+              setCatagoryIsOpen(!catagoryIsOpen);
             }}
           >
             {CategoryTitles[category]}
@@ -157,10 +189,10 @@ export default function SearchBoxComponent(): JSX.Element {
               <img src="/assets/detail/dropDown.svg" />
             </OpenIconBox>
           </CategoryWrapper>
-          {isOpen && (
+          {catagoryIsOpen && (
             <ModalWrapper
               onClick={() => {
-                setIsOpen(!isOpen);
+                setCatagoryIsOpen(!catagoryIsOpen);
               }}
             >
               {CategoryTitles.map((v, index) => {
@@ -195,7 +227,7 @@ export default function SearchBoxComponent(): JSX.Element {
 
           {category !== 2 && (
             <>
-              <SearchIconBox onClick={() => routeResult()}>
+              <SearchIconBox onClick={() => searchResult()}>
                 <img src="/assets/search/search.svg" />
               </SearchIconBox>
               {searchWord && (

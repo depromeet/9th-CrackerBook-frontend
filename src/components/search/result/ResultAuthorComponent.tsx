@@ -1,18 +1,29 @@
 import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
+import { resultAuthorListState } from "src/components/states/search";
+import { useRecoilState } from "recoil";
+import NotFoundComponent from "src/components/common/NotFoundComponent";
 
 const ListWrapper = styled.ul`
   position: relative;
   margin: 20px 20px;
 `;
 const Title = styled.div`
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
   margin: 0 0 10px;
   font-weight: 500;
   font-size: 16px;
   line-height: 23px;
   width: 173px;
   color: #222222;
+  white-space: nowrap;
+  overflow: hidden;
+  white-space: normal;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 const LiLink = styled.li`
   position: relative;
@@ -63,13 +74,13 @@ const Content = styled.div`
   font-weight: 400;
   color: #677ac7;
 `;
-const Div = styled.div`
+const SubTitle = styled.div`
   margin: 0 0 4px 0;
   font-size: 14px;
   line-height: 20px;
   color: #777777;
 `;
-const SubDiv = styled.div`
+const SubContent = styled.div`
   margin: 0 0 4px 10px;
   font-size: 14px;
   line-height: 20px;
@@ -94,40 +105,41 @@ const LikeImg = styled.img`
   cursor: pointer;
 `;
 
-const Result = [
-  "사용자의 마음을 움직이는 UX 디자인의 힘",
-  "이것이 UX/UI디자인이다",
-];
+export default function ResultAuthorComponent(): JSX.Element {
+  const [resultAuthorList] = useRecoilState(resultAuthorListState);
 
-export default function ListComponent(): JSX.Element {
   return (
     <>
       <ListHeaderComponent title={"저자"} />
       <ListWrapper>
-        {Result.map((v, index) => {
-          return (
-            <LiLink key={index}>
-              <Profile>
-                <ImgShadow></ImgShadow>
-                <Img src="/assets/main/exBook.jpg" />
-              </Profile>
-              <ContentWrapper>
-                <Title>{v}</Title>
-                <Content>
-                  <Div>저자</Div>
-                  <SubDiv>김동후</SubDiv>
-                </Content>
-                <Content>
-                  <Div>출판</Div>
-                  <SubDiv>맹그로브숲</SubDiv>
-                  <SubDiv>2021.02.22</SubDiv>
-                </Content>
-              </ContentWrapper>
-              <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
-              <LikeImg src="/assets/search/bookLike.svg" />
-            </LiLink>
-          );
-        })}
+        {resultAuthorList.length ? (
+          resultAuthorList.map((b, index) => {
+            return (
+              <LiLink key={index}>
+                <Profile>
+                  <ImgShadow></ImgShadow>
+                  <Img src="/assets/main/exBook.jpg" />
+                </Profile>
+                <ContentWrapper>
+                  <Title>{b.title}</Title>
+                  <Content>
+                    <SubTitle>저자</SubTitle>
+                    <SubContent>{b.author}</SubContent>
+                  </Content>
+                  <Content>
+                    <SubTitle>출판</SubTitle>
+                    <SubContent>{b.publish}</SubContent>
+                    <SubContent>{b.date}</SubContent>
+                  </Content>
+                </ContentWrapper>
+                <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
+                <LikeImg src="/assets/search/bookLike.svg" />
+              </LiLink>
+            );
+          })
+        ) : (
+          <NotFoundComponent />
+        )}
       </ListWrapper>
       <ListFooterComponent />
     </>
