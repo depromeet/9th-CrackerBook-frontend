@@ -73,7 +73,7 @@ export default function Books(): JSX.Element {
       name: "",
       introduction: "",
       personnel: 1,
-      difficulty: "",
+      Difficult: "",
       place: "",
       placeDetail: "",
       periodStudyStart: dayjs(new Date()),

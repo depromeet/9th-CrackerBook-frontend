@@ -14,7 +14,7 @@ const studyFormState = atom({
     name: "",
     introduction: "",
     personnel: 1,
-    difficulty: "",
+    Difficult: "",
     place: "",
     placeDetail: "",
     periodStudyStart: dayjs(new Date()),

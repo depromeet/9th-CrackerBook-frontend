@@ -12,7 +12,7 @@ import "dayjs/locale/ko";
 const FormWrapper = styled.div`
   padding: 0 0 80px 0;
 `;
-const BoxWrapper = styled.div`
+const ContentWrapper = styled.div`
   padding: 40px 20px 0 20px;
 `;
 const Title = styled.div`
@@ -21,7 +21,7 @@ const Title = styled.div`
   line-height: 23px;
   color: #222222;
 `;
-const TimeBoxWrapper = styled.div`
+const TimeContentWrapper = styled.div`
   padding: 40px 0 0 0;
   height: 138px;
 `;
@@ -222,7 +222,7 @@ export default function FormComponent(): JSX.Element {
 
   return (
     <FormWrapper>
-      <TimeBoxWrapper>
+      <TimeContentWrapper>
         <TimeTitle>스터디 기간</TimeTitle>
         <Content>
           <TimeStartWrapper onClick={() => setIsOpenStudyStart(true)}>
@@ -274,8 +274,8 @@ export default function FormComponent(): JSX.Element {
             </ThemeProvider>
           </DateTimePickerWrapper>
         </Content>
-      </TimeBoxWrapper>
-      <BoxWrapper>
+      </TimeContentWrapper>
+      <ContentWrapper>
         <Title>스터디 반복</Title>
         <Content>
           <UlWrapper>
@@ -330,8 +330,8 @@ export default function FormComponent(): JSX.Element {
             })}
           </UlWrapper>
         </Content>
-      </BoxWrapper>
-      <TimeBoxWrapper>
+      </ContentWrapper>
+      <TimeContentWrapper>
         <TimeTitle>모집 기간</TimeTitle>
         <Content>
           <TimeStartWrapper onClick={() => setIsOpenRecruitmentStart(true)}>
@@ -389,7 +389,7 @@ export default function FormComponent(): JSX.Element {
             </ThemeProvider>
           </DateTimePickerWrapper>
         </Content>
-      </TimeBoxWrapper>
+      </TimeContentWrapper>
     </FormWrapper>
   );
 }
