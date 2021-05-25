@@ -1,3 +1,10 @@
+import { useRecoilState } from "recoil";
+import {
+  resultAuthorListState,
+  resultStudyListState,
+  resultTitleListState,
+} from "src/components/states/search";
+import FilterCategoryComponent from "src/components/search/result/FilterCategoryComponent";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -25,6 +32,13 @@ const Li = styled.li`
     border-bottom: 2px solid #ffd262;
   }
 `;
+const Title = styled.div`
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  line-height: 40px;
+  color: #777777;
+  margin: 20px;
+`;
 
 const TabTitles = ["책", "저자", "스터디"];
 
@@ -32,6 +46,15 @@ export default function FilterKindComponent(props: {
   tabSelected: number;
   setTabSelected: (index: number) => void;
 }): JSX.Element {
+  const [resultTitleList] = useRecoilState(resultTitleListState);
+  const [resultStudyList] = useRecoilState(resultStudyListState);
+  const [resultAuthorList] = useRecoilState(resultAuthorListState);
+  const countArray = [
+    resultTitleList.length,
+    resultAuthorList.length,
+    resultStudyList.length,
+  ];
+
   return (
     <Wrapper>
       <Ul>
@@ -43,12 +66,13 @@ export default function FilterKindComponent(props: {
               onClick={() => props.setTabSelected(index)}
             >
               {v}
-              <br />
-              (38)
+              <br />({countArray[index]})
             </Li>
           );
         })}
       </Ul>
+      {props.tabSelected === 2 && <FilterCategoryComponent />}
+      <Title>{countArray[props.tabSelected]}건의 검색결과</Title>
     </Wrapper>
   );
 }

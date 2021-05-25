@@ -11,7 +11,14 @@
   ],
   "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "singleQuote": false,
+      "semi": true,
+      "useTabs": false,
+      "tabWidth": 2,
+      "trailingComma": "all",
+      "printWidth": 80
+    }],
     "react/react-in-jsx-scope": 0
   },
   "settings": {

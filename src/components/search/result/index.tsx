@@ -1,7 +1,5 @@
 import { useState } from "react";
 import SearchBoxComponent from "src/components/search/common/SearchBoxComponent";
-import FilterCategoryComponent from "src/components/search/result/FilterCategoryComponent";
-import FilterResultComponent from "src/components/search/result/FilterResultComponent";
 import FilterKindComponent from "src/components/search/result/FilterKindComponent";
 import ResultBookComponent from "src/components/search/result/ResultTitleComponent";
 import ResultAuthorComponent from "src/components/search/result/ResultAuthorComponent";
@@ -30,8 +28,6 @@ export default function Detail(): JSX.Element {
             tabSelected={tabSelected}
             setTabSelected={setTabSelected}
           />
-          {tabSelected === 2 && <FilterCategoryComponent />}
-          <FilterResultComponent />
           {components[tabSelected]}
         </>
       )}

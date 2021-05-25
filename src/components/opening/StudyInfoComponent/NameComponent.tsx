@@ -43,7 +43,10 @@ export default function FormComponent(): JSX.Element {
         <Input
           defaultValue={studyForm.name}
           onKeyUp={() =>
-            setStudyForm({ ...studyForm, name: nameRef.current.value })
+            setStudyForm({
+              ...studyForm,
+              name: nameRef.current.value,
+            })
           }
           ref={nameRef}
           placeholder="예) 초보 에세이 글쓰기"

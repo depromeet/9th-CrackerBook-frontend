@@ -138,7 +138,10 @@ export default function PeriodStudyComponent(): JSX.Element {
               onOpen={() => setIsOpenStudyStart(true)}
               onClose={() => setIsOpenStudyStart(false)}
               onChange={(date) =>
-                setStudyForm({ ...studyForm, periodStudyStart: dayjs(date) })
+                setStudyForm({
+                  ...studyForm,
+                  periodStudyStart: dayjs(date),
+                })
               }
             ></DateTimePicker>
             <DateTimePicker
@@ -147,7 +150,10 @@ export default function PeriodStudyComponent(): JSX.Element {
               onOpen={() => setIsOpenStudyEnd(true)}
               onClose={() => setIsOpenStudyEnd(false)}
               onChange={(date) =>
-                setStudyForm({ ...studyForm, periodStudyEnd: dayjs(date) })
+                setStudyForm({
+                  ...studyForm,
+                  periodStudyEnd: dayjs(date),
+                })
               }
             ></DateTimePicker>
           </ThemeProvider>

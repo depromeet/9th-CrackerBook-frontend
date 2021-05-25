@@ -99,9 +99,8 @@ const SubContent = styled.div`
 `;
 
 export default function SearchResultComponent(): JSX.Element {
-  const [resultListIndex, setResultListIndex] = useRecoilState(
-    resultListIndexState,
-  );
+  const [resultListIndex, setResultListIndex] =
+    useRecoilState(resultListIndexState);
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const [resultList] = useRecoilState(resultListState);
   const bookSelect = (index, book) => {
