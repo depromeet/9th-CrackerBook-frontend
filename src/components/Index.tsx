@@ -1,13 +1,35 @@
 import Link from "next/link";
 import styled from "styled-components";
 import KakaoLogin from "react-kakao-login";
+import { setKakaoToken } from "../storage/storage";
+import axios from "axios";
 
-const successKaKaoLogin = (props: { response }) => {
-  debugger
+const successKaKaoLogin = async (response) => {
+  console.log(response);
+  try {
+    const kakaoLogin = await axios.post(
+      process.env.NEXT_PUBLIC_KAKAO_API_URL,
+      {},
+      {
+        headers: {
+          Authorization: "bearer " + response.response.access_token,
+          "Content-Type": "application/json;charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+        },
+        withCredentials: true
+      }
+    );
+    debugger
+    // setKakaoToken(res)
+  } catch (error) {
+    console.error(`fail kakao login : ${error}`);
+    debugger
+  }
+
 };
 
-const failKakaoLogin = (props: { error }) => {
-  debugger
+const failKakaoLogin = (error) => {
+  console.error(`fail to get kakao token : ${error}`);
 };
 
 export default function IndexComponent(): JSX.Element {
@@ -24,7 +46,7 @@ export default function IndexComponent(): JSX.Element {
           <KakaoLogin
             onSuccess={successKaKaoLogin}
             onFail={failKakaoLogin}
-            token={"8975849c679f23f51fe72cd0a1581921"}
+            token={process.env.NEXT_PUBLIC_KAKAO_KEY}
             needProfile={true}
           >
             <KakaoIcon src="/assets/main/kakao.svg" />
