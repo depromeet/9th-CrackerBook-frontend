@@ -2,12 +2,12 @@ import styled from "styled-components";
 import React from "react";
 
 const Wrapper = styled.div`
-    width: 100%;
+  width: 100%;
   text-align: center;
-`
+`;
 const WriteArea = styled.div`
   //width: 100%;
-  display: inline-flex ;
+  display: inline-flex;
 `;
 
 const InputBox = styled.input`
@@ -118,14 +118,14 @@ const NoticeContents = styled.div`
 export default function Notice(props): JSX.Element {
   return (
     <>
-        <Wrapper>
-          <WriteArea>
-            <InputBox></InputBox>
-            <ResisterBtn>
-              <div>등록</div>
-            </ResisterBtn>
-          </WriteArea>
-        </Wrapper>
+      <Wrapper>
+        <WriteArea>
+          <InputBox></InputBox>
+          <ResisterBtn>
+            <div>등록</div>
+          </ResisterBtn>
+        </WriteArea>
+      </Wrapper>
       <BoardArea>
         <NoticeCard>
           <ProfileArea>

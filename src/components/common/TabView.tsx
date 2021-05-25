@@ -16,7 +16,7 @@ const TabButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   color: #999999;
   &.on {
     border-bottom: 2px solid #ffd262;
@@ -49,7 +49,7 @@ export default function TabView(props: { tabInfo }): JSX.Element {
   };
 
   return (
-    <div style={{height: '100%'}}>
+    <div style={{ height: "100%" }}>
       <TabBar>
         {tabList.map((tab, index) => {
           return (

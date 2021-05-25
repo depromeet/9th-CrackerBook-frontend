@@ -49,14 +49,14 @@ const TabContentsArea = styled.div`
 `;
 
 export default function Detail(): JSX.Element {
-    const tabInfo = [
-        { tabName: "출석부", tabContents: <Attendance /> },
-        { tabName: "공지사항", tabContents: <Notice /> },
-    ];
-    return (
-        <>
-            <StudyInfoView/>
-            <TabView tabInfo={tabInfo}/>
-        </>
-    );
+  const tabInfo = [
+    { tabName: "출석부", tabContents: <Attendance /> },
+    { tabName: "공지사항", tabContents: <Notice /> },
+  ];
+  return (
+    <>
+      <StudyInfoView />
+      <TabView tabInfo={tabInfo} />
+    </>
+  );
 }

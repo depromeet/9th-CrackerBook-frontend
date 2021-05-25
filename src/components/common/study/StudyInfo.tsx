@@ -2,7 +2,6 @@ import styled from "styled-components";
 import BookWithShadow from "../book/BookWithShadow";
 import Link from "next/link";
 
-
 const Title = styled.div`
   margin: 0 0 10px;
   font-weight: 500;
@@ -24,7 +23,6 @@ const Content = styled.div`
   font-weight: 400;
   color: #677ac7;
 `;
-
 
 const Icon = styled.img`
   width: 18px;
@@ -88,34 +86,42 @@ const PercentFont = styled.p`
 const Result = ["사용자의 마음을 움직이는 UX 디자인의 힘"];
 
 export default function StudyInfo(props: any): JSX.Element {
-    return (
-        <div style={{height:"100%s"}}>
-            {
-                props.studyInfo?
-                    <ContentWrapper>
-                        <Content>
-                            <Icon src="/assets/main/bookIcon.svg" />
-                            <IconText>{props.studyInfo.type}</IconText>
-                            <Icon src="/assets/main/memberIcon.svg" />
-                            <IconText>멤버 3/6</IconText>
-                        </Content>
-                        <Link href={"/" + (props.studyInfo.routingUrl ? props.studyInfo.routingUrl : "")}>
-                            <Title>{props.studyInfo.title}</Title>
-                        </Link>
-                        <DateArea>2017.04.12 ~ 2017.04.12</DateArea>
-                        <>
-                            {props && props.studyInfo.progressPercent && (
-                                <ProgressArea>
-                                    <ProgressBar />
-                                    <Gage style={{ width: props.studyInfo.progressPercent }} />
-                                    <PercentFont>{props.studyInfo.progressPercent}%</PercentFont>
-                                </ProgressArea>
-                            )}
-                        </>
-                    </ContentWrapper>
-                    :<div/>
+  return (
+    <div style={{ height: "100%s" }}>
+      {props.studyInfo ? (
+        <ContentWrapper>
+          <Content>
+            <Icon src="/assets/main/bookIcon.svg" />
+            <IconText>{props.studyInfo.type}</IconText>
+            <Icon src="/assets/main/memberIcon.svg" />
+            <IconText>멤버 3/6</IconText>
+          </Content>
+          <Link
+            href={
+              "/" +
+              (props.studyInfo.routingUrl ? props.studyInfo.routingUrl : "")
             }
-
-        </div>
-    );
+          >
+            <Title>{props.studyInfo.title}</Title>
+          </Link>
+          <DateArea>2017.04.12 ~ 2017.04.12</DateArea>
+          <>
+            {props && props.studyInfo.progressPercent && (
+              <ProgressArea>
+                <ProgressBar />
+                <Gage
+                  style={{
+                    width: props.studyInfo.progressPercent,
+                  }}
+                />
+                <PercentFont>{props.studyInfo.progressPercent}%</PercentFont>
+              </ProgressArea>
+            )}
+          </>
+        </ContentWrapper>
+      ) : (
+        <div />
+      )}
+    </div>
+  );
 }

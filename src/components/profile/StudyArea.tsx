@@ -69,35 +69,38 @@ export default function StudyArea(): JSX.Element {
   const [tabState, setTabSTate] = React.useState(0);
 
   const studyInfo = {
-    title:'사용자의 마음을 움직이는 UX 디자인의 힘',
-    type: '토론',
-    routingUrl: 'detail/book/bookDetail',
-    progressPercent: 15
-  }
+    title: "사용자의 마음을 움직이는 UX 디자인의 힘",
+    type: "토론",
+    routingUrl: "detail/book/bookDetail",
+    progressPercent: 15,
+  };
 
-  const tabInfo = [
+  const myStudyTabInfo = [
     {
       tabName: "진행",
-      tabContents: (
-        <HorizontalStudy
-            studyInfo ={studyInfo}
-        />
-      ),
+      tabContents: <HorizontalStudy studyInfo={studyInfo} />,
     },
     {
       tabName: "완료",
-      tabContents: (
-        <HorizontalStudy
-            studyInfo ={studyInfo}
-        />
-      ),
+      tabContents: <HorizontalStudy studyInfo={studyInfo} />,
+    },
+  ];
+
+  const otherStudyTabInfo = [
+    {
+      tabName: "주최한 스터디",
+      tabContents: <HorizontalStudy studyInfo={studyInfo} />,
+    },
+    {
+      tabName: "후기",
+      tabContents: <HorizontalStudy studyInfo={studyInfo} />,
     },
   ];
 
   return (
     <div>
       <StudyTitle>{"나의 스터디"}</StudyTitle>
-      <TabView tabInfo={tabInfo} />
+      <TabView tabInfo={myStudyTabInfo} />
     </div>
   );
 }

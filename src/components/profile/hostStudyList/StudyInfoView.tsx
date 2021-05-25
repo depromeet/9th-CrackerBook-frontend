@@ -18,7 +18,7 @@ const TabButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   color: #999999;
   &.on {
     border-bottom: 2px solid #ffd262;
@@ -33,28 +33,23 @@ const Icon = styled.img`
 `;
 
 interface tabInfo {
-    name: string;
-    index: number;
+  name: string;
+  index: number;
 }
 
 const studyInfo = {
-    title:'사용자의 마음을 움직이는 UX 디자인의 힘',
-    type: '토론',
-    routingUrl: 'profile/hostStudyList/1',
-    progressPercent: 15
-}
+  title: "사용자의 마음을 움직이는 UX 디자인의 힘",
+  type: "토론",
+  routingUrl: "profile/hostStudyList/1",
+  progressPercent: 15,
+};
 
 export default function StudyInfoView(): JSX.Element {
-
-
-    return (
-        <div style={{display: 'flex', marginTop: '2em'}}>
-            <BookWithShadow width={100} height={138} />
-            <StudyInfo studyInfo={studyInfo}
-                       style={{display: 'flex'}}
-            />
-            <Icon src="/assets/profile/dotmenubtn.svg"
-                  style={{marginTop: '1em'}}/>
-        </div>
-    );
+  return (
+    <div style={{ display: "flex", marginTop: "2em" }}>
+      <BookWithShadow width={100} height={138} />
+      <StudyInfo studyInfo={studyInfo} style={{ display: "flex" }} />
+      <Icon src="/assets/profile/dotmenubtn.svg" style={{ marginTop: "1em" }} />
+    </div>
+  );
 }

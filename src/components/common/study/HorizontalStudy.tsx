@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import BookWithShadow from "../book/BookWithShadow";
 import Link from "next/link";
+import React from "react";
+import StudyInfo from "./StudyInfo";
 
 const ListWrapper = styled.ul`
   position: relative;
   //margin: 20px 20px;
   margin: 2vw;
+  width: 100%;
 `;
 const Title = styled.div`
   margin: 0 0 10px;
@@ -114,40 +117,18 @@ const PercentFont = styled.p`
 
 const Result = ["사용자의 마음을 움직이는 UX 디자인의 힘"];
 
+const studyInfo = {
+  title: "사용자의 마음을 움직이는 UX 디자인의 힘",
+  type: "토론",
+  routingUrl: "",
+};
+
 export default function HorizontalStudy(props: any): JSX.Element {
   return (
-    <>
-      <ListWrapper>
-        {Result.map((title, index) => {
-          return (
-            <LiArea key={index}>
-              <BookWithShadow width={51} height={74} />
-              <ContentWrapper>
-                <Content>
-                  <Icon src="/assets/main/bookIcon.svg" />
-                  <IconText>토론</IconText>
-                  <Icon src="/assets/main/memberIcon.svg" />
-                  <IconText>멤버 3/6</IconText>
-                </Content>
-                <Link href={"/" + (props.routingUrl ? props.routingUrl : "")}>
-                  <Title>{title}</Title>
-                </Link>
-                <DateArea>2017.04.12 ~ 2017.04.12</DateArea>
-                <>
-                  {props && props.progress && (
-                    <ProgressArea>
-                      <ProgressBar />
-                      <Gage style={{ width: props.percent }} />
-                      <PercentFont>{props.percent}%</PercentFont>
-                    </ProgressArea>
-                  )}
-                </>
-              </ContentWrapper>
-              <LikeImg src="/assets/profile/heart.svg" />
-            </LiArea>
-          );
-        })}
-      </ListWrapper>
-    </>
+    <LiArea>
+      <BookWithShadow width={51} height={74} />
+      <StudyInfo studyInfo={props.studyInfo} />
+      <LikeImg src="/assets/profile/heart.svg" />
+    </LiArea>
   );
 }

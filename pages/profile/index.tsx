@@ -3,18 +3,18 @@ import StudyArea from "../../src/components/profile/StudyArea";
 import styled from "styled-components";
 
 const HalfView = styled.div`
-  height: 50vh;
+  height: 50%;
 `;
 
-export default function Index(): JSX.Element {
+export default function Index(props): JSX.Element {
   return (
-    <div>
+    <>
       <HalfView>
         <ProfileArea />
       </HalfView>
       <HalfView>
         <StudyArea />
       </HalfView>
-    </div>
+    </>
   );
 }

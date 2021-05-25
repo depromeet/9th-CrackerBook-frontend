@@ -62,7 +62,7 @@ export default function Attendance(): JSX.Element {
             <BodyTd />
           </tr>
           <tr>
-            <BodyTd>빈센조</BodyTd>
+            <BodyTd style={{ borderRadius: "0px 0px 0px 10px" }}>빈센조</BodyTd>
             <BodyTd>
               <img src={"/assets/profile/attendance.svg"} />
             </BodyTd>
