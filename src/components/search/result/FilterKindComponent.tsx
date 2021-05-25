@@ -29,8 +29,16 @@ const Li = styled.li`
   &.on {
     font-weight: 500;
     color: #222222;
-    border-bottom: 2px solid #ffd262;
   }
+`;
+const Bar = styled.div<{ index: number }>`
+  position: absolute;
+  top: 77px;
+  height: 1px;
+  width: ${100 / 3}%;
+  left: ${(props) => `${(100 / 3) * props.index}%`};
+  transition: all 0.3s;
+  border-bottom: 2px solid #ffd262;
 `;
 const Title = styled.div`
   font-family: "Nunito", sans-serif;
@@ -71,6 +79,7 @@ export default function FilterKindComponent(props: {
           );
         })}
       </Ul>
+      <Bar index={props.tabSelected} />
       {props.tabSelected === 2 && <FilterCategoryComponent />}
       <Title>{countArray[props.tabSelected]}건의 검색결과</Title>
     </Wrapper>
