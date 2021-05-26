@@ -8,7 +8,7 @@ const successKaKaoLogin = async (response) => {
   console.log(response);
   try {
     const kakaoLogin = await axios.post(
-      process.env.NEXT_PUBLIC_KAKAO_API_URL,
+      process.env.NEXT_PUBLIC_KAKAO_API_URL + "/api/v1/users/sign-in/kakao",
       {},
       {
         headers: {
@@ -43,7 +43,7 @@ export default function IndexComponent(): JSX.Element {
         <div>
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/*@ts-ignore*/}
-          <KakaoLogin
+          <KakaoLoginBtn
             onSuccess={successKaKaoLogin}
             onFail={failKakaoLogin}
             token={process.env.NEXT_PUBLIC_KAKAO_KEY}
@@ -51,7 +51,7 @@ export default function IndexComponent(): JSX.Element {
           >
             <KakaoIcon src="/assets/main/kakao.svg" />
             카카오로 로그인
-          </KakaoLogin>
+          </KakaoLoginBtn>
         </div>
         <Link href="/main">
           <GoMainBtn>서비스 둘러보기 &gt;</GoMainBtn>
@@ -102,19 +102,18 @@ const NextDiv = styled.div`
   font-family: "Noto Sans KR", sans-serif;
 `;
 
-const KakaoLoginBtn = styled.button`
-  background-color: #FEE500;
-  font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
-  height: 48px;
-  width: 335px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const KakaoLoginBtn = styled(KakaoLogin)`
+  background-color: #FEE500 !important;
+  font-size: 14px !important;
+  height: 48px !important;
+  width: 335px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  cursor: pointer !important;
+  outline: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
   &:active {
     background-color: #ffd262;
