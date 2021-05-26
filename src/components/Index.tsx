@@ -19,11 +19,9 @@ const successKaKaoLogin = async (response) => {
         withCredentials: true
       }
     );
-    debugger
     // setKakaoToken(res)
   } catch (error) {
     console.error(`fail kakao login : ${error}`);
-    debugger
   }
 
 };
