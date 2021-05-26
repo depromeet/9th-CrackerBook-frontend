@@ -3,31 +3,6 @@ import styled from "styled-components";
 import KakaoLogin from "react-kakao-login";
 import axios from "axios";
 
-const successKaKaoLogin = async (response) => {
-  console.log(response);
-  try {
-    const kakaoLogin = await axios.post(
-      process.env.NEXT_PUBLIC_KAKAO_API_URL + "/api/v1/users/sign-in/kakao",
-      {},
-      {
-        headers: {
-          Authorization: "bearer " + response.response.access_token,
-          "Content-Type": "application/json;charset=utf-8",
-          "Access-Control-Allow-Origin": "*",
-        },
-        withCredentials: true,
-      },
-    );
-    // setKakaoToken(res)
-  } catch (error) {
-    console.error(`fail kakao login : ${error}`);
-  }
-};
-
-const failKakaoLogin = (error) => {
-  console.error(`fail to get kakao token : ${error}`);
-};
-
 export default function IndexComponent(): JSX.Element {
   return (
     <MainContainer>
@@ -37,14 +12,7 @@ export default function IndexComponent(): JSX.Element {
       </ImgWrapper>
       <NextDiv>
         <div>
-          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-          {/*@ts-ignore*/}
-          <KakaoLoginBtn
-            onSuccess={successKaKaoLogin}
-            onFail={failKakaoLogin}
-            token={process.env.NEXT_PUBLIC_KAKAO_KEY}
-            needProfile={true}
-          >
+          <KakaoLoginBtn>
             <KakaoIcon src="/assets/main/kakao.svg" />
             카카오로 로그인
           </KakaoLoginBtn>
@@ -98,7 +66,7 @@ const NextDiv = styled.div`
   font-family: "Noto Sans KR", sans-serif;
 `;
 
-const KakaoLoginBtn = styled(KakaoLogin)`
+const KakaoLoginBtn = styled.button`
   background-color: #fee500 !important;
   font-size: 14px !important;
   height: 48px !important;
