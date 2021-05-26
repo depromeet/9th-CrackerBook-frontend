@@ -6,20 +6,18 @@ import { ConfirmBoxState } from "../../../state/detail/detailState";
 
 export function ConfirmStudy(): JSX.Element {
   const setConfirmBoxSate = useSetRecoilState<boolean>(ConfirmBoxState);
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = "hidden";
   const param = {
     mainComment: "로그인한 회원만 이용할 수 있어요.",
     subComment: "스터디에 참여하시려면 로그인 해주세요",
     buttonComponent: (
       <ButtonComponent>
-        <CancelButton>
-          취소
-        </CancelButton>
+        <CancelButton>취소</CancelButton>
         <ConfirmButton onClick={() => setConfirmBoxSate(false)}>
           확인
         </ConfirmButton>
       </ButtonComponent>
-    )
+    ),
   };
 
   // 임시
@@ -28,15 +26,17 @@ export function ConfirmStudy(): JSX.Element {
     subComment: "이 책으로 주최된 다른 스터디도 찾아보세요",
     buttonComponent: (
       <ButtonComponent>
-        <ConfirmButton onClick={() => {
-          // @ts-ignore
-          document.body.style.overflow = 'auto';
-          setConfirmBoxSate(false);
-        }}>
+        <ConfirmButton
+          onClick={() => {
+            // @ts-ignore
+            document.body.style.overflow = "auto";
+            setConfirmBoxSate(false);
+          }}
+        >
           확인
         </ConfirmButton>
       </ButtonComponent>
-    )
+    ),
   };
 
   return (
@@ -50,7 +50,7 @@ export function ConfirmStudy(): JSX.Element {
 
 const ButtonComponent = styled.div`
   width: 311px;
-  background-color: #FFD262;
+  background-color: #ffd262;
   border-radius: 0 0 15px 15px;
   display: flex;
   justify-content: space-around;
@@ -59,7 +59,7 @@ const ButtonComponent = styled.div`
 
 const CancelButton = styled.button`
   border-radius: 0 0 15px 15px;
-  background-color: #FFD262;
+  background-color: #ffd262;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -67,7 +67,7 @@ const CancelButton = styled.button`
 
 const ConfirmButton = styled.button`
   border-radius: 0 0 15px 15px;
-  background-color: #FFD262;
+  background-color: #ffd262;
   border: none;
   cursor: pointer;
   width: 100%;

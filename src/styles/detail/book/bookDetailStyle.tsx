@@ -20,10 +20,4 @@ const TitleInfoWrapper = styled(TitleInfoStyle)`
   height: 190px;
 `;
 
-
-
-export {
-  MainBookCover,
-  BookImg,
-  TitleInfoWrapper,
-};
+export { MainBookCover, BookImg, TitleInfoWrapper };

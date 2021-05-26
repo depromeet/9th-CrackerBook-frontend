@@ -1,40 +1,60 @@
-import {StudyTypeDiv, StudyTypeTitle, StudyTypeWrapper} from "../../../styles/main/BooksStyle";
+import {
+  StudyTypeDiv,
+  StudyTypeTitle,
+  StudyTypeWrapper,
+} from "../../../styles/main/BooksStyle";
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import {useSetRecoilState} from "recoil";
-import {CategoryTypeState, HeaderTextState} from "../../../state/main/mainState";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useSetRecoilState } from "recoil";
+import {
+  CategoryTypeState,
+  HeaderTextState,
+} from "../../../state/main/mainState";
 
 export default function BooksHeaderComponent(): JSX.Element {
-    const setCategoryState = useSetRecoilState<string>(CategoryTypeState);
-    const setHeaderState = useSetRecoilState<string>(HeaderTextState);
-    const srcList = ['/assets/main/chats.svg', '/assets/main/microphone.svg', '/assets/main/note.svg', '/assets/main/desktop.svg', '/assets/main/etc.svg'];
-    const title = ['토론', '발표', '글쓰기', '포트폴리오', '기타'];
-    const type = ['debate', 'announcement', 'writing', 'portfolio', 'etc', 'main', 'detail'];
+  const setCategoryState = useSetRecoilState<string>(CategoryTypeState);
+  const setHeaderState = useSetRecoilState<string>(HeaderTextState);
+  const srcList = [
+    "/assets/main/chats.svg",
+    "/assets/main/microphone.svg",
+    "/assets/main/note.svg",
+    "/assets/main/desktop.svg",
+    "/assets/main/etc.svg",
+  ];
+  const title = ["토론", "발표", "글쓰기", "포트폴리오", "기타"];
+  const type = [
+    "debate",
+    "announcement",
+    "writing",
+    "portfolio",
+    "etc",
+    "main",
+    "detail",
+  ];
 
-    return (
-        <StudyTypeWrapper>
-            <Swiper
-                spaceBetween= {1}
-                slidesPerView= {4.5}
-                initialSlide = {0}
-            >
-            {
-                srcList.map((imgSrc, index) => {
-                    return (
-                        <SwiperSlide>
-                            <StudyTypeDiv onClick={() => {setCategoryState(type[index]); setHeaderState('카테고리별 스터디')}}>
-                                <ImgWrapper>
-                                    <StudyTypeImg key={index} src={imgSrc} />
-                                </ImgWrapper>
-                                <StudyTypeTitle>{title[index]}</StudyTypeTitle>
-                            </StudyTypeDiv>
-                        </SwiperSlide>
-                        );
-                })
-            }
-            </Swiper>
-        </StudyTypeWrapper>
-    )
+  return (
+    <StudyTypeWrapper>
+      <Swiper spaceBetween={1} slidesPerView={4.5} initialSlide={0}>
+        {srcList.map((imgSrc, index) => {
+          return (
+            <SwiperSlide>
+              <StudyTypeDiv
+                onClick={() => {
+                  setCategoryState(type[index]);
+                  setHeaderState("카테고리별 스터디");
+                }}
+              >
+                <ImgWrapper>
+                  <StudyTypeImg key={index} src={imgSrc} />
+                </ImgWrapper>
+                <StudyTypeTitle>{title[index]}</StudyTypeTitle>
+              </StudyTypeDiv>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </StudyTypeWrapper>
+  );
 }
 
 const ImgWrapper = styled.div`
@@ -51,4 +71,3 @@ const StudyTypeImg = styled.img`
   height: 32px;
   text-align: center;
 `;
-

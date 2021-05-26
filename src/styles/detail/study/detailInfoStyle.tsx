@@ -24,8 +24,4 @@ const Title = styled.div`
   padding-bottom: 32px;
 `;
 
-export {
-    Title,
-    NoticeContent,
-    StudyIntroTitle
-}
+export { Title, NoticeContent, StudyIntroTitle };

@@ -16,7 +16,7 @@ type BookData = {
   memberCnt: number;
   startData: string;
   endData: string;
-}
+};
 
 export default function MainIndexComponent(props: {
   bookData: Array<BookData>;
@@ -28,14 +28,10 @@ export default function MainIndexComponent(props: {
       {!data ? (
         <div>로딩중</div>
       ) : (
-
         <>
           <BooksHeaderComponent />
-          {
-            viewComponent(categoryState, data)
-          }
+          {viewComponent(categoryState, data)}
         </>
-
       )}
     </>
   );
@@ -47,7 +43,7 @@ const viewComponent = (
 ): JSX.Element => {
   let view: JSX.Element;
   switch (categoryState) {
-    case "main" :
+    case "main":
       view = (
         <>
           <OriginStudyComponent bookData={data} />
@@ -57,14 +53,14 @@ const viewComponent = (
         </>
       );
       break;
-    case "detail" :
+    case "detail":
       view = (
         <>
           <DetailIndexComponent />
         </>
       );
       break;
-    default :
+    default:
       view = (
         <>
           <CategoryComponent type={categoryState} />
@@ -73,7 +69,3 @@ const viewComponent = (
   }
   return view;
 };
-
-
-
-

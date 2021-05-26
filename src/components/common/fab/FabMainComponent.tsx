@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export default function FabMainComponent(): JSX.Element {
-
   return (
-    <FabDiv onClick={($event) => {
-      window.scrollTo({top:0, left:0, behavior:'smooth'});
-    }}>
+    <FabDiv
+      onClick={($event) => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }}
+    >
       <UpIcon src="/assets/main/UpIcon.svg" />
     </FabDiv>
   );

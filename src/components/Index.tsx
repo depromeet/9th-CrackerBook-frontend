@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
 import KakaoLogin from "react-kakao-login";
-import { setKakaoToken } from "../storage/storage";
 import axios from "axios";
 
 const successKaKaoLogin = async (response) => {
@@ -16,14 +15,13 @@ const successKaKaoLogin = async (response) => {
           "Content-Type": "application/json;charset=utf-8",
           "Access-Control-Allow-Origin": "*",
         },
-        withCredentials: true
-      }
+        withCredentials: true,
+      },
     );
     // setKakaoToken(res)
   } catch (error) {
     console.error(`fail kakao login : ${error}`);
   }
-
 };
 
 const failKakaoLogin = (error) => {
@@ -101,7 +99,7 @@ const NextDiv = styled.div`
 `;
 
 const KakaoLoginBtn = styled(KakaoLogin)`
-  background-color: #FEE500 !important;
+  background-color: #fee500 !important;
   font-size: 14px !important;
   height: 48px !important;
   width: 335px !important;

@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { DropDown, LikeStudyTitleWrapper, TitleDiv, TotalView } from "../../../styles/main/BooksStyle";
+import {
+  DropDown,
+  LikeStudyTitleWrapper,
+  TitleDiv,
+  TotalView,
+} from "../../../styles/main/BooksStyle";
 import { SelectModal } from "../../detail/common/SelectModal";
 
 export default function BookStatusModalComponent(): JSX.Element {

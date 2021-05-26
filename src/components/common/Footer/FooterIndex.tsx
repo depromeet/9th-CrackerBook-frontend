@@ -1,19 +1,16 @@
-import styled, {keyframes} from "styled-components";
-import {useState} from "react";
-import {Link} from "@material-ui/core";
+import styled from "styled-components";
 import HomeComponent from "./HomeComponent";
 import MyPageComponent from "./MyPageComponent";
 import CreateStudyComponent from "./CreateStudyComponent";
 
-
 export default function FooterComponent(): JSX.Element {
-    return (
-        <FooterWrapper>
-            <HomeComponent/>
-            <CreateStudyComponent/>
-            <MyPageComponent/>
-        </FooterWrapper>
-    );
+  return (
+    <FooterWrapper>
+      <HomeComponent />
+      <CreateStudyComponent />
+      <MyPageComponent />
+    </FooterWrapper>
+  );
 }
 
 const FooterWrapper = styled.div`
@@ -48,6 +45,4 @@ const Text = styled.div`
   font-size: 12px;
 `;
 
-export {Text, ButttomImg, ButtomWrapper}
-
-
+export { Text, ButttomImg, ButtomWrapper };

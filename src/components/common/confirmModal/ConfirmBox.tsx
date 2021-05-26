@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 type ConfirmBoxType = {
-  mainComment: string,
-  subComment: string,
-  buttonComponent: JSX.Element
-}
+  mainComment: string;
+  subComment: string;
+  buttonComponent: JSX.Element;
+};
 
 export function ConfirmBox(props: { param: ConfirmBoxType }): JSX.Element {
   const confirmParam = props.param;
@@ -12,12 +12,8 @@ export function ConfirmBox(props: { param: ConfirmBoxType }): JSX.Element {
     <>
       <Wrapper>
         <CommentWrapper>
-          <Comment1>
-            {confirmParam.mainComment}
-          </Comment1>
-          <Comment2>
-            {confirmParam.subComment}
-          </Comment2>
+          <Comment1>{confirmParam.mainComment}</Comment1>
+          <Comment2>{confirmParam.subComment}</Comment2>
         </CommentWrapper>
         {confirmParam.buttonComponent}
       </Wrapper>
@@ -54,5 +50,3 @@ const Comment2 = styled.div`
   line-height: 21px;
   padding: 0 70px 32px 70px;
 `;
-
-

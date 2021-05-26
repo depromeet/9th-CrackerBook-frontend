@@ -1,39 +1,31 @@
 import styled from "styled-components";
-import {Profile} from "../../../../../styles/detail/common/commonStyle";
+import { Profile } from "../../../../../styles/detail/common/commonStyle";
 
 type QuestionType = {
-    img: string;
-    name: string;
-    date: string;
-    publish: string;
-    question: string;
-}
+  img: string;
+  name: string;
+  date: string;
+  publish: string;
+  question: string;
+};
 
-export function Question(props: {question: QuestionType}): JSX.Element {
-    const questionData = props.question;
-    return (
-        <>
-            <QuestionWrapper>
-                <Profile src={questionData.img}/>
-                <CotentWrapper>
-                    <Name>
-                        {questionData.name}
-                    </Name>
-                    <DateWrapper>
-                        <Date>
-                            {questionData.date}
-                        </Date>
-                        <Publish>
-                            {questionData.date}
-                        </Publish>
-                    </DateWrapper>
-                    <QuestionDiv>
-                        {questionData.question}
-                    </QuestionDiv>
-                </CotentWrapper>
-            </QuestionWrapper>
-        </>
-    )
+export function Question(props: { question: QuestionType }): JSX.Element {
+  const questionData = props.question;
+  return (
+    <>
+      <QuestionWrapper>
+        <Profile src={questionData.img} />
+        <CotentWrapper>
+          <Name>{questionData.name}</Name>
+          <DateWrapper>
+            <Date>{questionData.date}</Date>
+            <Publish>{questionData.date}</Publish>
+          </DateWrapper>
+          <QuestionDiv>{questionData.question}</QuestionDiv>
+        </CotentWrapper>
+      </QuestionWrapper>
+    </>
+  );
 }
 
 const Name = styled.div`
@@ -65,7 +57,4 @@ const Publish = styled.div`
   padding-bottom: 15px;
 `;
 
-const QuestionDiv = styled.div`
-  
-`;
-
+const QuestionDiv = styled.div``;

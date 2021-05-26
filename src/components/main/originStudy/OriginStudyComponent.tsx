@@ -1,6 +1,4 @@
-import {
-  MainContainer
-} from "../../../styles/main/BooksStyle";
+import { MainContainer } from "../../../styles/main/BooksStyle";
 import BookInfoComponent from "./BookInfoComponent";
 import TitleComponent from "./TitleComponent";
 import BookImgComponent from "./BookImgComponent";
@@ -13,9 +11,11 @@ type BookData = {
   memberCnt: number;
   startData: string;
   endData: string;
-}
+};
 
-export default function OriginStudyComponent(props: { bookData: Array<BookData> }): JSX.Element {
+export default function OriginStudyComponent(props: {
+  bookData: Array<BookData>;
+}): JSX.Element {
   const data = props.bookData;
   return (
     <>
@@ -31,5 +31,3 @@ export default function OriginStudyComponent(props: { bookData: Array<BookData> 
     </>
   );
 }
-
-

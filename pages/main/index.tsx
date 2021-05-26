@@ -12,7 +12,7 @@ type BookData = {
   memberCnt: number;
   startData: string;
   endData: string;
-}
+};
 
 export default function Index(): JSX.Element {
   const [bookData, setBookData] = useState<Array<BookData>>();
@@ -50,9 +50,9 @@ export default function Index(): JSX.Element {
 
   return (
     <>
-      <HeaderComponent/>
+      <HeaderComponent />
       <MainIndexComponent bookData={bookData} />
-      <FooterComponent/>
+      <FooterComponent />
     </>
   );
 }

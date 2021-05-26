@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Box, TitleInfoStyle} from "../common/commonStyle";
+import { Box, TitleInfoStyle } from "../common/commonStyle";
 
 const TitleStudyInfoWrapper = styled(TitleInfoStyle)`
   top: -150px;
@@ -20,9 +20,9 @@ const HostContent1 = styled.div`
 `;
 
 const HostContent2 = styled.div`
-  color: #677AC7;
+  color: #677ac7;
   font-size: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: "Jua", sans-serif;
 `;
 
 const HostContent3 = styled.img`
@@ -59,14 +59,14 @@ const NoticeBox = styled(Box)`
 `;
 
 export {
-    NoticeBox,
-    InfoWrapper,
-    StudyInfoWrapper,
-    StudyContentCover,
-    HostContent1,
-    HostContent2,
-    HostContent3,
-    Profile,
-    TitleStudyInfoWrapper,
-    ReviewWrapper
-}
+  NoticeBox,
+  InfoWrapper,
+  StudyInfoWrapper,
+  StudyContentCover,
+  HostContent1,
+  HostContent2,
+  HostContent3,
+  Profile,
+  TitleStudyInfoWrapper,
+  ReviewWrapper,
+};

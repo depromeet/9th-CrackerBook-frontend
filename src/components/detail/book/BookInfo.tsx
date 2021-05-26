@@ -1,14 +1,15 @@
 import {
   BookImg,
   MainBookCover,
-  TitleInfoWrapper
+  TitleInfoWrapper,
 } from "../../../styles/detail/book/bookDetailStyle";
 import {
   BackButton,
   BookDetail,
   BookDetailWrapper,
   SearchButton,
-  Title, TitleInner
+  Title,
+  TitleInner,
 } from "../../../styles/detail/common/commonStyle";
 import Link from "next/link";
 

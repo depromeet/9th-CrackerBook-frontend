@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { BackButton, MainBookStyle, SearchButton } from "../../../../styles/detail/common/commonStyle";
+import {
+  BackButton,
+  MainBookStyle,
+  SearchButton,
+} from "../../../../styles/detail/common/commonStyle";
 import Link from "next/link";
 
 export function Cover(): JSX.Element {

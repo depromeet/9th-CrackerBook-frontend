@@ -11,7 +11,6 @@ const TitleInner = styled.div`
   padding: 50px 87px 0 20px;
 `;
 
-
 const BookDetailWrapper = styled.div`
   display: flex;
   justify-content: space-around;
@@ -38,15 +37,15 @@ const TabWrapper = styled.div`
 //   props.active ? "1px solid #FFD262" : "1px solid #DDDDDD"};
 
 const TabButton = styled.div`
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #dddddd;
   width: 33%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  
+
   &.active {
-    border-bottom: 1px solid #FFD262; 
+    border-bottom: 1px solid #ffd262;
   }
 `;
 
@@ -105,7 +104,7 @@ const DivLine = styled.div`
   background-color: #f1f1f3;
 `;
 
-const  Box = styled.div`
+const Box = styled.div`
   border-radius: 10px 10px 10px 10px;
   box-shadow: 1px 3px 9px 7px #f4f4f4;
 `;
@@ -168,5 +167,5 @@ export {
   BookDetailWrapper,
   BookDetail,
   Title,
-  TitleInner
+  TitleInner,
 };

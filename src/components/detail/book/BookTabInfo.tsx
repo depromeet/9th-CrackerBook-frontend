@@ -1,4 +1,7 @@
-import { StudyBackground, ThisBookWrapper } from "../../../styles/main/BooksStyle";
+import {
+  StudyBackground,
+  ThisBookWrapper,
+} from "../../../styles/main/BooksStyle";
 import IndexComponent from "./StudyReview/IndexComponent";
 import BookStatusModalComponent from "../../common/bookStatusModal/BookStatusModalComponent";
 import MoreButtonComponent from "../../common/moreButton/MoreButtonComponent";

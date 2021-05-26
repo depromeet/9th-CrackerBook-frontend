@@ -55,7 +55,7 @@ const TotalView = styled.div`
 `;
 
 const BookBox = styled.div`
-  background-color: #F9D1B4;
+  background-color: #f9d1b4;
   border-radius: 10px;
   width: 335px;
   height: 226px;
@@ -171,12 +171,12 @@ const StudyIcon = styled.img`
 const StudyDiv = styled.div`
   margin-right: 15px;
   padding-top: 2px;
-  color: #677AC7;
+  color: #677ac7;
 `;
 
 const LikeDiv = styled.div`
   margin-right: 3px;
-  color: #677AC7;
+  color: #677ac7;
 `;
 
 const StudyTitle = styled.div<InfoType>`

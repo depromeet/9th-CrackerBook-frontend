@@ -1,36 +1,31 @@
 import {
-    HostContent1, HostContent2,
-    HostContent3,
-    Profile, StudyContentCover
+  HostContent1,
+  HostContent2,
+  HostContent3,
+  Profile,
+  StudyContentCover,
 } from "../../../../styles/detail/study/studyCommonStyle";
 import styled from "styled-components";
-import {Box} from "../../../../styles/detail/common/commonStyle";
+import { Box } from "../../../../styles/detail/common/commonStyle";
 
 export function HostBoxContainer(): JSX.Element {
-
-    return (
-        <HostBox>
-            <Profile src='/assets/main/surprised.svg'/>
-            <div>
-                <HostContentCover>
-                    <HostContent1>빈센조</HostContent1>
-                    <HostContent3 src='/assets/detail/trophy.svg' />
-                    <HostContent2>슈퍼크래커</HostContent2>
-                </HostContentCover>
-                <StudyContentCover>
-                    <div>
-                        스터디 7
-                    </div>
-                    <Bar>
-                        |
-                    </Bar>
-                    <div>
-                        후기 286
-                    </div>
-                </StudyContentCover>
-            </div>
-        </HostBox>
-    )
+  return (
+    <HostBox>
+      <Profile src="/assets/main/surprised.svg" />
+      <div>
+        <HostContentCover>
+          <HostContent1>빈센조</HostContent1>
+          <HostContent3 src="/assets/detail/trophy.svg" />
+          <HostContent2>슈퍼크래커</HostContent2>
+        </HostContentCover>
+        <StudyContentCover>
+          <div>스터디 7</div>
+          <Bar>|</Bar>
+          <div>후기 286</div>
+        </StudyContentCover>
+      </div>
+    </HostBox>
+  );
 }
 
 const HostBox = styled(Box)`
@@ -48,7 +43,7 @@ const HostContentCover = styled.div`
 `;
 
 const Bar = styled.div`
-  color: #F1F1F3;
+  color: #f1f1f3;
   padding-left: 10px;
   padding-right: 10px;
 `;

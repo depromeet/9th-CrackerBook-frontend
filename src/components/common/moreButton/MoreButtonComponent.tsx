@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export default function MoreButtonComponent(props: { backgroundColor: string },
-): JSX.Element {
+export default function MoreButtonComponent(props: {
+  backgroundColor: string;
+}): JSX.Element {
   return (
     <MoreBtn background={props.backgroundColor}>
       더 보기 <DownImg src="/assets/main/caretDown.svg" />

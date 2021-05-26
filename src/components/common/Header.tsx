@@ -4,42 +4,45 @@ import { BackButton } from "../../styles/detail/common/commonStyle";
 import { useRecoilState } from "recoil";
 import { CategoryTypeState, HeaderTextState } from "../../state/main/mainState";
 
-const headerElement = (categoryState: string, headerState: string): JSX.Element => {
+const headerElement = (
+  categoryState: string,
+  headerState: string,
+): JSX.Element => {
   switch (categoryState) {
-    case "main" :
-      return (
-        <CrackerHeader src="/assets/main/HeaderTitle.svg" />
-      );
-    case "detail" :
+    case "main":
+      return <CrackerHeader src="/assets/main/HeaderTitle.svg" />;
+    case "detail":
       return (
         <TitleHeader categoryType={categoryState}>
-          ' {headerState} '의 스터디
+          &apos; {headerState} &lsquo;의 스터디
         </TitleHeader>
       );
     default:
       return (
-        <TitleHeader categoryType={categoryState}>
-          {headerState}
-        </TitleHeader>
+        <TitleHeader categoryType={categoryState}>{headerState}</TitleHeader>
       );
   }
 };
 
 export default function HeaderComponent(): JSX.Element {
-  const [categoryState, setCategoryState] = useRecoilState<string>(
-    CategoryTypeState,
-  );
+  const [categoryState, setCategoryState] =
+    useRecoilState<string>(CategoryTypeState);
   const [headerState, setHeaderState] = useRecoilState<string>(HeaderTextState);
   const header = headerElement(categoryState, headerState);
 
   return (
     <HeaderWrapper>
-      {
-        headerState !== "CrackerBook" ? <BackButton src="/assets/detail/back.svg" onClick={() => {
-          setCategoryState("main");
-          setHeaderState("CrackerBook");
-        }} /> : ""
-      }
+      {headerState !== "CrackerBook" ? (
+        <BackButton
+          src="/assets/detail/back.svg"
+          onClick={() => {
+            setCategoryState("main");
+            setHeaderState("CrackerBook");
+          }}
+        />
+      ) : (
+        ""
+      )}
       {header}
       <Link href="/search">
         <GlassWrapper>
@@ -67,7 +70,8 @@ const CrackerHeader = styled.img`
 `;
 
 const TitleHeader = styled.div<{ categoryType: string }>`
-  margin-left: ${(props) => props.categoryType === "detail" ? "55px" : "100px"};
+  margin-left: ${(props) =>
+    props.categoryType === "detail" ? "55px" : "100px"};
   padding-top: 1px;
   width: ${(props) => (props.categoryType === "detail" ? "334px" : "154px")};
   height: 16px;

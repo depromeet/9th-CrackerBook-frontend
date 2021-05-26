@@ -1,40 +1,47 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
-import { CompleteBoxState, EnrollConfirmBoxState } from "../../../state/detail/detailState";
+import {
+  CompleteBoxState,
+  EnrollConfirmBoxState,
+} from "../../../state/detail/detailState";
 
 export function EnrollStudy(): JSX.Element {
-  const [enrollSate, setEnrollState] = useRecoilState<boolean>(EnrollConfirmBoxState);
-  const [completeBoxState, setCompleteBoxState] = useRecoilState<boolean>(CompleteBoxState);
+  const [enrollSate, setEnrollState] = useRecoilState<boolean>(
+    EnrollConfirmBoxState,
+  );
+  const [completeBoxState, setCompleteBoxState] =
+    useRecoilState<boolean>(CompleteBoxState);
   // @ts-ignore
   document.body.style.overflow = "hidden";
   return (
     <ConfirmWrapper>
-
       <ConfirmBox>
-        <Close src="/assets/detail/close.svg" onClick={() => {
-          // @ts-ignore
-          document.body.style.overflow = "auto";
-          setEnrollState(!enrollSate);
-        }} />
+        <Close
+          src="/assets/detail/close.svg"
+          onClick={() => {
+            // @ts-ignore
+            document.body.style.overflow = "auto";
+            setEnrollState(!enrollSate);
+          }}
+        />
         <InnerBox>
           <ContentBox>
-            <StudyName>
-              '일센스'가 있는 살미이 되기 위해서는?
-            </StudyName>
-            <Date>
-              2021.04.26 ~ 05.21 토 14:00
-            </Date>
+            <StudyName>'일센스'가 있는 살미이 되기 위해서는?</StudyName>
+            <Date>2021.04.26 ~ 05.21 토 14:00</Date>
           </ContentBox>
         </InnerBox>
       </ConfirmBox>
-      <ApplyButtom onClick={() => {
-        setEnrollState(!enrollSate);
-        setCompleteBoxState(!completeBoxState);
-      }}>스터디 신청하기</ApplyButtom>
+      <ApplyButtom
+        onClick={() => {
+          setEnrollState(!enrollSate);
+          setCompleteBoxState(!completeBoxState);
+        }}
+      >
+        스터디 신청하기
+      </ApplyButtom>
     </ConfirmWrapper>
   );
 }
-
 
 const ConfirmWrapper = styled.div`
   position: fixed;
@@ -43,7 +50,7 @@ const ConfirmWrapper = styled.div`
 `;
 
 const ApplyButtom = styled.div`
-  background-color: #FFD262;
+  background-color: #ffd262;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +66,7 @@ const ConfirmBox = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-right: 3px;
-  padding-left: 3px
+  padding-left: 3px;
 `;
 
 const Close = styled.img`
@@ -74,7 +81,7 @@ const Close = styled.img`
 const InnerBox = styled.div`
   border-radius: 15px;
   margin: 0 20px 32px 20px;
-  border: 1px solid #FFD262;
+  border: 1px solid #ffd262;
   box-shadow: 0 -3px 7px -6px grey;
 `;
 

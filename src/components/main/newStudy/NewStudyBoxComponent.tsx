@@ -6,7 +6,10 @@ import {
   NewBoxWrapper,
   SmallBookImg,
   StudyContent,
-  StudyContentWrapper, StudyDiv, StudyIcon, StudyTitle
+  StudyContentWrapper,
+  StudyDiv,
+  StudyIcon,
+  StudyTitle,
 } from "../../../styles/main/BooksStyle";
 
 export default function NewStudyBox(): JSX.Element {
@@ -29,7 +32,7 @@ export default function NewStudyBox(): JSX.Element {
           </StudyContent>
         </StudyContentWrapper>
         <IconWrapperContent>
-          <HeartIconBookBox src="/assets/main/heart.svg" loading="lazy"/>
+          <HeartIconBookBox src="/assets/main/heart.svg" loading="lazy" />
           <HeartCnt>6</HeartCnt>
         </IconWrapperContent>
       </NewBoxWrapper>

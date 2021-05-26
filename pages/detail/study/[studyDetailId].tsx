@@ -2,8 +2,8 @@ import StudyDetailIndex from "../../../src/components/detail/study/StudyDetailIn
 
 export default function StudyDetailId(): JSX.Element {
   return (
-      <>
-        <StudyDetailIndex/>
-      </>
-  )
+    <>
+      <StudyDetailIndex />
+    </>
+  );
 }

@@ -17,7 +17,3 @@ export default function NewStudyComponent(): JSX.Element {
     </StudyBackground>
   );
 }
-
-
-
-

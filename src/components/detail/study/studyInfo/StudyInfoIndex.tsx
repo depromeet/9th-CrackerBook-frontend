@@ -1,6 +1,4 @@
-import {
-  DivLine
-} from "../../../../styles/detail/common/commonStyle";
+import { DivLine } from "../../../../styles/detail/common/commonStyle";
 import { Cover } from "./Cover";
 import { BookInfo } from "./BookInfo";
 import { StudyDetailInfo } from "./StudyDetailInfo";
@@ -16,6 +14,3 @@ export function StudyInfoIndexComponent(): JSX.Element {
     </>
   );
 }
-
-
-

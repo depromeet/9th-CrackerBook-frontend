@@ -1,10 +1,16 @@
 import {
   LikeDiv,
-  LikeInfoWrapper, LikeRank, LikeStudyTitleWrapper,
+  LikeInfoWrapper,
+  LikeRank,
+  LikeStudyTitleWrapper,
   LikeStudyWrapper,
   RankBookImg,
-  RankBookWrapper, StudyContent, StudyIcon, StudyTitle,
-  TitleDiv, TotalView
+  RankBookWrapper,
+  StudyContent,
+  StudyIcon,
+  StudyTitle,
+  TitleDiv,
+  TotalView,
 } from "../../../styles/main/BooksStyle";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,11 +19,7 @@ export default function LikeBookComponent(): JSX.Element {
     <LikeStudyWrapper>
       <LikeTitleContainer />
       <RankBookWrapper>
-        <Swiper
-          spaceBetween={1}
-          slidesPerView={2.5}
-          initialSlide={0}
-        >
+        <Swiper spaceBetween={1} slidesPerView={2.5} initialSlide={0}>
           <SwiperSlide>
             <LikeInfoWrapper>
               <RankBookImg src="/assets/main/exBook.jpg" loading="lazy" />
@@ -50,7 +52,6 @@ export default function LikeBookComponent(): JSX.Element {
     </LikeStudyWrapper>
   );
 }
-
 
 export function LikeBookContainer(): JSX.Element {
   return (

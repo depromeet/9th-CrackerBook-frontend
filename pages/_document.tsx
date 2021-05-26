@@ -2,11 +2,11 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class CustomDocument extends Document {
-    render(): JSX.Element {
-        return (
-            <Html lang="ko">
-                <Head>
-                    <meta property="custom" content="123123"/>
+  render(): JSX.Element {
+    return (
+      <Html lang="ko">
+        <Head>
+          <meta property="custom" content="123123" />
 
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

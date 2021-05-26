@@ -1,14 +1,13 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export default function ShowToastComponent(props: {text: string}): JSX.Element {
-
-    return (
-        <ToastWrapper>
-            <Text>
-                {props.text}
-            </Text>
-        </ToastWrapper>
-    )
+export default function ShowToastComponent(props: {
+  text: string;
+}): JSX.Element {
+  return (
+    <ToastWrapper>
+      <Text>{props.text}</Text>
+    </ToastWrapper>
+  );
 }
 
 const boxTranslate = keyframes`

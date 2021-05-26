@@ -29,7 +29,7 @@ const TabContentsArea = styled.div`
 type tabInfo = {
   name: string;
   index: number;
-}
+};
 
 export default function TabView(props: { tabInfo }): JSX.Element {
   const tabList: tabInfo[] = [];

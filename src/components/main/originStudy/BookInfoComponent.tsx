@@ -3,12 +3,14 @@ import {
   HeartIconBookBox,
   IconWrapperContent,
   StudyContent,
-  StudyContentWrapper, StudyDiv,
-  StudyHost, StudyIcon,
+  StudyContentWrapper,
+  StudyDiv,
+  StudyHost,
+  StudyIcon,
   StudyImg,
   StudyInfoWrapper,
   StudyProfile,
-  StudyTitle
+  StudyTitle,
 } from "../../../styles/main/BooksStyle";
 
 type BookData = {
@@ -19,9 +21,11 @@ type BookData = {
   memberCnt: number;
   startData: string;
   endData: string;
-}
+};
 
-export default function BookInfoComponent(props: { bookInfo: BookData }): JSX.Element {
+export default function BookInfoComponent(props: {
+  bookInfo: BookData;
+}): JSX.Element {
   const bookData = props.bookInfo;
   return (
     <>

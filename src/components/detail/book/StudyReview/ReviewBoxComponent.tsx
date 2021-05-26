@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function ReviewBoxComponent(): JSX.Element {
-
   return (
     <BoxWrappers>
       <Swiper
@@ -18,50 +17,18 @@ export default function ReviewBoxComponent(): JSX.Element {
           <BoxWrapper>
             <IconWrapper>
               <ReviewIcon src="/assets/detail/best.svg" loading="lazy" />
-              <div>
-                최고에요1
-              </div>
+              <div>최고에요1</div>
             </IconWrapper>
             <Review>
-              글 쓰는 과정에 대해 정말 즐겁게 배울 수 있었습니다. 책과 함께 글쓰는 과정이 더해져서 구체적
-              으로 적용하기 좋았던 것 같아요.
-              함께 읽으니까 너무 좋았어요 ...
-            </Review>
-            <ReviewerWrapper>
-              <Profile src="/assets/detail/best.svg" loading="lazy" />
-              <Wrapper>
-                <Host>
-                  겁내지 않고 글 쓰는 법
-                </Host>
-                <Date>
-                  2021.04.26 ~ 05.21 토 14:00
-                </Date>
-              </Wrapper>
-            </ReviewerWrapper>
-          </BoxWrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <BoxWrapper>
-            <IconWrapper>
-              <ReviewIcon src="/assets/detail/best.svg" loading="lazy" />
-              <div>
-                최고에요2
-              </div>
-            </IconWrapper>
-            <Review>
-              글 쓰는 과정에 대해 정말 즐겁게 배울 수 있었습니다. 책과 함께 글쓰는 과정이 더해져서 구체적
-              으로 적용하기 좋았던 것 같아요.
+              글 쓰는 과정에 대해 정말 즐겁게 배울 수 있었습니다. 책과 함께
+              글쓰는 과정이 더해져서 구체적 으로 적용하기 좋았던 것 같아요. 함께
               읽으니까 너무 좋았어요 ...
             </Review>
             <ReviewerWrapper>
               <Profile src="/assets/detail/best.svg" loading="lazy" />
               <Wrapper>
-                <Host>
-                  겁내지 않고 글 쓰는 법
-                </Host>
-                <Date>
-                  2021.04.26 ~ 05.21 토 14:00
-                </Date>
+                <Host>겁내지 않고 글 쓰는 법</Host>
+                <Date>2021.04.26 ~ 05.21 토 14:00</Date>
               </Wrapper>
             </ReviewerWrapper>
           </BoxWrapper>
@@ -70,24 +37,38 @@ export default function ReviewBoxComponent(): JSX.Element {
           <BoxWrapper>
             <IconWrapper>
               <ReviewIcon src="/assets/detail/best.svg" loading="lazy" />
-              <div>
-                최고에요3
-              </div>
+              <div>최고에요2</div>
             </IconWrapper>
             <Review>
-              글 쓰는 과정에 대해 정말 즐겁게 배울 수 있었습니다. 책과 함께 글쓰는 과정이 더해져서 구체적
-              으로 적용하기 좋았던 것 같아요.
-              함께 읽으니까 너무 좋았어요 ...
+              글 쓰는 과정에 대해 정말 즐겁게 배울 수 있었습니다. 책과 함께
+              글쓰는 과정이 더해져서 구체적 으로 적용하기 좋았던 것 같아요.
+              읽으니까 너무 좋았어요 ...
             </Review>
             <ReviewerWrapper>
               <Profile src="/assets/detail/best.svg" loading="lazy" />
               <Wrapper>
-                <Host>
-                  겁내지 않고 글 쓰는 법
-                </Host>
-                <Date>
-                  2021.04.26 ~ 05.21 토 14:00
-                </Date>
+                <Host>겁내지 않고 글 쓰는 법</Host>
+                <Date>2021.04.26 ~ 05.21 토 14:00</Date>
+              </Wrapper>
+            </ReviewerWrapper>
+          </BoxWrapper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <BoxWrapper>
+            <IconWrapper>
+              <ReviewIcon src="/assets/detail/best.svg" loading="lazy" />
+              <div>최고에요3</div>
+            </IconWrapper>
+            <Review>
+              글 쓰는 과정에 대해 정말 즐겁게 배울 수 있었습니다. 책과 함께
+              글쓰는 과정이 더해져서 구체적 으로 적용하기 좋았던 것 같아요. 함께
+              읽으니까 너무 좋았어요 ...
+            </Review>
+            <ReviewerWrapper>
+              <Profile src="/assets/detail/best.svg" loading="lazy" />
+              <Wrapper>
+                <Host>겁내지 않고 글 쓰는 법</Host>
+                <Date>2021.04.26 ~ 05.21 토 14:00</Date>
               </Wrapper>
             </ReviewerWrapper>
           </BoxWrapper>
