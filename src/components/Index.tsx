@@ -1,7 +1,32 @@
 import Link from "next/link";
 import styled from "styled-components";
 import KakaoLogin from "react-kakao-login";
+import { setKakaoToken } from "../storage/storage";
 import axios from "axios";
+
+const successKaKaoLogin = async (response) => {
+  console.log(response);
+  try {
+    const kakaoLogin = await axios.get(
+      "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=8975849c679f23f51fe72cd0a1581921&redirect_uri=http://localhost:3000",
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        }
+      }
+    );
+    debugger
+    // setKakaoToken(res)
+  } catch (error) {
+    console.error(`fail kakao login : ${error}`);
+    debugger
+  }
+
+};
+
+const failKakaoLogin = (error) => {
+  console.error(`fail to get kakao token : ${error}`);
+};
 
 export default function IndexComponent(): JSX.Element {
   return (
@@ -67,7 +92,7 @@ const NextDiv = styled.div`
 `;
 
 const KakaoLoginBtn = styled.button`
-  background-color: #fee500 !important;
+  background-color: #FEE500 !important;
   font-size: 14px !important;
   height: 48px !important;
   width: 335px !important;

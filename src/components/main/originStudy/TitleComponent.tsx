@@ -16,11 +16,11 @@ export default function TitleComponent(props: {
   const setHeaderState = useSetRecoilState<string>(HeaderTextState);
   const bookName =
     props.bookName.length > 11
-      ? props.bookName.slice(0, 10) + "..."
+      ? props.bookName.slice(0, 17) + "..."
       : props.bookName;
   return (
     <>
-      <TitleDiv>&apos;{bookName}&lsquo;의</TitleDiv>
+      <TitleDiv>&apos;{bookName}&apos;의</TitleDiv>
       <TitleWrapper>
         <TitleDiv>스터디</TitleDiv>
         <TotalView

@@ -8,12 +8,18 @@ import MoreButtonComponent from "../../common/moreButton/MoreButtonComponent";
 
 export default function NewStudyComponent(): JSX.Element {
   return (
-    <StudyBackground>
-      <NewStudyWrapper>
-        <NewStudyTitleComponent />
-        <NewStudyBox />
-        <MoreButtonComponent backgroundColor="#f1f1f3" />
-      </NewStudyWrapper>
-    </StudyBackground>
+    <>
+      <StudyBackground>
+        <NewStudyWrapper>
+          <NewStudyTitleComponent />
+          <NewStudyBox />
+          <NewStudyBox />
+          <NewStudyBox />
+          <NewStudyBox />
+          <MoreButtonComponent backgroundColor="#f1f1f3" />
+        </NewStudyWrapper>
+      </StudyBackground>
+    </>
+
   );
 }

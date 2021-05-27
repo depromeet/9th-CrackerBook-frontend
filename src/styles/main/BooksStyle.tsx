@@ -112,9 +112,11 @@ const StudyInfoWrapper = styled.div`
 const NewBoxWrapper = styled.div`
   display: flex;
   padding: 32px 20px;
+  margin-bottom: 20px;
   background-color: #ffffff;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: 1px 1px 6px 1px #e0e0e0;
 `;
 
 const StudyProfile = styled.div`
@@ -195,7 +197,7 @@ const StudyDate = styled.div`
 `;
 
 const LikeStudyWrapper = styled.div`
-  padding: 0 20px;
+  padding-left: 20px;
   margin-bottom: 25px;
 `;
 
@@ -205,6 +207,7 @@ const LikeStudyTitleWrapper = styled.div`
   align-items: center;
   margin-bottom: 30px;
   position: relative;
+  padding-right: 20px
 `;
 
 const RankBookWrapper = styled.div`
