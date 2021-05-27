@@ -67,7 +67,8 @@ export default function KindStudyComponent(): JSX.Element {
               key={index}
               onClick={() =>
                 Router.push({
-                  pathname: `/search/result/${v.label}`,
+                  pathname: `/main/books`,
+                  query: { value: v.value },
                 })
               }
             >

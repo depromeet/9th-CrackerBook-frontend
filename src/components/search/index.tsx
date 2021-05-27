@@ -1,12 +1,19 @@
+import styled from "styled-components";
 import SearchBoxComponent from "./common/SearchBoxComponent";
 import KeywordComponent from "./KeywordComponent";
 import KindStudyComponent from "./KindStudyComponent";
 import SearchInitComponent from "./common/SearchInitComponent";
 import { useRecoilState } from "recoil";
-import { categoryState, inputClickState } from "src/components/states/search";
+import { inputClickState } from "src/components/states/search";
+
+const Divider = styled.div`
+  margin: 12px;
+  position: relative;
+  height: 10px;
+  background: #f1f1f3;
+`;
 
 export default function SearchComponent(): JSX.Element {
-  const [category] = useRecoilState(categoryState);
   const [inputClick] = useRecoilState(inputClickState);
 
   return (
@@ -15,7 +22,11 @@ export default function SearchComponent(): JSX.Element {
       {inputClick ? (
         <SearchInitComponent />
       ) : (
-        <>{category !== 2 ? <KeywordComponent /> : <KindStudyComponent />}</>
+        <>
+          <KeywordComponent />
+          <Divider />
+          <KindStudyComponent />
+        </>
       )}
     </>
   );

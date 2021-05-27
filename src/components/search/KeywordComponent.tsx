@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 import Router from "next/router";
 import { useRecoilState } from "recoil";
 import { historyState } from "../states/search";
