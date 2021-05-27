@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {
-  BackButton,
+  DetailBackButton,
   MainBookStyle,
   SearchButton,
 } from "../../../../styles/detail/common/commonStyle";
@@ -20,7 +20,7 @@ export function StudyDetailCover(): JSX.Element {
     <>
       <StudyBookCover>
         <Link href="/detail/book">
-          <BackButton src="/assets/detail/back.svg" />
+          <DetailBackButton src="/assets/detail/back.svg" />
         </Link>
         <Link href="/search">
           <SearchButton src="/assets/detail/magnifyingGlass.svg" />

@@ -43,9 +43,11 @@ const TabButton = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  color: #999999;
 
   &.active {
     border-bottom: 1px solid #ffd262;
+    color: #222222;
   }
 `;
 

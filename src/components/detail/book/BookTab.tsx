@@ -6,7 +6,7 @@ import {
 import { BookTabInfo } from "./BookTabInfo";
 
 export function TabContainer(): JSX.Element {
-  const tabList = ["스터디(4)", "후기(23)", "책소개"];
+  const tabList = ["책소개", "스터디(23)", "후기(24)"];
   const [selected, setSelected] = useState(0);
   return (
     <>
