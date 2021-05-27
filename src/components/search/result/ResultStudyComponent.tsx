@@ -1,10 +1,18 @@
 import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
+import FilterCategoryComponent from "src/components/search/result/FilterCategoryComponent";
 import { useRecoilState } from "recoil";
 import { resultStudyListState } from "src/components/states/search";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
 
+const ResultTitle = styled.div`
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  color: #777777;
+  margin: 20px;
+`;
 const ListWrapper = styled.ul`
   margin: 20px 30px;
 `;
@@ -92,32 +100,36 @@ export default function ResultStudyComponent(): JSX.Element {
 
   return (
     <>
-      <ListHeaderComponent title={"스터디"} />
-      <ListWrapper>
-        {resultStudyList.length ? (
-          resultStudyList.map((s, index) => {
-            return (
-              <LiLink key={index}>
-                <Profile>
-                  <ImgShadow></ImgShadow>
-                  <Img src="/assets/main/exBook.jpg" />
-                </Profile>
-                <Content>
-                  <Icon src="/assets/main/bookIcon.svg" />
-                  <IconText>{s.category}</IconText>
-                  <Icon src="/assets/main/memberIcon.svg" />
-                  <IconText>멤버 {s.members}/6</IconText>
-                </Content>
-                <Title>{s.title}</Title>
-                <Date>{s.date}</Date>
-              </LiLink>
-            );
-          })
-        ) : (
-          <NotFoundComponent />
-        )}
-      </ListWrapper>
-      <ListFooterComponent />
+      {resultStudyList.length ? (
+        <>
+          <FilterCategoryComponent />
+          <ResultTitle>{resultStudyList.length}건의 검색결과</ResultTitle>
+          <ListHeaderComponent title={"스터디"} />
+          <ListWrapper>
+            {resultStudyList.map((s, index) => {
+              return (
+                <LiLink key={index}>
+                  <Profile>
+                    <ImgShadow></ImgShadow>
+                    <Img src="/assets/main/exBook.jpg" />
+                  </Profile>
+                  <Content>
+                    <Icon src="/assets/main/bookIcon.svg" />
+                    <IconText>{s.category}</IconText>
+                    <Icon src="/assets/main/memberIcon.svg" />
+                    <IconText>멤버 {s.members}/6</IconText>
+                  </Content>
+                  <Title>{s.title}</Title>
+                  <Date>{s.date}</Date>
+                </LiLink>
+              );
+            })}
+          </ListWrapper>
+          <ListFooterComponent />
+        </>
+      ) : (
+        <NotFoundComponent />
+      )}
     </>
   );
 }

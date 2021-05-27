@@ -5,9 +5,16 @@ import { useRecoilState } from "recoil";
 import { resultTitleListState } from "src/components/states/search";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
 
+const ResultTitle = styled.div`
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  color: #777777;
+  margin: 20px;
+`;
 const ListWrapper = styled.ul`
   position: relative;
-  margin: 20px 20px;
+  margin: 20px;
 `;
 const Title = styled.div`
   display: -webkit-box;
@@ -110,38 +117,41 @@ export default function ResultTitleComponent(): JSX.Element {
 
   return (
     <>
-      <ListHeaderComponent title={"책"} />
-      <ListWrapper>
-        {resultTitleList.length ? (
-          resultTitleList.map((b, index) => {
-            return (
-              <LiLink key={index}>
-                <Profile>
-                  <ImgShadow></ImgShadow>
-                  <Img src="/assets/main/exBook.jpg" />
-                </Profile>
-                <ContentWrapper>
-                  <Title>{b.title}</Title>
-                  <Content>
-                    <SubTitle>저자</SubTitle>
-                    <SubContent>{b.author}</SubContent>
-                  </Content>
-                  <Content>
-                    <SubTitle>출판</SubTitle>
-                    <SubContent>{b.publish}</SubContent>
-                    <SubContent>{b.date}</SubContent>
-                  </Content>
-                </ContentWrapper>
-                <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
-                <LikeImg src="/assets/search/bookLike.svg" />
-              </LiLink>
-            );
-          })
-        ) : (
-          <NotFoundComponent />
-        )}
-      </ListWrapper>
-      <ListFooterComponent />
+      {resultTitleList.length ? (
+        <>
+          <ResultTitle>{resultTitleList.length}건의 검색결과</ResultTitle>
+          <ListHeaderComponent title={"책"} />
+          <ListWrapper>
+            {resultTitleList.map((b, index) => {
+              return (
+                <LiLink key={index}>
+                  <Profile>
+                    <ImgShadow></ImgShadow>
+                    <Img src="/assets/main/exBook.jpg" />
+                  </Profile>
+                  <ContentWrapper>
+                    <Title>{b.title}</Title>
+                    <Content>
+                      <SubTitle>저자</SubTitle>
+                      <SubContent>{b.author}</SubContent>
+                    </Content>
+                    <Content>
+                      <SubTitle>출판</SubTitle>
+                      <SubContent>{b.publish}</SubContent>
+                      <SubContent>{b.date}</SubContent>
+                    </Content>
+                  </ContentWrapper>
+                  <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
+                  <LikeImg src="/assets/search/bookLike.svg" />
+                </LiLink>
+              );
+            })}
+          </ListWrapper>
+          <ListFooterComponent />
+        </>
+      ) : (
+        <NotFoundComponent />
+      )}
     </>
   );
 }

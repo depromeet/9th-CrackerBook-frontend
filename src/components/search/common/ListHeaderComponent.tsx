@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ListHeadWrapper = styled.div`
   position: relative;
-  margin: 10px 20px 10px;
+  margin: 0 20px;
 `;
 const ListHeadTitle = styled.div`
   font-size: 20px;
