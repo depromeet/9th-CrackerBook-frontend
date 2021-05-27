@@ -8,7 +8,7 @@ const NotFoundWrapper = styled.div`
 `;
 const Svgbox = styled.div`
   position: relative;
-  padding: 109px 0 0 0;
+  padding: 123px 0 0 0;
   font-weight: 500;
   font-size: 20px;
 `;

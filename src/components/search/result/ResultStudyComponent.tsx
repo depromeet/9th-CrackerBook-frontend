@@ -5,6 +5,7 @@ import FilterCategoryComponent from "src/components/search/result/FilterCategory
 import { useRecoilState } from "recoil";
 import { resultStudyListState } from "src/components/states/search";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
+import { studyKindState } from "src/components/states";
 
 const ResultTitle = styled.div`
   font-family: "Nunito", sans-serif;
@@ -97,12 +98,13 @@ const Date = styled.div`
 
 export default function ResultStudyComponent(): JSX.Element {
   const [resultStudyList] = useRecoilState(resultStudyListState);
+  const [studyKind] = useRecoilState(studyKindState);
 
   return (
     <>
+      <FilterCategoryComponent />
       {resultStudyList.length ? (
         <>
-          <FilterCategoryComponent />
           <ResultTitle>{resultStudyList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"스터디"} />
           <ListWrapper>
@@ -115,7 +117,12 @@ export default function ResultStudyComponent(): JSX.Element {
                   </Profile>
                   <Content>
                     <Icon src="/assets/main/bookIcon.svg" />
-                    <IconText>{s.category}</IconText>
+                    <IconText>
+                      {
+                        studyKind.filter((kind) => kind.value === s.category)[0]
+                          .label
+                      }
+                    </IconText>
                     <Icon src="/assets/main/memberIcon.svg" />
                     <IconText>멤버 {s.members}/6</IconText>
                   </Content>

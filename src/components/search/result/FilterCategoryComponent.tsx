@@ -1,5 +1,13 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { studyKindState } from "src/components/states";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import {
+  resultStudyFilterState,
+  resultStudyListState,
+} from "src/components/states/search";
+import { studyListState } from "src/components/states/study";
 
 const CategoryWrapper = styled.ul`
   position: relative;
@@ -33,26 +41,56 @@ const BtnTag = styled.div`
   }
 `;
 
-const kindTitles = [
-  { label: "토론", value: "debate" },
-  { label: "발표", value: "announcement" },
-  { label: "글쓰기", value: "writing" },
-  { label: "포트폴리오", value: "portfolio" },
-  { label: "기타", value: "etc" },
-];
-
 export default function FilterCategoryComponent(): JSX.Element {
-  const [selected, setSelected] = useState(0);
+  const Router = useRouter();
+  const [studyKind] = useRecoilState(studyKindState);
+  const [studyList] = useRecoilState(studyListState);
+  const [resultStudyFilter, setResultStudyFilter] = useRecoilState(
+    resultStudyFilterState,
+  );
+  const setResultStudyList = useSetRecoilState(resultStudyListState);
+
+  const onResultStudyFilter = (event, value) => {
+    event.stopPropagation();
+    setResultStudyFilter([...resultStudyFilter, value]);
+  };
+  const offResultStudyFilter = (event, value) => {
+    event.stopPropagation();
+    const resultStudy = [...resultStudyFilter];
+    resultStudy.splice(resultStudy.indexOf(value), 1);
+
+    setResultStudyFilter(resultStudy);
+  };
+
+  useEffect(() => {
+    setResultStudyList(
+      resultStudyFilter.length
+        ? studyList.filter(
+            (s) =>
+              s.title.indexOf(`${Router.query.name}`) !== -1 &&
+              resultStudyFilter.includes(s.category),
+          )
+        : studyList.filter(
+            (s) => s.title.indexOf(`${Router.query.name}`) !== -1,
+          ),
+    );
+  }, [resultStudyFilter]);
 
   return (
     <CategoryWrapper>
-      {kindTitles.map((v, index) => {
-        return (
+      {studyKind.map((v, index) => {
+        return resultStudyFilter.indexOf(v.value) !== -1 ? (
           <LiLink key={index}>
             <BtnTag
-              className={selected === index ? "on" : ""}
-              onClick={() => setSelected(index)}
+              className="on"
+              onClick={(event) => offResultStudyFilter(event, v.value)}
             >
+              {v.label}
+            </BtnTag>
+          </LiLink>
+        ) : (
+          <LiLink key={index}>
+            <BtnTag onClick={(event) => onResultStudyFilter(event, v.value)}>
               {v.label}
             </BtnTag>
           </LiLink>

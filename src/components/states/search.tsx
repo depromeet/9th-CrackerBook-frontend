@@ -31,6 +31,10 @@ const resultStudyListState = atom({
   key: `resultStudyList`,
   default: [],
 });
+const resultStudyFilterState = atom({
+  key: `resultStudyFilter`,
+  default: [],
+});
 
 export {
   categoryState,
@@ -39,4 +43,5 @@ export {
   resultTitleListState,
   resultAuthorListState,
   resultStudyListState,
+  resultStudyFilterState,
 };
