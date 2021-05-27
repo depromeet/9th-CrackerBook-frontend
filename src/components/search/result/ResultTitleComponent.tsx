@@ -4,6 +4,7 @@ import ListFooterComponent from "src/components/search/common/ListFooterComponen
 import { useRecoilState } from "recoil";
 import { resultTitleListState } from "src/components/states/search";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
+import { useEffect, useState } from "react";
 
 const ResultTitle = styled.div`
   font-family: "Nunito", sans-serif;
@@ -114,6 +115,41 @@ const LikeImg = styled.img`
 
 export default function ResultTitleComponent(): JSX.Element {
   const [resultTitleList] = useRecoilState(resultTitleListState);
+  const [Lilist, setLilist] = useState([]);
+  const [viewCount, setViewCount] = useState(6);
+
+  useEffect(() => {
+    const temp = [];
+    const maxIndex =
+      resultTitleList.length > viewCount ? viewCount : resultTitleList.length;
+
+    for (let i = 0; i < maxIndex; i++) {
+      temp.push(
+        <LiLink key={i}>
+          <Profile>
+            <ImgShadow></ImgShadow>
+            <Img src="/assets/main/exBook.jpg" />
+          </Profile>
+          <ContentWrapper>
+            <Title>{resultTitleList[i].title}</Title>
+            <Content>
+              <SubTitle>저자</SubTitle>
+              <SubContent>{resultTitleList[i].author}</SubContent>
+            </Content>
+            <Content>
+              <SubTitle>출판</SubTitle>
+              <SubContent>{resultTitleList[i].publish}</SubContent>
+              <SubContent>{resultTitleList[i].date}</SubContent>
+            </Content>
+          </ContentWrapper>
+          <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
+          <LikeImg src="/assets/search/bookLike.svg" />
+        </LiLink>,
+      );
+    }
+
+    setLilist(temp);
+  }, [resultTitleList]);
 
   return (
     <>
@@ -121,33 +157,8 @@ export default function ResultTitleComponent(): JSX.Element {
         <>
           <ResultTitle>{resultTitleList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"책"} />
-          <ListWrapper>
-            {resultTitleList.map((b, index) => {
-              return (
-                <LiLink key={index}>
-                  <Profile>
-                    <ImgShadow></ImgShadow>
-                    <Img src="/assets/main/exBook.jpg" />
-                  </Profile>
-                  <ContentWrapper>
-                    <Title>{b.title}</Title>
-                    <Content>
-                      <SubTitle>저자</SubTitle>
-                      <SubContent>{b.author}</SubContent>
-                    </Content>
-                    <Content>
-                      <SubTitle>출판</SubTitle>
-                      <SubContent>{b.publish}</SubContent>
-                      <SubContent>{b.date}</SubContent>
-                    </Content>
-                  </ContentWrapper>
-                  <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
-                  <LikeImg src="/assets/search/bookLike.svg" />
-                </LiLink>
-              );
-            })}
-          </ListWrapper>
-          <ListFooterComponent />
+          <ListWrapper>{Lilist}</ListWrapper>
+          {resultTitleList.length > viewCount && <ListFooterComponent />}
         </>
       ) : (
         <NotFoundComponent />

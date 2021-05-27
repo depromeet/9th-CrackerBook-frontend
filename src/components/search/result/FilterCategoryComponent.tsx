@@ -63,6 +63,7 @@ export default function FilterCategoryComponent(): JSX.Element {
   };
 
   useEffect(() => {
+    console.log(resultStudyFilter);
     setResultStudyList(
       resultStudyFilter.length
         ? studyList.filter(

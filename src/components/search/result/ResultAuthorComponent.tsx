@@ -4,6 +4,7 @@ import ListFooterComponent from "src/components/search/common/ListFooterComponen
 import { resultAuthorListState } from "src/components/states/search";
 import { useRecoilState } from "recoil";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
+import { useEffect, useState } from "react";
 
 const ResultTitle = styled.div`
   font-family: "Nunito", sans-serif;
@@ -114,6 +115,41 @@ const LikeImg = styled.img`
 
 export default function ResultAuthorComponent(): JSX.Element {
   const [resultAuthorList] = useRecoilState(resultAuthorListState);
+  const [Lilist, setLilist] = useState([]);
+  const [viewCount, setViewCount] = useState(6);
+
+  useEffect(() => {
+    const temp = [];
+    const maxIndex =
+      resultAuthorList.length > viewCount ? viewCount : resultAuthorList.length;
+
+    for (let i = 0; i < maxIndex; i++) {
+      temp.push(
+        <LiLink key={i}>
+          <Profile>
+            <ImgShadow></ImgShadow>
+            <Img src="/assets/main/exBook.jpg" />
+          </Profile>
+          <ContentWrapper>
+            <Title>{resultAuthorList[i].title}</Title>
+            <Content>
+              <SubTitle>저자</SubTitle>
+              <SubContent>{resultAuthorList[i].author}</SubContent>
+            </Content>
+            <Content>
+              <SubTitle>출판</SubTitle>
+              <SubContent>{resultAuthorList[i].publish}</SubContent>
+              <SubContent>{resultAuthorList[i].date}</SubContent>
+            </Content>
+          </ContentWrapper>
+          <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
+          <LikeImg src="/assets/search/bookLike.svg" />
+        </LiLink>,
+      );
+    }
+
+    setLilist(temp);
+  }, [resultAuthorList]);
 
   return (
     <>
@@ -147,7 +183,7 @@ export default function ResultAuthorComponent(): JSX.Element {
               );
             })}
           </ListWrapper>
-          <ListFooterComponent />
+          {resultAuthorList.length > viewCount && <ListFooterComponent />}
         </>
       ) : (
         <NotFoundComponent />

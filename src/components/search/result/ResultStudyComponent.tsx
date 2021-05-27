@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { resultStudyListState } from "src/components/states/search";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
 import { studyKindState } from "src/components/states";
+import { useEffect, useState } from "react";
 
 const ResultTitle = styled.div`
   font-family: "Nunito", sans-serif;
@@ -99,6 +100,42 @@ const Date = styled.div`
 export default function ResultStudyComponent(): JSX.Element {
   const [resultStudyList] = useRecoilState(resultStudyListState);
   const [studyKind] = useRecoilState(studyKindState);
+  const [Lilist, setLilist] = useState([]);
+  const [viewCount, setViewCount] = useState(6);
+
+  useEffect(() => {
+    const temp = [];
+    const maxIndex =
+      resultStudyList.length > viewCount ? viewCount : resultStudyList.length;
+
+    for (let i = 0; i < maxIndex; i++) {
+      console.log(i);
+      temp.push(
+        <LiLink key={i}>
+          <Profile>
+            <ImgShadow></ImgShadow>
+            <Img src="/assets/main/exBook.jpg" />
+          </Profile>
+          <Content>
+            <Icon src="/assets/main/bookIcon.svg" />
+            <IconText>
+              {
+                studyKind.filter(
+                  (kind) => kind.value === resultStudyList[i].category,
+                )[0].label
+              }
+            </IconText>
+            <Icon src="/assets/main/memberIcon.svg" />
+            <IconText>멤버 {resultStudyList[i].members}/6</IconText>
+          </Content>
+          <Title>{resultStudyList[i].title}</Title>
+          <Date>{resultStudyList[i].date}</Date>
+        </LiLink>,
+      );
+    }
+
+    setLilist(temp);
+  }, [resultStudyList]);
 
   return (
     <>
@@ -107,32 +144,8 @@ export default function ResultStudyComponent(): JSX.Element {
         <>
           <ResultTitle>{resultStudyList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"스터디"} />
-          <ListWrapper>
-            {resultStudyList.map((s, index) => {
-              return (
-                <LiLink key={index}>
-                  <Profile>
-                    <ImgShadow></ImgShadow>
-                    <Img src="/assets/main/exBook.jpg" />
-                  </Profile>
-                  <Content>
-                    <Icon src="/assets/main/bookIcon.svg" />
-                    <IconText>
-                      {
-                        studyKind.filter((kind) => kind.value === s.category)[0]
-                          .label
-                      }
-                    </IconText>
-                    <Icon src="/assets/main/memberIcon.svg" />
-                    <IconText>멤버 {s.members}/6</IconText>
-                  </Content>
-                  <Title>{s.title}</Title>
-                  <Date>{s.date}</Date>
-                </LiLink>
-              );
-            })}
-          </ListWrapper>
-          <ListFooterComponent />
+          <ListWrapper>{Lilist}</ListWrapper>
+          {resultStudyList.length > viewCount && <ListFooterComponent />}
         </>
       ) : (
         <NotFoundComponent />
