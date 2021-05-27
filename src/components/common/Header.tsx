@@ -13,13 +13,13 @@ const headerElement = (
       return <CrackerHeader src="/assets/main/HeaderTitle.svg" />;
     case "detail":
       return (
-        <TitleHeader categoryType={categoryState}>
+        <TitleHeader>
           &apos; {headerState} &lsquo;의 스터디
         </TitleHeader>
       );
     default:
       return (
-        <TitleHeader categoryType={categoryState}>{headerState}</TitleHeader>
+        <TitleHeader>{headerState}</TitleHeader>
       );
   }
 };
@@ -61,30 +61,21 @@ const HeaderWrapper = styled.div`
 `;
 
 const CrackerHeader = styled.img`
-  margin-left: 100px;
-  padding-top: 1px;
-  width: 154px;
-  height: 16px;
   color: #222222;
-  text-align: center;
+  margin: 0 auto;
 `;
 
-const TitleHeader = styled.div<{ categoryType: string }>`
-  margin-left: ${(props) =>
-    props.categoryType === "detail" ? "55px" : "100px"};
-  padding-top: 1px;
-  width: ${(props) => (props.categoryType === "detail" ? "334px" : "154px")};
-  height: 16px;
+const TitleHeader = styled.div`
   color: #222222;
   font-size: 16px;
   text-align: center;
   font-weight: 500;
+  margin: 0 auto;
 `;
 
 const GlassWrapper = styled.div`
-  width: 25%;
-  text-align: right;
-  padding-top: 8px;
+  position: absolute;
+  right: 20px;
 `;
 
 const GlassIcon = styled.img`

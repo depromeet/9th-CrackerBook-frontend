@@ -17,7 +17,7 @@ const FabDiv = styled.div`
   background-color: rgba(255, 255, 255, 0.7);
   position: fixed;
   bottom: 116px;
-  margin-left: 65%;
+  right: 15px;
   width: 40px;
   height: 40px;
   box-shadow: 2px 2px 5px 1px #dcd4d4;

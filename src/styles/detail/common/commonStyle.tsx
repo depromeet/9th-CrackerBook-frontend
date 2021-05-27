@@ -52,7 +52,6 @@ const TabButton = styled.div`
 const BackButton = styled.img`
   position: absolute;
   left: 20px;
-  top: 42px;
   cursor: pointer;
 `;
 
