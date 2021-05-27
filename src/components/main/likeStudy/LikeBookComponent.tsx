@@ -70,7 +70,7 @@ export function LikeBookNameContainer(): JSX.Element {
 
 export function LikeTitleContainer(): JSX.Element {
   return (
-    <LikeStudyTitleWrapper>
+    <LikeStudyTitleWrapper className="main-content">
       <TitleDiv>좋아요가 많은 스터디</TitleDiv>
       <TotalView>전체보기 &gt;</TotalView>
     </LikeStudyTitleWrapper>

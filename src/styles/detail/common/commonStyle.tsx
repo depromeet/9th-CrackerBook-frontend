@@ -55,6 +55,10 @@ const BackButton = styled.img`
   cursor: pointer;
 `;
 
+const DetailBackButton = styled(BackButton)`
+  top: 49px;
+`;
+
 const SearchButton = styled.img`
   position: absolute;
   right: 20px;
@@ -147,6 +151,7 @@ const BlackBackground = styled.div`
 `;
 
 export {
+  DetailBackButton,
   BlackBackground,
   BottomBarStyle,
   Name,

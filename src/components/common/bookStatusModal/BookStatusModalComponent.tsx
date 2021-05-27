@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   DropDown,
-  LikeStudyTitleWrapper,
+  StudyTitleWrapper,
   TitleDiv,
   TotalView,
 } from "../../../styles/main/BooksStyle";
@@ -14,12 +14,12 @@ export default function BookStatusModalComponent(): JSX.Element {
   };
 
   return (
-    <LikeStudyTitleWrapper>
+    <StudyTitleWrapper>
       <TitleDiv>이 책의 스터디</TitleDiv>
       <TotalView onClick={viewModal}>
         모집중 <DropDown src="/assets/detail/dropDown.svg" />
       </TotalView>
       {isOpen ? <SelectModal /> : ""}
-    </LikeStudyTitleWrapper>
+    </StudyTitleWrapper>
   );
 }

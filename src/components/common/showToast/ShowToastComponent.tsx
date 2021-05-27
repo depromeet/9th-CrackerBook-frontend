@@ -14,12 +14,12 @@ const boxTranslate = keyframes`
   0% {
     transform: translateY(70px);
   }
-
-  1% {
-    transform: translateY(69px);
-  }
   
-  50% {
+  25% {
+    transform: translateY(0);
+  }
+
+  70% {
     transform: translateY(0);
   }
   
@@ -37,7 +37,7 @@ const ToastWrapper = styled.div`
   font-size: 12px;
   width: 375px;
   height: 90px;
-  animation: ${boxTranslate} 2s 0.1s 1 linear forwards;
+  animation: ${boxTranslate} 1.8s 1 linear forwards;
 `;
 
 const Text = styled.div`

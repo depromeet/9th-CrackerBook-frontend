@@ -4,9 +4,9 @@ import {
   TitleInfoWrapper,
 } from "../../../styles/detail/book/bookDetailStyle";
 import {
-  BackButton,
   BookDetail,
   BookDetailWrapper,
+  DetailBackButton,
   SearchButton,
   Title,
   TitleInner,
@@ -17,7 +17,7 @@ export function BookCover(): JSX.Element {
   return (
     <MainBookCover>
       <Link href="/main">
-        <BackButton src="/assets/detail/back.svg" />
+        <DetailBackButton src="/assets/detail/back.svg" />
       </Link>
       <Link href="/search">
         <SearchButton src="/assets/detail/magnifyingGlass.svg" />

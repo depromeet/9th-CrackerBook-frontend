@@ -201,13 +201,16 @@ const LikeStudyWrapper = styled.div`
   margin-bottom: 25px;
 `;
 
-const LikeStudyTitleWrapper = styled.div`
+const StudyTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
   position: relative;
-  padding-right: 20px
+`;
+
+const LikeStudyTitleWrapper = styled(StudyTitleWrapper)`
+  padding-right: 20px;
 `;
 
 const RankBookWrapper = styled.div`
@@ -263,6 +266,7 @@ export {
   RankBookWrapper,
   RankBookImg,
   LikeStudyWrapper,
+  StudyTitleWrapper,
   LikeStudyTitleWrapper,
   StudyDiv,
   IconWrapperContent,
