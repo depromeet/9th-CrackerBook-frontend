@@ -5,13 +5,10 @@ export default function ReviewBoxComponent(): JSX.Element {
   return (
     <BoxWrappers>
       <Swiper
-        spaceBetween={110}
-        slidesPerView={2}
+        spaceBetween={20}
+        slidesPerView={1.4}
         loop={true}
         initialSlide={0}
-        onSlideChange={(event) => {
-          console.log(`event.activeIndex : ${event}`);
-        }}
       >
         <SwiperSlide>
           <BoxWrapper>
@@ -82,9 +79,10 @@ const BoxWrappers = styled.div`
 `;
 
 const BoxWrapper = styled.div`
-  margin: 0 85px;
-  width: 225px;
-  height: 360px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width: 260px;
+  height: 340px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 2px 9px 0 #d4d3d3;
@@ -107,7 +105,7 @@ const Review = styled.div`
 `;
 
 const ReviewerWrapper = styled.div`
-  padding: 14px 10px 14px 10px;
+  padding: 14px 20px 14px 20px;
   display: flex;
   justify-content: left;
   border-top: 1px solid #efefef;
