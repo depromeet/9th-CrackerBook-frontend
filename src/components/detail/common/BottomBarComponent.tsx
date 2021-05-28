@@ -48,6 +48,7 @@ export function BottomBar(props: { text: string; type: string }): JSX.Element {
             copyLink({ link: router.route, setState: setOpenShowToast })
           }
         />
+        <VirticalLine />
         <GoCreate onClick={conFirmBoxEvent} type={props.type}>
           {props.text}
         </GoCreate>
@@ -73,10 +74,16 @@ const BookLikeIcon = styled.img`
 `;
 
 const ShareIcon = styled.img`
-  border-right: 1px solid #f4f4f4;
   padding-left: 20px;
   padding-right: 20px;
   cursor: pointer;
+`;
+
+const VirticalLine = styled.div`
+  height: 13.7px;
+  width: 1px;
+  background-color: #777777;
+  border-radius: 5px;
 `;
 
 const GoCreate = styled.div<{ type: string }>`
