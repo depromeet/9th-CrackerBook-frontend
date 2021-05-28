@@ -37,7 +37,7 @@ export default function BooksHeaderComponent(): JSX.Element {
       <Swiper spaceBetween={1} slidesPerView={4.5} initialSlide={0}>
         {srcList.map((imgSrc, index) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <StudyTypeDiv
                 onClick={() => {
                   setCategoryState(type[index]);

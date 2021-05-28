@@ -16,10 +16,15 @@ export default function DetailIndexComponent(): JSX.Element {
     <BookDetailWrapper>
       <BookImgComponent img="/assets/main/exBook.jpg" />
       <BookInfoComponent bookInfo={book} />
+      <BookInfoComponent bookInfo={book} />
+      <BookInfoComponent bookInfo={book} />
+      <BookInfoComponent bookInfo={book} />
+      <BookInfoComponent bookInfo={book} />
     </BookDetailWrapper>
   );
 }
 
 const BookDetailWrapper = styled.div`
   padding: 20px;
+  margin-bottom: 100px;
 `;

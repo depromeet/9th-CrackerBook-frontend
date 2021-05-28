@@ -14,7 +14,7 @@ const headerElement = (
     case "detail":
       return (
         <TitleHeader>
-          &apos; {headerState} &lsquo;의 스터디
+          &apos; {headerState} &apos;의 스터디
         </TitleHeader>
       );
     default:

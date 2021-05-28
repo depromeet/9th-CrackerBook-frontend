@@ -18,6 +18,7 @@ export default function TitleComponent(props: {
     props.bookName.length > 11
       ? props.bookName.slice(0, 17) + "..."
       : props.bookName;
+  const detailPageBookName = props.bookName.slice(0, 10) + "...";
   return (
     <>
       <TitleDiv>&apos;{bookName}&apos;의</TitleDiv>
@@ -26,7 +27,7 @@ export default function TitleComponent(props: {
         <TotalView
           onClick={() => {
             setCategoryState("detail");
-            setHeaderState(bookName);
+            setHeaderState(detailPageBookName);
           }}
         >
           전체보기 &gt;
