@@ -1,8 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
-// import {ExistIcon} from "../../src/styles/login/setNicnameStyle";
-// import
-// import {StartBtn} from "../../src/styles/login/setNicnameStyle";
+
+import { useRouter } from "next/router";
 
 const ProfileBackground = styled.div`
   position: absolute;
@@ -123,7 +122,7 @@ const myProfileButtons = () => {
   return (
     <>
       <Link href={"/profile/rewards"}>
-        <ButtonNLabel>
+                <ButtonNLabel>
           <ActivityButton>
             <img src="/assets/profile/activityrewards.svg" />
           </ActivityButton>
@@ -151,21 +150,28 @@ const myProfileButtons = () => {
 };
 
 export default function ProfileArea(): JSX.Element {
+
+  const router = useRouter();
+
+  console.log(router.query);
+
   return (
     <>
-      <ProfileImgArea>
-        <ProfileBackground />
-        <ProfileImage src="/assets/profile/profile1.svg" />
-        <Link href="/profile/setting">
-          <EditProfile src="/assets/profile/setting.svg" />
-        </Link>
-      </ProfileImgArea>
-      <ProfileInfoArea>
-        <NameArea>{"빈센조"}</NameArea>
-        <ProfileMessage>{"프로필 메시지"}</ProfileMessage>
-      </ProfileInfoArea>
+      <ProfileBackground />
+      <div style={{ position: "relative" }}>
+        <ProfileImgArea>
+          <ProfileImage src="/assets/profile/profile1.svg" />
+          <Link href="/profile/setting">
+            <EditProfile src="/assets/profile/setting.svg" />
+          </Link>
+        </ProfileImgArea>
+        <ProfileInfoArea>
+          <NameArea>{"빈센조"}</NameArea>
+          <ProfileMessage>{"프로필 메시지"}</ProfileMessage>
+        </ProfileInfoArea>
 
-      <ButtonArea>{myProfileButtons()}</ButtonArea>
+        <ButtonArea>{myProfileButtons()}</ButtonArea>
+      </div>
     </>
   );
 }
