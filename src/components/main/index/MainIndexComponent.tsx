@@ -29,7 +29,11 @@ export default function MainIndexComponent(props: {
         <div>로딩중</div>
       ) : (
         <>
-          <BooksHeaderComponent />
+          {
+            categoryState === "detail" ? "" : (
+              <BooksHeaderComponent />
+            )
+          }
           {viewComponent(categoryState, data)}
         </>
       )}

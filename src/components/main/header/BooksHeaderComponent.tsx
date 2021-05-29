@@ -17,14 +17,6 @@ export default function BooksHeaderComponent(): JSX.Element {
     useRecoilState<string>(CategoryTypeState);
   const setHeaderState = useSetRecoilState<string>(HeaderTextState);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const srcList = [
-    "/assets/main/ALL.svg",
-    "/assets/main/chats.svg",
-    "/assets/main/microphone.svg",
-    "/assets/main/note.svg",
-    "/assets/main/desktop.svg",
-    "/assets/main/etc.svg",
-  ];
   const title = ["전체", "토론", "발표", "글쓰기", "포트폴리오", "기타"];
   const type = [
     "all",
@@ -36,12 +28,23 @@ export default function BooksHeaderComponent(): JSX.Element {
     "main",
     "detail",
   ];
+  const srcList = [
+    "/assets/main/ALL.svg",
+    "/assets/main/chats.svg",
+    "/assets/main/microphone.svg",
+    "/assets/main/note.svg",
+    "/assets/main/desktop.svg",
+    "/assets/main/etc.svg",
+  ];
 
   return (
     <StudyTypeWrapper>
       <Swiper spaceBetween={1} slidesPerView={4.5} initialSlide={0}>
         {srcList.map((imgSrc, index) => {
-          return (
+          const isContinue = categoryState !== "likeDetail" && index === 0;
+          return isContinue ? (
+            ""
+          ) : (
             <SwiperSlide key={index}>
               <StudyTypeDiv
                 onClick={() => {
@@ -75,7 +78,6 @@ export default function BooksHeaderComponent(): JSX.Element {
     </StudyTypeWrapper>
   );
 }
-
 const ImgWrapper = styled.div`
   text-align: center;
   border-radius: 20px;

@@ -49,6 +49,7 @@ const TitleWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 8px;
+  margin-bottom: 20px;
 `;
 
 const TitleDiv = styled.div`
@@ -68,7 +69,6 @@ const BookBox = styled.div`
   border-radius: 10px;
   width: 335px;
   height: 226px;
-  margin-top: 20px;
   align-items: center;
   display: flex;
   justify-content: center;
