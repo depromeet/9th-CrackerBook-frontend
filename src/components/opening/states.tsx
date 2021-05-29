@@ -5,18 +5,22 @@ const currentStepState = atom({
   key: `currentStep`,
   default: 1,
 });
+
 const nextStepState = atom({
   key: `nextStep`,
   default: false,
 });
+
 const typeState = atom({
   key: `type`,
   default: "",
 });
+
 const typeEtcStringState = atom({
   key: `typeEtcString`,
   default: "",
 });
+
 // 1
 const categoryState = atom({
   key: `category`,

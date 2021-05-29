@@ -8,27 +8,29 @@ const StudyTypeWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 0 0 10px;
 `;
 
 const StudyTypeDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: 20px;
+  color: #999999;
+  
+  &.nullActive {
+    color: #222222;
+  }
+  
+  &.active {
+    color: #222222;
+  }
 `;
 
 const StudyTypeTitle = styled.div`
+  width: 56px;
   text-align: center;
   font-size: 12px;
-`;
-
-const StudyTypeImg = styled.img`
-  width: 52px;
-  height: 52px;
-  border-radius: 20px;
-  margin: 10px;
-  background-color: #f4f4f4;
-  text-align: center;
 `;
 
 const Hr = styled.hr`
@@ -47,6 +49,7 @@ const TitleWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 8px;
+  margin-bottom: 20px;
 `;
 
 const TitleDiv = styled.div`
@@ -56,20 +59,20 @@ const TitleDiv = styled.div`
 
 const TotalView = styled.div`
   font-size: 14px;
-  color: #677ac7;
+  color: #999999;
   text-align: right;
   cursor: pointer;
 `;
 
 const BookBox = styled.div`
-  background-color: #f1f1f3;
+  background-color: #f9d1b4;
   border-radius: 10px;
   width: 335px;
   height: 226px;
-  margin-top: 20px;
   align-items: center;
   display: flex;
   justify-content: center;
+  z-index: 0;
 `;
 
 const BookImg = styled.img`
@@ -85,11 +88,12 @@ const SmallBookImg = styled.img`
 
 const IconWrapper = styled.div`
   position: relative;
-  right: -94px;
-  top: -83px;
+  right: -91px;
+  top: -78px;
 `;
 
 const IconWrapperContent = styled.div`
+  padding-top: 7px;
   width: 6%;
   justify-content: center;
   flex-direction: column;
@@ -117,8 +121,11 @@ const StudyInfoWrapper = styled.div`
 const NewBoxWrapper = styled.div`
   display: flex;
   padding: 32px 20px;
+  margin-bottom: 20px;
   background-color: #ffffff;
   border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 6px 1px #e0e0e0;
 `;
 
 const StudyProfile = styled.div`
@@ -174,10 +181,13 @@ const StudyIcon = styled.img`
 
 const StudyDiv = styled.div`
   margin-right: 15px;
+  padding-top: 2px;
+  color: #677ac7;
 `;
 
 const LikeDiv = styled.div`
-  margin-right: 5px;
+  margin-right: 3px;
+  color: #677ac7;
 `;
 
 const StudyTitle = styled.div<InfoType>`
@@ -196,15 +206,20 @@ const StudyDate = styled.div`
 `;
 
 const LikeStudyWrapper = styled.div`
-  padding: 0 20px;
+  padding-left: 20px;
   margin-bottom: 25px;
 `;
 
-const LikeStudyTitleWrapper = styled.div`
+const StudyTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
+`;
+
+const LikeStudyTitleWrapper = styled(StudyTitleWrapper)`
+  padding-right: 20px;
 `;
 
 const RankBookWrapper = styled.div`
@@ -220,7 +235,16 @@ const RankBookImg = styled.img`
 `;
 
 const LikeInfoWrapper = styled.div`
+  position: relative;
   margin: 10px 15px 0 0;
+`;
+
+const LikeRank = styled.img`
+  position: absolute;
+  width: 24px;
+  height: 27px;
+  top: -4px;
+  left: 2px;
 `;
 
 const StudyBackground = styled.div`
@@ -229,41 +253,29 @@ const StudyBackground = styled.div`
 `;
 
 const NewStudyWrapper = styled.div`
-  padding: 80px 20px;
+  padding: 80px 20px 160px 20px;
+`;
+
+const ThisBookWrapper = styled.div`
+  padding: 80px 20px 80px 20px;
 `;
 
 const DropDown = styled.img``;
 
-const MoreBtn = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f1f1f3;
-  border: 1px solid #dddddd;
-  border-radius: 50px;
-  padding: 14px 125px;
-  margin-top: 20px;
-  cursor: pointer;
-  color: #777777;
-`;
-
-const DownImg = styled.img`
-  padding-left: 5px;
-`;
-
 export {
+  ThisBookWrapper,
   DropDown,
-  DownImg,
-  MoreBtn,
   NewBookProfile,
   NewBoxWrapper,
   StudyBackground,
   NewStudyWrapper,
   LikeDiv,
+  LikeRank,
   LikeInfoWrapper,
   RankBookWrapper,
   RankBookImg,
   LikeStudyWrapper,
+  StudyTitleWrapper,
   LikeStudyTitleWrapper,
   StudyDiv,
   IconWrapperContent,
@@ -283,7 +295,6 @@ export {
   MainContainer,
   StudyTypeWrapper,
   StudyTypeDiv,
-  StudyTypeImg,
   Hr,
   StudyTypeTitle,
   StudyTitle,
