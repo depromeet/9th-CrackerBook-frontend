@@ -127,7 +127,7 @@ export default function ResultTitleComponent(): JSX.Element {
       temp.push(
         <LiLink key={i}>
           <Profile>
-            <ImgShadow></ImgShadow>
+            <ImgShadow />
             <Img src="/assets/main/exBook.jpg" />
           </Profile>
           <ContentWrapper>
@@ -149,7 +149,7 @@ export default function ResultTitleComponent(): JSX.Element {
     }
 
     setLilist(temp);
-  }, [resultTitleList]);
+  }, [resultTitleList, viewCount]);
 
   return (
     <>
@@ -158,7 +158,12 @@ export default function ResultTitleComponent(): JSX.Element {
           <ResultTitle>{resultTitleList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"책"} />
           <ListWrapper>{Lilist}</ListWrapper>
-          {resultTitleList.length > viewCount && <ListFooterComponent />}
+          {resultTitleList.length > viewCount && (
+            <ListFooterComponent
+              viewCount={viewCount}
+              setViewCount={setViewCount}
+            />
+          )}
         </>
       ) : (
         <NotFoundComponent />

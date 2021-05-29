@@ -102,6 +102,20 @@ const studyListState = atom({
       date: "04.26 ~ 05.26 토 14:00",
     },
     {
+      category: "announcement",
+      members: 1,
+      title: "UX 디자인 실습하기",
+      author: "지주연",
+      date: "04.26 ~ 05.26 토 14:00",
+    },
+    {
+      category: "announcement",
+      members: 1,
+      title: "UX 디자인 실습하기",
+      author: "유상원",
+      date: "04.26 ~ 05.26 토 14:00",
+    },
+    {
       category: "writing",
       members: 5,
       title: "드론과 현장 : 산림 편",

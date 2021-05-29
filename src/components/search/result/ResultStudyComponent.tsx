@@ -109,11 +109,10 @@ export default function ResultStudyComponent(): JSX.Element {
       resultStudyList.length > viewCount ? viewCount : resultStudyList.length;
 
     for (let i = 0; i < maxIndex; i++) {
-      console.log(i);
       temp.push(
         <LiLink key={i}>
           <Profile>
-            <ImgShadow></ImgShadow>
+            <ImgShadow />
             <Img src="/assets/main/exBook.jpg" />
           </Profile>
           <Content>
@@ -135,7 +134,7 @@ export default function ResultStudyComponent(): JSX.Element {
     }
 
     setLilist(temp);
-  }, [resultStudyList]);
+  }, [resultStudyList, viewCount]);
 
   return (
     <>
@@ -145,7 +144,12 @@ export default function ResultStudyComponent(): JSX.Element {
           <ResultTitle>{resultStudyList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"스터디"} />
           <ListWrapper>{Lilist}</ListWrapper>
-          {resultStudyList.length > viewCount && <ListFooterComponent />}
+          {resultStudyList.length > viewCount && (
+            <ListFooterComponent
+              viewCount={viewCount}
+              setViewCount={setViewCount}
+            />
+          )}
         </>
       ) : (
         <NotFoundComponent />

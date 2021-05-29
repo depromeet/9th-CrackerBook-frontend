@@ -107,7 +107,7 @@ export default function FavoriteBookComponent(): JSX.Element {
           return (
             <LiLink key={index} onClick={() => bookSelect(index, b)}>
               <Profile>
-                <ImgShadow></ImgShadow>
+                <ImgShadow />
                 <Img src="/assets/main/exBook.jpg" />
               </Profile>
               <Title>{b.title}</Title>

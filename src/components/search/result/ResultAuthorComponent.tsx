@@ -127,7 +127,7 @@ export default function ResultAuthorComponent(): JSX.Element {
       temp.push(
         <LiLink key={i}>
           <Profile>
-            <ImgShadow></ImgShadow>
+            <ImgShadow />
             <Img src="/assets/main/exBook.jpg" />
           </Profile>
           <ContentWrapper>
@@ -149,7 +149,7 @@ export default function ResultAuthorComponent(): JSX.Element {
     }
 
     setLilist(temp);
-  }, [resultAuthorList]);
+  }, [resultAuthorList, viewCount]);
 
   return (
     <>
@@ -157,33 +157,13 @@ export default function ResultAuthorComponent(): JSX.Element {
         <>
           <ResultTitle>{resultAuthorList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"저자"} />
-          <ListWrapper>
-            {resultAuthorList.map((b, index) => {
-              return (
-                <LiLink key={index}>
-                  <Profile>
-                    <ImgShadow></ImgShadow>
-                    <Img src="/assets/main/exBook.jpg" />
-                  </Profile>
-                  <ContentWrapper>
-                    <Title>{b.title}</Title>
-                    <Content>
-                      <SubTitle>저자</SubTitle>
-                      <SubContent>{b.author}</SubContent>
-                    </Content>
-                    <Content>
-                      <SubTitle>출판</SubTitle>
-                      <SubContent>{b.publish}</SubContent>
-                      <SubContent>{b.date}</SubContent>
-                    </Content>
-                  </ContentWrapper>
-                  <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
-                  <LikeImg src="/assets/search/bookLike.svg" />
-                </LiLink>
-              );
-            })}
-          </ListWrapper>
-          {resultAuthorList.length > viewCount && <ListFooterComponent />}
+          <ListWrapper>{Lilist}</ListWrapper>
+          {resultAuthorList.length > viewCount && (
+            <ListFooterComponent
+              viewCount={viewCount}
+              setViewCount={setViewCount}
+            />
+          )}
         </>
       ) : (
         <NotFoundComponent />
