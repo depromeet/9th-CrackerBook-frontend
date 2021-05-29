@@ -8,7 +8,7 @@ export default function Detail(): JSX.Element {
   return (
     <>
       <Head>
-        <title>검색 결과 : {Router.query.name}</title>
+        <title>검색 결과 : {Router.query.query}</title>
       </Head>
       <ResultComponent />
     </>

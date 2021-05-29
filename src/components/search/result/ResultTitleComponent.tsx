@@ -1,3 +1,4 @@
+import Router from "next/router";
 import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
@@ -37,6 +38,7 @@ const LiLink = styled.li`
   position: relative;
   display: flex;
   margin: 0 0 30px 0;
+  cursor: pointer;
 `;
 const Profile = styled.div`
   position: relative;
@@ -94,22 +96,10 @@ const SubContent = styled.div`
   line-height: 20px;
   color: #222222;
 `;
-const LikeImgBorder = styled.img`
-  position: absolute;
-  z-index: 10;
-  top: 0px;
-  right: 0px;
-  font-size: 14px;
-  color: #999999;
-  cursor: pointer;
-`;
 const LikeImg = styled.img`
   position: absolute;
-  z-index: 10;
-  top: 9px;
-  right: 5px;
-  font-size: 14px;
-  color: #999999;
+  top: 0px;
+  right: 0px;
   cursor: pointer;
 `;
 
@@ -125,7 +115,15 @@ export default function ResultTitleComponent(): JSX.Element {
 
     for (let i = 0; i < maxIndex; i++) {
       temp.push(
-        <LiLink key={i}>
+        <LiLink
+          key={i}
+          onClick={() =>
+            Router.push({
+              pathname: `/detail/book/bookDetail`,
+              query: { title: resultTitleList[i].title },
+            })
+          }
+        >
           <Profile>
             <ImgShadow />
             <Img src="/assets/main/exBook.jpg" />
@@ -142,8 +140,7 @@ export default function ResultTitleComponent(): JSX.Element {
               <SubContent>{resultTitleList[i].date}</SubContent>
             </Content>
           </ContentWrapper>
-          <LikeImgBorder src="/assets/search/bookLikeBorder.svg" />
-          <LikeImg src="/assets/search/bookLike.svg" />
+          <LikeImg src="/assets/search/likeBook.svg" />
         </LiLink>,
       );
     }

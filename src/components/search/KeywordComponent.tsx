@@ -91,7 +91,8 @@ export default function KeywordComponent(): JSX.Element {
                 key={index}
                 onClick={() =>
                   Router.push({
-                    pathname: `/search/result/${v}`,
+                    pathname: `/search/result`,
+                    query: { query: v },
                   })
                 }
               >

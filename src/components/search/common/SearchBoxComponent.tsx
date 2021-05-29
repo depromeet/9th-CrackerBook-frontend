@@ -124,7 +124,7 @@ export default function SearchBoxComponent(): JSX.Element {
   const [history, setHistory] = useRecoilState(historyState);
   const setInputClick = useSetRecoilState(inputClickState);
   const [searchWord, setSearchWord] = useState(
-    Router.query.name ? Router.query.name : "",
+    Router.query.query ? Router.query.query : "",
   );
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -153,7 +153,8 @@ export default function SearchBoxComponent(): JSX.Element {
         studyList.filter((s) => s.title.indexOf(inputRef.current.value) !== -1),
       );
       Router.push({
-        pathname: `/search/result/${inputRef.current.value}`,
+        pathname: `/search/result`,
+        query: { query: inputRef.current.value },
       });
       // history
       const historySplice = [...history];

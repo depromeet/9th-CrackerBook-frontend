@@ -1,3 +1,4 @@
+import Router from "next/router";
 import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
@@ -96,6 +97,12 @@ const Date = styled.div`
   line-height: 16px;
   color: #777777;
 `;
+const LikeImg = styled.img`
+  position: absolute;
+  bottom: 10px;
+  left: 82px;
+  cursor: pointer;
+`;
 
 export default function ResultStudyComponent(): JSX.Element {
   const [resultStudyList] = useRecoilState(resultStudyListState);
@@ -110,10 +117,19 @@ export default function ResultStudyComponent(): JSX.Element {
 
     for (let i = 0; i < maxIndex; i++) {
       temp.push(
-        <LiLink key={i}>
+        <LiLink
+          key={i}
+          onClick={() =>
+            Router.push({
+              pathname: `/detail/book/bookDetail`,
+              query: { title: resultStudyList[i].title },
+            })
+          }
+        >
           <Profile>
             <ImgShadow />
             <Img src="/assets/main/exBook.jpg" />
+            <LikeImg src="/assets/search/likeStudy.svg" />
           </Profile>
           <Content>
             <Icon src="/assets/main/bookIcon.svg" />
