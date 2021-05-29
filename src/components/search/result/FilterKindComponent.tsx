@@ -1,3 +1,5 @@
+import { useRecoilState } from "recoil";
+import { categoryListState, categoryState } from "src/components/states/search";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -34,28 +36,26 @@ const Bar = styled.div<{ index: number }>`
   border-bottom: 2px solid #ffd262;
 `;
 
-const TabTitles = ["책", "저자", "스터디"];
+export default function FilterKindComponent(): JSX.Element {
+  const [categoryList] = useRecoilState(categoryListState);
+  const [category, setCategory] = useRecoilState(categoryState);
 
-export default function FilterKindComponent(props: {
-  tabSelected: number;
-  setTabSelected: (index: number) => void;
-}): JSX.Element {
   return (
     <Wrapper>
       <Ul>
-        {TabTitles.map((v, index) => {
+        {categoryList.map((v, index) => {
           return (
             <Li
               key={index}
-              className={props.tabSelected === index ? "on" : ""}
-              onClick={() => props.setTabSelected(index)}
+              className={category === index ? "on" : ""}
+              onClick={() => setCategory(index)}
             >
               {v}
             </Li>
           );
         })}
       </Ul>
-      <Bar index={props.tabSelected} />
+      <Bar index={category} />
     </Wrapper>
   );
 }

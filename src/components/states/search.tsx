@@ -1,5 +1,9 @@
 import { atom } from "recoil";
 
+const categoryListState = atom({
+  key: `categoryList`,
+  default: ["책", "저자", "스터디"],
+});
 const categoryState = atom({
   key: `category`,
   default: 0,
@@ -37,6 +41,7 @@ const resultStudyFilterState = atom({
 });
 
 export {
+  categoryListState,
   categoryState,
   inputClickState,
   historyState,

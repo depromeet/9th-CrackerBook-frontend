@@ -6,10 +6,10 @@ import ResultAuthorComponent from "src/components/search/result/ResultAuthorComp
 import ResultStudyComponent from "src/components/search/result/ResultStudyComponent";
 import SearchInitComponent from "src/components/search/common/SearchInitComponent";
 import { useRecoilState } from "recoil";
-import { inputClickState } from "src/components/states/search";
+import { categoryState, inputClickState } from "src/components/states/search";
 
 export default function Detail(): JSX.Element {
-  const [tabSelected, setTabSelected] = useState(0);
+  const [category] = useRecoilState(categoryState);
   const [inputClick] = useRecoilState(inputClickState);
   const components = [
     <ResultBookComponent key="ResultBook" />,
@@ -24,11 +24,8 @@ export default function Detail(): JSX.Element {
         <SearchInitComponent />
       ) : (
         <>
-          <FilterKindComponent
-            tabSelected={tabSelected}
-            setTabSelected={setTabSelected}
-          />
-          {components[tabSelected]}
+          <FilterKindComponent />
+          {components[category]}
         </>
       )}
     </>
