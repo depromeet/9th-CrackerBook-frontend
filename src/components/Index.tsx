@@ -85,7 +85,6 @@ const MainIcon = styled.img`
 const NextDiv = styled.div`
   display: flex;
   flex-direction: column;
-  height: 30%;
   color: #222222;
   font-size: 14px;
   font-family: "Noto Sans KR", sans-serif;
