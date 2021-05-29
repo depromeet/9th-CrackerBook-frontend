@@ -13,6 +13,8 @@ import {
   TotalView,
 } from "../../../styles/main/BooksStyle";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSetRecoilState } from "recoil";
+import { CategoryTypeState, HeaderTextState } from "../../../state/main/mainState";
 
 export default function LikeBookComponent(): JSX.Element {
   return (
@@ -69,10 +71,19 @@ export function LikeBookNameContainer(): JSX.Element {
 }
 
 export function LikeTitleContainer(): JSX.Element {
+  const setCategoryState = useSetRecoilState<string>(CategoryTypeState);
+  const setHeaderState = useSetRecoilState<string>(HeaderTextState);
   return (
     <LikeStudyTitleWrapper className="main-content">
       <TitleDiv>좋아요가 많은 스터디</TitleDiv>
-      <TotalView>전체보기 &gt;</TotalView>
+      <TotalView
+        onClick={() => {
+          setCategoryState("likeDetail");
+          setHeaderState("좋아요가 많은 스터디");
+        }}
+      >
+        전체보기 &gt;
+      </TotalView>
     </LikeStudyTitleWrapper>
   );
 }

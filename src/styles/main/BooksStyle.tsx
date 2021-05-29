@@ -16,6 +16,15 @@ const StudyTypeDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-right: 20px;
+  color: #999999;
+  
+  &.nullActive {
+    color: #222222;
+  }
+  
+  &.active {
+    color: #222222;
+  }
 `;
 
 const StudyTypeTitle = styled.div`
