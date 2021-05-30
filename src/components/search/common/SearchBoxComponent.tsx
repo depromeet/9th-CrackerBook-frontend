@@ -128,30 +128,24 @@ export default function SearchBoxComponent(): JSX.Element {
   );
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const search = (event) => {
+  const searchKeyUp = (event) => {
     event.preventDefault();
     setCatagoryIsOpen(false);
     if (event.keyCode === 13) {
       setInputClick(false);
-      searchResult();
+      gotoResultPage();
     }
   };
 
-  const searchResult = () => {
+  const initResultPage = () => {
+    inputRef.current.value = `${Router.query.query}`;
+    search();
+  };
+
+  const gotoResultPage = () => {
     setSearchWord(inputRef.current.value);
     if (inputRef.current.value) {
-      // search sample - book
-      setResultTitleList(
-        bookList.filter((b) => b.title.indexOf(inputRef.current.value) !== -1),
-      );
-      // search sample - author
-      setResultAuthorList(
-        bookList.filter((b) => b.author.indexOf(inputRef.current.value) !== -1),
-      );
-      // search sample - study
-      setResultStudyList(
-        studyList.filter((s) => s.title.indexOf(inputRef.current.value) !== -1),
-      );
+      search();
       Router.push({
         pathname: `/search/result`,
         query: { query: inputRef.current.value },
@@ -164,10 +158,29 @@ export default function SearchBoxComponent(): JSX.Element {
     } else alert("검색어를 입력해주세요.");
   };
 
+  const search = () => {
+    // search sample - book
+    setResultTitleList(
+      bookList.filter((b) => b.title.indexOf(inputRef.current.value) !== -1),
+    );
+    // search sample - author
+    setResultAuthorList(
+      bookList.filter((b) => b.author.indexOf(inputRef.current.value) !== -1),
+    );
+    // search sample - study
+    setResultStudyList(
+      studyList.filter((s) => s.title.indexOf(inputRef.current.value) !== -1),
+    );
+  };
+
   const clearSearchWord = () => {
     inputRef.current.value = "";
     setSearchWord("");
   };
+
+  if (Router.query.query) {
+    initResultPage();
+  }
 
   return (
     <>
@@ -187,7 +200,7 @@ export default function SearchBoxComponent(): JSX.Element {
           >
             {CategoryTitles[category]}
             <OpenIconBox>
-              <img src="/assets/detail/dropDown.svg" />
+              <img src="/assets/opening/dropDown.svg" />
             </OpenIconBox>
           </CategoryWrapper>
           {catagoryIsOpen && (
@@ -216,12 +229,12 @@ export default function SearchBoxComponent(): JSX.Element {
             placeholder={`검색어를 입력해주세요.`}
             onClick={() => setInputClick(true)}
             onBlur={() => setInputClick(false)}
-            onKeyUp={search}
+            onKeyUp={searchKeyUp}
             ref={inputRef}
             autoComplete="off"
           />
 
-          <SearchIconBox onClick={() => searchResult()}>
+          <SearchIconBox onClick={() => gotoResultPage()}>
             <img src="/assets/search/search.svg" />
           </SearchIconBox>
           {searchWord && (

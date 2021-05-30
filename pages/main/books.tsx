@@ -79,7 +79,7 @@ export default function Books(): JSX.Element {
       periodStudyStart: dayjs(new Date()),
       periodStudyEnd: dayjs(new Date()),
       repeat: "",
-      repeatWeek: "",
+      repeatWeek: [],
       periodRecruitmentStart: dayjs(new Date()),
       periodRecruitmentEnd: dayjs(new Date()),
     });
