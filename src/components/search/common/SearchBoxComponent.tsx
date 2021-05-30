@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import {
   categoryState,
@@ -127,6 +127,12 @@ export default function SearchBoxComponent(): JSX.Element {
     Router.query.query ? Router.query.query : "",
   );
   const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (Router.query.query) {
+      inputRef.current.value = `${Router.query.query}`;
+      search(`${Router.query.query}`);
+    }
+  }, [Router.query]);
 
   const searchKeyUp = (event) => {
     event.preventDefault();
@@ -137,15 +143,10 @@ export default function SearchBoxComponent(): JSX.Element {
     }
   };
 
-  const initResultPage = () => {
-    inputRef.current.value = `${Router.query.query}`;
-    search();
-  };
-
   const gotoResultPage = () => {
     setSearchWord(inputRef.current.value);
     if (inputRef.current.value) {
-      search();
+      search(inputRef.current.value);
       Router.push({
         pathname: `/search/result`,
         query: { query: inputRef.current.value },
@@ -158,18 +159,16 @@ export default function SearchBoxComponent(): JSX.Element {
     } else alert("검색어를 입력해주세요.");
   };
 
-  const search = () => {
+  const search = (keyword) => {
     // search sample - book
-    setResultTitleList(
-      bookList.filter((b) => b.title.indexOf(inputRef.current.value) !== -1),
-    );
+    setResultTitleList(bookList.filter((b) => b.title.indexOf(keyword) !== -1));
     // search sample - author
     setResultAuthorList(
-      bookList.filter((b) => b.author.indexOf(inputRef.current.value) !== -1),
+      bookList.filter((b) => b.author.indexOf(keyword) !== -1),
     );
     // search sample - study
     setResultStudyList(
-      studyList.filter((s) => s.title.indexOf(inputRef.current.value) !== -1),
+      studyList.filter((s) => s.title.indexOf(keyword) !== -1),
     );
   };
 
@@ -177,10 +176,6 @@ export default function SearchBoxComponent(): JSX.Element {
     inputRef.current.value = "";
     setSearchWord("");
   };
-
-  if (Router.query.query) {
-    initResultPage();
-  }
 
   return (
     <>
