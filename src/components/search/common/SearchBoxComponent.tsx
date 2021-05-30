@@ -195,7 +195,7 @@ export default function SearchBoxComponent(): JSX.Element {
           >
             {CategoryTitles[category]}
             <OpenIconBox>
-              <img src="/assets/opening/dropDown.svg" />
+              <img src="/assets/opening/dropdown.svg" />
             </OpenIconBox>
           </CategoryWrapper>
           {catagoryIsOpen && (
