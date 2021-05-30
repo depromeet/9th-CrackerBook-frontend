@@ -1,0 +1,96 @@
+import {
+  LikeDiv,
+  LikeInfoWrapper,
+  LikeRank,
+  LikeStudyTitleWrapper,
+  LikeStudyWrapper,
+  RankBookImg,
+  RankBookWrapper,
+  StudyContent,
+  StudyIcon,
+  StudyTitle,
+  TitleDiv,
+  TotalView,
+} from "../../../styles/main/BooksStyle";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useSetRecoilState } from "recoil";
+import {
+  CategoryTypeState,
+  HeaderTextState,
+} from "../../../state/main/mainState";
+
+export default function LikeBookComponent(): JSX.Element {
+  return (
+    <LikeStudyWrapper>
+      <LikeTitleContainer />
+      <RankBookWrapper>
+        <Swiper spaceBetween={1} slidesPerView={2.5} initialSlide={0}>
+          <SwiperSlide>
+            <LikeInfoWrapper>
+              <RankBookImg src="/assets/main/exBook.jpg" loading="lazy" />
+              <LikeBookContainer />
+              <LikeBookNameContainer />
+              <LikeDateContainer />
+              <LikeRank src="/assets/main/like1.svg" />
+            </LikeInfoWrapper>
+          </SwiperSlide>
+          <SwiperSlide>
+            <LikeInfoWrapper>
+              <RankBookImg src="/assets/main/exBook.jpg" loading="lazy" />
+              <LikeBookContainer />
+              <LikeBookNameContainer />
+              <LikeDateContainer />
+              <LikeRank src="/assets/main/like2.svg" />
+            </LikeInfoWrapper>
+          </SwiperSlide>
+          <SwiperSlide>
+            <LikeInfoWrapper>
+              <RankBookImg src="/assets/main/exBook.jpg" loading="lazy" />
+              <LikeBookContainer />
+              <LikeBookNameContainer />
+              <LikeDateContainer />
+              <LikeRank src="/assets/main/like3.svg" />
+            </LikeInfoWrapper>
+          </SwiperSlide>
+        </Swiper>
+      </RankBookWrapper>
+    </LikeStudyWrapper>
+  );
+}
+
+export function LikeBookContainer(): JSX.Element {
+  return (
+    <StudyContent isLike={true}>
+      <StudyIcon src="/assets/main/miniBook.svg" />
+      <LikeDiv>토론</LikeDiv>
+      <StudyIcon src="/assets/main/member.svg" />
+      <LikeDiv>멤버 3/6</LikeDiv>
+    </StudyContent>
+  );
+}
+
+export function LikeBookNameContainer(): JSX.Element {
+  return <StudyTitle isLike={true}>한달 한권</StudyTitle>;
+}
+
+export function LikeTitleContainer(): JSX.Element {
+  const setCategoryState = useSetRecoilState<string>(CategoryTypeState);
+  const setHeaderState = useSetRecoilState<string>(HeaderTextState);
+  return (
+    <LikeStudyTitleWrapper className="main-content">
+      <TitleDiv>좋아요가 많은 스터디</TitleDiv>
+      <TotalView
+        onClick={() => {
+          setCategoryState("likeDetail");
+          setHeaderState("좋아요가 많은 스터디");
+        }}
+      >
+        전체보기 &gt;
+      </TotalView>
+    </LikeStudyTitleWrapper>
+  );
+}
+
+export function LikeDateContainer(): JSX.Element {
+  return <StudyContent isLike={true}>04.26~05.26 토 14:00</StudyContent>;
+}
