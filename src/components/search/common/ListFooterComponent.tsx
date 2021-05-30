@@ -20,9 +20,12 @@ const ListFooterIconBox = styled.div`
   margin: 0 2px;
 `;
 
-export default function ListFooterComponent(): JSX.Element {
+export default function ListFooterComponent(props: {
+  viewCount: number;
+  setViewCount: (index: number) => void;
+}): JSX.Element {
   return (
-    <ListFooterWrapper>
+    <ListFooterWrapper onClick={() => props.setViewCount(props.viewCount + 4)}>
       더 보기
       <ListFooterIconBox>
         <img src="/assets/search/arrowdown.svg" />

@@ -12,16 +12,15 @@ const successKaKaoLogin = async (response) => {
       {
         headers: {
           "Access-Control-Allow-Origin": "*",
-        }
-      }
+        },
+      },
     );
-    debugger
+    debugger;
     // setKakaoToken(res)
   } catch (error) {
     console.error(`fail kakao login : ${error}`);
-    debugger
+    debugger;
   }
-
 };
 
 const failKakaoLogin = (error) => {
@@ -91,7 +90,7 @@ const NextDiv = styled.div`
 `;
 
 const KakaoLoginBtn = styled.button`
-  background-color: #FEE500 !important;
+  background-color: #fee500 !important;
   font-size: 14px !important;
   height: 48px !important;
   width: 335px !important;

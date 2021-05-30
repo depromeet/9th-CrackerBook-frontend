@@ -20,6 +20,5 @@ export default function NewStudyComponent(): JSX.Element {
         </NewStudyWrapper>
       </StudyBackground>
     </>
-
   );
 }

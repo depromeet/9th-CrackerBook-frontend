@@ -17,11 +17,11 @@ const StudyTypeDiv = styled.div`
   justify-content: center;
   margin-right: 20px;
   color: #999999;
-  
+
   &.nullActive {
     color: #222222;
   }
-  
+
   &.active {
     color: #222222;
   }

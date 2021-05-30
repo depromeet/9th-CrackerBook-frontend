@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import {
@@ -26,7 +27,7 @@ export function EnrollStudy(): JSX.Element {
         />
         <InnerBox>
           <ContentBox>
-            <StudyName>'일센스'가 있는 살미이 되기 위해서는?</StudyName>
+            <StudyName>{`'일센스'가 있는 살미이 되기 위해서는?`}</StudyName>
             <Date>2021.04.26 ~ 05.21 토 14:00</Date>
           </ContentBox>
         </InnerBox>

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ListWrapper = styled.ul`
   position: relative;
-  //margin: 20px 20px;
+  //margin: 20px;
   margin: 2vw;
 `;
 const Title = styled.div`

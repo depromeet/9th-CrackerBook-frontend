@@ -12,15 +12,9 @@ const headerElement = (
     case "main":
       return <CrackerHeader src="/assets/main/HeaderTitle.svg" />;
     case "detail":
-      return (
-        <TitleHeader>
-          &apos; {headerState} &apos;의 스터디
-        </TitleHeader>
-      );
+      return <TitleHeader>&apos; {headerState} &apos;의 스터디</TitleHeader>;
     default:
-      return (
-        <TitleHeader>{headerState}</TitleHeader>
-      );
+      return <TitleHeader>{headerState}</TitleHeader>;
   }
 };
 

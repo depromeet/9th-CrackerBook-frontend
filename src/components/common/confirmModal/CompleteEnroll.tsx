@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { CompleteBoxState } from "../../../state/detail/detailState";

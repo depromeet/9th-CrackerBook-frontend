@@ -14,7 +14,10 @@ import {
 } from "../../../styles/main/BooksStyle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSetRecoilState } from "recoil";
-import { CategoryTypeState, HeaderTextState } from "../../../state/main/mainState";
+import {
+  CategoryTypeState,
+  HeaderTextState,
+} from "../../../state/main/mainState";
 
 export default function LikeBookComponent(): JSX.Element {
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import styled from "styled-components";
 import { BlackBackground } from "../../../styles/detail/common/commonStyle";
 import { ConfirmBox } from "../../common/confirmModal/ConfirmBox";
