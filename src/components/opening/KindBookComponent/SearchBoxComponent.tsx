@@ -9,6 +9,7 @@ import {
 } from "../../states/opening";
 import { studyFormState } from "src/components/states/studyForm";
 import { bookListState } from "src/components/states/book";
+import { getBooksByName, getBooksByAuthor } from "src/api/book";
 
 const SearchBoxInnerWrapper = styled.div`
   position: relative;
@@ -106,20 +107,20 @@ export default function SearchBoxComponent(): JSX.Element {
     setCatagoryIsOpen(false);
     if (event.keyCode === 13) searchResult();
   };
-  const searchResult = () => {
+
+  const searchResult = async () => {
     setSearchWord(inputRef.current.value);
     setResultListIndex(-1);
     // search sample
-    inputRef.current.value
-      ? setResultList(
-          bookList.filter(
-            (b) =>
-              (category === 0
-                ? b.title.indexOf(inputRef.current.value)
-                : b.author.indexOf(inputRef.current.value)) !== -1,
-          ),
-        )
-      : alert("검색어를 입력해주세요.");
+    if (inputRef.current.value) {
+      console.log("start");
+      const response =
+        category === 0
+          ? getBooksByName(inputRef.current.value)
+          : getBooksByAuthor(inputRef.current.value);
+      console.log(response);
+      // setResultList =
+    } else alert("검색어를 입력해주세요.");
   };
   const setCategoryFunction = (index) => {
     setCategory(index);
