@@ -94,7 +94,6 @@ const CategoryTitles = ["책", "저자", "관심책"];
 
 export default function SearchBoxComponent(): JSX.Element {
   const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
-  const [bookList] = useRecoilState(bookListState);
   const [category, setCategory] = useRecoilState(categoryState);
   const setResultList = useSetRecoilState(resultListState);
   const setResultListIndex = useSetRecoilState(resultListIndexState);
@@ -111,20 +110,33 @@ export default function SearchBoxComponent(): JSX.Element {
   const searchResult = async () => {
     setSearchWord(inputRef.current.value);
     setResultListIndex(-1);
+    setStudyForm({
+      ...studyForm,
+      book: { name: "", authors: "", title: "", author: "" },
+    });
     // search sample
-    if (inputRef.current.value) {
-      console.log("start");
+    if (!inputRef.current.value) alert("검색어를 입력해주세요.");
+
+    try {
       const response =
         category === 0
-          ? getBooksByName(inputRef.current.value)
-          : getBooksByAuthor(inputRef.current.value);
+          ? await getBooksByName(inputRef.current.value)
+          : await getBooksByAuthor(inputRef.current.value);
+
       console.log(response);
-      // setResultList =
-    } else alert("검색어를 입력해주세요.");
+
+      setResultList(response.data.data.book_search_list);
+    } catch (error) {
+      alert(error.response.data.meta.message);
+    }
   };
+
   const setCategoryFunction = (index) => {
     setCategory(index);
-    setStudyForm({ ...studyForm, book: { title: "", author: "" } });
+    setStudyForm({
+      ...studyForm,
+      book: { name: "", authors: "", title: "", author: "" },
+    });
   };
   const clearSearchWord = () => {
     inputRef.current.value = "";

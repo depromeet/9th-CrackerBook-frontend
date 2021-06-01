@@ -69,7 +69,7 @@ export default function Index(): JSX.Element {
     setNextStep(1);
     setResultListIndex(-1);
     setStudyForm({
-      book: { title: "", author: "" },
+      book: { name: "", authors: "", title: "", author: "" },
       type: "",
       typeEtcString: "",
       name: "",

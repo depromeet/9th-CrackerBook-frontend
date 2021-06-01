@@ -11,7 +11,7 @@ EndDate.setDate(EndDate.getDate() + 1);
 const studyFormState = atom({
   key: `studyForm`,
   default: {
-    book: { title: "", author: "" },
+    book: { name: "", authors: "", title: "", author: "" },
     type: "",
     typeEtcString: "",
     name: "",

@@ -12,7 +12,7 @@ export default function KindBookComponent(): JSX.Element {
   const setNextStep = useSetRecoilState(nextStepState);
 
   useEffect(() => {
-    studyForm.book.title === "" ? setNextStep(1) : setNextStep(2);
+    studyForm.book.name === "" ? setNextStep(1) : setNextStep(2);
   });
 
   return (
