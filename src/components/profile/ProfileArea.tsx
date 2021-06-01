@@ -49,7 +49,7 @@ const ProfileImgArea = styled.div`
 const EditProfile = styled.img`
   position: absolute;
   top: 75px;
-  left: 21vw;
+  left: calc(50% + 20px);
 
   width: 26px;
   height: 26px;

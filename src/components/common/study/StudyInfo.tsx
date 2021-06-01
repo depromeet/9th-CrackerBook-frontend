@@ -54,19 +54,21 @@ const DateArea = styled.p`
 
 const ProgressBar = styled.div`
   width: 97px;
-  height: 1px;
-  border: 2px solid #f1f1f3;
+  height: 4px;
+  background-color: #F1F1F3;
+  margin-top: 5px;
 `;
 
 const Gage = styled.div`
   /* cracker yellow */
-  height: 1px;
-  //width: 30px;
-  border: 2px solid #ffd262;
+  position: absolute;
+  height: 4px;
+  background-color: #ffd262;
 `;
 
 const ProgressArea = styled.div`
   display: flex;
+  height: 100%;
 `;
 
 const PercentFont = styled.p`
@@ -108,12 +110,14 @@ export default function StudyInfo(props: any): JSX.Element {
           <>
             {props && props.studyInfo.progressPercent && (
               <ProgressArea>
-                <ProgressBar />
-                <Gage
-                  style={{
-                    width: props.studyInfo.progressPercent,
-                  }}
-                />
+                <ProgressBar>
+                  <Gage
+                      style={{
+                        width: props.studyInfo.progressPercent,
+                      }}
+                  />
+                </ProgressBar>
+
                 <PercentFont>{props.studyInfo.progressPercent}%</PercentFont>
               </ProgressArea>
             )}
