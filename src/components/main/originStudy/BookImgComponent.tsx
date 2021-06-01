@@ -6,22 +6,27 @@ import {
   IconWrapper,
 } from "../../../styles/main/BooksStyle";
 import styled from "styled-components";
+import Color from "color-thief-react";
 
 export default function BookImgComponent(props: { img: string }): JSX.Element {
   return (
     <>
-      <Link href="/detail/book">
-        <BookBox>
-          <ImgWrapper>
-            <ImgShadow />
-            <Img src={props.img} />
-          </ImgWrapper>
-          <IconWrapper>
-            <HeartIconBookBox src="/assets/main/bookLike.svg" />
-            <HeartCnt>14</HeartCnt>
-          </IconWrapper>
-        </BookBox>
-      </Link>
+      <Color src={props.img} format="rgbString">
+        {({ data }) => (
+          <Link href="/detail/book">
+            <BookBox backgroundColor={data}>
+              <ImgWrapper>
+                <ImgShadow />
+                <Img src={props.img} />
+              </ImgWrapper>
+              <IconWrapper>
+                <HeartIconBookBox src="/assets/main/bookLike.svg" />
+                <HeartCnt>14</HeartCnt>
+              </IconWrapper>
+            </BookBox>
+          </Link>
+        )}
+      </Color>
     </>
   );
 }

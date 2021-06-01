@@ -64,8 +64,8 @@ const TotalView = styled.div`
   cursor: pointer;
 `;
 
-const BookBox = styled.div`
-  background-color: #f9d1b4;
+const BookBox = styled.div<{ backgroundColor: string }>`
+  background-color: ${(props) => props.backgroundColor};
   border-radius: 10px;
   width: 335px;
   height: 226px;
