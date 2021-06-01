@@ -61,7 +61,7 @@ const MainContainer = styled.div`
   padding: 0 20px;
   text-align: center;
   height: 100vh;
-  background-color: white;
+  background-color: #fff6e1;
 `;
 
 const MobileTitle = styled.img`
