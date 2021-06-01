@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import BookWithShadow from "src/components/common/book/BookWithShadow";
 import StudyInfo from "src/components/common/study/StudyInfo";
+import MiniPopupList from "src/components/common/MiniPopupList";
 
 const TabBar = styled.div`
   width: 100%;
@@ -45,11 +46,32 @@ const studyInfo = {
 };
 
 export default function StudyInfoView(): JSX.Element {
+
+    const sampleData = [
+        {value: 'edit',
+            text: '수정하기',
+            icon:'none',
+            linkPath:'/profile/hostStudyList/1/editStudyInfo',
+        },
+        {value: 'cancle',
+            text: '취소하기',
+            icon:'none',
+            linkPath:'none',
+        }
+    ]
+
   return (
     <div style={{ display: "flex", marginTop: "2em" }}>
       <BookWithShadow width={100} height={138} />
       <StudyInfo studyInfo={studyInfo} style={{ display: "flex" }} />
-      <Icon src="/assets/profile/dotmenubtn.svg" style={{ marginTop: "1em" }} />
+        <div style={{ margin: "2em", marginTop: "1em" }}>
+            <Icon src="/assets/profile/dotmenubtn.svg" />
+            <div style={{ position: "absolute", right: '1vw'}}>
+                <MiniPopupList  listvalue={sampleData} />
+            </div>
+
+        </div>
+
     </div>
   );
 }
