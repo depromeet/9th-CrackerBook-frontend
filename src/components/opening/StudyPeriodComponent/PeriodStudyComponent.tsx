@@ -112,47 +112,45 @@ export default function PeriodStudyComponent(): JSX.Element {
         <TimeStartWrapper onClick={() => setIsOpenStudyStart(true)}>
           <StartImg src="/assets/opening/period.svg" />
           <DateStartText>
-            {studyForm.periodStudyStart
+            {studyForm.studyStartDate
               .locale("ko")
               .format("YY년 MM월 DD일(ddd)")}
           </DateStartText>
           <TimeStartText>
-            {studyForm.periodStudyStart.locale("en").format("A hh:mm")}
+            {studyForm.studyStartDate.locale("en").format("A hh:mm")}
           </TimeStartText>
         </TimeStartWrapper>
         <TimeEndWrapper onClick={() => setIsOpenStudyEnd(true)}>
           <DateEndText>
-            {studyForm.periodStudyEnd
-              .locale("ko")
-              .format("YY년 MM월 DD일(ddd)")}
+            {studyForm.studyEndDate.locale("ko").format("YY년 MM월 DD일(ddd)")}
           </DateEndText>
           <TimeEndText>
-            {studyForm.periodStudyEnd.locale("en").format("A hh:mm")}
+            {studyForm.studyEndDate.locale("en").format("A hh:mm")}
           </TimeEndText>
         </TimeEndWrapper>
         <DateTimePickerWrapper>
           <ThemeProvider theme={defaultMaterialTheme}>
             <DateTimePicker
-              value={studyForm.periodStudyStart}
+              value={studyForm.studyStartDate}
               open={isOpenStudyStart}
               onOpen={() => setIsOpenStudyStart(true)}
               onClose={() => setIsOpenStudyStart(false)}
               onChange={(date) =>
                 setStudyForm({
                   ...studyForm,
-                  periodStudyStart: dayjs(date),
+                  studyStartDate: dayjs(date),
                 })
               }
             ></DateTimePicker>
             <DateTimePicker
-              value={studyForm.periodStudyEnd}
+              value={studyForm.studyEndDate}
               open={isOpenStudyEnd}
               onOpen={() => setIsOpenStudyEnd(true)}
               onClose={() => setIsOpenStudyEnd(false)}
               onChange={(date) =>
                 setStudyForm({
                   ...studyForm,
-                  periodStudyEnd: dayjs(date),
+                  studyEndDate: dayjs(date),
                 })
               }
             ></DateTimePicker>

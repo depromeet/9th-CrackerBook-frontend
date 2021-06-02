@@ -42,7 +42,7 @@ const LiText = styled.div`
   text-align: left;
 `;
 
-const DifficultData = [
+const difficultyData = [
   { label: "초급", value: "beginner" },
   { label: "중급", value: "intermediate" },
   { label: "고급", value: "advanced" },
@@ -56,18 +56,18 @@ export default function FormComponent(): JSX.Element {
       <Title>스터디 난이도</Title>
       <Content>
         <UlWrapper>
-          {DifficultData.map((v, index) => {
+          {difficultyData.map((v, index) => {
             return (
               <LiList
                 key={index}
                 onClick={() =>
                   setStudyForm({
                     ...studyForm,
-                    Difficult: v.value,
+                    difficulty: v.value,
                   })
                 }
               >
-                {studyForm.Difficult === v.value ? (
+                {studyForm.difficulty === v.value ? (
                   <LiIcon src="/assets/opening/check26.svg" />
                 ) : (
                   <LiIcon src="/assets/opening/notcheck26.svg" />

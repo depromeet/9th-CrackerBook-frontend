@@ -10,7 +10,7 @@ import FooterComponent from "./common/FooterComponent";
 import HeaderComponent from "./common/HeaderComponent";
 
 const MainContentWrapper = styled.div`
-  padding: 18px 0;
+  padding: 18px 0 100px 0;
 `;
 
 export default function Index(): JSX.Element {

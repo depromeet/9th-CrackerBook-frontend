@@ -13,14 +13,14 @@ import { studyFormState } from "src/components/states/studyForm";
 
 const SvgWrapper = styled.div`
   position: relative;
-  height: 577px;
+  height: 477px;
 `;
 const SvgInnerWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   margin-left: -187px;
-  margin-top: -335px;
+  margin-top: -277px;
 `;
 
 // 토론, 발표, 글쓰기, 포트폴리오, 기타

@@ -8,7 +8,6 @@ import {
   searchKeywordState,
 } from "../../states/opening";
 import { studyFormState } from "src/components/states/studyForm";
-import { bookListState } from "src/components/states/book";
 import { getBooksByName, getBooksByAuthor } from "src/api/book";
 
 const SearchBoxInnerWrapper = styled.div`
@@ -120,8 +119,8 @@ export default function SearchBoxComponent(): JSX.Element {
     try {
       const response =
         category === 0
-          ? await getBooksByName(inputRef.current.value)
-          : await getBooksByAuthor(inputRef.current.value);
+          ? await getBooksByName(inputRef.current.value, 1, 10)
+          : await getBooksByAuthor(inputRef.current.value, 1, 10);
 
       console.log(response);
 

@@ -40,7 +40,7 @@ export default function FormComponent(): JSX.Element {
 
   const setPersonnelFunction = (event, value) => {
     event.preventDefault();
-    setStudyForm({ ...studyForm, personnel: value === 0 ? 1 : value });
+    setStudyForm({ ...studyForm, capacity: value === 0 ? 1 : value });
   };
 
   return (
@@ -51,16 +51,16 @@ export default function FormComponent(): JSX.Element {
           <ImgCursor
             src="/assets/opening/formminus.svg"
             onClick={(event) =>
-              setPersonnelFunction(event, studyForm.personnel - 1)
+              setPersonnelFunction(event, studyForm.capacity - 1)
             }
           />
         </div>
-        <ContentNumber>{studyForm.personnel}</ContentNumber>
+        <ContentNumber>{studyForm.capacity}</ContentNumber>
         <div>
           <ImgCursor
             src="/assets/opening/formplus.svg"
             onClick={(event) =>
-              setPersonnelFunction(event, studyForm.personnel + 1)
+              setPersonnelFunction(event, studyForm.capacity + 1)
             }
           />
         </div>

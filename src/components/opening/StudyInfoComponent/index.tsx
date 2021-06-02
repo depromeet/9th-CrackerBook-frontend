@@ -10,16 +10,16 @@ import DifficultComponent from "./DifficultComponent";
 import LocationComponent from "./LocationComponent";
 
 const FormWrapper = styled.div`
-  padding: 0 20px 80px 20px;
+  padding: 0 20px;
 `;
 
 export default function StudyInfoComponent(): JSX.Element {
   const setNextStep = useSetRecoilState(nextStepState);
   const [studyForm] = useRecoilState(studyFormState);
   useEffect(() => {
-    studyForm.name === "" ||
-    studyForm.Difficult === "" ||
-    studyForm.place === ""
+    studyForm.studyName === "" ||
+    studyForm.difficulty === "" ||
+    studyForm.placeType === ""
       ? setNextStep(3)
       : setNextStep(4);
   });

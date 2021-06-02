@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 
 const ListWrapper = styled.ul`
   position: relative;
-  margin: 32px 20px 100px 20px;
+  margin: 32px 20px 20px 20px;
 `;
 const Title = styled.div`
   display: -webkit-box;
@@ -157,7 +157,7 @@ export default function SearchResultComponent(): JSX.Element {
               >
                 <Profile>
                   <ImgShadow>
-                    <Img src={b.image_url_big} />
+                    <Img src={b.image_url} />
                   </ImgShadow>
                 </Profile>
                 <ContentWrapper>

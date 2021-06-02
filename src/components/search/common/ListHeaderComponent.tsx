@@ -38,7 +38,7 @@ export default function ListFooterComponent(props: {
       <ListHeadTitle>{props.title}</ListHeadTitle>
       {/* <ListHeadDetail>전체보기</ListHeadDetail>
       <DetailLink>
-        <Link href="/login/setNicname">
+        <Link href="/login/setNicstudyName">
           <a>
             <img src="/assets/search/detaillink.svg" />
           </a>

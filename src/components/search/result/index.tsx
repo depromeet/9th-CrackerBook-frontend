@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SearchBoxComponent from "src/components/search/common/SearchBoxComponent";
 import FilterKindComponent from "src/components/search/result/FilterKindComponent";
 import ResultBookComponent from "src/components/search/result/ResultTitleComponent";

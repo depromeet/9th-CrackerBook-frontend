@@ -38,21 +38,21 @@ const Textarea = styled.textarea`
 
 export default function FormComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
-  const introductionRef = useRef<HTMLTextAreaElement>(null);
+  const descriptionRef = useRef<HTMLTextAreaElement>(null);
 
   return (
     <ContentWrapper>
       <Title>스터디소개</Title>
       <Content>
         <Textarea
-          defaultValue={studyForm.introduction}
+          defaultValue={studyForm.description}
           onKeyUp={() =>
             setStudyForm({
               ...studyForm,
-              introduction: introductionRef.current.value,
+              description: descriptionRef.current.value,
             })
           }
-          ref={introductionRef}
+          ref={descriptionRef}
           placeholder="스터디를 소개해보세요."
         />
       </Content>

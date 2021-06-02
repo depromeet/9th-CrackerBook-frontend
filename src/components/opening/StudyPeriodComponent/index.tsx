@@ -10,7 +10,7 @@ import RepeatComponent from "./RepeatComponent";
 import CompleteComponent from "src/components/common/CompleteComponent";
 
 const FormWrapper = styled.div`
-  padding: 0 0 80px 0;
+  padding: 0;
 `;
 
 export default function StudyPeriodComponent(): JSX.Element {
@@ -19,8 +19,8 @@ export default function StudyPeriodComponent(): JSX.Element {
   const [studyForm] = useRecoilState(studyFormState);
   useEffect(() => {
     studyForm.repeat === "" ||
-    studyForm.periodStudyStart >= studyForm.periodStudyEnd ||
-    studyForm.periodRecruitmentStart >= studyForm.periodRecruitmentEnd
+    studyForm.studyStartDate >= studyForm.studyEndDate ||
+    studyForm.recruitStartAt >= studyForm.recruitEndAt
       ? setNextStep(4)
       : setNextStep(5);
   });

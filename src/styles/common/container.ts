@@ -39,8 +39,8 @@ const Mobile = styled.section`
   position: relative;
   width: 375px;
   max-width: 375px;
-  zoom: 1.25;
-  min-height: 80vh;
+  zoom: 1.15;
+  min-height: 812px;
   margin: 0 0 0 calc(50% - 1px);
   background-color: ${({ theme }) => theme.colors.white};
   ${({ theme }) => theme.media.tablet`

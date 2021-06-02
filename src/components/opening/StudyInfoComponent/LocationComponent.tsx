@@ -69,9 +69,9 @@ export default function FormComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const placeDetailRef = useRef<HTMLInputElement>(null);
 
-  const setPlaceFunction = (event, place) => {
+  const setPlaceFunction = (event, placeType) => {
     event.preventDefault();
-    setStudyForm({ ...studyForm, placeDetail: "", place });
+    setStudyForm({ ...studyForm, placeDetail: "", placeType });
   };
 
   return (
@@ -85,7 +85,7 @@ export default function FormComponent(): JSX.Element {
                 key={index}
                 onClick={(event) => setPlaceFunction(event, v.value)}
               >
-                {studyForm.place === v.value ? (
+                {studyForm.placeType === v.value ? (
                   <>
                     <LiIcon src="/assets/opening/check26.svg" />
                     <LiText>{v.label}</LiText>
@@ -100,7 +100,7 @@ export default function FormComponent(): JSX.Element {
                           })
                         }
                         ref={placeDetailRef}
-                        disabled={studyForm.place !== v.value}
+                        disabled={studyForm.placeType !== v.value}
                       />
                     )}
                   </>
