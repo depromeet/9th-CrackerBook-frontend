@@ -6,4 +6,8 @@ const getKakaoToken = () => {
   window.localStorage.getItem("kakao");
 };
 
-export { setKakaoToken, getKakaoToken };
+const removeKakaoToken = () => {
+  window.localStorage.removeItem("kakao");
+};
+
+export { setKakaoToken, getKakaoToken, removeKakaoToken };

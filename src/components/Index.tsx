@@ -1,30 +1,21 @@
 import Link from "next/link";
 import styled from "styled-components";
-import KakaoLogin from "react-kakao-login";
-import { setKakaoToken } from "../storage/storage";
-import axios from "axios";
+import Router from "next/router";
 
-const successKaKaoLogin = async (response) => {
-  console.log(response);
+const kaKaoLogin = async () => {
   try {
-    const kakaoLogin = await axios.get(
-      "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=8975849c679f23f51fe72cd0a1581921&redirect_uri=http://localhost:3000",
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
+    await Router.push({
+      pathname: "https://kauth.kakao.com/oauth/authorize",
+      query: {
+        response_type: "code",
+        client_id: process.env.NEXT_PUBLIC_KAKAO_KEY,
+        redirect_uri: "http://localhost:3000/callback/kakao",
       },
-    );
-    debugger;
-    // setKakaoToken(res)
+    });
   } catch (error) {
     console.error(`fail kakao login : ${error}`);
     debugger;
   }
-};
-
-const failKakaoLogin = (error) => {
-  console.error(`fail to get kakao token : ${error}`);
 };
 
 export default function IndexComponent(): JSX.Element {
@@ -36,7 +27,7 @@ export default function IndexComponent(): JSX.Element {
       </ImgWrapper>
       <NextDiv>
         <div>
-          <KakaoLoginBtn>
+          <KakaoLoginBtn onClick={kaKaoLogin}>
             <KakaoIcon src="/assets/main/kakao.svg" />
             카카오로 로그인
           </KakaoLoginBtn>
