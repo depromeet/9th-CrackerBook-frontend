@@ -12,6 +12,8 @@ import {
 } from "../src/styles/common/container";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
+// Import Swiper styles
+import "swiper/swiper.scss";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {

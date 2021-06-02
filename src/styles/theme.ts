@@ -5,22 +5,22 @@ import baseStyled, {
 } from "styled-components";
 
 const sizes: { [key: string]: number } = {
-  mobile: 800,
-  // tablet: 800,
-  desktop: 1024,
+  mobile: 400,
+  tablet: 600,
+  desktop: 800,
 };
 
 type BackQuoteArgs = string[];
 
 interface Media {
   mobile: (...args: BackQuoteArgs) => CSSProp | undefined;
-  // tablet: (...args: BackQuoteArgs) => CSSProp | undefined;
+  tablet: (...args: BackQuoteArgs) => CSSProp | undefined;
   desktop: (...args: BackQuoteArgs) => CSSProp | undefined;
 }
 
 const media: Media = {
   mobile: () => undefined,
-  // tablet: (...args: BackQuoteArgs) => undefined,
+  tablet: () => undefined,
   desktop: () => undefined,
 };
 
@@ -29,23 +29,23 @@ Object.keys(sizes).reduce((acc: Media, label: string) => {
     case "desktop":
       acc.desktop = (...args: BackQuoteArgs) =>
         css`
-          @media only screen and (min-width: ${sizes.mobile}px) {
+          @media only screen and (min-width: ${sizes.desktop}px) {
             ${args}
           }
         `;
       break;
-    // case "tablet":
-    //   acc.tablet = (...args: BackQuoteArgs) =>
-    //     css`
-    //       @media only screen and (max-width: ${sizes.desktop}px) and (min-width: ${sizes.tablet}px) {
-    //         ${args}
-    //       }
-    //     `;
-    //   break;
+    case "tablet":
+      acc.tablet = (...args: BackQuoteArgs) =>
+        css`
+          @media only screen and (max-width: ${sizes.desktop}px) and (min-width: ${sizes.tablet}px) {
+            ${args}
+          }
+        `;
+      break;
     case "mobile":
       acc.mobile = (...args: BackQuoteArgs) =>
         css`
-          @media only screen and (max-width: ${sizes.mobile}px) {
+          @media only screen and (max-width: ${sizes.tablet}px) {
             ${args}
           }
         `;

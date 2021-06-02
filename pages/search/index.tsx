@@ -1,5 +1,4 @@
-import SearchBoxComponent from "../../src/components/search/common/SearchBoxComponent";
-import KeywordComponent from "../../src/components/search/index/KeywordComponent";
+import SearchComponent from "src/components/search";
 import Head from "next/head";
 
 export default function Index(): JSX.Element {
@@ -8,8 +7,7 @@ export default function Index(): JSX.Element {
       <Head>
         <title>검색</title>
       </Head>
-      <SearchBoxComponent />
-      <KeywordComponent />
+      <SearchComponent />
     </>
   );
 }

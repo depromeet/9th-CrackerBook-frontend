@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   nextStepState,
   currentStepState,
-  typeState,
   showEtcTypeState,
-  showCompleteState,
-} from "../states";
-import CompleteComponent from "./CompleteComponent";
+} from "../../states/opening";
+import { showCompleteState } from "src/components/states";
+import { studyFormState } from "../../states/studyForm";
 
 const Footer = styled.footer`
   position: fixed;
@@ -22,11 +21,14 @@ const Footer = styled.footer`
   cursor: pointer;
   &.disabled {
     cursor: default;
+    background: #dddddd;
   }
   z-index: 100;
 `;
-const TextDiv = styled.div`
+const Text = styled.div`
   margin: 0 0 30px 0;
+  width: 200px;
+  text-align: center;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
@@ -39,15 +41,15 @@ const TextDiv = styled.div`
 `;
 
 export default function FooterComponent(): JSX.Element {
-  // const [nextStep] = useRecoilState(nextStepState);
+  const [nextStep] = useRecoilState(nextStepState);
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
   const [showEtcType, setShowEtcType] = useRecoilState(showEtcTypeState);
   const [showComplete, setShowComplete] = useRecoilState(showCompleteState);
-  const [type] = useRecoilState(typeState);
+  const [studyForm] = useRecoilState(studyFormState);
 
-  const nextStep = (event) => {
+  const currentStepPlus = (event) => {
     event.preventDefault();
-    if (currentStep === 2 && type === "etc") {
+    if (currentStep === 2 && studyForm.type === "etc") {
       setShowEtcType(true);
     } else {
       setCurrentStep(currentStep + 1);
@@ -56,30 +58,29 @@ export default function FooterComponent(): JSX.Element {
 
   return (
     <>
-      {!showEtcType && (
+      {!showEtcType && !showComplete && (
         <>
-          {/* {nextStep ? ( */}
-          <>
-            {currentStep !== 4 ? (
-              <Footer onClick={(event) => nextStep(event)}>
-                <TextDiv>다음 ({currentStep}/4)</TextDiv>
-              </Footer>
-            ) : (
-              <Footer onClick={() => setShowComplete(true)}>
-                <TextDiv>완료 ({currentStep}/4)</TextDiv>
-              </Footer>
-            )}
-            {showComplete && <CompleteComponent />}
-          </>
-          {/* ) : (
-        <Footer className="disabled">
-          {currentStep !== 4 ? (
-            <TextDiv className="disabled">다음 ({currentStep}/4)</TextDiv>
+          {nextStep > currentStep ? (
+            <>
+              {currentStep !== 4 ? (
+                <Footer onClick={(event) => currentStepPlus(event)}>
+                  <Text>다음 ({currentStep}/4)</Text>
+                </Footer>
+              ) : (
+                <Footer onClick={() => setShowComplete(true)}>
+                  <Text>완료 ({currentStep}/4)</Text>
+                </Footer>
+              )}
+            </>
           ) : (
-            <TextDiv className="disabled">완료 ({currentStep}/4)</TextDiv>
+            <Footer className="disabled">
+              {currentStep !== 4 ? (
+                <Text className="disabled">다음 ({currentStep}/4)</Text>
+              ) : (
+                <Text className="disabled">완료 ({currentStep}/4)</Text>
+              )}
+            </Footer>
           )}
-        </Footer>
-      )} */}
         </>
       )}
     </>

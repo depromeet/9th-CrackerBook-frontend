@@ -6,7 +6,7 @@ import StudyInfo from "./StudyInfo";
 
 const ListWrapper = styled.ul`
   position: relative;
-  //margin: 20px 20px;
+  //margin: 20px;
   margin: 2vw;
   width: 100%;
 `;
