@@ -1,7 +1,5 @@
 import {
   HostContent1,
-  HostContent2,
-  HostContent3,
   Profile,
   StudyContentCover,
 } from "../../../../styles/detail/study/studyCommonStyle";
@@ -15,11 +13,11 @@ export function HostBoxContainer(): JSX.Element {
       <div>
         <HostContentCover>
           <HostContent1>빈센조</HostContent1>
-          <HostContent3 src="/assets/detail/trophy.svg" />
-          <HostContent2>슈퍼크래커</HostContent2>
         </HostContentCover>
         <StudyContentCover>
-          <div>스터디 7</div>
+          <div>활동배지 7</div>
+          <Bar>|</Bar>
+          <div>스터디 286</div>
           <Bar>|</Bar>
           <div>후기 286</div>
         </StudyContentCover>
@@ -30,7 +28,7 @@ export function HostBoxContainer(): JSX.Element {
 
 const HostBox = styled(Box)`
   margin: 35px 20px 40px;
-  padding: 20px 100px 20px 20px;
+  padding: 20px 40px 20px 20px;
   display: flex;
   align-items: center;
 `;

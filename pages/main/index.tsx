@@ -38,7 +38,7 @@ export default function Index(): JSX.Element {
     setBookData([
       {
         bookName: "데이터 분석하는 디자이너 되는거야",
-        img: "/assets/main/exBook.jpg",
+        img: "/assets/main/greenBook.jpg",
         studyName: "같이 포트폴리오 만들어요",
         host: "데이지",
         memberCnt: 3,

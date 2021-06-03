@@ -16,7 +16,7 @@ export function RegitQuestion(): JSX.Element {
           src={
             isCheck
               ? "/assets/detail/checkBox.svg"
-              : "/assets/detail/emptyBox.svg"
+              : "/assets/detail/noneCheckBox.svg"
           }
           onClick={() => setIsCheck(!isCheck)}
         />
