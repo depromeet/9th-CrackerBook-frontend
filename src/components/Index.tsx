@@ -5,16 +5,15 @@ import Router from "next/router";
 const kaKaoLogin = async () => {
   try {
     await Router.push({
-      pathname: "https://kauth.kakao.com/oauth/authorize",
+      pathname: process.env.NEXT_PUBLIC_PATH_NAME,
       query: {
         response_type: "code",
         client_id: process.env.NEXT_PUBLIC_KAKAO_KEY,
-        redirect_uri: "http://localhost:3000/callback/kakao",
+        redirect_uri: process.env.NEXT_PUBLIC_BASE_URL,
       },
     });
   } catch (error) {
     console.error(`fail kakao login : ${error}`);
-    debugger;
   }
 };
 

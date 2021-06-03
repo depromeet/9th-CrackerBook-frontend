@@ -2,6 +2,7 @@ import Router, { useRouter } from "next/router";
 import { useEffect } from "react";
 import { kakaoLogin } from "../../apiSW/login";
 import { setKakaoToken } from "../../storage/storage";
+import styled from "styled-components";
 
 const useLogin = (code: string) => {
   try {
@@ -27,5 +28,36 @@ export default function KakaoRedirectComponent(): JSX.Element {
   const kakaoCode = url.split("code=")[1];
   useLogin(kakaoCode);
 
-  return <>로그인 중</>;
+  return (
+    <Background>
+      <LoadingWrapper>
+        <LoadingImg src="/assets/main/mainIcon.svg" />
+        <LoadingComment>Loading...</LoadingComment>
+      </LoadingWrapper>
+    </Background>
+  );
 }
+
+const Background = styled.div`
+  background-color: #fff6e1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const LoadingImg = styled.img`
+  width: 57px;
+  height: 69px;
+  padding-bottom: 10px;
+`;
+
+const LoadingWrapper = styled.div`
+  text-align: center;
+`;
+
+const LoadingComment = styled.div`
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+`;

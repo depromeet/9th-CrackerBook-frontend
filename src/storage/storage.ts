@@ -10,4 +10,23 @@ const removeKakaoToken = () => {
   window.localStorage.removeItem("kakao");
 };
 
-export { setKakaoToken, getKakaoToken, removeKakaoToken };
+const setUserIdToken = (userId: string) => {
+  window.localStorage.setItem("userId", userId);
+};
+
+const getUserIdToken = () => {
+  window.localStorage.getItem("userId");
+};
+
+const removeUserIdToken = () => {
+  window.localStorage.removeItem("userId");
+};
+
+export {
+  setKakaoToken,
+  getKakaoToken,
+  removeKakaoToken,
+  setUserIdToken,
+  getUserIdToken,
+  removeUserIdToken,
+};
