@@ -9,7 +9,7 @@ const kaKaoLogin = async () => {
       query: {
         response_type: "code",
         client_id: process.env.NEXT_PUBLIC_KAKAO_KEY,
-        redirect_uri: process.env.NEXT_PUBLIC_BASE_URL,
+        redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URL,
       },
     });
   } catch (error) {
