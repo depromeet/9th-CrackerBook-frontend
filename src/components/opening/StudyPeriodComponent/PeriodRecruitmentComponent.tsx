@@ -101,7 +101,7 @@ const defaultMaterialTheme = createMuiTheme({
   },
 });
 
-export default function FormComponent(): JSX.Element {
+export default function PeriodRecruitmentComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const [isOpenRecruitmentStart, setIsOpenRecruitmentStart] = useState(false);
   const [isOpenRecruitmentEnd, setIsOpenRecruitmentEnd] = useState(false);

@@ -59,7 +59,7 @@ const mainText = [
 선택해주세요.`,
 ];
 
-export default function KindBookComponent(): JSX.Element {
+export default function SubHeaderComponent(): JSX.Element {
   const [studyForm] = useRecoilState(studyFormState);
   const [currentStep] = useRecoilState(currentStepState);
 

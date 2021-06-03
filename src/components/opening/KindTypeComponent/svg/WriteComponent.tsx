@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
 import { studyFormState } from "src/components/states/studyForm";
 
-export default function AnnouncementComponent(): JSX.Element {
+export default function WriteComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
 
   return (

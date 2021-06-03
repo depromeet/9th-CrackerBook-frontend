@@ -48,7 +48,7 @@ const difficultyData = [
   { label: "고급", value: "advanced" },
 ];
 
-export default function FormComponent(): JSX.Element {
+export default function DifficultComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
 
   return (

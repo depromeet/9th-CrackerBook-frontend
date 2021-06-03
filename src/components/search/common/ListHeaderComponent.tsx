@@ -30,7 +30,7 @@ const ListHeadTitle = styled.div`
 //   cursor: pointer;
 // `;
 
-export default function ListFooterComponent(props: {
+export default function ListHeaderComponent(props: {
   title: string;
 }): JSX.Element {
   return (

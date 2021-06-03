@@ -35,7 +35,7 @@ const RightText = styled.div`
   color: #222222;
 `;
 
-export default function FormComponent(): JSX.Element {
+export default function PersonnelComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
 
   const setPersonnelFunction = (event, value) => {

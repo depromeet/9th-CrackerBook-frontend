@@ -13,7 +13,7 @@ const MainContentWrapper = styled.div`
   padding: 18px 0 100px 0;
 `;
 
-export default function Index(): JSX.Element {
+export default function OpeningComponent(): JSX.Element {
   const [currentStep] = useRecoilState(currentStepState);
   const components = [
     <KindBookComponent key="KindBook" />,

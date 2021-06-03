@@ -11,8 +11,9 @@ import {
   resultStudyListState,
 } from "../../states/search";
 import { bookListState } from "src/components/states/book";
-import { resultTitleListState } from "src/components/states/search";
+import { resultNameListState } from "src/components/states/search";
 import { studyListState } from "src/components/states/study";
+import { getBooksByName, getBooksByAuthor } from "src/api/book";
 
 const SearchBoxWrapper = styled.div`
   position: relative;
@@ -117,7 +118,7 @@ export default function SearchBoxComponent(): JSX.Element {
   const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
   const [bookList] = useRecoilState(bookListState);
   const [studyList] = useRecoilState(studyListState);
-  const setResultTitleList = useSetRecoilState(resultTitleListState);
+  const setResultNameList = useSetRecoilState(resultNameListState);
   const setResultAuthorList = useSetRecoilState(resultAuthorListState);
   const setResultStudyList = useSetRecoilState(resultStudyListState);
   const [category, setCategory] = useRecoilState(categoryState);
@@ -138,6 +139,7 @@ export default function SearchBoxComponent(): JSX.Element {
     event.preventDefault();
     setCatagoryIsOpen(false);
     if (event.keyCode === 13) {
+      console.log(1);
       setInputClick(false);
       gotoResultPage();
     }
@@ -145,31 +147,60 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const gotoResultPage = () => {
     setSearchWord(inputRef.current.value);
-    if (inputRef.current.value) {
-      search(inputRef.current.value);
+    if (!inputRef.current.value) alert("검색어를 입력해주세요.");
+
+    search(inputRef.current.value);
+    if (Router.pathname === "/search")
       Router.push({
         pathname: `/search/result`,
         query: { query: inputRef.current.value },
       });
-      // history
-      const historySplice = [...history];
-      const historyIndex = historySplice.indexOf(`${inputRef.current.value}`);
-      historyIndex !== -1 && historySplice.splice(historyIndex, 1);
-      setHistory([`${inputRef.current.value}`, ...historySplice]);
-    } else alert("검색어를 입력해주세요.");
+    // history
+    const historySplice = [...history];
+    const historyIndex = historySplice.indexOf(`${inputRef.current.value}`);
+    historyIndex !== -1 && historySplice.splice(historyIndex, 1);
+    setHistory([`${inputRef.current.value}`, ...historySplice]);
   };
 
-  const search = (keyword) => {
-    // search sample - book
-    setResultTitleList(bookList.filter((b) => b.title.indexOf(keyword) !== -1));
-    // search sample - author
-    setResultAuthorList(
-      bookList.filter((b) => b.author.indexOf(keyword) !== -1),
-    );
-    // search sample - study
-    setResultStudyList(
-      studyList.filter((s) => s.title.indexOf(keyword) !== -1),
-    );
+  const search = async (keyword) => {
+    searchBookByName(keyword);
+    searchBookByAuthor(keyword);
+    searchStudy(keyword);
+  };
+
+  const searchBookByName = async (keyword) => {
+    try {
+      const responseName = await getBooksByName(keyword, 1, 10);
+      console.log(responseName);
+      setResultNameList(responseName.data.data.book_search_list);
+    } catch (error) {
+      console.log(error.response);
+      alert(error.response.data.meta.message);
+      setResultNameList([]);
+    }
+  };
+
+  const searchBookByAuthor = async (keyword) => {
+    try {
+      const responseAuthor = await getBooksByAuthor(keyword, 1, 10);
+      console.log(responseAuthor);
+      setResultAuthorList(responseAuthor.data.data.book_search_list);
+    } catch (error) {
+      alert(error.response.data.meta.message);
+      setResultAuthorList([]);
+    }
+  };
+
+  const searchStudy = async (keyword) => {
+    try {
+      // search sample - study
+      setResultStudyList(
+        studyList.filter((s) => s.title.indexOf(keyword) !== -1),
+      );
+    } catch (error) {
+      alert(error.response.data.meta.message);
+      setResultStudyList([]);
+    }
   };
 
   const clearSearchWord = () => {

@@ -6,6 +6,7 @@ import { resultAuthorListState } from "src/components/states/search";
 import { useRecoilState } from "recoil";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
 import { useEffect, useState } from "react";
+import dayjs from "dayjs";
 
 const ResultTitle = styled.div`
   font-family: "Nunito", sans-serif;
@@ -125,18 +126,20 @@ export default function ResultAuthorComponent(): JSX.Element {
         >
           <Profile>
             <ImgShadow />
-            <Img src="/assets/main/exBook.jpg" />
+            <Img src={resultAuthorList[i].image_url} />
           </Profile>
           <ContentWrapper>
-            <Title>{resultAuthorList[i].title}</Title>
+            <Title>{resultAuthorList[i].name}</Title>
             <Content>
               <SubTitle>저자</SubTitle>
-              <SubContent>{resultAuthorList[i].author}</SubContent>
+              <SubContent>{resultAuthorList[i].authors}</SubContent>
             </Content>
             <Content>
               <SubTitle>출판</SubTitle>
-              <SubContent>{resultAuthorList[i].publish}</SubContent>
-              <SubContent>{resultAuthorList[i].date}</SubContent>
+              <SubContent>{resultAuthorList[i].publisher}</SubContent>
+              <SubContent>
+                {dayjs(resultAuthorList[i].published_at).format("YYYY.MM.DD")}
+              </SubContent>
             </Content>
           </ContentWrapper>
           <LikeImg src="/assets/search/likeBook.svg" />

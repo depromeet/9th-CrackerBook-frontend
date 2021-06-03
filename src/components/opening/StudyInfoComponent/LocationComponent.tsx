@@ -65,7 +65,7 @@ const LocationData = [
   { label: "온+오프라인", value: "bothline" },
 ];
 
-export default function FormComponent(): JSX.Element {
+export default function LocationComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const placeDetailRef = useRef<HTMLInputElement>(null);
 

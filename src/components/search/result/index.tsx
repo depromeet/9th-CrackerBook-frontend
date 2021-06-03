@@ -1,6 +1,6 @@
 import SearchBoxComponent from "src/components/search/common/SearchBoxComponent";
 import FilterKindComponent from "src/components/common/FilterKindComponent";
-import ResultBookComponent from "src/components/search/result/ResultTitleComponent";
+import ResultBookComponent from "src/components/search/result/ResultNameComponent";
 import ResultAuthorComponent from "src/components/search/result/ResultAuthorComponent";
 import ResultStudyComponent from "src/components/search/result/ResultStudyComponent";
 import SearchInitComponent from "src/components/search/common/SearchInitComponent";
@@ -11,7 +11,7 @@ import {
   inputClickState,
 } from "src/components/states/search";
 
-export default function Detail(): JSX.Element {
+export default function ResultComponent(): JSX.Element {
   const [categoryList] = useRecoilState(categoryListState);
   const [category, setCategory] = useRecoilState(categoryState);
   const [inputClick] = useRecoilState(inputClickState);

@@ -36,7 +36,7 @@ const Textarea = styled.textarea`
   }
 `;
 
-export default function FormComponent(): JSX.Element {
+export default function IntroductionComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
 

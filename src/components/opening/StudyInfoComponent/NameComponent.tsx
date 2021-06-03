@@ -33,7 +33,7 @@ const Input = styled.input`
   }
 `;
 
-export default function FormComponent(): JSX.Element {
+export default function NameComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const studyNameRef = useRef<HTMLInputElement>(null);
   return (

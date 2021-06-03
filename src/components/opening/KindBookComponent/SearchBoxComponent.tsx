@@ -113,7 +113,6 @@ export default function SearchBoxComponent(): JSX.Element {
       ...studyForm,
       book: { name: "", authors: "", title: "", author: "" },
     });
-    // search sample
     if (!inputRef.current.value) alert("검색어를 입력해주세요.");
 
     try {
@@ -121,12 +120,11 @@ export default function SearchBoxComponent(): JSX.Element {
         category === 0
           ? await getBooksByName(inputRef.current.value, 1, 10)
           : await getBooksByAuthor(inputRef.current.value, 1, 10);
-
       console.log(response);
-
       setResultList(response.data.data.book_search_list);
     } catch (error) {
       alert(error.response.data.meta.message);
+      setResultList([]);
     }
   };
 

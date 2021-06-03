@@ -92,7 +92,7 @@ const WeekData = [
   { label: "토", value: "SAT" },
 ];
 
-export default function FormComponent(): JSX.Element {
+export default function RepeatComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const setRepeatFunction = (event, repeat) => {
     event.preventDefault();
