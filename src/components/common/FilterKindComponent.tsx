@@ -1,5 +1,3 @@
-import { useRecoilState } from "recoil";
-import { categoryListState, categoryState } from "src/components/states/search";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -36,26 +34,27 @@ const ActiveBar = styled.div<{ index: number; length: number }>`
   border-bottom: 2px solid #ffd262;
 `;
 
-export default function FilterKindComponent(): JSX.Element {
-  const [categoryList] = useRecoilState(categoryListState);
-  const [category, setCategory] = useRecoilState(categoryState);
-
+export default function FilterKindComponent(props: {
+  itemlistState: string[];
+  itemState: number;
+  setItemState: (index: number) => void;
+}): JSX.Element {
   return (
     <Wrapper>
       <Ul>
-        {categoryList.map((v, index) => {
+        {props.itemlistState.map((v, index) => {
           return (
             <LI
               key={index}
-              className={category === index ? "on" : ""}
-              onClick={() => setCategory(index)}
+              className={props.itemState === index ? "on" : ""}
+              onClick={() => props.setItemState(index)}
             >
               {v}
             </LI>
           );
         })}
       </Ul>
-      <ActiveBar index={category} length={categoryList.length} />
+      <ActiveBar index={props.itemState} length={props.itemlistState.length} />
     </Wrapper>
   );
 }

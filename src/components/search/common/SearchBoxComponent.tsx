@@ -180,7 +180,7 @@ export default function SearchBoxComponent(): JSX.Element {
   return (
     <>
       <ArrowLeft>
-        <Link href={Router.pathname === "/search" ? "/main/books" : "/search"}>
+        <Link href={Router.pathname === "/search" ? "/main" : "/search"}>
           <a>
             <img src="/assets/search/arrowleft.svg" />
           </a>

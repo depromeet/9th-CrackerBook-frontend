@@ -33,7 +33,7 @@ export default function StudyPeriodComponent(): JSX.Element {
       </FormWrapper>
       {showComplete && (
         <CompleteComponent
-          route={"/main/books"}
+          route={"/main"}
           header={"스터디 주최 완료"}
           content={`축하합니다! 스터디가 개설되었습니다.
           성공적인 스터디 운영을 응원합니다.`}
