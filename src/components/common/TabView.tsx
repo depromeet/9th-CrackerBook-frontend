@@ -6,6 +6,7 @@ const TabBar = styled.div`
   height: 62px;
   background: #fff;
   display: flex;
+  position: relative;
 `;
 
 const TabButton = styled.div`
@@ -16,14 +17,26 @@ const TabButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s;
   &.on {
-    border-bottom: 2px solid #ffd262;
+    font-weight: 500;
+    color: #222222;
   }
 `;
 const TabContentsArea = styled.div`
   height: 100%;
   background: #f1f1f3;
   padding-top: 1vh;
+`;
+
+const ActiveBar = styled.div<{ index: number; length: number }>`
+  position: absolute;
+  top: 60px;
+  height: 1px;
+  width: ${(props) => `${100 / props.length}%`};
+  left: ${(props) => `${(100 / props.length) * props.index}%`};
+  transition: all 0.3s;
+  border-bottom: 2px solid #ffd262;
 `;
 
 type tabInfo = {
@@ -59,6 +72,7 @@ export default function TabView(props: { tabInfo }): JSX.Element {
             </TabButton>
           );
         })}
+        <ActiveBar index={tabState} length={tabList.length} />
       </TabBar>
       <TabContentsArea>{props.tabInfo[tabState].tabContents}</TabContentsArea>
     </>

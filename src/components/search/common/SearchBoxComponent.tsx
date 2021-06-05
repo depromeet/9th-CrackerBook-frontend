@@ -10,7 +10,6 @@ import {
   resultAuthorListState,
   resultStudyListState,
 } from "../../states/search";
-import { bookListState } from "src/components/states/book";
 import { resultNameListState } from "src/components/states/search";
 import { studyListState } from "src/components/states/study";
 import { getBooksByName, getBooksByAuthor } from "src/api/book";
@@ -22,9 +21,6 @@ const SearchBoxWrapper = styled.div`
   height: 40px;
   margin: 46px 20px 10px 40px;
   border: 1px solid #ffd262;
-  border-radius: 20px;
-  line-height: 40px;
-  height: 40px;
 `;
 const ArrowLeft = styled.div`
   position: absolute;
@@ -116,7 +112,6 @@ const CategoryTitles = ["책", "저자", "스터디"];
 export default function SearchBoxComponent(): JSX.Element {
   const Router = useRouter();
   const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
-  const [bookList] = useRecoilState(bookListState);
   const [studyList] = useRecoilState(studyListState);
   const setResultNameList = useSetRecoilState(resultNameListState);
   const setResultAuthorList = useSetRecoilState(resultAuthorListState);
@@ -129,17 +124,17 @@ export default function SearchBoxComponent(): JSX.Element {
   );
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    if (Router.query.query) {
-      inputRef.current.value = `${Router.query.query}`;
-      search(`${Router.query.query}`);
-    }
-  }, [Router.query]);
+    console.log(Router.query.query);
+    if (!Router.query.query) return;
+
+    inputRef.current.value = `${Router.query.query}`;
+    search(`${Router.query.query}`);
+  }, [Router.query.query]);
 
   const searchKeyUp = (event) => {
     event.preventDefault();
     setCatagoryIsOpen(false);
     if (event.keyCode === 13) {
-      console.log(1);
       setInputClick(false);
       gotoResultPage();
     }
@@ -147,19 +142,24 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const gotoResultPage = () => {
     setSearchWord(inputRef.current.value);
-    if (!inputRef.current.value) alert("검색어를 입력해주세요.");
-
-    search(inputRef.current.value);
-    if (Router.pathname === "/search")
-      Router.push({
-        pathname: `/search/result`,
-        query: { query: inputRef.current.value },
-      });
+    if (!inputRef.current.value) {
+      alert("검색어를 입력해주세요.");
+      return;
+    }
+    Router.push({
+      pathname: `/search/result`,
+      query: { query: inputRef.current.value },
+    });
     // history
     const historySplice = [...history];
     const historyIndex = historySplice.indexOf(`${inputRef.current.value}`);
     historyIndex !== -1 && historySplice.splice(historyIndex, 1);
     setHistory([`${inputRef.current.value}`, ...historySplice]);
+  };
+
+  const clearSearchWord = () => {
+    inputRef.current.value = "";
+    setSearchWord("");
   };
 
   const search = async (keyword) => {
@@ -201,11 +201,6 @@ export default function SearchBoxComponent(): JSX.Element {
       alert(error.response.data.meta.message);
       setResultStudyList([]);
     }
-  };
-
-  const clearSearchWord = () => {
-    inputRef.current.value = "";
-    setSearchWord("");
   };
 
   return (

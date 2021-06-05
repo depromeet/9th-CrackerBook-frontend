@@ -1,5 +1,5 @@
 import SearchBoxComponent from "src/components/search/common/SearchBoxComponent";
-import FilterKindComponent from "src/components/common/FilterKindComponent";
+import FilterKindComponent from "src/components/common/TabViewComponent";
 import ResultBookComponent from "src/components/search/result/ResultNameComponent";
 import ResultAuthorComponent from "src/components/search/result/ResultAuthorComponent";
 import ResultStudyComponent from "src/components/search/result/ResultStudyComponent";

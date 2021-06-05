@@ -7,9 +7,9 @@ const AppContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #eeeeee;
+  background-color: #fff7e3;
   ${({ theme }) => theme.media.tablet`
-    background-color: #ffffff;
+    background-color: #fff7e3;
   `};
   ${({ theme }) => theme.media.mobile`
     background-color: #ffffff;
@@ -19,8 +19,8 @@ const AppContainer = styled.div`
 const Desktop = styled.section`
   display: block;
   position: fixed;
-  top: 43%;
-  left: 13%;
+  top: 60%;
+  left: 16%;
   ${({ theme }) => theme.media.tablet`
     display: none;
   `};
@@ -32,7 +32,7 @@ const Desktop = styled.section`
 const Img = styled.img`
   position: fixed;
   top: 37%;
-  left: 30%;
+  left: 16%;
 `;
 
 const Mobile = styled.section`
