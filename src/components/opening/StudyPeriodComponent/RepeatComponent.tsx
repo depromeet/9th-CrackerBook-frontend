@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { studyFormState } from "../../states/studyForm";
+import { useEffect } from "react";
 
 const ContentWrapper = styled.div`
   padding: 40px 20px 0 20px;
@@ -83,17 +84,31 @@ const LocationData = [
   { label: "반복 안함", value: "norepeat" },
 ];
 const WeekData = [
-  { label: "일", value: "SUN" },
-  { label: "월", value: "MON" },
-  { label: "화", value: "TUE" },
-  { label: "수", value: "WED" },
-  { label: "목", value: "THU" },
-  { label: "금", value: "FRI" },
-  { label: "토", value: "SAT" },
+  { label: "일", value: 0 },
+  { label: "월", value: 1 },
+  { label: "화", value: 2 },
+  { label: "수", value: 3 },
+  { label: "목", value: 4 },
+  { label: "금", value: 5 },
+  { label: "토", value: 6 },
 ];
 
 export default function RepeatComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
+  useEffect(() => {
+    let frequency = 0;
+    console.log(studyForm.studyDiffDate);
+    console.log(studyForm.repeatWeek);
+    for (let i = 0; i < studyForm.studyDiffDate[0]; i++) {
+      studyForm.repeatWeek.includes((studyForm.studyDiffDate[1] + i) % 7) &&
+        frequency++;
+    }
+    setStudyForm({
+      ...studyForm,
+      frequency,
+    });
+  }, [studyForm.studyDiffDate, studyForm.repeatWeek]);
+
   const setRepeatFunction = (event, repeat) => {
     event.preventDefault();
 
@@ -135,7 +150,7 @@ export default function RepeatComponent(): JSX.Element {
                   <>
                     <LiIcon src="/assets/opening/check26.svg" />
                     <LiText>{v.label}</LiText>
-                    <LiSubText>총 스터디 횟수 20</LiSubText>
+                    <LiSubText>총 스터디 횟수 {studyForm.frequency}</LiSubText>
                     {studyForm.repeat !== "norepeat" && (
                       <LiCircleWrapper>
                         {WeekData.map((w, windex) => {

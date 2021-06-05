@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { studyFormState } from "../../states/studyForm";
 import amber from "@material-ui/core/colors/amber";
@@ -8,6 +8,8 @@ import { createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
+import isBetween from "dayjs/plugin/isBetween";
+dayjs.extend(isBetween);
 
 const TimeContentWrapper = styled.div`
   padding: 40px 0 0 0;
@@ -105,6 +107,60 @@ export default function PeriodStudyComponent(): JSX.Element {
   const [isOpenStudyStart, setIsOpenStudyStart] = useState(false);
   const [isOpenStudyEnd, setIsOpenStudyEnd] = useState(false);
 
+  const setStartTime = (date) => {
+    let studyStartDate = dayjs(date);
+
+    if (studyForm.studyEndDate.diff(studyStartDate) <= 0) {
+      alert(`시작 시간은 끝나는 시간보다 늦을 수 없습니다!`);
+      studyStartDate = studyStartDate.set(
+        "hour",
+        studyForm.studyEndDate.hour(),
+      );
+      studyStartDate = studyStartDate.set(
+        "minute",
+        studyForm.studyEndDate.minute() - 1,
+      );
+    }
+
+    setStudyForm({
+      ...studyForm,
+      studyStartDate,
+    });
+
+    setDiffDate(studyStartDate, studyForm.studyEndDate);
+  };
+
+  const setEndTime = (date) => {
+    let studyEndDate = dayjs(date);
+    if (studyEndDate.diff(studyForm.studyStartDate) <= 0) {
+      alert(`끝나는 시간은 시작 시간보다 빠를 수 없습니다!`);
+      studyEndDate = studyEndDate.set("hour", studyForm.studyStartDate.hour());
+      studyEndDate = studyEndDate.set(
+        "minute",
+        studyForm.studyStartDate.minute() + 1,
+      );
+    }
+
+    setStudyForm({
+      ...studyForm,
+      studyEndDate,
+    });
+
+    setDiffDate(studyForm.studyStartDate, studyEndDate);
+  };
+
+  const setDiffDate = (studyStartDate, studyEndDate) => {
+    setStudyForm({
+      ...studyForm,
+      studyStartDate,
+      studyEndDate,
+      studyDiffDate: [
+        studyEndDate.diff(studyStartDate, "day"),
+        studyStartDate.day(),
+      ],
+    });
+  };
+
   return (
     <TimeContentWrapper>
       <TimeTitle>스터디 기간</TimeTitle>
@@ -132,27 +188,19 @@ export default function PeriodStudyComponent(): JSX.Element {
           <ThemeProvider theme={defaultMaterialTheme}>
             <DateTimePicker
               value={studyForm.studyStartDate}
+              maxDate={studyForm.studyEndDate}
               open={isOpenStudyStart}
               onOpen={() => setIsOpenStudyStart(true)}
               onClose={() => setIsOpenStudyStart(false)}
-              onChange={(date) =>
-                setStudyForm({
-                  ...studyForm,
-                  studyStartDate: dayjs(date),
-                })
-              }
+              onChange={(date) => setStartTime(date)}
             ></DateTimePicker>
             <DateTimePicker
               value={studyForm.studyEndDate}
+              minDate={studyForm.studyStartDate}
               open={isOpenStudyEnd}
               onOpen={() => setIsOpenStudyEnd(true)}
               onClose={() => setIsOpenStudyEnd(false)}
-              onChange={(date) =>
-                setStudyForm({
-                  ...studyForm,
-                  studyEndDate: dayjs(date),
-                })
-              }
+              onChange={(date) => setEndTime(date)}
             ></DateTimePicker>
           </ThemeProvider>
         </DateTimePickerWrapper>
