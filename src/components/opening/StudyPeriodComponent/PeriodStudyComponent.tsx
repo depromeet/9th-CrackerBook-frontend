@@ -126,8 +126,6 @@ export default function PeriodStudyComponent(): JSX.Element {
       ...studyForm,
       studyStartDate,
     });
-
-    setDiffDate(studyStartDate, studyForm.studyEndDate);
   };
 
   const setEndTime = (date) => {
@@ -144,20 +142,6 @@ export default function PeriodStudyComponent(): JSX.Element {
     setStudyForm({
       ...studyForm,
       studyEndDate,
-    });
-
-    setDiffDate(studyForm.studyStartDate, studyEndDate);
-  };
-
-  const setDiffDate = (studyStartDate, studyEndDate) => {
-    setStudyForm({
-      ...studyForm,
-      studyStartDate,
-      studyEndDate,
-      studyDiffDate: [
-        studyEndDate.diff(studyStartDate, "day"),
-        studyStartDate.day(),
-      ],
     });
   };
 

@@ -96,18 +96,40 @@ const WeekData = [
 export default function RepeatComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   useEffect(() => {
+    if (studyForm.repeat === "norepeat") return;
+
+    const totalDay = studyForm.studyEndDate.diff(
+      studyForm.studyStartDate,
+      "day",
+    );
+    const startWeek = studyForm.studyStartDate.day();
+
     let frequency = 0;
-    console.log(studyForm.studyDiffDate);
-    console.log(studyForm.repeatWeek);
-    for (let i = 0; i < studyForm.studyDiffDate[0]; i++) {
-      studyForm.repeatWeek.includes((studyForm.studyDiffDate[1] + i) % 7) &&
-        frequency++;
+
+    if (studyForm.repeat === "oneweek") {
+      for (let i = 0; i < totalDay + 1; i++) {
+        const currentWeek = (startWeek + i) % 7;
+        if (studyForm.repeatWeek.includes(currentWeek)) frequency++;
+      }
+    } else {
+      // studyForm.repeat === "month" || "twoweek"
+      const weekRepeat = studyForm.repeat === "twoweek" ? 2 : 4;
+      let week = 0;
+      for (let i = 0; i < totalDay + 1; i++) {
+        const currentWeek = (startWeek + i) % 7;
+        console.log(currentWeek);
+        if (week % weekRepeat === 0) {
+          if (studyForm.repeatWeek.includes(currentWeek)) frequency++;
+        }
+        if ((i + 1) % 7 === 0) week++;
+      }
     }
+
     setStudyForm({
       ...studyForm,
       frequency,
     });
-  }, [studyForm.studyDiffDate, studyForm.repeatWeek]);
+  }, [studyForm.studyStartDate, studyForm.studyEndDate, studyForm.repeatWeek]);
 
   const setRepeatFunction = (event, repeat) => {
     event.preventDefault();

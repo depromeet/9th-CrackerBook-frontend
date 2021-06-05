@@ -22,7 +22,6 @@ const studyFormState = atom({
     placeDetail: "", //
     studyStartDate: dayjs(new Date()),
     studyEndDate: dayjs(EndDate),
-    studyDiffDate: [], // 0 : 기간, 1 : 시작 요일
     frequency: 0,
     repeat: "", //
     repeatWeek: [], //

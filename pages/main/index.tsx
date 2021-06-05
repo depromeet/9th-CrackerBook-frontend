@@ -83,7 +83,6 @@ export default function Index(): JSX.Element {
       placeDetail: "", //
       studyStartDate: dayjs(new Date()),
       studyEndDate: dayjs(EndDate),
-      studyDiffDate: [],
       frequency: 0,
       repeat: "",
       repeatWeek: [],
