@@ -1,5 +1,6 @@
-import { instance } from "./index";
 import { AxiosResponse } from "axios";
+import { instance } from "./index";
+
 type kakaoRes = {
   data: {
     access_token: string;
