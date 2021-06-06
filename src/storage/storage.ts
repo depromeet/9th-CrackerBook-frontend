@@ -1,28 +1,49 @@
-const setKakaoToken = (token: string) => {
-  window.localStorage.setItem("kakao", token);
+const setKakaoToken = (token: string): void => {
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem("kakao", token);
+  }
 };
 
-const getKakaoToken = () => {
-  window.localStorage.getItem("kakao");
+const getKakaoToken = (): string | null => {
+  let result = null;
+  if (typeof window !== "undefined") {
+    result = window.localStorage.getItem("kakao");
+  }
+  return result;
 };
 
-const removeKakaoToken = () => {
-  window.localStorage.removeItem("kakao");
+const removeKakaoToken = (): void => {
+  if (typeof window !== "undefined") {
+    window.localStorage.removeItem("kakao");
+  }
 };
 
-const setUserIdToken = (userId: string) => {
-  window.localStorage.setItem("userId", userId);
+const setUserIdToken = (userId: string): void => {
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem("userId", userId);
+  }
 };
 
-const getUserIdToken = () => {
-  window.localStorage.getItem("userId");
+const getUserIdToken = (): string | null => {
+  let result = null;
+  if (typeof window !== "undefined") {
+    result = window.localStorage.getItem("userId");
+  }
+  return result;
 };
 
-const removeUserIdToken = () => {
-  window.localStorage.removeItem("userId");
+const removeUserIdToken = (): void => {
+  if (typeof window !== "undefined") {
+    window.localStorage.removeItem("userId");
+  }
+};
+
+const areULogin = (): boolean => {
+  return !!getKakaoToken();
 };
 
 export {
+  areULogin,
   setKakaoToken,
   getKakaoToken,
   removeKakaoToken,

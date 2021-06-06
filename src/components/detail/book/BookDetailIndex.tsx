@@ -4,7 +4,7 @@ import { TabContainer } from "./BookTab";
 import { BottomBar } from "../common/BottomBarComponent";
 import { useRecoilState } from "recoil";
 import { ConfirmBoxState } from "../../../state/detail/detailState";
-import { ConfirmStudy } from "../confirmStudy/ConfirmStudy";
+import { LoginConfirm } from "../confirmStudy/ConfirmStudy";
 
 export default function BookDetailIndexComponent(): JSX.Element {
   const [confirmBoxState] = useRecoilState<boolean>(ConfirmBoxState);
@@ -16,7 +16,7 @@ export default function BookDetailIndexComponent(): JSX.Element {
         <DivLine />
         <TabContainer />
       </div>
-      {confirmBoxState && <ConfirmStudy />}
+      {confirmBoxState && <LoginConfirm />}
       <BottomBar text="이 책으로 스터디 만들기" type="book" />
     </>
   );

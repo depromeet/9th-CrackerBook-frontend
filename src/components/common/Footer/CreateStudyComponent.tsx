@@ -1,20 +1,29 @@
-import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Text } from "./FooterIndex";
-import Link from "next/link";
+import { areULogin } from "../../../storage/storage";
+import { LoginConfirm } from "../../detail/confirmStudy/ConfirmStudy";
+import Router from "next/router";
+import { useState } from "react";
+
 export default function CreateStudyComponent(): JSX.Element {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  setTimeout(() => {
-    setIsOpen(false);
-  }, 3000);
+  const [loginState, setLoginState] = useState<boolean>(true);
+
+  const loginCheck = async () => {
+    setLoginState(areULogin());
+    if (loginState) {
+      await Router.push({
+        pathname: "/main",
+      });
+    }
+  };
+
   return (
     <StudyCreateWrapper>
       <CreateStudyBubble>직접 스터디를 주최해보세요!</CreateStudyBubble>
       <BubblePointBackground />
       <BubblePoint />
-      <Link href="/opening">
-        <CookieIcon src="/assets/main/cookie.png" />
-      </Link>
+      <CookieIcon src="/assets/main/cookie.png" onClick={loginCheck} />
+      {!loginState && <LoginConfirm />}
       <Text>스터디 만들기</Text>
     </StudyCreateWrapper>
   );
