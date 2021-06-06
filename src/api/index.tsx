@@ -2,7 +2,7 @@ import axios from "axios";
 
 function createInstance() {
   return axios.create({
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   });
 }
 
