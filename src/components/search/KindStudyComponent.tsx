@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Router from "next/router";
+import { CategoryTypeState } from "src/state/main/mainState";
+import { useSetRecoilState } from "recoil";
 
 const HeadWrapper = styled.div`
   position: relative;
@@ -55,6 +57,8 @@ const kindTitles = [
 ];
 
 export default function KindStudyComponent(): JSX.Element {
+  const setCategoryState = useSetRecoilState<string>(CategoryTypeState);
+
   return (
     <>
       <HeadWrapper>
@@ -65,12 +69,12 @@ export default function KindStudyComponent(): JSX.Element {
           return (
             <List
               key={index}
-              onClick={() =>
+              onClick={() => {
+                setCategoryState(v.value);
                 Router.push({
-                  pathname: `/main/books`,
-                  query: { value: v.value },
-                })
-              }
+                  pathname: `/main`,
+                });
+              }}
             >
               <ListText>{v.label}</ListText>
               <ListIcon>

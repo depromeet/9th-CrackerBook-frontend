@@ -35,12 +35,12 @@ const RightText = styled.div`
   color: #222222;
 `;
 
-export default function FormComponent(): JSX.Element {
+export default function PersonnelComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
 
   const setPersonnelFunction = (event, value) => {
     event.preventDefault();
-    setStudyForm({ ...studyForm, personnel: value === 0 ? 1 : value });
+    setStudyForm({ ...studyForm, capacity: value === 0 ? 1 : value });
   };
 
   return (
@@ -51,16 +51,16 @@ export default function FormComponent(): JSX.Element {
           <ImgCursor
             src="/assets/opening/formminus.svg"
             onClick={(event) =>
-              setPersonnelFunction(event, studyForm.personnel - 1)
+              setPersonnelFunction(event, studyForm.capacity - 1)
             }
           />
         </div>
-        <ContentNumber>{studyForm.personnel}</ContentNumber>
+        <ContentNumber>{studyForm.capacity}</ContentNumber>
         <div>
           <ImgCursor
             src="/assets/opening/formplus.svg"
             onClick={(event) =>
-              setPersonnelFunction(event, studyForm.personnel + 1)
+              setPersonnelFunction(event, studyForm.capacity + 1)
             }
           />
         </div>

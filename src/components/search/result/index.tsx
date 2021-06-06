@@ -1,15 +1,19 @@
-import { useState } from "react";
 import SearchBoxComponent from "src/components/search/common/SearchBoxComponent";
-import FilterKindComponent from "src/components/search/result/FilterKindComponent";
-import ResultBookComponent from "src/components/search/result/ResultTitleComponent";
+import FilterKindComponent from "src/components/common/TabViewComponent";
+import ResultBookComponent from "src/components/search/result/ResultNameComponent";
 import ResultAuthorComponent from "src/components/search/result/ResultAuthorComponent";
 import ResultStudyComponent from "src/components/search/result/ResultStudyComponent";
 import SearchInitComponent from "src/components/search/common/SearchInitComponent";
 import { useRecoilState } from "recoil";
-import { categoryState, inputClickState } from "src/components/states/search";
+import {
+  categoryState,
+  categoryListState,
+  inputClickState,
+} from "src/components/states/search";
 
-export default function Detail(): JSX.Element {
-  const [category] = useRecoilState(categoryState);
+export default function ResultComponent(): JSX.Element {
+  const [categoryList] = useRecoilState(categoryListState);
+  const [category, setCategory] = useRecoilState(categoryState);
   const [inputClick] = useRecoilState(inputClickState);
   const components = [
     <ResultBookComponent key="ResultBook" />,
@@ -24,7 +28,11 @@ export default function Detail(): JSX.Element {
         <SearchInitComponent />
       ) : (
         <>
-          <FilterKindComponent />
+          <FilterKindComponent
+            itemlistState={categoryList}
+            itemState={category}
+            setItemState={setCategory}
+          />
           {components[category]}
         </>
       )}

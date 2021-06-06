@@ -26,6 +26,9 @@ type BookData = {
   endData: string;
 };
 
+const EndDate = new Date();
+EndDate.setDate(EndDate.getDate() + 1);
+
 export default function Index(): JSX.Element {
   const [bookData, setBookData] = useState<Array<BookData>>();
   // init opening
@@ -69,21 +72,22 @@ export default function Index(): JSX.Element {
     setNextStep(1);
     setResultListIndex(-1);
     setStudyForm({
-      book: { title: "", author: "" },
+      book: { name: "", authors: "", title: "", author: "" },
       type: "",
       typeEtcString: "",
-      name: "",
-      introduction: "",
-      personnel: 1,
-      Difficult: "",
-      place: "",
-      placeDetail: "",
-      periodStudyStart: dayjs(new Date()),
-      periodStudyEnd: dayjs(new Date()),
+      studyName: "",
+      description: "",
+      capacity: 1,
+      difficulty: "",
+      placeType: "",
+      placeDetail: "", //
+      studyStartDate: dayjs(new Date()),
+      studyEndDate: dayjs(EndDate),
+      frequency: 0,
       repeat: "",
       repeatWeek: [],
-      periodRecruitmentStart: dayjs(new Date()),
-      periodRecruitmentEnd: dayjs(new Date()),
+      recruitStartAt: dayjs(new Date()),
+      recruitEndAt: dayjs(EndDate),
     });
     // END : init opening
   }, []);

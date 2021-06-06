@@ -8,7 +8,7 @@ import {
   searchKeywordState,
 } from "../../states/opening";
 import { studyFormState } from "src/components/states/studyForm";
-import { bookListState } from "src/components/states/book";
+import { getBooksByName, getBooksByAuthor } from "src/api/book";
 
 const SearchBoxInnerWrapper = styled.div`
   position: relative;
@@ -93,7 +93,6 @@ const CategoryTitles = ["책", "저자", "관심책"];
 
 export default function SearchBoxComponent(): JSX.Element {
   const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
-  const [bookList] = useRecoilState(bookListState);
   const [category, setCategory] = useRecoilState(categoryState);
   const setResultList = useSetRecoilState(resultListState);
   const setResultListIndex = useSetRecoilState(resultListIndexState);
@@ -106,24 +105,35 @@ export default function SearchBoxComponent(): JSX.Element {
     setCatagoryIsOpen(false);
     if (event.keyCode === 13) searchResult();
   };
-  const searchResult = () => {
+
+  const searchResult = async () => {
     setSearchWord(inputRef.current.value);
     setResultListIndex(-1);
-    // search sample
-    inputRef.current.value
-      ? setResultList(
-          bookList.filter(
-            (b) =>
-              (category === 0
-                ? b.title.indexOf(inputRef.current.value)
-                : b.author.indexOf(inputRef.current.value)) !== -1,
-          ),
-        )
-      : alert("검색어를 입력해주세요.");
+    setStudyForm({
+      ...studyForm,
+      book: { name: "", authors: "", title: "", author: "" },
+    });
+    if (!inputRef.current.value) alert("검색어를 입력해주세요.");
+
+    try {
+      const response =
+        category === 0
+          ? await getBooksByName(inputRef.current.value, 1, 10)
+          : await getBooksByAuthor(inputRef.current.value, 1, 10);
+      console.log(response);
+      setResultList(response.data.data.book_search_list);
+    } catch (error) {
+      alert(error.response.data.meta.message);
+      setResultList([]);
+    }
   };
+
   const setCategoryFunction = (index) => {
     setCategory(index);
-    setStudyForm({ ...studyForm, book: { title: "", author: "" } });
+    setStudyForm({
+      ...studyForm,
+      book: { name: "", authors: "", title: "", author: "" },
+    });
   };
   const clearSearchWord = () => {
     inputRef.current.value = "";

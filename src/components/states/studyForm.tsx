@@ -11,21 +11,22 @@ EndDate.setDate(EndDate.getDate() + 1);
 const studyFormState = atom({
   key: `studyForm`,
   default: {
-    book: { title: "", author: "" },
+    book: { name: "", authors: "", title: "", author: "" },
     type: "",
     typeEtcString: "",
-    name: "",
-    introduction: "",
-    personnel: 1,
-    Difficult: "",
-    place: "",
-    placeDetail: "",
-    periodStudyStart: dayjs(new Date()),
-    periodStudyEnd: dayjs(EndDate),
-    repeat: "",
-    repeatWeek: [],
-    periodRecruitmentStart: dayjs(new Date()),
-    periodRecruitmentEnd: dayjs(EndDate),
+    studyName: "",
+    description: "",
+    capacity: 1,
+    difficulty: "",
+    placeType: "",
+    placeDetail: "", //
+    studyStartDate: dayjs(new Date()),
+    studyEndDate: dayjs(EndDate),
+    frequency: 0,
+    repeat: "", //
+    repeatWeek: [], //
+    recruitStartAt: dayjs(new Date()),
+    recruitEndAt: dayjs(EndDate),
   },
 });
 

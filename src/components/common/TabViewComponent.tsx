@@ -1,5 +1,3 @@
-import { useRecoilState } from "recoil";
-import { categoryListState, categoryState } from "src/components/states/search";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -9,7 +7,7 @@ const Ul = styled.ul`
   display: flex;
   height: 60px;
 `;
-const Li = styled.li`
+const LI = styled.li`
   flex: 1;
   display: flex;
   align-items: center;
@@ -26,36 +24,37 @@ const Li = styled.li`
     color: #222222;
   }
 `;
-const Bar = styled.div<{ index: number }>`
+const ActiveBar = styled.div<{ index: number; length: number }>`
   position: absolute;
   top: 57px;
   height: 1px;
-  width: ${100 / 3}%;
-  left: ${(props) => `${(100 / 3) * props.index}%`};
+  width: ${(props) => `${100 / props.length}%`};
+  left: ${(props) => `${(100 / props.length) * props.index}%`};
   transition: all 0.3s;
   border-bottom: 2px solid #ffd262;
 `;
 
-export default function FilterKindComponent(): JSX.Element {
-  const [categoryList] = useRecoilState(categoryListState);
-  const [category, setCategory] = useRecoilState(categoryState);
-
+export default function FilterKindComponent(props: {
+  itemlistState: string[];
+  itemState: number;
+  setItemState: (index: number) => void;
+}): JSX.Element {
   return (
     <Wrapper>
       <Ul>
-        {categoryList.map((v, index) => {
+        {props.itemlistState.map((v, index) => {
           return (
-            <Li
+            <LI
               key={index}
-              className={category === index ? "on" : ""}
-              onClick={() => setCategory(index)}
+              className={props.itemState === index ? "on" : ""}
+              onClick={() => props.setItemState(index)}
             >
               {v}
-            </Li>
+            </LI>
           );
         })}
       </Ul>
-      <Bar index={category} />
+      <ActiveBar index={props.itemState} length={props.itemlistState.length} />
     </Wrapper>
   );
 }

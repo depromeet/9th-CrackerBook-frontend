@@ -23,8 +23,8 @@ const historyState = atom({
     "프론트엔드",
   ],
 });
-const resultTitleListState = atom({
-  key: `resultTitleList`,
+const resultNameListState = atom({
+  key: `resultNameList`,
   default: [],
 });
 const resultAuthorListState = atom({
@@ -45,7 +45,7 @@ export {
   categoryState,
   inputClickState,
   historyState,
-  resultTitleListState,
+  resultNameListState,
   resultAuthorListState,
   resultStudyListState,
   resultStudyFilterState,

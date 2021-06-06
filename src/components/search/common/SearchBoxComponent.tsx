@@ -10,9 +10,9 @@ import {
   resultAuthorListState,
   resultStudyListState,
 } from "../../states/search";
-import { bookListState } from "src/components/states/book";
-import { resultTitleListState } from "src/components/states/search";
+import { resultNameListState } from "src/components/states/search";
 import { studyListState } from "src/components/states/study";
+import { getBooksByName, getBooksByAuthor } from "src/api/book";
 
 const SearchBoxWrapper = styled.div`
   position: relative;
@@ -21,9 +21,6 @@ const SearchBoxWrapper = styled.div`
   height: 40px;
   margin: 46px 20px 10px 40px;
   border: 1px solid #ffd262;
-  border-radius: 20px;
-  line-height: 40px;
-  height: 40px;
 `;
 const ArrowLeft = styled.div`
   position: absolute;
@@ -115,9 +112,8 @@ const CategoryTitles = ["책", "저자", "스터디"];
 export default function SearchBoxComponent(): JSX.Element {
   const Router = useRouter();
   const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
-  const [bookList] = useRecoilState(bookListState);
   const [studyList] = useRecoilState(studyListState);
-  const setResultTitleList = useSetRecoilState(resultTitleListState);
+  const setResultNameList = useSetRecoilState(resultNameListState);
   const setResultAuthorList = useSetRecoilState(resultAuthorListState);
   const setResultStudyList = useSetRecoilState(resultStudyListState);
   const [category, setCategory] = useRecoilState(categoryState);
@@ -128,11 +124,12 @@ export default function SearchBoxComponent(): JSX.Element {
   );
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    if (Router.query.query) {
-      inputRef.current.value = `${Router.query.query}`;
-      search(`${Router.query.query}`);
-    }
-  }, [Router.query]);
+    console.log(Router.query.query);
+    if (!Router.query.query) return;
+
+    inputRef.current.value = `${Router.query.query}`;
+    search(`${Router.query.query}`);
+  }, [Router.query.query]);
 
   const searchKeyUp = (event) => {
     event.preventDefault();
@@ -145,31 +142,19 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const gotoResultPage = () => {
     setSearchWord(inputRef.current.value);
-    if (inputRef.current.value) {
-      search(inputRef.current.value);
-      Router.push({
-        pathname: `/search/result`,
-        query: { query: inputRef.current.value },
-      });
-      // history
-      const historySplice = [...history];
-      const historyIndex = historySplice.indexOf(`${inputRef.current.value}`);
-      historyIndex !== -1 && historySplice.splice(historyIndex, 1);
-      setHistory([`${inputRef.current.value}`, ...historySplice]);
-    } else alert("검색어를 입력해주세요.");
-  };
-
-  const search = (keyword) => {
-    // search sample - book
-    setResultTitleList(bookList.filter((b) => b.title.indexOf(keyword) !== -1));
-    // search sample - author
-    setResultAuthorList(
-      bookList.filter((b) => b.author.indexOf(keyword) !== -1),
-    );
-    // search sample - study
-    setResultStudyList(
-      studyList.filter((s) => s.title.indexOf(keyword) !== -1),
-    );
+    if (!inputRef.current.value) {
+      alert("검색어를 입력해주세요.");
+      return;
+    }
+    Router.push({
+      pathname: `/search/result`,
+      query: { query: inputRef.current.value },
+    });
+    // history
+    const historySplice = [...history];
+    const historyIndex = historySplice.indexOf(`${inputRef.current.value}`);
+    historyIndex !== -1 && historySplice.splice(historyIndex, 1);
+    setHistory([`${inputRef.current.value}`, ...historySplice]);
   };
 
   const clearSearchWord = () => {
@@ -177,10 +162,51 @@ export default function SearchBoxComponent(): JSX.Element {
     setSearchWord("");
   };
 
+  const search = async (keyword) => {
+    searchBookByName(keyword);
+    searchBookByAuthor(keyword);
+    searchStudy(keyword);
+  };
+
+  const searchBookByName = async (keyword) => {
+    try {
+      const responseName = await getBooksByName(keyword, 1, 10);
+      console.log(responseName);
+      setResultNameList(responseName.data.data.book_search_list);
+    } catch (error) {
+      console.log(error.response);
+      alert(error.response.data.meta.message);
+      setResultNameList([]);
+    }
+  };
+
+  const searchBookByAuthor = async (keyword) => {
+    try {
+      const responseAuthor = await getBooksByAuthor(keyword, 1, 10);
+      console.log(responseAuthor);
+      setResultAuthorList(responseAuthor.data.data.book_search_list);
+    } catch (error) {
+      alert(error.response.data.meta.message);
+      setResultAuthorList([]);
+    }
+  };
+
+  const searchStudy = async (keyword) => {
+    try {
+      // search sample - study
+      setResultStudyList(
+        studyList.filter((s) => s.title.indexOf(keyword) !== -1),
+      );
+    } catch (error) {
+      alert(error.response.data.meta.message);
+      setResultStudyList([]);
+    }
+  };
+
   return (
     <>
       <ArrowLeft>
-        <Link href={Router.pathname === "/search" ? "/main/books" : "/search"}>
+        <Link href={Router.pathname === "/search" ? "/main" : "/search"}>
           <a>
             <img src="/assets/search/arrowleft.svg" />
           </a>

@@ -23,7 +23,7 @@ const TitleText = styled.div`
   float: left;
   margin: 0 0 0 20px;
   font-weight: 500;
-  max-width: 250px;
+  max-width: 200px;
   overflow: hidden;
   white-space: normal;
   -webkit-line-clamp: 1;
@@ -37,24 +37,40 @@ const Divider = styled.div`
   background: #677ac7;
 `;
 const AuthorText = styled.div`
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
   font-weight: 300;
+  max-width: 100px;
+  overflow: hidden;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
-export default function KindBookComponent(): JSX.Element {
+const mainText = [
+  `어떤 책으로
+스터디를 하고 싶으세요?`,
+  `어떤 유형으로
+스터디를 하고 싶으세요?`,
+  `스터디에 대한 정보를
+입력해주세요.`,
+  `스터디 기간과 모집 기간을
+선택해주세요.`,
+];
+
+export default function SubHeaderComponent(): JSX.Element {
   const [studyForm] = useRecoilState(studyFormState);
   const [currentStep] = useRecoilState(currentStepState);
 
   return (
     <>
-      <MainText>
-        {`어떤 책으로
-        스터디를 하고 싶으세요?`}
-      </MainText>
+      <MainText>{mainText[currentStep - 1]}</MainText>
       {currentStep !== 1 && (
         <SubText>
-          <TitleText>{studyForm.book.title}</TitleText>
+          <TitleText>{studyForm.book.name}</TitleText>
           <Divider />
-          <AuthorText>{studyForm.book.author}</AuthorText>
+          <AuthorText>{studyForm.book.authors}</AuthorText>
         </SubText>
       )}
     </>

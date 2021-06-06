@@ -67,11 +67,11 @@ export default function FilterCategoryComponent(): JSX.Element {
       resultStudyFilter.length
         ? studyList.filter(
             (s) =>
-              s.title.indexOf(`${Router.query.name}`) !== -1 &&
+              s.title.indexOf(`${Router.query.studyName}`) !== -1 &&
               resultStudyFilter.includes(s.category),
           )
         : studyList.filter(
-            (s) => s.title.indexOf(`${Router.query.name}`) !== -1,
+            (s) => s.title.indexOf(`${Router.query.studyName}`) !== -1,
           ),
     );
   }, [resultStudyFilter]);

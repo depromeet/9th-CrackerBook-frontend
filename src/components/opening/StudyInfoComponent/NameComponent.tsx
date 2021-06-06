@@ -33,22 +33,22 @@ const Input = styled.input`
   }
 `;
 
-export default function FormComponent(): JSX.Element {
+export default function NameComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
-  const nameRef = useRef<HTMLInputElement>(null);
+  const studyNameRef = useRef<HTMLInputElement>(null);
   return (
     <ContentWrapper>
       <Title>스터디명</Title>
       <Content>
         <Input
-          defaultValue={studyForm.name}
+          defaultValue={studyForm.studyName}
           onKeyUp={() =>
             setStudyForm({
               ...studyForm,
-              name: nameRef.current.value,
+              studyName: studyNameRef.current.value,
             })
           }
-          ref={nameRef}
+          ref={studyNameRef}
           placeholder="예) 초보 에세이 글쓰기"
         />
       </Content>
