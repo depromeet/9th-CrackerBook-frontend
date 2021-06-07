@@ -2,12 +2,11 @@ import { DivLine } from "../../../styles/detail/common/commonStyle";
 import { BookCover, BookInfo } from "./BookInfo";
 import { TabContainer } from "./BookTab";
 import { BottomBar } from "../common/BottomBarComponent";
-import { useRecoilState } from "recoil";
-import { ConfirmBoxState } from "../../../state/detail/detailState";
 import { LoginConfirm } from "../confirmStudy/ConfirmStudy";
+import { useState } from "react";
 
 export default function BookDetailIndexComponent(): JSX.Element {
-  const [confirmBoxState] = useRecoilState<boolean>(ConfirmBoxState);
+  const [openModal, setOpenModal] = useState<boolean>(false);
   return (
     <>
       <div>
@@ -16,7 +15,7 @@ export default function BookDetailIndexComponent(): JSX.Element {
         <DivLine />
         <TabContainer />
       </div>
-      {confirmBoxState && <LoginConfirm />}
+      {openModal && <LoginConfirm setOpenModal={setOpenModal} />}
       <BottomBar text="이 책으로 스터디 만들기" type="book" />
     </>
   );

@@ -1,21 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import Router from "next/router";
-
-const kaKaoLogin = async () => {
-  try {
-    await Router.push({
-      pathname: process.env.NEXT_PUBLIC_PATH_NAME,
-      query: {
-        response_type: "code",
-        client_id: process.env.NEXT_PUBLIC_KAKAO_KEY,
-        redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URL,
-      },
-    });
-  } catch (error) {
-    console.error(`fail kakao login : ${error}`);
-  }
-};
+import { kaKaoLogin } from "../service/loginService";
 
 export default function IndexComponent(): JSX.Element {
   return (

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { BlackBackground } from "../../../styles/detail/common/commonStyle";
 import { ConfirmBox } from "../../common/confirmModal/ConfirmBox";
+import { kaKaoLogin } from "../../../service/loginService";
 
-export function LoginConfirm(): JSX.Element {
+export function LoginConfirm(props: { setOpenModal }): JSX.Element {
   document.body.style.overflow = "hidden";
 
   const param = {
@@ -10,8 +11,10 @@ export function LoginConfirm(): JSX.Element {
     subComment: "스터디에 참여하시려면 로그인 해주세요",
     buttonComponent: (
       <ButtonComponent>
-        <CancelButton>취소</CancelButton>
-        <ConfirmButton>확인</ConfirmButton>
+        <CancelButton onClick={() => props.setOpenModal(false)}>
+          취소
+        </CancelButton>
+        <ConfirmButton onClick={kaKaoLogin}>확인</ConfirmButton>
       </ButtonComponent>
     ),
   };

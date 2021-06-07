@@ -35,6 +35,7 @@ export function BottomBar(props: { text: string; type: string }): JSX.Element {
       ? setConfirmBox(!confirmBox)
       : setEnrollSate(!enrollSate);
   };
+
   return (
     <BottomBarStyle>
       <BottomBarWrapper>

@@ -38,12 +38,7 @@ const removeUserIdToken = (): void => {
   }
 };
 
-const areULogin = (): boolean => {
-  return !!getKakaoToken();
-};
-
 export {
-  areULogin,
   setKakaoToken,
   getKakaoToken,
   removeKakaoToken,
