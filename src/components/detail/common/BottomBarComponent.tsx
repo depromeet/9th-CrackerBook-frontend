@@ -8,6 +8,7 @@ import {
 } from "../../../state/detail/detailState";
 import { useRouter } from "next/router";
 import ShowToastComponent from "../../common/showToast/ShowToastComponent";
+import { loginCheck } from "../../../service/loginService";
 
 const copyLink = async (props: {
   link: string;
@@ -21,7 +22,11 @@ const copyLink = async (props: {
   }, 2500);
 };
 
-export function BottomBar(props: { text: string; type: string }): JSX.Element {
+export function BottomBar(props: {
+  text: string;
+  type: string;
+  modalState;
+}): JSX.Element {
   const [openShowToast, setOpenShowToast] =
     useRecoilState<boolean>(ShowToastState);
   const router = useRouter();
@@ -30,10 +35,14 @@ export function BottomBar(props: { text: string; type: string }): JSX.Element {
     EnrollConfirmBoxState,
   );
 
-  const conFirmBoxEvent = () => {
-    props.type === "book"
-      ? setConfirmBox(!confirmBox)
-      : setEnrollSate(!enrollSate);
+  const conFirmBoxEvent = async () => {
+    await loginCheck(props.modalState[1], "opening");
+
+    if (props.modalState[0]) {
+      props.type === "book"
+        ? setConfirmBox(!confirmBox)
+        : setEnrollSate(!enrollSate);
+    }
   };
 
   return (

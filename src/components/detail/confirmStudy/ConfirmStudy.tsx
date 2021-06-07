@@ -2,8 +2,11 @@ import styled from "styled-components";
 import { BlackBackground } from "../../../styles/detail/common/commonStyle";
 import { ConfirmBox } from "../../common/confirmModal/ConfirmBox";
 import { kaKaoLogin } from "../../../service/loginService";
+import { Dispatch, SetStateAction } from "react";
 
-export function LoginConfirm(props: { setOpenModal }): JSX.Element {
+export function LoginConfirm(props: {
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
+}): JSX.Element {
   document.body.style.overflow = "hidden";
 
   const param = {

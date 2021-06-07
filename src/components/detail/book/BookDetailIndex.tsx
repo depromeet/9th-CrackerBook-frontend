@@ -16,7 +16,11 @@ export default function BookDetailIndexComponent(): JSX.Element {
         <TabContainer />
       </div>
       {openModal && <LoginConfirm setOpenModal={setOpenModal} />}
-      <BottomBar text="이 책으로 스터디 만들기" type="book" />
+      <BottomBar
+        text="이 책으로 스터디 만들기"
+        type="book"
+        modalState={[openModal, setOpenModal]}
+      />
     </>
   );
 }

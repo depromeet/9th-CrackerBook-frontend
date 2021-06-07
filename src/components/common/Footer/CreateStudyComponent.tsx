@@ -14,7 +14,7 @@ export default function CreateStudyComponent(): JSX.Element {
       <BubblePoint />
       <CookieIcon
         src="/assets/main/cookie.png"
-        onClick={() => loginCheck(setOpenModal)}
+        onClick={() => loginCheck(setOpenModal, "opening")}
       />
       {openModal && <LoginConfirm setOpenModal={setOpenModal} />}
       <Text>스터디 만들기</Text>

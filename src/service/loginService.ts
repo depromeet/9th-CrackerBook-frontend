@@ -1,7 +1,8 @@
 import Router from "next/router";
 import { getKakaoToken } from "../storage/storage";
+import { Dispatch, SetStateAction } from "react";
 
-const kaKaoLogin = async () => {
+const kaKaoLogin = async (): Promise<void> => {
   try {
     await Router.push({
       pathname: process.env.NEXT_PUBLIC_PATH_NAME,
@@ -16,12 +17,15 @@ const kaKaoLogin = async () => {
   }
 };
 
-const loginCheck = async (setOpenModal) => {
+const loginCheck = async (
+  setOpenModal: Dispatch<SetStateAction<boolean>>,
+  callback: string
+): Promise<void> => {
   const loginState = areULogin();
   setOpenModal(!loginState);
   if (loginState) {
     await Router.push({
-      pathname: "/profile",
+      pathname: `/${callback}`,
     });
   }
 };
