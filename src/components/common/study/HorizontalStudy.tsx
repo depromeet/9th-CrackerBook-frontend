@@ -21,7 +21,7 @@ const Title = styled.div`
 const LiArea = styled.li`
   position: relative;
   display: flex;
-  margin: 0 0 30px 0;
+  margin: 0 0 15px 0;
 
   /* cracker white */
 
@@ -115,20 +115,12 @@ const PercentFont = styled.p`
   color: #ffd262;
 `;
 
-const Result = ["사용자의 마음을 움직이는 UX 디자인의 힘"];
-
-const studyInfo = {
-  title: "사용자의 마음을 움직이는 UX 디자인의 힘",
-  type: "토론",
-  routingUrl: "",
-};
-
 export default function HorizontalStudy(props: any): JSX.Element {
   return (
     <LiArea>
       <BookWithShadow width={51} height={74} />
       <StudyInfo studyInfo={props.studyInfo} />
-      <LikeImg src="/assets/profile/heart.svg" />
+        {props.isLike && <LikeImg src="/assets/profile/heart.svg"/>}
     </LiArea>
   );
 }

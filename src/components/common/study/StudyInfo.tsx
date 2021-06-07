@@ -7,13 +7,14 @@ const Title = styled.div`
   font-weight: 500;
   font-size: 16px;
   line-height: 23px;
-  width: 173px;
+
   color: #222222;
 `;
 
 const ContentWrapper = styled.div`
   flex-direction: column;
-  width: 173px;
+  max-width: 90%;
+  //width: 173px;
 `;
 
 const Content = styled.div`

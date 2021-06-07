@@ -7,7 +7,7 @@ const BookImgArea = styled.div`
   justify-content: flex-start;
   margin-right: 15px;
 
-  margin: 1em;
+  margin: 0.8em;
 `;
 const ImgShadow = styled.div`
   position: absolute;

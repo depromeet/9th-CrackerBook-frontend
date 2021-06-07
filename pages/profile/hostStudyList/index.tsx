@@ -8,9 +8,15 @@ export default function InterestedBook(): JSX.Element {
     routingUrl: "profile/hostStudyList/1",
     progressPercent: 15,
   };
+
   return (
     <div>
       <HorizontalStudy studyInfo={studyInfo} />
+      <HorizontalStudy studyInfo={studyInfo} />
+      <HorizontalStudy studyInfo={studyInfo} />
+      <HorizontalStudy studyInfo={studyInfo} />
+      <HorizontalStudy studyInfo={studyInfo} />
+
     </div>
   );
 }
