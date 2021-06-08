@@ -19,7 +19,7 @@ export default function BookDetailIndexComponent(): JSX.Element {
       <BottomBar
         text="이 책으로 스터디 만들기"
         type="book"
-        modalState={[openModal, setOpenModal]}
+        setOpenModal={setOpenModal}
       />
     </>
   );

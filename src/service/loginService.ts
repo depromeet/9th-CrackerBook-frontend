@@ -19,13 +19,15 @@ const kaKaoLogin = async (): Promise<void> => {
 
 const loginCheck = async (
   setOpenModal: Dispatch<SetStateAction<boolean>>,
-  callback: string
+  nextUrl: string | null
 ): Promise<void> => {
   const loginState = areULogin();
   setOpenModal(!loginState);
-  if (loginState) {
+
+  // 로그인이 되어 있으면 next
+  if (loginState && nextUrl) {
     await Router.push({
-      pathname: `/${callback}`,
+      pathname: `/${nextUrl}`,
     });
   }
 };

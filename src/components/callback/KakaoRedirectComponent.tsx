@@ -11,7 +11,7 @@ const useLogin = (code: string) => {
         const res = await kakaoLogin(code);
         setKakaoToken(res.data.data.access_token);
         await Router.push({
-          pathname: "/main",
+          pathname: `/main`,
         });
       };
 

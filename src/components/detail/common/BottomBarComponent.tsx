@@ -2,13 +2,13 @@ import { BottomBarStyle } from "../../../styles/detail/common/commonStyle";
 import styled, { keyframes } from "styled-components";
 import { SetterOrUpdater, useRecoilState } from "recoil";
 import {
-  ConfirmBoxState,
   EnrollConfirmBoxState,
   ShowToastState,
 } from "../../../state/detail/detailState";
 import { useRouter } from "next/router";
 import ShowToastComponent from "../../common/showToast/ShowToastComponent";
 import { loginCheck } from "../../../service/loginService";
+import { Dispatch, SetStateAction } from "react";
 
 const copyLink = async (props: {
   link: string;
@@ -25,24 +25,20 @@ const copyLink = async (props: {
 export function BottomBar(props: {
   text: string;
   type: string;
-  modalState;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
 }): JSX.Element {
   const [openShowToast, setOpenShowToast] =
     useRecoilState<boolean>(ShowToastState);
-  const router = useRouter();
-  const [confirmBox, setConfirmBox] = useRecoilState<boolean>(ConfirmBoxState);
   const [enrollSate, setEnrollSate] = useRecoilState<boolean>(
     EnrollConfirmBoxState,
   );
+  const router = useRouter();
 
   const conFirmBoxEvent = async () => {
-    await loginCheck(props.modalState[1], "opening");
+    const nextUrl = props.type === "book" ? "opening" : null;
+    await loginCheck(props.setOpenModal, nextUrl);
 
-    if (props.modalState[0]) {
-      props.type === "book"
-        ? setConfirmBox(!confirmBox)
-        : setEnrollSate(!enrollSate);
-    }
+    // setEnrollSate(!enrollSate);
   };
 
   return (
@@ -101,6 +97,7 @@ const GoCreate = styled.div<{ type: string }>`
   padding-left: ${(props) => (props.type === "book" ? "48px" : "75px")};
   padding-right: ${(props) => (props.type === "book" ? "47px" : "74px")};
   cursor: pointer;
+  width: 100%;
 `;
 
 const boxFade = keyframes`

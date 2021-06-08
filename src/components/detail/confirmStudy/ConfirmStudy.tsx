@@ -8,13 +8,17 @@ export function LoginConfirm(props: {
   setOpenModal: Dispatch<SetStateAction<boolean>>;
 }): JSX.Element {
   document.body.style.overflow = "hidden";
-
   const param = {
     mainComment: "로그인한 회원만 이용할 수 있어요.",
     subComment: "스터디에 참여하시려면 로그인 해주세요",
     buttonComponent: (
       <ButtonComponent>
-        <CancelButton onClick={() => props.setOpenModal(false)}>
+        <CancelButton
+          onClick={() => {
+            document.body.style.overflow = "auto";
+            props.setOpenModal(false);
+          }}
+        >
           취소
         </CancelButton>
         <ConfirmButton onClick={kaKaoLogin}>확인</ConfirmButton>

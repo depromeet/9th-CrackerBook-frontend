@@ -10,6 +10,7 @@ import { EnrollStudy } from "../enrollStudy/EnrollStudy";
 import { BlackBackground } from "../../../styles/detail/common/commonStyle";
 import { CompleteEnroll } from "../../common/confirmModal/CompleteEnroll";
 import { useState } from "react";
+import { LoginConfirm } from "../confirmStudy/ConfirmStudy";
 
 export default function StudyDetailIndex(): JSX.Element {
   const [enrollSate] = useRecoilState<boolean>(EnrollConfirmBoxState);
@@ -20,11 +21,11 @@ export default function StudyDetailIndex(): JSX.Element {
     <>
       <StudyInfoIndexComponent />
       <Tab />
-
+      {openModal && <LoginConfirm setOpenModal={setOpenModal} />}
       <BottomBar
         text="스터디 신청하기"
         type="study"
-        modalState={[openModal, setOpenModal]}
+        setOpenModal={setOpenModal}
       />
 
       {enrollSate && (
