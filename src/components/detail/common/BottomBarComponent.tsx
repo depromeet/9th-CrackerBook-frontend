@@ -36,9 +36,9 @@ export function BottomBar(props: {
 
   const conFirmBoxEvent = async () => {
     const nextUrl = props.type === "book" ? "opening" : null;
-    await loginCheck(props.setOpenModal, nextUrl);
+    const isLogin = await loginCheck(props.setOpenModal, nextUrl);
 
-    // setEnrollSate(!enrollSate);
+    if (isLogin) setEnrollSate(!enrollSate);
   };
 
   return (

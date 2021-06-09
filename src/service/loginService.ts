@@ -20,7 +20,7 @@ const kaKaoLogin = async (): Promise<void> => {
 const loginCheck = async (
   setOpenModal: Dispatch<SetStateAction<boolean>>,
   nextUrl: string | null
-): Promise<void> => {
+): Promise<boolean> => {
   const loginState = areULogin();
   setOpenModal(!loginState);
 
@@ -30,6 +30,8 @@ const loginCheck = async (
       pathname: `/${nextUrl}`,
     });
   }
+
+  return loginState;
 };
 
 const areULogin = (): boolean => {
