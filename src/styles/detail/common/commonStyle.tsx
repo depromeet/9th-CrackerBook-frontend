@@ -94,8 +94,8 @@ const ModalElement = styled.div`
   border-bottom: 1px solid #e6e5e5;
 `;
 
-const MainBookStyle = styled.div`
-  background-color: #09a969;
+const MainBookStyle = styled.div<{ backgroundColor: string }>`
+  background-color: ${(props) => props.backgroundColor};
   display: flex;
   justify-content: center;
   align-items: center;
