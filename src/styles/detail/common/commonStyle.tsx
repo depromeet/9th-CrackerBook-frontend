@@ -143,8 +143,7 @@ const BottomBarStyle = styled.div`
 
 const BlackBackground = styled.div`
   background-color: rgba(0, 0, 0, 60%);
-  border-radius: 15px 15px 0 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 11;
