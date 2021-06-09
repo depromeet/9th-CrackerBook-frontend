@@ -36,7 +36,7 @@ export function Box(): JSX.Element {
   return (
     <NoticeBox>
       <Wrapper>
-        <Profile src="/assets/main/surprised.svg" loading="lazy" />
+        <Profile src="/assets/detail/profileIcon.svg" loading="lazy" />
         <HostWrapper>
           <HostContent1>빈센조</HostContent1>
           <StudyContentCover>

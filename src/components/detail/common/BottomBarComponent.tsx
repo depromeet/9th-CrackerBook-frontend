@@ -75,17 +75,20 @@ const BottomBarWrapper = styled.div`
 `;
 
 const BookLikeIcon = styled.img`
+  margin-bottom: 18px;
   padding-left: 20px;
   cursor: pointer;
 `;
 
 const ShareIcon = styled.img`
+  margin-bottom: 18px;
   padding-left: 20px;
   padding-right: 20px;
   cursor: pointer;
 `;
 
 const VirticalLine = styled.div`
+  margin-bottom: 18px;
   height: 13.7px;
   width: 1px;
   background-color: #777777;
@@ -93,6 +96,7 @@ const VirticalLine = styled.div`
 `;
 
 const GoCreate = styled.div<{ type: string }>`
+  margin-bottom: 18px;
   color: #222222;
   padding-left: ${(props) => (props.type === "book" ? "48px" : "75px")};
   padding-right: ${(props) => (props.type === "book" ? "47px" : "74px")};
