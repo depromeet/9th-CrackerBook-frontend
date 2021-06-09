@@ -6,10 +6,11 @@ import {
 } from "src/components/states/opening";
 import { studyFormState } from "src/components/states/studyForm";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
+import dayjs from "dayjs";
 
 const ListWrapper = styled.ul`
   position: relative;
-  margin: 32px 20px 100px 20px;
+  margin: 32px 20px 20px 20px;
 `;
 const Title = styled.div`
   display: -webkit-box;
@@ -91,11 +92,47 @@ const SubTitle = styled.div`
   line-height: 20px;
   color: #777777;
 `;
-const SubContent = styled.div`
+const Authors = styled.div`
+  max-width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
   margin: 0 0 4px 10px;
   font-size: 14px;
   line-height: 20px;
   color: #222222;
+  overflow: hidden;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`;
+const Publisher = styled.div`
+  max-width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  margin: 0 0 4px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #222222;
+  overflow: hidden;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`;
+const SubContent = styled.div`
+  max-width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  margin: 0 0 4px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #222222;
+  overflow: hidden;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
 export default function SearchResultComponent(): JSX.Element {
@@ -120,19 +157,29 @@ export default function SearchResultComponent(): JSX.Element {
               >
                 <Profile>
                   <ImgShadow>
-                    <Img src="/assets/main/exBook.jpg" />
+                    <Img src={b.image_url} />
                   </ImgShadow>
                 </Profile>
                 <ContentWrapper>
-                  <Title>{b.title}</Title>
+                  <Title>{b.name}</Title>
                   <Content>
                     <SubTitle>저자</SubTitle>
-                    <SubContent>{b.author}</SubContent>
+                    <Authors>{b.authors}</Authors>
                   </Content>
                   <Content>
                     <SubTitle>출판</SubTitle>
-                    <SubContent>{b.publish}</SubContent>
-                    <SubContent>{b.date}</SubContent>
+                    {b.publisher ? (
+                      <>
+                        <Publisher>{b.publisher}</Publisher>
+                        <SubContent>
+                          {dayjs(b.published_at).format("YYYY.MM.DD")}
+                        </SubContent>
+                      </>
+                    ) : (
+                      <SubContent>
+                        {dayjs(b.published_at).format("YYYY.MM.DD")}
+                      </SubContent>
+                    )}
                   </Content>
                 </ContentWrapper>
               </LiLink>

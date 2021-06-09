@@ -1,9 +1,12 @@
 import { ButtomWrapper, ButttomImg, Text } from "./FooterIndex";
+import Link from "next/link";
 
 export default function MyPageComponent(): JSX.Element {
   return (
     <ButtomWrapper>
-      <ButttomImg src="/assets/main/myPage.svg" />
+      <Link href="/profile">
+        <ButttomImg src="/assets/main/myPage.svg" />
+      </Link>
       <Text>마이페이지</Text>
     </ButtomWrapper>
   );

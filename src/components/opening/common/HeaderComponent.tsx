@@ -47,7 +47,7 @@ export default function HeaderComponent(): JSX.Element {
   const resetState = (event) => {
     event.preventDefault();
     if (confirm("메인으로 이동하시겠습니까?")) {
-      router.push("/main/books");
+      router.push("/main");
     }
   };
 

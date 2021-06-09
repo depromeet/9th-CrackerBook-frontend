@@ -101,40 +101,40 @@ const defaultMaterialTheme = createMuiTheme({
   },
 });
 
-export default function FormComponent(): JSX.Element {
+export default function PeriodRecruitmentComponent(): JSX.Element {
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
   const [isOpenRecruitmentStart, setIsOpenRecruitmentStart] = useState(false);
   const [isOpenRecruitmentEnd, setIsOpenRecruitmentEnd] = useState(false);
 
   const setStartTime = (date) => {
-    let periodRecruitmentStart = dayjs(date);
-    if (periodRecruitmentStart > studyForm.periodRecruitmentEnd) {
+    let recruitStartAt = dayjs(date);
+    if (recruitStartAt > studyForm.recruitEndAt) {
       alert(`시작 시간은 끝나는 시간보다 늦을 수 없습니다!`);
-      periodRecruitmentStart = periodRecruitmentStart.set(
+      recruitStartAt = recruitStartAt.set(
         "minute",
-        studyForm.periodRecruitmentEnd.minute() - 1,
+        studyForm.recruitEndAt.minute() - 1,
       );
     }
 
     setStudyForm({
       ...studyForm,
-      periodRecruitmentStart,
+      recruitStartAt,
     });
   };
 
   const setEndTime = (date) => {
-    let periodRecruitmentEnd = dayjs(date);
-    if (periodRecruitmentEnd < studyForm.periodRecruitmentStart) {
+    let recruitEndAt = dayjs(date);
+    if (recruitEndAt < studyForm.recruitStartAt) {
       alert(`끝나는 시간은 시작 시간보다 빠를 수 없습니다!`);
-      periodRecruitmentEnd = periodRecruitmentEnd.set(
+      recruitEndAt = recruitEndAt.set(
         "minute",
-        studyForm.periodRecruitmentStart.minute() + 1,
+        studyForm.recruitStartAt.minute() + 1,
       );
     }
 
     setStudyForm({
       ...studyForm,
-      periodRecruitmentEnd,
+      recruitEndAt,
     });
   };
 
@@ -145,37 +145,35 @@ export default function FormComponent(): JSX.Element {
         <TimeStartWrapper onClick={() => setIsOpenRecruitmentStart(true)}>
           <StartImg src="/assets/opening/period.svg" />
           <DateStartText>
-            {studyForm.periodRecruitmentStart
+            {studyForm.recruitStartAt
               .locale("ko")
               .format("YY년 MM월 DD일(ddd)")}
           </DateStartText>
           <TimeStartText>
-            {studyForm.periodRecruitmentStart.locale("en").format("A hh:mm")}
+            {studyForm.recruitStartAt.locale("en").format("A hh:mm")}
           </TimeStartText>
         </TimeStartWrapper>
         <TimeEndWrapper onClick={() => setIsOpenRecruitmentEnd(true)}>
           <DateEndText>
-            {studyForm.periodRecruitmentEnd
-              .locale("ko")
-              .format("YY년 MM월 DD일(ddd)")}
+            {studyForm.recruitEndAt.locale("ko").format("YY년 MM월 DD일(ddd)")}
           </DateEndText>
           <TimeEndText>
-            {studyForm.periodRecruitmentEnd.locale("en").format("A hh:mm")}
+            {studyForm.recruitEndAt.locale("en").format("A hh:mm")}
           </TimeEndText>
         </TimeEndWrapper>
         <DateTimePickerWrapper>
           <ThemeProvider theme={defaultMaterialTheme}>
             <DateTimePicker
-              value={studyForm.periodRecruitmentStart}
-              maxDate={studyForm.periodRecruitmentEnd}
+              value={studyForm.recruitStartAt}
+              maxDate={studyForm.recruitEndAt}
               open={isOpenRecruitmentStart}
               onOpen={() => setIsOpenRecruitmentStart(true)}
               onClose={() => setIsOpenRecruitmentStart(false)}
               onChange={(date) => setStartTime(date)}
             ></DateTimePicker>
             <DateTimePicker
-              value={studyForm.periodRecruitmentEnd}
-              minDate={studyForm.periodRecruitmentStart}
+              value={studyForm.recruitEndAt}
+              minDate={studyForm.recruitStartAt}
               open={isOpenRecruitmentEnd}
               onOpen={() => setIsOpenRecruitmentEnd(true)}
               onClose={() => setIsOpenRecruitmentEnd(false)}

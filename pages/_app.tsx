@@ -5,7 +5,6 @@ import theme from "../src/styles/theme";
 import { ThemeProvider } from "../src/styles/themed-components";
 import {
   AppContainer,
-  Title,
   Mobile,
   Desktop,
   Img,
@@ -15,6 +14,7 @@ import DateFnsUtils from "@date-io/date-fns";
 // Import Swiper styles
 import "swiper/swiper.scss";
 import Head from "next/head";
+import SearchBoxComponent from "src/components/SearchBoxComponent";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -31,8 +31,8 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
           </Head>
           <AppContainer>
             <Desktop>
-              <Title>Craker Book</Title>
-              <Img src="/assets/main/main.png" />
+              <Img src="/assets/desktop.svg" />
+              <SearchBoxComponent></SearchBoxComponent>
             </Desktop>
             <Mobile>
               <Component {...pageProps} />

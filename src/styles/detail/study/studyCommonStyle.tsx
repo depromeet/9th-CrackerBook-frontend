@@ -19,24 +19,12 @@ const HostContent1 = styled.div`
   padding-right: 5px;
 `;
 
-const HostContent2 = styled.div`
-  color: #677ac7;
-  font-size: 12px;
-  font-family: "Jua", sans-serif;
-`;
-
-const HostContent3 = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-top: 4px;
-`;
-
 const StudyContentCover = styled.div`
   display: flex;
   align-items: center;
   justify-content: left;
   color: #999999;
-  padding-top: 2px;
+  padding-top: 6px;
   font-size: 12px;
 `;
 
@@ -46,6 +34,7 @@ const StudyInfoWrapper = styled.div`
 
 const InfoWrapper = styled.div`
   padding: 20px 20px;
+  margin-bottom: 50px;
 `;
 
 const ReviewWrapper = styled.div`
@@ -64,8 +53,6 @@ export {
   StudyInfoWrapper,
   StudyContentCover,
   HostContent1,
-  HostContent2,
-  HostContent3,
   Profile,
   TitleStudyInfoWrapper,
   ReviewWrapper,

@@ -3,9 +3,10 @@ import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
 import { useRecoilState } from "recoil";
-import { resultTitleListState } from "src/components/states/search";
+import { resultNameListState } from "src/components/states/search";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
 import { useEffect, useState } from "react";
+import dayjs from "dayjs";
 
 const ResultTitle = styled.div`
   font-family: "Nunito", sans-serif;
@@ -103,15 +104,15 @@ const LikeImg = styled.img`
   cursor: pointer;
 `;
 
-export default function ResultTitleComponent(): JSX.Element {
-  const [resultTitleList] = useRecoilState(resultTitleListState);
+export default function ResultNameComponent(): JSX.Element {
+  const [resultNameList] = useRecoilState(resultNameListState);
   const [Lilist, setLilist] = useState([]);
   const [viewCount, setViewCount] = useState(6);
 
   useEffect(() => {
     const temp = [];
     const maxIndex =
-      resultTitleList.length > viewCount ? viewCount : resultTitleList.length;
+      resultNameList.length > viewCount ? viewCount : resultNameList.length;
 
     for (let i = 0; i < maxIndex; i++) {
       temp.push(
@@ -120,24 +121,26 @@ export default function ResultTitleComponent(): JSX.Element {
           onClick={() =>
             Router.push({
               pathname: `/detail/book/bookDetail`,
-              query: { title: resultTitleList[i].title },
+              query: { title: resultNameList[i].title },
             })
           }
         >
           <Profile>
             <ImgShadow />
-            <Img src="/assets/main/exBook.jpg" />
+            <Img src={resultNameList[i].image_url} />
           </Profile>
           <ContentWrapper>
-            <Title>{resultTitleList[i].title}</Title>
+            <Title>{resultNameList[i].name}</Title>
             <Content>
               <SubTitle>저자</SubTitle>
-              <SubContent>{resultTitleList[i].author}</SubContent>
+              <SubContent>{resultNameList[i].authors}</SubContent>
             </Content>
             <Content>
               <SubTitle>출판</SubTitle>
-              <SubContent>{resultTitleList[i].publish}</SubContent>
-              <SubContent>{resultTitleList[i].date}</SubContent>
+              <SubContent>{resultNameList[i].publisher}</SubContent>
+              <SubContent>
+                {dayjs(resultNameList[i].published_at).format("YYYY.MM.DD")}
+              </SubContent>
             </Content>
           </ContentWrapper>
           <LikeImg src="/assets/search/likeBook.svg" />
@@ -146,16 +149,16 @@ export default function ResultTitleComponent(): JSX.Element {
     }
 
     setLilist(temp);
-  }, [resultTitleList, viewCount]);
+  }, [resultNameList, viewCount]);
 
   return (
     <>
-      {resultTitleList.length ? (
+      {resultNameList.length ? (
         <>
-          <ResultTitle>{resultTitleList.length}건의 검색결과</ResultTitle>
+          <ResultTitle>{resultNameList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"책"} />
           <ListWrapper>{Lilist}</ListWrapper>
-          {resultTitleList.length > viewCount && (
+          {resultNameList.length > viewCount && (
             <ListFooterComponent
               viewCount={viewCount}
               setViewCount={setViewCount}

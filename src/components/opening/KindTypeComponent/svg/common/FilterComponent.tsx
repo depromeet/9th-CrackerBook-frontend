@@ -1,4 +1,4 @@
-export default function AnnouncementComponent(): JSX.Element {
+export default function FilterComponent(): JSX.Element {
   return (
     <defs>
       <filter

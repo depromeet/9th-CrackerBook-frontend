@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Text } from "./FooterIndex";
-
+import Link from "next/link";
 export default function CreateStudyComponent(): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   setTimeout(() => {
@@ -12,7 +12,9 @@ export default function CreateStudyComponent(): JSX.Element {
       <CreateStudyBubble>직접 스터디를 주최해보세요!</CreateStudyBubble>
       <BubblePointBackground />
       <BubblePoint />
-      <CookieIcon src="/assets/main/cookie.png" />
+      <Link href="/opening">
+        <CookieIcon src="/assets/main/cookie.png" />
+      </Link>
       <Text>스터디 만들기</Text>
     </StudyCreateWrapper>
   );

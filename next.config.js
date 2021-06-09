@@ -3,7 +3,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 module.exports = withBundleAnalyzer({
   target: "serverless",
-  env: { BASE_URL: process.env.BASE_URL },
+  env: { BASE_URL: process.env.NEXT_PUBLIC_BASE_URL },
   webpack(conf) {
     conf.module.rules.push({
       test: /\.svg$/,
