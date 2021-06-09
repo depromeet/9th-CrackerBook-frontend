@@ -31,7 +31,7 @@ export default function BookInfoComponent(props: {
     <>
       <StudyInfoWrapper>
         <StudyProfile>
-          <StudyImg src="/assets/main/exBook.jpg" />
+          <StudyImg src="/assets/main/profile2.svg" />
           <StudyHost>{bookData.host}</StudyHost>
         </StudyProfile>
         <StudyContentWrapper>

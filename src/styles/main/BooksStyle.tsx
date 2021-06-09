@@ -241,8 +241,9 @@ const LikeInfoWrapper = styled.div`
 
 const LikeRank = styled.img`
   position: absolute;
-  width: 24px;
-  height: 27px;
+  z-index: 2;
+  width: 28px;
+  height: 32px;
   top: -4px;
   left: 2px;
 `;

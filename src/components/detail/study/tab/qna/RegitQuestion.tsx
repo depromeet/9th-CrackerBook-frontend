@@ -27,7 +27,7 @@ export function RegitQuestion(): JSX.Element {
 }
 
 const RegitWrapper = styled.div`
-  padding-top: 40px;
+  padding-top: 2 0px;
   display: flex;
 `;
 

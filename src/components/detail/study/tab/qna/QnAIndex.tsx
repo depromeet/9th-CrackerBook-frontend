@@ -7,14 +7,14 @@ import styled from "styled-components";
 const QnAData = [
   {
     question: {
-      img: "/assets/main/surprised.svg",
+      img: "/assets/detail/jCop.svg",
       name: "제이호",
       date: "2021.04.12",
       publish: "공개",
       question: "하이 ~ HI ~~~ 숙제가 있나요",
     },
     answer: {
-      img: "/assets/main/surprised.svg",
+      img: "/assets/detail/profileIcon.svg",
       name: "빈센조",
       date: "2021.04.15",
       answer:
@@ -23,14 +23,14 @@ const QnAData = [
   },
   {
     question: {
-      img: "/assets/main/surprised.svg",
+      img: "/assets/detail/coolJ.svg",
       name: "쿨제이",
       date: "2021.05.15",
       publish: "비공개",
       question: "비공개입니다.",
     },
     answer: {
-      img: "/assets/main/surprised.svg",
+      img: "/assets/detail/profileIcon.svg",
       name: "빈센조",
       date: "2021.04.15",
       answer: "비공개입니다.",
