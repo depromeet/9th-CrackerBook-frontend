@@ -26,8 +26,6 @@ const ButtonArea = styled.div`
   display: inline-flex;
 `;
 
-
-
 const ProfileImgArea = styled.div`
   display: flex;
   width: 100%;
@@ -88,8 +86,6 @@ const ProfileButton = styled.img`
   padding-right: 5px;
 `;
 
-
-
 const ProfileImage = styled.img`
   width: 80px;
   height: 80px;
@@ -100,23 +96,22 @@ const ProfileImage = styled.img`
   border-radius: 100px;
 `;
 
-
-
 export default function ProfileArea(): JSX.Element {
-
   const router = useRouter();
   const data = router.query;
-  const isOtherProfile = data.hasOwnProperty('id')
+  const isOtherProfile = data.hasOwnProperty("id");
 
   return (
     <>
-        {!isOtherProfile && <ProfileBackground/>}
+      {!isOtherProfile && <ProfileBackground />}
       <div style={{ position: "relative" }}>
         <ProfileImgArea>
           <ProfileImage src="/assets/profile/profile1.svg" />
-          {!isOtherProfile && <Link href="/profile/setting">
-            <EditProfile src="/assets/profile/setting.svg"/>
-          </Link>}
+          {!isOtherProfile && (
+            <Link href="/profile/setting">
+              <EditProfile src="/assets/profile/setting.svg" />
+            </Link>
+          )}
         </ProfileImgArea>
         <ProfileInfoArea>
           <NameArea>{"빈센조"}</NameArea>
@@ -124,9 +119,7 @@ export default function ProfileArea(): JSX.Element {
         </ProfileInfoArea>
 
         <ButtonArea>
-            {isOtherProfile ?
-                <OtherProfileButtons/>
-                : <MyProfileButtons/>}
+          {isOtherProfile ? <OtherProfileButtons /> : <MyProfileButtons />}
         </ButtonArea>
       </div>
     </>

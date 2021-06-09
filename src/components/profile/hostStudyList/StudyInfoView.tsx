@@ -46,32 +46,36 @@ const studyInfo = {
 };
 
 export default function StudyInfoView(): JSX.Element {
+  const [optionVisible, setOptiopnVisible] = React.useState(false);
 
-    const sampleData = [
-        {value: 'edit',
-            text: '수정하기',
-            icon:'none',
-            linkPath:'/profile/hostStudyList/1/editStudyInfo',
-        },
-        {value: 'cancle',
-            text: '취소하기',
-            icon:'none',
-            linkPath:'none',
-        }
-    ]
+  const optionData = [
+    {
+      value: "edit",
+      text: "수정하기",
+      icon: "/assets/profile/edit.svg",
+      linkPath: "/profile/hostStudyList/1/editStudyInfo",
+    },
+    {
+      value: "cancle",
+      text: "취소하기",
+      icon: "/assets/profile/cancle.svg",
+      linkPath: "none",
+    },
+  ];
 
   return (
     <div style={{ display: "flex", marginTop: "2em" }}>
       <BookWithShadow width={100} height={138} />
       <StudyInfo studyInfo={studyInfo} style={{ display: "flex" }} />
-        <div style={{ margin: "2em", marginTop: "1em" }}>
-            <Icon src="/assets/profile/dotmenubtn.svg" />
-            <div style={{ position: "absolute", right: '1vw'}}>
-                <MiniPopupList  listvalue={sampleData} />
-            </div>
-
+      <div style={{ margin: "20px", marginTop: "10px" }}>
+        <Icon
+          src="/assets/profile/dotmenubtn.svg"
+          onClick={() => setOptiopnVisible(!optionVisible)}
+        />
+        <div style={{ position: "absolute", right: "1vw" }}>
+          {optionVisible && <MiniPopupList listvalue={optionData} />}
         </div>
-
+      </div>
     </div>
   );
 }

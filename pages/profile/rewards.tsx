@@ -54,69 +54,69 @@ const RewardName = styled.div`
 export default function Rewards(): JSX.Element {
   return (
     <div>
-      <PageTitle>보유한 배지 5</PageTitle>
+      <PageTitle>보유한 배지 12</PageTitle>
       <BadgeArea>
         <RowWrapper>
           <BadgeRow>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward1.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/tree.svg" />
+              <RewardName>크래커 꿈나무</RewardName>
             </div>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward2.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/first_in.svg" />
+              <RewardName>스터디 참여</RewardName>
             </div>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward3.svg" />
-              <RewardName>rewardName</RewardName>
-            </div>
-          </BadgeRow>
-        </RowWrapper>
-        <RowWrapper>
-          <BadgeRow>
-            <div>
-              <BadgeButton src="/assets/profile/rewards/reward4.svg" />
-              <RewardName>rewardName</RewardName>
-            </div>
-            <div>
-              <BadgeButton src="/assets/profile/rewards/reward5.svg" />
-              <RewardName>rewardName</RewardName>
-            </div>
-            <div>
-              <BadgeButton src="/assets/profile/rewards/reward6.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/first_make.svg" />
+              <RewardName>첫 스터디 주최</RewardName>
             </div>
           </BadgeRow>
         </RowWrapper>
         <RowWrapper>
           <BadgeRow>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward7.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/everyday.svg" />
+              <RewardName>개근상</RewardName>
             </div>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward8.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/popular.svg" />
+              <RewardName>인기스터디장</RewardName>
             </div>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward9.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/friends.svg" />
+              <RewardName>싹트는 우정</RewardName>
             </div>
           </BadgeRow>
         </RowWrapper>
         <RowWrapper>
           <BadgeRow>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward10.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/travle.svg" />
+              <RewardName>장르 탐험가</RewardName>
             </div>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward11.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/mania.svg" />
+              <RewardName>깊이있는 마니아</RewardName>
             </div>
             <div>
-              <BadgeButton src="/assets/profile/rewards/reward12.svg" />
-              <RewardName>rewardName</RewardName>
+              <BadgeButton src="/assets/profile/rewards/genius.svg" />
+              <RewardName>소통 천재</RewardName>
+            </div>
+          </BadgeRow>
+        </RowWrapper>
+        <RowWrapper>
+          <BadgeRow>
+            <div>
+              <BadgeButton src="/assets/profile/rewards/holic.svg" />
+              <RewardName>하트홀릭</RewardName>
+            </div>
+            <div>
+              <BadgeButton src="/assets/profile/rewards/trust.svg" />
+              <RewardName>신뢰의 시작</RewardName>
+            </div>
+            <div>
+              <BadgeButton src="/assets/profile/rewards/review.svg" />
+              <RewardName>슬기로운 후기</RewardName>
             </div>
           </BadgeRow>
         </RowWrapper>

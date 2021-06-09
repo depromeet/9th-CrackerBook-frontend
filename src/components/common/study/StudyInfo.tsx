@@ -14,7 +14,7 @@ const Title = styled.div`
 const ContentWrapper = styled.div`
   flex-direction: column;
   max-width: 90%;
-  //width: 173px;
+  margin-top: 10px;
 `;
 
 const Content = styled.div`
@@ -56,7 +56,7 @@ const DateArea = styled.p`
 const ProgressBar = styled.div`
   width: 97px;
   height: 4px;
-  background-color: #F1F1F3;
+  background-color: #f1f1f3;
   margin-top: 5px;
 `;
 
@@ -113,9 +113,9 @@ export default function StudyInfo(props: any): JSX.Element {
               <ProgressArea>
                 <ProgressBar>
                   <Gage
-                      style={{
-                        width: props.studyInfo.progressPercent,
-                      }}
+                    style={{
+                      width: props.studyInfo.progressPercent,
+                    }}
                   />
                 </ProgressBar>
 
