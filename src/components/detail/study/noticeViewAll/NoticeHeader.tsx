@@ -23,6 +23,7 @@ const Header = styled.div`
 `;
 
 const BackIcon = styled.img`
+  position: absolute;
   width: 10px;
   height: 18px;
   padding-left: 20px;

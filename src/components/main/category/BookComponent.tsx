@@ -1,17 +1,22 @@
 import styled from "styled-components";
 
-export default function BookComponent(): JSX.Element {
+export default function BookComponent(props: {
+  rank: number;
+  img: string;
+}): JSX.Element {
   return (
     <Wrapper>
       <ImgWrapper>
         <ImgShadow />
-        <Img src="/assets/main/exBook.jpg" />
+        <Img src={props.img} />
       </ImgWrapper>
+      <LikeRank src={`/assets/main/like${props.rank}.svg`} />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
+  position: relative;
   padding-left: 5px;
 `;
 const ImgWrapper = styled.div`
@@ -37,8 +42,8 @@ const Img = styled.img`
 `;
 const ImgShadow = styled.div`
   position: absolute;
-  top: 0px;
-  height: 115px;
+  top: 0;
+  height: 173px;
   width: 13.33px;
   background: linear-gradient(
     270deg,
@@ -47,4 +52,13 @@ const ImgShadow = styled.div`
   );
   mix-blend-mode: multiply;
   z-index: 0;
+`;
+
+const LikeRank = styled.img`
+  position: absolute;
+  z-index: 2;
+  width: 28px;
+  height: 32px;
+  top: -4px;
+  left: 6px;
 `;
