@@ -9,7 +9,11 @@ export default function CategoryComponent(props: {
   return (
     <Wrapper>
       <BookWrapper>
-        <BookComponent rank={1} img={"/assets/main/exBook.jpg"} />
+        <BookComponent
+          rank={1}
+          img={"/assets/main/exBook.jpg"}
+          categoryType={props.type}
+        />
         <BookInfoWrapper>
           <IconImg src="/assets/main/miniBook.svg" />
           <BookInfo1>토론</BookInfo1>
@@ -20,7 +24,11 @@ export default function CategoryComponent(props: {
         <BookInfo3>04.26 ~ 0.5.21 토 14:00</BookInfo3>
       </BookWrapper>
       <BookWrapper>
-        <BookComponent rank={2} img={"/assets/main/greenBook.jpg"} />
+        <BookComponent
+          rank={2}
+          img={"/assets/main/greenBook.jpg"}
+          categoryType={props.type}
+        />
         <BookInfoWrapper>
           <IconImg src="/assets/main/miniBook.svg" />
           <BookInfo1>토론</BookInfo1>

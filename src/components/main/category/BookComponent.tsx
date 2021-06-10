@@ -3,6 +3,7 @@ import styled from "styled-components";
 export default function BookComponent(props: {
   rank: number;
   img: string;
+  categoryType: string;
 }): JSX.Element {
   return (
     <Wrapper>
@@ -10,7 +11,9 @@ export default function BookComponent(props: {
         <ImgShadow />
         <Img src={props.img} />
       </ImgWrapper>
-      <LikeRank src={`/assets/main/like${props.rank}.svg`} />
+      {props.categoryType === "likeDetail" && (
+        <LikeRank src={`/assets/main/like${props.rank}.svg`} />
+      )}
     </Wrapper>
   );
 }

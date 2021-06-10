@@ -38,7 +38,7 @@ export function BottomBar(props: {
     const nextUrl = props.type === "book" ? "opening" : null;
     const isLogin = await loginCheck(props.setOpenModal, nextUrl);
 
-    if (isLogin) setEnrollSate(!enrollSate);
+    if (isLogin && props.type === "study") setEnrollSate(!enrollSate);
   };
 
   return (
