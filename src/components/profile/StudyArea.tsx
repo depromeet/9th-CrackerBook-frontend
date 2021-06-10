@@ -5,6 +5,8 @@ import HorizontalStudy from "../common/study/HorizontalStudy";
 import TabView from "../common/TabView";
 import StudyList from "./interestedBook/StudyList";
 import BookList from "./interestedBook/BookList";
+import { useRouter } from "next/router";
+import CommentCardView from "../common/CommentCardView";
 
 const StudyTitle = styled.div`
   height: 30px;
@@ -61,40 +63,76 @@ export default function StudyArea(): JSX.Element {
   ];
 
   const clickHandler = (tabName, index) => {
-    // setTab(tabName);
     setTabSTate(index);
   };
 
   const tabContents = ["proceed", "complete"];
 
   const [tabState, setTabSTate] = React.useState(0);
-  const tabInfo = [
+
+  const studyInfo = {
+    title: "사용자의 마음을 움직이는 UX 디자인의 힘",
+    type: "토론",
+    routingUrl: "detail/book/bookDetail",
+    progressPercent: 15,
+  };
+  const suceedStudyInfo = {
+    title: "사용자의 마음을 움직이는 UX 디자인의 힘",
+    type: "토론",
+    routingUrl: "detail/book/bookDetail",
+    progressPercent: 100,
+  };
+
+  const myStudyTabInfo = [
     {
       tabName: "진행",
-      tabContents: (
-        <HorizontalStudy
-          progress={true}
-          percent={15}
-          routingurl={"detail/book/bookDetail"}
-        />
-      ),
+      tabContents: <div style={{padding: '1em'}}>
+        <HorizontalStudy studyInfo={studyInfo} />
+        <HorizontalStudy studyInfo={studyInfo} />
+        <HorizontalStudy studyInfo={studyInfo} />
+        <HorizontalStudy studyInfo={studyInfo} />
+      </div>,
     },
     {
       tabName: "완료",
-      tabContents: (
-        <HorizontalStudy
-          progress={true}
-          percent={15}
-          routingurl={"detail/book/bookDetail"}
-        />
-      ),
+      tabContents:
+          <div style={{padding: '1em'}}>
+            <HorizontalStudy studyInfo={suceedStudyInfo} />
+            <HorizontalStudy studyInfo={suceedStudyInfo} />
+            <HorizontalStudy studyInfo={suceedStudyInfo} />
+            <HorizontalStudy studyInfo={suceedStudyInfo} />
+          </div>
+          ,
     },
   ];
 
+  const otherStudyTabInfo = [
+    {
+      tabName: "주최한 스터디",
+      tabContents: <div style={{padding: '1em'}}>
+        <HorizontalStudy studyInfo={studyInfo} />
+        <HorizontalStudy studyInfo={studyInfo} />
+        <HorizontalStudy studyInfo={studyInfo} />
+        <HorizontalStudy studyInfo={studyInfo} />
+      </div>,
+    },
+    {
+      tabName: "후기",
+      tabContents: <>
+        <CommentCardView/>
+        <CommentCardView/>
+        <CommentCardView/>
+      </>,
+    },
+  ];
+  const router = useRouter();
+  const data = router.query;
+  const isOtherProfile = data.hasOwnProperty('id')
+
   return (
     <div>
-      <StudyTitle>{"나의 스터디"}</StudyTitle>
-      <TabView tabInfo={tabInfo} />
+      {!isOtherProfile && <StudyTitle>{"나의 스터디"}</StudyTitle>}
+      <TabView tabInfo={isOtherProfile? otherStudyTabInfo : myStudyTabInfo} />
     </div>
   );
 }

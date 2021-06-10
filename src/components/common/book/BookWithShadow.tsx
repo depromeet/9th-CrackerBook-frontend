@@ -7,7 +7,7 @@ const BookImgArea = styled.div`
   justify-content: flex-start;
   margin-right: 15px;
 
-  margin: 1em;
+  margin: 0.8em;
 `;
 const ImgShadow = styled.div`
   position: absolute;
@@ -39,7 +39,14 @@ const Img = styled.img`
 
 export default function BookWithShadow(prop): JSX.Element {
   return (
-    <BookImgArea style={{ width: prop.width, height: prop.height }}>
+    <BookImgArea
+      style={{
+        width: prop.width,
+        height: prop.height,
+        minWidth: prop.width,
+        minHeight: prop.height,
+      }}
+    >
       <ImgShadow />
       <Img src="/assets/main/exBook.jpg" />
     </BookImgArea>

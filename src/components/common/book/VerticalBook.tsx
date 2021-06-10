@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import BookWithShadow from "../book/BookWithShadow";
 
-const LiLink = styled.li`
+const LiLink = styled.div`
   float: left;
   cursor: pointer;
   display: block;
   width: 130px;
-  margin: 0 13px 30px 13px;
+  //margin: 0 13px 30px 13px;
 `;
 
 const Title = styled.div`

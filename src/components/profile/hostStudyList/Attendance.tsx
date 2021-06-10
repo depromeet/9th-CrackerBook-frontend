@@ -20,10 +20,41 @@ const TableBody = styled.tbody`
   background: #ffffff;
 `;
 const BodyTd = styled.td`
-  height: 60px;
   text-align: center;
   vertical-align: middle;
+  margin: auto;
+  height: fit-content;
+  margin-left: 0px;
 `;
+
+const ProfileImg = styled.img`
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  margin-right: 4px;
+`;
+
+const tableTr = (
+  <tr>
+    <div style={{ display: "flex", height: "60px", justifyContent: "center" }}>
+      <ProfileImg src="/assets/profile/profile1.svg" />
+      <BodyTd>빈센조</BodyTd>
+    </div>
+    <BodyTd>
+      <img src={"/assets/profile/attendance.svg"} />
+    </BodyTd>
+    <BodyTd>
+      <img src={"/assets/profile/attendance.svg"} />
+    </BodyTd>
+    <BodyTd>
+      <img src={"/assets/profile/absent.svg"} />
+    </BodyTd>
+    <BodyTd>
+      <img src={"/assets/profile/attendance.svg"} />
+    </BodyTd>
+    <BodyTd />
+  </tr>
+);
 
 export default function Attendance(): JSX.Element {
   return (
@@ -45,29 +76,21 @@ export default function Attendance(): JSX.Element {
         </TableHeader>
 
         <TableBody>
+          <>{tableTr}</>
+          <>{tableTr}</>
+          <>{tableTr}</>
+          <>{tableTr}</>
+          <>{tableTr}</>
+          <>{tableTr}</>
+          <>{tableTr}</>
+          <>{tableTr}</>
           <tr>
-            <BodyTd>빈센조</BodyTd>
+            <BodyTd style={{ borderRadius: "0px 0px 0px 10px" }}>빈센조</BodyTd>
             <BodyTd>
               <img src={"/assets/profile/attendance.svg"} />
             </BodyTd>
             <BodyTd>
-              <img src={"/assets/profile/attendance.svg"} />
-            </BodyTd>
-            <BodyTd>
-              <img src={"/assets/profile/attendance.svg"} />
-            </BodyTd>
-            <BodyTd>
-              <img src={"/assets/profile/attendance.svg"} />
-            </BodyTd>
-            <BodyTd />
-          </tr>
-          <tr>
-            <BodyTd>빈센조</BodyTd>
-            <BodyTd>
-              <img src={"/assets/profile/attendance.svg"} />
-            </BodyTd>
-            <BodyTd>
-              <img src={"/assets/profile/attendance.svg"} />
+              <img src={"/assets/profile/absent.svg"} />
             </BodyTd>
             <BodyTd>
               <img src={"/assets/profile/attendance.svg"} />
