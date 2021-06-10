@@ -7,6 +7,7 @@ import StudyList from "src/components/profile/interestedBook/StudyList";
 import BookList from "src/components/profile/interestedBook/BookList";
 import Notice from "src/components/profile/hostStudyList/Notice";
 import StudyInfoView from "src/components/profile/hostStudyList/StudyInfoView";
+import HeaderBar from "src/components/common/HeaderBar";
 
 // const StudyInfoArea = styled.div`
 //   display: inline-flex;
@@ -55,6 +56,10 @@ export default function Detail(): JSX.Element {
   ];
   return (
     <>
+      <HeaderBar
+        title={"주최한 스터디"}
+        routingUrl={"profile/hostStudyList/"}
+      />
       <StudyInfoView />
       <TabView tabInfo={tabInfo} />
     </>

@@ -115,7 +115,7 @@ export default function ProfileArea(): JSX.Element {
         </ProfileImgArea>
         <ProfileInfoArea>
           <NameArea>{"빈센조"}</NameArea>
-          <ProfileMessage>{"프로필 메시지"}</ProfileMessage>
+          <ProfileMessage>{"디자인과 개발에 스터디에 관심이 많아용~"}</ProfileMessage>
         </ProfileInfoArea>
 
         <ButtonArea>

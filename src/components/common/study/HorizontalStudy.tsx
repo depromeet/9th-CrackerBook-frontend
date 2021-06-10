@@ -22,7 +22,7 @@ const LiArea = styled.li`
   position: relative;
   display: flex;
   margin: 0 0 15px 0;
-
+  height: 128px;
   /* cracker white */
 
   background: #ffffff;
@@ -117,8 +117,20 @@ const PercentFont = styled.p`
 
 export default function HorizontalStudy(props: any): JSX.Element {
   return (
-    <LiArea>
-      <BookWithShadow width={51} height={74} />
+    <LiArea style={{ marginTop: props.isOver ? "30px" : "0px" }}>
+      <div
+        style={{
+          position: "relative",
+          top: props.isOver ? "-30px" : "0px",
+          margin: "auto",
+        }}
+      >
+        <BookWithShadow
+          width={props.size ? props.size.width : 51}
+          height={props.size ? props.size.height : 74}
+        />
+      </div>
+
       <StudyInfo studyInfo={props.studyInfo} />
       {props.isLike && <LikeImg src="/assets/profile/heart.svg" />}
     </LiArea>
