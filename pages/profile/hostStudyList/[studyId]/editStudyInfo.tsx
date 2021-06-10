@@ -14,9 +14,11 @@ export default function EditStudyInfo(): JSX.Element {
     routingUrl: "profile/hostStudyList/admin/1",
     progressPercent: 15,
   };
-  return <div>
-    {/*TODO: 분기 필요*/}
-    <StudyInfoComponent/>
-    <StudyPeriodComponent/>
-  </div>;
+  return (
+    <div>
+      {/*TODO: 분기 필요*/}
+      <StudyInfoComponent />
+      <StudyPeriodComponent />
+    </div>
+  );
 }

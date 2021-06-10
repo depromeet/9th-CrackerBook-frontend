@@ -29,34 +29,32 @@ const ActivityButton = styled.div`
 `;
 
 export default function MyProfileButtons(): JSX.Element {
-
-
-    return (
-        <>
-            <Link href={"/profile/rewards"}>
-                <ButtonNLabel>
-                    <ActivityButton>
-                        <img src="/assets/profile/activityrewards.svg" />
-                    </ActivityButton>
-                    <p>활동 배지</p>
-                </ButtonNLabel>
-            </Link>
-            <Link href={"/profile/interestedBook"}>
-                <ButtonNLabel>
-                    <ActivityButton>
-                        <img src="/assets/profile/interestbook.svg" />
-                    </ActivityButton>
-                    <p>관심 목록</p>
-                </ButtonNLabel>
-            </Link>
-            <Link href={"/profile/hostStudyList"}>
-                <ButtonNLabel>
-                    <ActivityButton>
-                        <img src="/assets/profile/studypencil.svg" />
-                    </ActivityButton>
-                    <p>주최한 스터디</p>
-                </ButtonNLabel>
-            </Link>
-        </>
-    );
+  return (
+    <>
+      <Link href={"/profile/rewards"}>
+        <ButtonNLabel>
+          <ActivityButton>
+            <img src="/assets/profile/activityrewards.svg" />
+          </ActivityButton>
+          <p>활동 배지</p>
+        </ButtonNLabel>
+      </Link>
+      <Link href={"/profile/interestedBook"}>
+        <ButtonNLabel>
+          <ActivityButton>
+            <img src="/assets/profile/interestbook.svg" />
+          </ActivityButton>
+          <p>관심 목록</p>
+        </ButtonNLabel>
+      </Link>
+      <Link href={"/profile/hostStudyList"}>
+        <ButtonNLabel>
+          <ActivityButton>
+            <img src="/assets/profile/studypencil.svg" />
+          </ActivityButton>
+          <p>주최한 스터디</p>
+        </ButtonNLabel>
+      </Link>
+    </>
+  );
 }

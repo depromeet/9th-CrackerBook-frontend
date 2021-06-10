@@ -86,53 +86,59 @@ export default function StudyArea(): JSX.Element {
   const myStudyTabInfo = [
     {
       tabName: "진행",
-      tabContents: <div style={{padding: '1em'}}>
-        <HorizontalStudy studyInfo={studyInfo} />
-        <HorizontalStudy studyInfo={studyInfo} />
-        <HorizontalStudy studyInfo={studyInfo} />
-        <HorizontalStudy studyInfo={studyInfo} />
-      </div>,
+      tabContents: (
+        <div style={{ padding: "1em" }}>
+          <HorizontalStudy studyInfo={studyInfo} />
+          <HorizontalStudy studyInfo={studyInfo} />
+          <HorizontalStudy studyInfo={studyInfo} />
+          <HorizontalStudy studyInfo={studyInfo} />
+        </div>
+      ),
     },
     {
       tabName: "완료",
-      tabContents:
-          <div style={{padding: '1em'}}>
-            <HorizontalStudy studyInfo={suceedStudyInfo} />
-            <HorizontalStudy studyInfo={suceedStudyInfo} />
-            <HorizontalStudy studyInfo={suceedStudyInfo} />
-            <HorizontalStudy studyInfo={suceedStudyInfo} />
-          </div>
-          ,
+      tabContents: (
+        <div style={{ padding: "1em" }}>
+          <HorizontalStudy studyInfo={suceedStudyInfo} />
+          <HorizontalStudy studyInfo={suceedStudyInfo} />
+          <HorizontalStudy studyInfo={suceedStudyInfo} />
+          <HorizontalStudy studyInfo={suceedStudyInfo} />
+        </div>
+      ),
     },
   ];
 
   const otherStudyTabInfo = [
     {
       tabName: "주최한 스터디",
-      tabContents: <div style={{padding: '1em'}}>
-        <HorizontalStudy studyInfo={studyInfo} />
-        <HorizontalStudy studyInfo={studyInfo} />
-        <HorizontalStudy studyInfo={studyInfo} />
-        <HorizontalStudy studyInfo={studyInfo} />
-      </div>,
+      tabContents: (
+        <div style={{ padding: "1em" }}>
+          <HorizontalStudy studyInfo={studyInfo} />
+          <HorizontalStudy studyInfo={studyInfo} />
+          <HorizontalStudy studyInfo={studyInfo} />
+          <HorizontalStudy studyInfo={studyInfo} />
+        </div>
+      ),
     },
     {
       tabName: "후기",
-      tabContents: <>
-        <CommentCardView/>
-        <CommentCardView/>
-        <CommentCardView/>
-      </>,
+      tabContents: (
+        <>
+          <CommentCardView />
+          <CommentCardView />
+          <CommentCardView />
+        </>
+      ),
     },
   ];
   const router = useRouter();
   const data = router.query;
-  const isOtherProfile = data.hasOwnProperty('id')
+  const isOtherProfile = data.hasOwnProperty("id");
 
   return (
     <div>
       {!isOtherProfile && <StudyTitle>{"나의 스터디"}</StudyTitle>}
-      <TabView tabInfo={isOtherProfile? otherStudyTabInfo : myStudyTabInfo} />
+      <TabView tabInfo={isOtherProfile ? otherStudyTabInfo : myStudyTabInfo} />
     </div>
   );
 }

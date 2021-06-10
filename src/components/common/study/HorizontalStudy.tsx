@@ -120,7 +120,7 @@ export default function HorizontalStudy(props: any): JSX.Element {
     <LiArea>
       <BookWithShadow width={51} height={74} />
       <StudyInfo studyInfo={props.studyInfo} />
-        {props.isLike && <LikeImg src="/assets/profile/heart.svg"/>}
+      {props.isLike && <LikeImg src="/assets/profile/heart.svg" />}
     </LiArea>
   );
 }
