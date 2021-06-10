@@ -119,7 +119,7 @@ const WannaBeBubble = styled.div`
   justify-content: center;
   background-color: #ffd262;
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid #757575;
   width: 167px;
   height: 30px;
   top: -40px;
@@ -143,8 +143,8 @@ const BubblePointBackground = styled.div`
   position: absolute;
   top: -9px;
   left: 26px;
-  border-top: 8px solid black;
+  border-top: 8px solid #757575;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  animation: ${boxFade} 1s 1s 1 linear forwards;
+  animation: ${boxFade} 0.8s 0.9s 1 linear forwards;
 `;
