@@ -25,5 +25,6 @@ export default function InterestedBook(): JSX.Element {
         <HorizontalStudy isOver={true} size={bookSize} studyInfo={studyInfo} />
         <HorizontalStudy isOver={true} size={bookSize} studyInfo={studyInfo} />
       </div>
+     </div>
   );
 }
