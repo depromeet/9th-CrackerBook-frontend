@@ -123,7 +123,7 @@ export default function SearchBoxComponent(): JSX.Element {
       console.log(response);
       setResultList(response.data.data.book_search_list);
     } catch (error) {
-      console.log(error.response.data.meta.message);
+      alert(error.response.data.meta.message);
       setResultList([]);
     }
   };
