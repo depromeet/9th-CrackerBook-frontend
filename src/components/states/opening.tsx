@@ -19,6 +19,10 @@ const searchKeywordState = atom({
   key: `searchKeyword`,
   default: "",
 });
+const loadingState = atom({
+  key: `loading`,
+  default: false,
+});
 const resultListState = atom({
   key: `resultList`,
   default: [],
@@ -38,6 +42,7 @@ export {
   nextStepState,
   categoryState,
   searchKeywordState,
+  loadingState,
   resultListState,
   resultListIndexState,
   showEtcTypeState,

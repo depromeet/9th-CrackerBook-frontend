@@ -23,6 +23,18 @@ const historyState = atom({
     "프론트엔드",
   ],
 });
+const loadingNameState = atom({
+  key: `loadingName`,
+  default: false,
+});
+const loadingAuthorState = atom({
+  key: `loadingAuthor`,
+  default: false,
+});
+const loadingStudyState = atom({
+  key: `loadingStudy`,
+  default: false,
+});
 const resultNameListState = atom({
   key: `resultNameList`,
   default: [],
@@ -45,6 +57,9 @@ export {
   categoryState,
   inputClickState,
   historyState,
+  loadingNameState,
+  loadingAuthorState,
+  loadingStudyState,
   resultNameListState,
   resultAuthorListState,
   resultStudyListState,

@@ -4,8 +4,12 @@ import ListHeaderComponent from "src/components/search/common/ListHeaderComponen
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
 import FilterCategoryComponent from "src/components/search/result/FilterCategoryComponent";
 import { useRecoilState } from "recoil";
-import { resultStudyListState } from "src/components/states/search";
+import {
+  loadingStudyState,
+  resultStudyListState,
+} from "src/components/states/search";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
+import LoadingComponent from "src/components/common/LoadingComponent";
 import { studyKindState } from "src/components/states";
 import { useEffect, useState } from "react";
 
@@ -105,6 +109,7 @@ const LikeImg = styled.img`
 `;
 
 export default function ResultStudyComponent(): JSX.Element {
+  const [loading] = useRecoilState(loadingStudyState);
   const [resultStudyList] = useRecoilState(resultStudyListState);
   const [studyKind] = useRecoilState(studyKindState);
   const [Lilist, setLilist] = useState([]);
@@ -155,11 +160,13 @@ export default function ResultStudyComponent(): JSX.Element {
   return (
     <>
       <FilterCategoryComponent />
-      {resultStudyList.length ? (
+      {loading ? (
+        <LoadingComponent />
+      ) : resultStudyList.length ? (
         <>
           <ResultTitle>{resultStudyList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"스터디"} />
-          <ListWrapper>{Lilist}</ListWrapper>
+          {loading ? <LoadingComponent /> : <ListWrapper>{Lilist}</ListWrapper>}
           {resultStudyList.length > viewCount && (
             <ListFooterComponent
               viewCount={viewCount}

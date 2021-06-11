@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import {
+  loadingState,
   resultListIndexState,
   resultListState,
 } from "src/components/states/opening";
 import { studyFormState } from "src/components/states/studyForm";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
+import LoadingComponent from "src/components/common/LoadingComponent";
 import dayjs from "dayjs";
 
 const ListWrapper = styled.ul`
@@ -139,6 +141,7 @@ export default function SearchResultComponent(): JSX.Element {
   const [resultListIndex, setResultListIndex] =
     useRecoilState(resultListIndexState);
   const [studyForm, setStudyForm] = useRecoilState(studyFormState);
+  const [loading] = useRecoilState(loadingState);
   const [resultList] = useRecoilState(resultListState);
   const bookSelect = (index, book) => {
     setStudyForm({ ...studyForm, book });
@@ -147,45 +150,49 @@ export default function SearchResultComponent(): JSX.Element {
 
   return (
     <ListWrapper>
-      {resultList.length
-        ? resultList.map((b, index) => {
-            return (
-              <LiLink
-                key={index}
-                className={resultListIndex === index ? "on" : ""}
-                onClick={() => bookSelect(index, b)}
-              >
-                <Profile>
-                  <ImgShadow>
-                    <Img src={b.image_url} />
-                  </ImgShadow>
-                </Profile>
-                <ContentWrapper>
-                  <Title>{b.name}</Title>
-                  <Content>
-                    <SubTitle>저자</SubTitle>
-                    <Authors>{b.authors}</Authors>
-                  </Content>
-                  <Content>
-                    <SubTitle>출판</SubTitle>
-                    {b.publisher ? (
-                      <>
-                        <Publisher>{b.publisher}</Publisher>
-                        <SubContent>
-                          {dayjs(b.published_at).format("YYYY.MM.DD")}
-                        </SubContent>
-                      </>
-                    ) : (
+      {loading ? (
+        <LoadingComponent />
+      ) : resultList.length ? (
+        resultList.map((b, index) => {
+          return (
+            <LiLink
+              key={index}
+              className={resultListIndex === index ? "on" : ""}
+              onClick={() => bookSelect(index, b)}
+            >
+              <Profile>
+                <ImgShadow>
+                  <Img src={b.image_url} />
+                </ImgShadow>
+              </Profile>
+              <ContentWrapper>
+                <Title>{b.name}</Title>
+                <Content>
+                  <SubTitle>저자</SubTitle>
+                  <Authors>{b.authors}</Authors>
+                </Content>
+                <Content>
+                  <SubTitle>출판</SubTitle>
+                  {b.publisher ? (
+                    <>
+                      <Publisher>{b.publisher}</Publisher>
                       <SubContent>
                         {dayjs(b.published_at).format("YYYY.MM.DD")}
                       </SubContent>
-                    )}
-                  </Content>
-                </ContentWrapper>
-              </LiLink>
-            );
-          })
-        : resultListIndex === -1 && <NotFoundComponent />}
+                    </>
+                  ) : (
+                    <SubContent>
+                      {dayjs(b.published_at).format("YYYY.MM.DD")}
+                    </SubContent>
+                  )}
+                </Content>
+              </ContentWrapper>
+            </LiLink>
+          );
+        })
+      ) : (
+        resultListIndex === -1 && <NotFoundComponent />
+      )}
     </ListWrapper>
   );
 }
