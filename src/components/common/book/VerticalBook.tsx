@@ -6,7 +6,6 @@ const LiLink = styled.div`
   cursor: pointer;
   display: block;
   width: 130px;
-  //margin: 0 13px 30px 13px;
 `;
 
 const Title = styled.div`

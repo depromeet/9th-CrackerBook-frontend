@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const CardWrapper = styled.div`
   padding: 20px;
 
@@ -16,7 +15,6 @@ const CardWrapper = styled.div`
   box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 `;
-
 
 const ProfileArea = styled.div`
   display: flex;
@@ -50,7 +48,6 @@ const WritingTime = styled.div`
 
   color: #999999;
 `;
-
 
 const NoticeContents = styled.div`
   padding-top: 2vh;
