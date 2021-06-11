@@ -163,26 +163,16 @@ export default function StudyArea(): JSX.Element {
 
       tabContents: (
         <div style={{ padding: "1em" }}>
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={studyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={studyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={studyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={studyInfo}
-          />
+          {studyInfo.map((data, index) => {
+            return (
+              <HorizontalStudy
+                key={index}
+                isOver={true}
+                size={bookSize}
+                studyInfo={data}
+              />
+            );
+          })}
         </div>
       ),
     },
@@ -190,6 +180,8 @@ export default function StudyArea(): JSX.Element {
       tabName: "후기",
       tabContents: (
         <>
+          <CommentCardView />
+          <CommentCardView />
           <CommentCardView />
           <CommentCardView />
           <CommentCardView />
