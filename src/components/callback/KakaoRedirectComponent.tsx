@@ -1,6 +1,6 @@
 import Router, { useRouter } from "next/router";
 import { useEffect } from "react";
-import { kakaoLogin } from "../../apiSW/login";
+import { kakaoLogin } from "../../api/login";
 import { setKakaoToken } from "../../storage/storage";
 import styled from "styled-components";
 
@@ -11,7 +11,7 @@ const useLogin = (code: string) => {
         const res = await kakaoLogin(code);
         setKakaoToken(res.data.data.access_token);
         await Router.push({
-          pathname: "/main",
+          pathname: `/main`,
         });
       };
 

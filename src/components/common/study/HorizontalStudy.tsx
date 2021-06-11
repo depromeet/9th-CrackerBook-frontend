@@ -23,6 +23,7 @@ const LiArea = styled.li`
   display: flex;
   margin: 0 0 15px 0;
   height: 128px;
+
   /* cracker white */
 
   background: #ffffff;
@@ -133,6 +134,7 @@ export default function HorizontalStudy(props: any): JSX.Element {
 
       <StudyInfo studyInfo={props.studyInfo} />
       {props.isLike && <LikeImg src="/assets/profile/heart.svg" />}
+
     </LiArea>
   );
 }

@@ -1,20 +1,22 @@
-import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Text } from "./FooterIndex";
-import Link from "next/link";
+import { LoginConfirm } from "../../detail/confirmStudy/ConfirmStudy";
+import { useState } from "react";
+import { loginCheck } from "../../../service/loginService";
+
 export default function CreateStudyComponent(): JSX.Element {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  setTimeout(() => {
-    setIsOpen(false);
-  }, 3000);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   return (
     <StudyCreateWrapper>
       <CreateStudyBubble>직접 스터디를 주최해보세요!</CreateStudyBubble>
       <BubblePointBackground />
       <BubblePoint />
-      <Link href="/opening">
-        <CookieIcon src="/assets/main/cookie.png" />
-      </Link>
+      <CookieIcon
+        src="/assets/main/cookie.png"
+        onClick={() => loginCheck(setOpenModal, "opening")}
+      />
+      {openModal && <LoginConfirm setOpenModal={setOpenModal} />}
       <Text>스터디 만들기</Text>
     </StudyCreateWrapper>
   );

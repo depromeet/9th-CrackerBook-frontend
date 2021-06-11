@@ -28,6 +28,7 @@ const BtnSpacer = styled.div`
   height: 90px;
 `;
 
+
 export default function EditStudyInfo(): JSX.Element {
   const studyInfo = {
     title: "사용자의 마음을 움직이는 UX 디자인의 힘",
@@ -45,4 +46,10 @@ export default function EditStudyInfo(): JSX.Element {
       <EditBtn>수정하기</EditBtn>
     </div>
   );
+  return <div>
+    {/*TODO: 분기 필요*/}
+    <StudyInfoComponent/>
+    <StudyPeriodComponent/>
+  </div>;
+
 }

@@ -29,6 +29,7 @@ const ActivityButton = styled.div`
 `;
 
 export default function MyProfileButtons(): JSX.Element {
+
   return (
     <>
       <Link href={"/profile/rewards"}>
