@@ -110,8 +110,8 @@ export default function FavoriteBookComponent(): JSX.Element {
                 <ImgShadow />
                 <Img src="/assets/main/exBook.jpg" />
               </Profile>
-              <Title>{b.title}</Title>
-              <Author>{b.author}</Author>
+              <Title>{b.name}</Title>
+              <Author>{b.authors}</Author>
               <CheckIconBox>
                 {bookSelected === index ? (
                   <img src="/assets/opening/check26.svg" />

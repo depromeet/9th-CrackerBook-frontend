@@ -4,6 +4,7 @@ import ResultBookComponent from "src/components/search/result/ResultNameComponen
 import ResultAuthorComponent from "src/components/search/result/ResultAuthorComponent";
 import ResultStudyComponent from "src/components/search/result/ResultStudyComponent";
 import SearchInitComponent from "src/components/search/common/SearchInitComponent";
+import FooterComponent from "src/components/common/Footer/FooterIndex";
 import { useRecoilState } from "recoil";
 import {
   categoryState,
@@ -36,6 +37,7 @@ export default function ResultComponent(): JSX.Element {
           {components[category]}
         </>
       )}
+      <FooterComponent />
     </>
   );
 }
