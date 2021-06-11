@@ -120,7 +120,7 @@ export default function ResultNameComponent(): JSX.Element {
           key={i}
           onClick={() =>
             Router.push({
-              pathname: `/detail/book/bookDetail`,
+              pathname: `/detail/book`,
               query: { title: resultNameList[i].title },
             })
           }

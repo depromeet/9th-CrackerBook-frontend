@@ -121,7 +121,7 @@ export default function ResultStudyComponent(): JSX.Element {
           key={i}
           onClick={() =>
             Router.push({
-              pathname: `/detail/book/bookDetail`,
+              pathname: `/detail/study/studyDetail`,
               query: { title: resultStudyList[i].title },
             })
           }
