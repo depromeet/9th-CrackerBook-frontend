@@ -70,21 +70,54 @@ export default function StudyArea(): JSX.Element {
 
   const [tabState, setTabSTate] = React.useState(0);
 
-  const studyInfo = {
-    title: "사용자의 마음을 움직이는 UX 디자인의 힘",
-    type: "토론",
+  const studyInfo = [
+    {
+      imgUrl: "/assets/mock/Book15.svg",
+      title: "데이터 분석하는 디자이너 되기",
+      type: "글쓰기",
+      routingUrl: "detail/study/studyDetail",
+      progressPercent: 10,
+    },
+    {
+      imgUrl: "/assets/mock/Book16.svg",
+      title: "IT 서비스 마케터 모임",
+      type: "글쓰기",
+      routingUrl: "detail/study/studyDetail",
+      progressPercent: 20,
+    },
 
-    routingUrl: "detail/study/studyDetail",
+    {
+      imgUrl: "/assets/mock/Book17.svg",
+      title: "비전공자를 위한 IT 지식",
+      type: "토론",
+      routingUrl: "detail/study/studyDetail",
+      progressPercent: 50,
+    },
+  ];
+  const suceedStudyInfo = [
+    {
+      imgUrl: "/assets/mock/Book12.svg",
+      title: "박완서 소설 완독하기",
+      type: "글쓰기",
+      routingUrl: "detail/study/studyDetail",
+      progressPercent: 100,
+    },
+    {
+      imgUrl: "/assets/mock/Book14.svg",
+      title: "IT 서비스 마케터 모임",
+      type: "글쓰기",
+      routingUrl: "detail/study/studyDetail",
+      progressPercent: 100,
+    },
 
-    progressPercent: 15,
-  };
-  const suceedStudyInfo = {
-    title: "사용자의 마음을 움직이는 UX 디자인의 힘",
-    type: "토론",
-
-    routingUrl: "detail/study/studyDetail",
-    progressPercent: 100,
-  };
+    {
+      imgUrl: "/assets/mock/Book13.svg",
+      title: "워렌 버핏의 투자 지혜 얻기",
+      type: "토론",
+      routingUrl: "detail/study/studyDetail",
+      progressPercent: 100,
+    },
+  ];
 
   const bookSize = { height: 137, width: 95 };
   const myStudyTabInfo = [
@@ -92,26 +125,16 @@ export default function StudyArea(): JSX.Element {
       tabName: "진행",
       tabContents: (
         <div style={{ padding: "1em" }}>
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={studyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={studyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={studyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={studyInfo}
-          />
+          {studyInfo.map((data, index) => {
+            return (
+              <HorizontalStudy
+                key={index}
+                isOver={true}
+                size={bookSize}
+                studyInfo={data}
+              />
+            );
+          })}
         </div>
       ),
     },
@@ -119,29 +142,18 @@ export default function StudyArea(): JSX.Element {
       tabName: "완료",
       tabContents: (
         <div style={{ padding: "1em" }}>
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={suceedStudyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={suceedStudyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={suceedStudyInfo}
-          />
-          <HorizontalStudy
-            isOver={true}
-            size={bookSize}
-            studyInfo={suceedStudyInfo}
-          />
+          {suceedStudyInfo.map((data, index) => {
+            return (
+              <HorizontalStudy
+                key={index}
+                isOver={true}
+                size={bookSize}
+                studyInfo={data}
+              />
+            );
+          })}
         </div>
       ),
-
     },
   ];
 
@@ -183,19 +195,16 @@ export default function StudyArea(): JSX.Element {
           <CommentCardView />
         </>
       ),
-
     },
   ];
   const router = useRouter();
   const data = router.query;
   const isOtherProfile = data.hasOwnProperty("id");
 
-
   return (
     <div>
       {!isOtherProfile && <StudyTitle>{"나의 스터디"}</StudyTitle>}
       <TabView tabInfo={isOtherProfile ? otherStudyTabInfo : myStudyTabInfo} />
-
     </div>
   );
 }

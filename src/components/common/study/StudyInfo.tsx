@@ -7,13 +7,20 @@ const Title = styled.div`
   font-weight: 500;
   font-size: 16px;
   line-height: 23px;
-
+  max-width: 90%;
   color: #222222;
+
+  display: -webkit-box;
+  width: 173px;
+  overflow: hidden;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
 const ContentWrapper = styled.div`
   flex-direction: column;
-  max-width: 90%;
+  //max-width: 90%;
   margin-top: 10px;
 `;
 
@@ -90,7 +97,7 @@ const Result = ["사용자의 마음을 움직이는 UX 디자인의 힘"];
 
 export default function StudyInfo(props: any): JSX.Element {
   return (
-    <div style={{ height: "100%s" }}>
+    <div style={{ width: "100%", margin: "auto" }}>
       {props.studyInfo ? (
         <ContentWrapper>
           <Content>

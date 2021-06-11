@@ -123,18 +123,18 @@ export default function HorizontalStudy(props: any): JSX.Element {
         style={{
           position: "relative",
           top: props.isOver ? "-30px" : "0px",
-          margin: "auto",
+          margin: props.isOver ? "0px" : "auto",
         }}
       >
         <BookWithShadow
           width={props.size ? props.size.width : 51}
           height={props.size ? props.size.height : 74}
+          imgUrl={props.studyInfo.imgUrl}
         />
       </div>
 
       <StudyInfo studyInfo={props.studyInfo} />
       {props.isLike && <LikeImg src="/assets/profile/heart.svg" />}
-
     </LiArea>
   );
 }
