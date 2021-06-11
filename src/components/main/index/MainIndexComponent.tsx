@@ -11,11 +11,14 @@ import FabMainComponent from "../../common/fab/FabMainComponent";
 type BookData = {
   bookName: string;
   img: string;
-  studyName: string;
-  host: string;
-  memberCnt: number;
-  startData: string;
-  endData: string;
+  study: Array<{
+    studyName: string;
+    host: string;
+    memberCnt: number;
+    startData: string;
+    endData: string;
+    profile: string;
+  }>;
 };
 
 export default function MainIndexComponent(props: {
