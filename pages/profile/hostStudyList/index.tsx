@@ -13,7 +13,6 @@ export default function InterestedBook(): JSX.Element {
     isLike: true,
   };
 
-
   const bookSize = { height: 137, width: 95 };
 
   return (
