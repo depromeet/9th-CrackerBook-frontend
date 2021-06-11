@@ -119,7 +119,7 @@ export default function ResultAuthorComponent(): JSX.Element {
           key={i}
           onClick={() =>
             Router.push({
-              pathname: `/detail/book/bookDetail`,
+              pathname: `/detail/book`,
               query: { title: resultAuthorList[i].title },
             })
           }
