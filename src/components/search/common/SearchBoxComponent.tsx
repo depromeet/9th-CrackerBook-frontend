@@ -7,6 +7,9 @@ import {
   categoryState,
   historyState,
   inputClickState,
+  loadingAuthorState,
+  loadingNameState,
+  loadingStudyState,
   resultAuthorListState,
   resultStudyListState,
 } from "../../states/search";
@@ -113,6 +116,9 @@ export default function SearchBoxComponent(): JSX.Element {
   const Router = useRouter();
   const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
   const [studyList] = useRecoilState(studyListState);
+  const setLoadingName = useSetRecoilState(loadingNameState);
+  const setLoadingAuthor = useSetRecoilState(loadingAuthorState);
+  const setLoadingStudy = useSetRecoilState(loadingStudyState);
   const setResultNameList = useSetRecoilState(resultNameListState);
   const setResultAuthorList = useSetRecoilState(resultAuthorListState);
   const setResultStudyList = useSetRecoilState(resultStudyListState);
@@ -169,33 +175,45 @@ export default function SearchBoxComponent(): JSX.Element {
 
   const searchBookByName = async (keyword) => {
     try {
+      setLoadingName(true);
+      setResultNameList([]);
       const responseName = await getBooksByName(keyword, 1, 10);
       setResultNameList(responseName.data.data.book_search_list);
+      setLoadingName(false);
     } catch (error) {
       console.log(error.response.data.meta.message);
       setResultNameList([]);
+      setLoadingName(false);
     }
   };
 
   const searchBookByAuthor = async (keyword) => {
     try {
+      setLoadingAuthor(true);
+      setResultAuthorList([]);
       const responseAuthor = await getBooksByAuthor(keyword, 1, 10);
       setResultAuthorList(responseAuthor.data.data.book_search_list);
+      setLoadingAuthor(false);
     } catch (error) {
       console.log(error.response.data.meta.message);
       setResultAuthorList([]);
+      setLoadingAuthor(false);
     }
   };
 
   const searchStudy = (keyword) => {
     try {
       // search sample - study
+      setLoadingStudy(true);
+      setResultStudyList([]);
       setResultStudyList(
         studyList.filter((s) => s.title.indexOf(keyword) !== -1),
       );
+      setLoadingStudy(false);
     } catch (error) {
       console.log(error.response.data.meta.message);
       setResultStudyList([]);
+      setLoadingStudy(false);
     }
   };
 
