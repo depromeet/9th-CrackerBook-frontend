@@ -20,8 +20,7 @@ const ImgShadow = styled.div`
     rgba(207, 207, 207, 0) 27.95%,
     rgba(136, 136, 136, 0.426) 100%
   );
-  mix-blend-mode: multiply;
-  z-index: 0;
+  z-index: 1;
 `;
 const Img = styled.img`
   height: 100%;
@@ -34,7 +33,6 @@ const Img = styled.img`
     rgba(207, 207, 207, 0) 27.95%,
     rgba(136, 136, 136, 0.426) 100%
   );
-  mix-blend-mode: multiply;
 `;
 
 export default function BookWithShadow(prop): JSX.Element {
@@ -48,7 +46,7 @@ export default function BookWithShadow(prop): JSX.Element {
       }}
     >
       <ImgShadow />
-      <Img src="/assets/main/exBook.jpg" />
+      <Img src={prop.imgUrl ? prop.imgUrl : "/assets/main/exBook.jpg"} />
     </BookImgArea>
   );
 }

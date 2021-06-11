@@ -10,7 +10,6 @@ import StudyInfoView from "src/components/profile/hostStudyList/StudyInfoView";
 
 import HeaderBar from "src/components/common/HeaderBar";
 
-
 // const StudyInfoArea = styled.div`
 //   display: inline-flex;
 //   height: 268px;
@@ -44,7 +43,6 @@ const TabContentsArea = styled.div`
   position: absolute;
   width: 375px;
   height: 100%;
-  //height: 723px;
   left: 0px;
   top: 328px;
 
@@ -58,7 +56,6 @@ export default function Detail(): JSX.Element {
   ];
   return (
     <>
-
       <HeaderBar
         title={"주최한 스터디"}
         routingUrl={"profile/hostStudyList/"}

@@ -1,5 +1,3 @@
-import BookWithShadow from "../../common/book/BookWithShadow";
-import VerticalStudy from "../../common/study/VerticalStudy";
 import VerticalBook from "../../common/book/VerticalBook";
 
 export default function BookList(): JSX.Element {
