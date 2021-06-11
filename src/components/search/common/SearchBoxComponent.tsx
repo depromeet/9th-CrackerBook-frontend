@@ -124,7 +124,6 @@ export default function SearchBoxComponent(): JSX.Element {
   );
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    console.log(Router.query.query);
     if (!Router.query.query) return;
 
     inputRef.current.value = `${Router.query.query}`;
@@ -171,11 +170,9 @@ export default function SearchBoxComponent(): JSX.Element {
   const searchBookByName = async (keyword) => {
     try {
       const responseName = await getBooksByName(keyword, 1, 10);
-      console.log(responseName);
       setResultNameList(responseName.data.data.book_search_list);
     } catch (error) {
-      console.log(error.response);
-      alert(error.response.data.meta.message);
+      console.log(error.response.data.meta.message);
       setResultNameList([]);
     }
   };
@@ -183,22 +180,21 @@ export default function SearchBoxComponent(): JSX.Element {
   const searchBookByAuthor = async (keyword) => {
     try {
       const responseAuthor = await getBooksByAuthor(keyword, 1, 10);
-      console.log(responseAuthor);
       setResultAuthorList(responseAuthor.data.data.book_search_list);
     } catch (error) {
-      alert(error.response.data.meta.message);
+      console.log(error.response.data.meta.message);
       setResultAuthorList([]);
     }
   };
 
-  const searchStudy = async (keyword) => {
+  const searchStudy = (keyword) => {
     try {
       // search sample - study
       setResultStudyList(
         studyList.filter((s) => s.title.indexOf(keyword) !== -1),
       );
     } catch (error) {
-      alert(error.response.data.meta.message);
+      console.log(error.response.data.meta.message);
       setResultStudyList([]);
     }
   };

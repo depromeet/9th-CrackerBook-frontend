@@ -120,10 +120,9 @@ export default function SearchBoxComponent(): JSX.Element {
         category === 0
           ? await getBooksByName(inputRef.current.value, 1, 10)
           : await getBooksByAuthor(inputRef.current.value, 1, 10);
-      console.log(response);
       setResultList(response.data.data.book_search_list);
     } catch (error) {
-      alert(error.response.data.meta.message);
+      console.log(error.response.data.meta.message);
       setResultList([]);
     }
   };
