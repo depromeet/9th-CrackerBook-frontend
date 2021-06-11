@@ -46,74 +46,28 @@ const Content = styled.div`
   color: #677ac7;
 `;
 
-const LikeImg = styled.img`
-  position: absolute;
-  z-index: 10;
-  //top: 9px;
-  right: 3.74%;
-  font-size: 14px;
-  color: #999999;
-  cursor: pointer;
-  top: 42.69%;
-`;
+const LikeBtn = styled.div`
+  height: fit-content;
+  margin: auto;
+  position: inherit;
+  right: 10%;
+  p : {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
 
-const Icon = styled.img`
-  width: 18px;
-  height: 18px;
-  filter: invert(79%) sepia(47%) saturate(7439%) hue-rotate(204deg)
-    brightness(84%) contrast(83%);
-`;
+    /* text2 */
 
-const IconText = styled.div`
-  margin: 0 10px 0 4px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 17px;
-  &:last-child {
-    margin-right: 0;
+    color: #777777;
   }
 `;
 
-const DateArea = styled.p`
-  font-family: Nunito;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 16px;
-  /* identical to box height */
-
-  //color: #777777;
-`;
-
-const ProgressBar = styled.div`
-  width: 97px;
-  height: 1px;
-  border: 2px solid #f1f1f3;
-`;
-
-const Gage = styled.div`
-  /* cracker yellow */
-  height: 1px;
-  //width: 30px;
-  border: 2px solid #ffd262;
-`;
-
-const ProgressArea = styled.div`
-  display: flex;
-`;
-
-const PercentFont = styled.p`
-  font-family: Nunito;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  display: flex;
-  align-items: center;
-  padding-left: 1em;
-
-  /* cracker yellow */
-  color: #ffd262;
+const LikeImg = styled.img`
+  font-size: 14px;
+  color: #999999;
+  top: 42.69%;
 `;
 
 export default function HorizontalStudy(props: any): JSX.Element {
@@ -134,7 +88,12 @@ export default function HorizontalStudy(props: any): JSX.Element {
       </div>
 
       <StudyInfo studyInfo={props.studyInfo} />
-      {props.isLike && <LikeImg src="/assets/profile/heart.svg" />}
+      {props.isLike && (
+        <LikeBtn>
+          <LikeImg src="/assets/profile/heart.svg" />
+          <p>12</p>
+        </LikeBtn>
+      )}
     </LiArea>
   );
 }
