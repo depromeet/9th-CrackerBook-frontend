@@ -174,8 +174,7 @@ export default function SearchBoxComponent(): JSX.Element {
       console.log(responseName);
       setResultNameList(responseName.data.data.book_search_list);
     } catch (error) {
-      console.log(error.response);
-      alert(error.response.data.meta.message);
+      console.log(error.response.data.meta.message);
       setResultNameList([]);
     }
   };
@@ -186,7 +185,7 @@ export default function SearchBoxComponent(): JSX.Element {
       console.log(responseAuthor);
       setResultAuthorList(responseAuthor.data.data.book_search_list);
     } catch (error) {
-      alert(error.response.data.meta.message);
+      console.log(error.response.data.meta.message);
       setResultAuthorList([]);
     }
   };
@@ -198,7 +197,7 @@ export default function SearchBoxComponent(): JSX.Element {
         studyList.filter((s) => s.title.indexOf(keyword) !== -1),
       );
     } catch (error) {
-      alert(error.response.data.meta.message);
+      console.log(error.response.data.meta.message);
       setResultStudyList([]);
     }
   };
