@@ -13,7 +13,6 @@ export default function InterestedBook(): JSX.Element {
     isLike: true,
   };
 
-
   const bookSize = { height: 137, width: 95 };
 
   return (
@@ -25,5 +24,6 @@ export default function InterestedBook(): JSX.Element {
         <HorizontalStudy isOver={true} size={bookSize} studyInfo={studyInfo} />
         <HorizontalStudy isOver={true} size={bookSize} studyInfo={studyInfo} />
       </div>
+    </div>
   );
 }
