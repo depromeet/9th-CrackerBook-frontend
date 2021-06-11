@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import {
   categoryState,
+  loadingState,
   resultListIndexState,
   resultListState,
   searchKeywordState,
@@ -94,6 +95,7 @@ const CategoryTitles = ["책", "저자", "관심책"];
 export default function SearchBoxComponent(): JSX.Element {
   const [catagoryIsOpen, setCatagoryIsOpen] = useState(false);
   const [category, setCategory] = useRecoilState(categoryState);
+  const setLoading = useSetRecoilState(loadingState);
   const setResultList = useSetRecoilState(resultListState);
   const setResultListIndex = useSetRecoilState(resultListIndexState);
   const [searchWord, setSearchWord] = useRecoilState(searchKeywordState);
@@ -116,14 +118,17 @@ export default function SearchBoxComponent(): JSX.Element {
     if (!inputRef.current.value) alert("검색어를 입력해주세요.");
 
     try {
+      setLoading(true);
       const response =
         category === 0
           ? await getBooksByName(inputRef.current.value, 1, 10)
           : await getBooksByAuthor(inputRef.current.value, 1, 10);
       setResultList(response.data.data.book_search_list);
+      setLoading(false);
     } catch (error) {
       console.log(error.response.data.meta.message);
       setResultList([]);
+      setLoading(false);
     }
   };
 
