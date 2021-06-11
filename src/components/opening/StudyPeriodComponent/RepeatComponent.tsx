@@ -117,7 +117,6 @@ export default function RepeatComponent(): JSX.Element {
       let week = 0;
       for (let i = 0; i < totalDay + 1; i++) {
         const currentWeek = (startWeek + i) % 7;
-        console.log(currentWeek);
         if (week % weekRepeat === 0) {
           if (studyForm.repeatWeek.includes(currentWeek)) frequency++;
         }

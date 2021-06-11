@@ -1,16 +1,20 @@
 import styled from "styled-components";
-import HorizontalStudy from "../../../src/components/common/study/HorizontalStudy";
+import HorizontalStudy from "src/components/common/study/HorizontalStudy";
 import React from "react";
-import Attendance from "../../../src/components/profile/hostStudyList/Attendance";
-import TabView from "../../../src/components/common/TabView";
-import StudyList from "../../../src/components/profile/interestedBook/StudyList";
-import BookList from "../../../src/components/profile/interestedBook/BookList";
-import Notice from "../../../src/components/profile/hostStudyList/Notice";
+import Attendance from "src/components/profile/hostStudyList/Attendance";
+import TabView from "src/components/common/TabView";
+import StudyList from "src/components/profile/interestedBook/StudyList";
+import BookList from "src/components/profile/interestedBook/BookList";
+import Notice from "src/components/profile/hostStudyList/Notice";
+import StudyInfoView from "src/components/profile/hostStudyList/StudyInfoView";
 
-const StudyInfoArea = styled.div`
-  display: inline-flex;
-  height: 268px;
-`;
+import HeaderBar from "src/components/common/HeaderBar";
+
+
+// const StudyInfoArea = styled.div`
+//   display: inline-flex;
+//   height: 268px;
+// `;
 const StudyTabsArea = styled.div`
   position: absolute;
   width: 100%;
@@ -54,9 +58,13 @@ export default function Detail(): JSX.Element {
   ];
   return (
     <>
-      <StudyInfoArea>
-        <HorizontalStudy progress={true} percent={30} />
-      </StudyInfoArea>
+
+      <HeaderBar
+        title={"주최한 스터디"}
+        routingUrl={"profile/hostStudyList/"}
+      />
+
+      <StudyInfoView />
       <TabView tabInfo={tabInfo} />
     </>
   );

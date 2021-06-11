@@ -2,9 +2,13 @@ import Router from "next/router";
 import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
-import { resultAuthorListState } from "src/components/states/search";
+import {
+  loadingAuthorState,
+  resultAuthorListState,
+} from "src/components/states/search";
 import { useRecoilState } from "recoil";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
+import LoadingComponent from "src/components/common/LoadingComponent";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 
@@ -104,6 +108,7 @@ const LikeImg = styled.img`
 `;
 
 export default function ResultAuthorComponent(): JSX.Element {
+  const [loading] = useRecoilState(loadingAuthorState);
   const [resultAuthorList] = useRecoilState(resultAuthorListState);
   const [Lilist, setLilist] = useState([]);
   const [viewCount, setViewCount] = useState(6);
@@ -119,7 +124,7 @@ export default function ResultAuthorComponent(): JSX.Element {
           key={i}
           onClick={() =>
             Router.push({
-              pathname: `/detail/book/bookDetail`,
+              pathname: `/detail/book`,
               query: { title: resultAuthorList[i].title },
             })
           }
@@ -152,11 +157,13 @@ export default function ResultAuthorComponent(): JSX.Element {
 
   return (
     <>
-      {resultAuthorList.length ? (
+      {loading ? (
+        <LoadingComponent />
+      ) : resultAuthorList.length ? (
         <>
           <ResultTitle>{resultAuthorList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"저자"} />
-          <ListWrapper>{Lilist}</ListWrapper>
+          {loading ? <LoadingComponent /> : <ListWrapper>{Lilist}</ListWrapper>}
           {resultAuthorList.length > viewCount && (
             <ListFooterComponent
               viewCount={viewCount}

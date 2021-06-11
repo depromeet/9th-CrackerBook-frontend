@@ -1,3 +1,5 @@
+import React from "react";
+import HeaderBar from "src/components/common/HeaderBar";
 import styled from "styled-components";
 
 const ProfileImgArea = styled.div`
@@ -24,10 +26,10 @@ const InfoArea = styled.div`
   height: auto;
 `;
 const SaveBtn = styled.div`
-  position: absolute;
+  //position: absolute;
   width: 100%;
   height: 90px;
-  bottom: 0px;
+  //bottom: 0px;
 
   display: flex;
   justify-content: center;
@@ -74,7 +76,8 @@ const SnsInfo = styled.div`
 
 export default function setting(): JSX.Element {
   return (
-    <div>
+    <>
+      <HeaderBar title={"회원정보 수정"} routingUrl={"profile"} />
       <ProfileImgArea>
         <ProfileImg src="/assets/profile/profile1.svg" />
       </ProfileImgArea>
@@ -94,6 +97,6 @@ export default function setting(): JSX.Element {
         </SnsInfo>
       </InfoArea>
       <SaveBtn>저장하기</SaveBtn>
-    </div>
+    </>
   );
 }

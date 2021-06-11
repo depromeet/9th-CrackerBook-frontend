@@ -3,8 +3,12 @@ import styled from "styled-components";
 import ListHeaderComponent from "src/components/search/common/ListHeaderComponent";
 import ListFooterComponent from "src/components/search/common/ListFooterComponent";
 import { useRecoilState } from "recoil";
-import { resultNameListState } from "src/components/states/search";
+import {
+  loadingNameState,
+  resultNameListState,
+} from "src/components/states/search";
 import NotFoundComponent from "src/components/common/NotFoundComponent";
+import LoadingComponent from "src/components/common/LoadingComponent";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 
@@ -105,6 +109,7 @@ const LikeImg = styled.img`
 `;
 
 export default function ResultNameComponent(): JSX.Element {
+  const [loading] = useRecoilState(loadingNameState);
   const [resultNameList] = useRecoilState(resultNameListState);
   const [Lilist, setLilist] = useState([]);
   const [viewCount, setViewCount] = useState(6);
@@ -120,7 +125,7 @@ export default function ResultNameComponent(): JSX.Element {
           key={i}
           onClick={() =>
             Router.push({
-              pathname: `/detail/book/bookDetail`,
+              pathname: `/detail/book`,
               query: { title: resultNameList[i].title },
             })
           }
@@ -153,7 +158,9 @@ export default function ResultNameComponent(): JSX.Element {
 
   return (
     <>
-      {resultNameList.length ? (
+      {loading ? (
+        <LoadingComponent />
+      ) : resultNameList.length ? (
         <>
           <ResultTitle>{resultNameList.length}건의 검색결과</ResultTitle>
           <ListHeaderComponent title={"책"} />
