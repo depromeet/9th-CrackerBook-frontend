@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   position: absolute;
   left: 30px;
-  top: 168px;
+  top: 138px;
   z-index: 2;
 `;
 const Icon = styled.img`
@@ -30,6 +30,8 @@ const Icon = styled.img`
 
 const IconCharacter = styled.img`
   margin: 0 auto;
+  width: 268px;
+  height: 150px;
 `;
 
 const CompleteWrapper = styled.div`
@@ -97,7 +99,6 @@ export default function CompleteComponent(props: {
   document.childNodes[1].setAttribute("style", "overflow:hidden");
   return (
     <BlackBackground>
-      <img src="/assets/opening/firecracker.gif" width="100%" />
       <Wrapper>
         <IconCharacter src="/assets/opening/complete.svg" />
         <CompleteWrapper>

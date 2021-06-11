@@ -5,6 +5,9 @@ import { useRouter } from "next/router";
 import React from "react";
 import HeaderBar from "src/components/common/HeaderBar";
 
+import HeaderBar from "src/components/common/HeaderBar";
+
+
 const HalfView = styled.div`
   height: 50%;
 `;

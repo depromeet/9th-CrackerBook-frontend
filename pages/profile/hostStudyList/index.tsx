@@ -1,7 +1,9 @@
 import HorizontalStudy from "src/components/common/study/HorizontalStudy";
 import React from "react";
 import Head from "next/head";
+
 import HeaderBar from "src/components/common/HeaderBar";
+
 export default function InterestedBook(): JSX.Element {
   const studyInfo = {
     title: "사용자의 마음을 움직이는 UX 디자인의 힘",
@@ -10,6 +12,7 @@ export default function InterestedBook(): JSX.Element {
     progressPercent: 15,
     isLike: true,
   };
+
 
   const bookSize = { height: 137, width: 95 };
 
@@ -22,6 +25,5 @@ export default function InterestedBook(): JSX.Element {
         <HorizontalStudy isOver={true} size={bookSize} studyInfo={studyInfo} />
         <HorizontalStudy isOver={true} size={bookSize} studyInfo={studyInfo} />
       </div>
-    </div>
   );
 }

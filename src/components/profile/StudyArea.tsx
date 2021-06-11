@@ -73,12 +73,15 @@ export default function StudyArea(): JSX.Element {
   const studyInfo = {
     title: "사용자의 마음을 움직이는 UX 디자인의 힘",
     type: "토론",
+
     routingUrl: "detail/study/studyDetail",
+
     progressPercent: 15,
   };
   const suceedStudyInfo = {
     title: "사용자의 마음을 움직이는 UX 디자인의 힘",
     type: "토론",
+
     routingUrl: "detail/study/studyDetail",
     progressPercent: 100,
   };
@@ -138,12 +141,14 @@ export default function StudyArea(): JSX.Element {
           />
         </div>
       ),
+
     },
   ];
 
   const otherStudyTabInfo = [
     {
       tabName: "주최한 스터디",
+
       tabContents: (
         <div style={{ padding: "1em" }}>
           <HorizontalStudy
@@ -178,16 +183,19 @@ export default function StudyArea(): JSX.Element {
           <CommentCardView />
         </>
       ),
+
     },
   ];
   const router = useRouter();
   const data = router.query;
   const isOtherProfile = data.hasOwnProperty("id");
 
+
   return (
     <div>
       {!isOtherProfile && <StudyTitle>{"나의 스터디"}</StudyTitle>}
       <TabView tabInfo={isOtherProfile ? otherStudyTabInfo : myStudyTabInfo} />
+
     </div>
   );
 }

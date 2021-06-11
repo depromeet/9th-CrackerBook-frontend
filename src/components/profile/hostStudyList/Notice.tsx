@@ -71,6 +71,7 @@ export default function Notice(props): JSX.Element {
         <CommentCardView />
         <CommentCardView />
         <CommentCardView />
+
       </BoardArea>
     </>
   );
