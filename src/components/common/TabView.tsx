@@ -40,42 +40,42 @@ const ActiveBar = styled.div<{ index: number; length: number }>`
 `;
 
 type tabInfo = {
-    name: string;
-    index: number;
+  name: string;
+  index: number;
 };
 
 export default function TabView(props: { tabInfo }): JSX.Element {
-    const tabList: tabInfo[] = [];
+  const tabList: tabInfo[] = [];
 
-    props.tabInfo.forEach(function (infoObj, index) {
-        tabList.push({ name: infoObj.tabName, index: index });
-    });
+  props.tabInfo.forEach(function (infoObj, index) {
+    tabList.push({ name: infoObj.tabName, index: index });
+  });
 
-    const [tabState, setTabSTate] = React.useState(0);
+  const [tabState, setTabSTate] = React.useState(0);
 
-    const clickHandler = (index) => {
-        console.log(tabState);
-        setTabSTate(index);
-    };
+  const clickHandler = (index) => {
+    console.log(tabState);
+    setTabSTate(index);
+  };
 
-    return (
-        <>
-            <TabBar>
-                {tabList.map((tab, index) => {
-                    return (
-                        <TabButton
-                            style={{ width: 100 / tabList.length + "%" }}
-                            key={tab.index}
-                            onClick={() => clickHandler(index)}
-                            className={tabState === index ? "on" : ""}
-                        >
-                            <div>{tab.name}</div>
-                        </TabButton>
-                    );
-                })}
-                <ActiveBar index={tabState} length={tabList.length} />
-            </TabBar>
-            <TabContentsArea>{props.tabInfo[tabState].tabContents}</TabContentsArea>
-        </>
-    );
+  return (
+    <>
+      <TabBar>
+        {tabList.map((tab, index) => {
+          return (
+            <TabButton
+              style={{ width: 100 / tabList.length + "%" }}
+              key={tab.index}
+              onClick={() => clickHandler(index)}
+              className={tabState === index ? "on" : ""}
+            >
+              <div>{tab.name}</div>
+            </TabButton>
+          );
+        })}
+        <ActiveBar index={tabState} length={tabList.length} />
+      </TabBar>
+      <TabContentsArea>{props.tabInfo[tabState].tabContents}</TabContentsArea>
+    </>
+  );
 }

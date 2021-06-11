@@ -56,30 +56,28 @@ const CountLabel = styled.p`
   /* text3 */
 
   color: #999999;
-`
+`;
 export default function OtherProfileButtons(): JSX.Element {
-
-
-    return (
-        <>
-            <Link href={"/profile/rewards"}>
-                <ButtonNLabel>
-                    <CountFont>123</CountFont>
-                    <CountLabel>활동 배지</CountLabel>
-                </ButtonNLabel>
-            </Link>
-            <Link href={"/"}>
-                <ButtonNLabel>
-                    <CountFont>123</CountFont>
-                    <CountLabel>주최한 스터디</CountLabel>
-                </ButtonNLabel>
-            </Link>
-            <Link href={"/"}>
-                <ButtonNLabel>
-                    <CountFont>123</CountFont>
-                    <CountLabel>후기</CountLabel>
-                </ButtonNLabel>
-            </Link>
-        </>
-    );
+  return (
+    <>
+      <Link href={"/profile/rewards"}>
+        <ButtonNLabel>
+          <CountFont>123</CountFont>
+          <CountLabel>활동 배지</CountLabel>
+        </ButtonNLabel>
+      </Link>
+      <Link href={"/"}>
+        <ButtonNLabel>
+          <CountFont>123</CountFont>
+          <CountLabel>주최한 스터디</CountLabel>
+        </ButtonNLabel>
+      </Link>
+      <Link href={"/"}>
+        <ButtonNLabel>
+          <CountFont>123</CountFont>
+          <CountLabel>후기</CountLabel>
+        </ButtonNLabel>
+      </Link>
+    </>
+  );
 }
