@@ -66,16 +66,16 @@ const NoticeContents = styled.div`
 `;
 
 export default function CommentCardView(): JSX.Element {
-    return (
-        <CardWrapper>
-            <ProfileArea>
-                <ProfileImage src="/assets/profile/profile1.svg" />
-                <div>
-                    <UserName>빈센조</UserName>
-                    <WritingTime>2021.05.05</WritingTime>
-                </div>
-            </ProfileArea>
-            <NoticeContents>내용 입니다.</NoticeContents>
-        </CardWrapper>
-    );
+  return (
+    <CardWrapper>
+      <ProfileArea>
+        <ProfileImage src="/assets/profile/profile1.svg" />
+        <div>
+          <UserName>빈센조</UserName>
+          <WritingTime>2021.05.05</WritingTime>
+        </div>
+      </ProfileArea>
+      <NoticeContents>내용 입니다.</NoticeContents>
+    </CardWrapper>
+  );
 }

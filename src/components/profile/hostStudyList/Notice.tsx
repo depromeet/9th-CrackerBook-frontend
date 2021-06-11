@@ -56,13 +56,6 @@ const BoardArea = styled.div`
   height: 100%;
 `;
 
-
-
-
-
-
-
-
 export default function Notice(props): JSX.Element {
   return (
     <>
@@ -75,9 +68,10 @@ export default function Notice(props): JSX.Element {
         </WriteArea>
       </Wrapper>
       <BoardArea>
-          <CommentCardView/>
-          <CommentCardView/>
-          <CommentCardView/>
+        <CommentCardView />
+        <CommentCardView />
+        <CommentCardView />
+
       </BoardArea>
     </>
   );

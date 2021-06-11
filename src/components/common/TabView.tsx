@@ -58,6 +58,7 @@ export default function TabView(props: { tabInfo }): JSX.Element {
         setTabSTate(index);
     };
 
+
     return (
         <>
             <TabBar>
