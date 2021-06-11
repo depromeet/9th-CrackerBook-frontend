@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import HeaderBar from "../../src/components/common/HeaderBar";
+import React from "react";
 
 const PageTitle = styled.p`
   position: absolute;
@@ -54,6 +56,7 @@ const RewardName = styled.div`
 export default function Rewards(): JSX.Element {
   return (
     <div>
+      <HeaderBar title={"활동 배지"} routingUrl={"profile"} />
       <PageTitle>보유한 배지 12</PageTitle>
       <BadgeArea>
         <RowWrapper>
