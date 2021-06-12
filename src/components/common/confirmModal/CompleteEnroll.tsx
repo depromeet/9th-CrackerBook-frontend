@@ -13,7 +13,10 @@ export function CompleteEnroll(): JSX.Element {
     <>
       <RelativeWrapper>
         <Wrapper>
-          <IconCharacter src="/assets/detail/complete.svg" />
+          <ImgWrapper>
+            <IconCharacter src="/assets/detail/complete.svg" />
+            <GifComplete src="/assets/complete.gif" />
+          </ImgWrapper>
           <CompleteWrapper>
             <CommentBox>
               <Icon src="/assets/detail/completeCheck.svg" />
@@ -61,6 +64,21 @@ const Icon = styled.img`
 `;
 
 const IconCharacter = styled.img`
+  position: absolute;
+  bottom: 0;
+  left: 65px;
+  width: 150px;
+  height: 95px;
+`;
+
+const GifComplete = styled.img`
+  position: absolute;
+  width: 268px;
+  height: 150px;
+`;
+
+const ImgWrapper = styled.div`
+  position: relative;
   margin: 0 auto;
   width: 268px;
   height: 150px;

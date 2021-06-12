@@ -4,13 +4,20 @@ export default function BookComponent(props: {
   rank: number;
   img: string;
   categoryType: string;
+  isLike: boolean;
 }): JSX.Element {
+  const iconSrc = props.isLike
+    ? "/assets/main/selectLikeIcon.svg"
+    : "/assets/main/likeIcon.svg";
   return (
     <Wrapper>
       <ImgWrapper>
         <ImgShadow />
         <Img src={props.img} />
       </ImgWrapper>
+      <LikeWrapper>
+        <LikeIcon src={iconSrc} />
+      </LikeWrapper>
       {props.categoryType === "likeDetail" && (
         <RankWrapper>
           <LikeRank src={`/assets/main/tag.svg`} />
@@ -83,4 +90,18 @@ const RankWrapper = styled.div`
   height: 35px;
   top: -4px;
   left: 6px;
+`;
+
+const LikeWrapper = styled.div`
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+`;
+
+const LikeIcon = styled.img`
+  width: 28px;
+  height: 28px;
 `;

@@ -18,6 +18,7 @@ const bookDataList = [
     startData: "05.21",
     endData: "05.28 토 14:00",
     profile: "/assets/main/profilePuple.svg",
+    isLike: true,
     rank: 2,
   },
   {
@@ -27,6 +28,7 @@ const bookDataList = [
     startData: "05.21",
     endData: "06.21 토 14:00",
     profile: "/assets/main/profileBlue.svg",
+    isLike: false,
     rank: 3,
   },
   {
@@ -36,6 +38,7 @@ const bookDataList = [
     startData: "05.21",
     endData: "06.21 토 14:00",
     profile: "/assets/main/profileBlue.svg",
+    isLike: false,
     rank: 4,
   },
   {
@@ -45,6 +48,7 @@ const bookDataList = [
     startData: "05.21",
     endData: "06.21 토 14:00",
     profile: "/assets/main/profileBlue.svg",
+    isLike: true,
     rank: 5,
   },
   {
@@ -54,6 +58,7 @@ const bookDataList = [
     startData: "05.21",
     endData: "06.21 토 14:00",
     profile: "/assets/main/profileBlue.svg",
+    isLike: true,
     rank: 6,
   },
   {
@@ -63,6 +68,7 @@ const bookDataList = [
     startData: "05.21",
     endData: "06.21 토 14:00",
     profile: "/assets/main/profileBlue.svg",
+    isLike: true,
     rank: 7,
   },
   {
@@ -72,6 +78,7 @@ const bookDataList = [
     startData: "05.21",
     endData: "06.21 토 14:00",
     profile: "/assets/main/profileBlue.svg",
+    isLike: false,
     rank: 8,
   },
   {
@@ -81,6 +88,7 @@ const bookDataList = [
     startData: "05.21",
     endData: "06.21 토 14:00",
     profile: "/assets/main/profileBlue.svg",
+    isLike: false,
     rank: 8,
   },
   {
@@ -90,7 +98,8 @@ const bookDataList = [
     startData: "05.21",
     endData: "06.21 토 14:00",
     profile: "/assets/main/profileBlue.svg",
-    rank: 8,
+    isLike: true,
+    rank: 9,
   },
 ];
 
@@ -112,6 +121,7 @@ export default function CategoryComponent(props: {
                 rank={book.rank}
                 img={book.img}
                 categoryType={props.type}
+                isLike={book.isLike}
               />
               <BookInfoWrapper>
                 <IconImg src="/assets/main/miniBook.svg" />
