@@ -5,29 +5,21 @@ export function StudyDetailInfo(): JSX.Element {
   return (
     <StudyInfoWrapper>
       <InfoContentWrapper>
-        <InfoBold>스터디기간</InfoBold>
-        <InfoContent>2021.4.26 (월) 00:00 ~ 2021.5.21(토) 00:00</InfoContent>
-      </InfoContentWrapper>
-      <InfoContentWrapper>
-        <InfoBold>모집기간</InfoBold>
-        <InfoContent>2021.4.26 (월) 00:00 ~ 2021.5.21(토) 00:00</InfoContent>
-      </InfoContentWrapper>
-      <InfoContentWrapper>
-        <InfoBold>스터디장소</InfoBold>
-        <InfoContent>온라인</InfoContent>
-      </InfoContentWrapper>
-      <InfoContentWrapper>
-        <InfoBold>활동료</InfoBold>
-        <InfoContent>무료</InfoContent>
-      </InfoContentWrapper>
-      <InfoContentWrapper>
-        <InfoBold>유형</InfoBold>
-        <InfoContent>글쓰기</InfoContent>
+        <InfoBold>스터디유형</InfoBold>
+        <InfoContent>토론</InfoContent>
       </InfoContentWrapper>
       <InfoContentWrapper>
         <InfoBold>모집인원</InfoBold>
         <InfoContent>10명</InfoContent>
         <InfoBold>(9명 모집완료)</InfoBold>
+      </InfoContentWrapper>
+      <InfoContentWrapper>
+        <InfoBold>난이도</InfoBold>
+        <InfoContent>초급</InfoContent>
+      </InfoContentWrapper>
+      <InfoContentWrapper>
+        <InfoBold>장소</InfoBold>
+        <InfoContent>온라인</InfoContent>
       </InfoContentWrapper>
     </StudyInfoWrapper>
   );

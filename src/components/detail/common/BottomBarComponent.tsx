@@ -38,7 +38,7 @@ export function BottomBar(props: {
     const nextUrl = props.type === "book" ? "opening" : null;
     const isLogin = await loginCheck(props.setOpenModal, nextUrl);
 
-    if (isLogin) setEnrollSate(!enrollSate);
+    if (isLogin && props.type === "study") setEnrollSate(!enrollSate);
   };
 
   return (
@@ -75,17 +75,20 @@ const BottomBarWrapper = styled.div`
 `;
 
 const BookLikeIcon = styled.img`
+  margin-bottom: 18px;
   padding-left: 20px;
   cursor: pointer;
 `;
 
 const ShareIcon = styled.img`
+  margin-bottom: 18px;
   padding-left: 20px;
   padding-right: 20px;
   cursor: pointer;
 `;
 
 const VirticalLine = styled.div`
+  margin-bottom: 18px;
   height: 13.7px;
   width: 1px;
   background-color: #777777;
@@ -93,6 +96,7 @@ const VirticalLine = styled.div`
 `;
 
 const GoCreate = styled.div<{ type: string }>`
+  margin-bottom: 18px;
   color: #222222;
   padding-left: ${(props) => (props.type === "book" ? "48px" : "75px")};
   padding-right: ${(props) => (props.type === "book" ? "47px" : "74px")};
@@ -115,7 +119,7 @@ const WannaBeBubble = styled.div`
   justify-content: center;
   background-color: #ffd262;
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid #757575;
   width: 167px;
   height: 30px;
   top: -40px;
@@ -139,8 +143,8 @@ const BubblePointBackground = styled.div`
   position: absolute;
   top: -9px;
   left: 26px;
-  border-top: 8px solid black;
+  border-top: 8px solid #757575;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  animation: ${boxFade} 1s 1s 1 linear forwards;
+  animation: ${boxFade} 0.8s 0.9s 1 linear forwards;
 `;

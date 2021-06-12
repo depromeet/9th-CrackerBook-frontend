@@ -9,17 +9,20 @@ import { Box } from "../../../../styles/detail/common/commonStyle";
 export function HostBoxContainer(): JSX.Element {
   return (
     <HostBox>
-      <Profile src="/assets/main/surprised.svg" />
+      <Profile src="/assets/detail/profileIcon.svg" />
       <div>
         <HostContentCover>
           <HostContent1>빈센조</HostContent1>
         </HostContentCover>
         <StudyContentCover>
-          <div>활동배지 7</div>
+          <div>활동배지</div>
+          <Number>7</Number>
           <Bar>|</Bar>
-          <div>스터디 286</div>
+          <div>스터디</div>
+          <Number>286</Number>
           <Bar>|</Bar>
-          <div>후기 286</div>
+          <div>후기 </div>
+          <Number>286</Number>
         </StudyContentCover>
       </div>
     </HostBox>
@@ -44,4 +47,10 @@ const Bar = styled.div`
   color: #f1f1f3;
   padding-left: 10px;
   padding-right: 10px;
+`;
+
+const Number = styled.div`
+  padding-left: 3px;
+  padding-top: 1px;
+  font-family: "Nunito", sans-serif;
 `;

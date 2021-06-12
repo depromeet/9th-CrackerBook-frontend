@@ -37,13 +37,16 @@ const TabWrapper = styled.div`
 //   props.active ? "1px solid #FFD262" : "1px solid #DDDDDD"};
 
 const TabButton = styled.div`
+  font-family: "Noto Sans KR", sans-serif;
   border-bottom: 1px solid #dddddd;
   width: 33%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: #999999;
+  color: #777777;
+  font-size: 14px;
+  font-weight: 500;
 
   &.active {
     border-bottom: 1px solid #ffd262;
@@ -91,8 +94,8 @@ const ModalElement = styled.div`
   border-bottom: 1px solid #e6e5e5;
 `;
 
-const MainBookStyle = styled.div`
-  background-color: #09a969;
+const MainBookStyle = styled.div<{ backgroundColor: string }>`
+  background-color: ${(props) => props.backgroundColor};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,7 +146,7 @@ const BottomBarStyle = styled.div`
 
 const BlackBackground = styled.div`
   background-color: rgba(0, 0, 0, 60%);
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 11;

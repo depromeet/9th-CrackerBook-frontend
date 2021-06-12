@@ -170,7 +170,7 @@ const StudyContent = styled.div<InfoType>`
   font-weight: 400;
   color: #777777;
   font-family: "Nunito", sans-serif;
-  margin-bottom: ${(props) => (props.isLike ? "3px" : "5px")};
+  margin-bottom: ${(props) => (props.isLike ? "3px" : "4px")};
 `;
 
 const StudyIcon = styled.img`
@@ -241,8 +241,9 @@ const LikeInfoWrapper = styled.div`
 
 const LikeRank = styled.img`
   position: absolute;
-  width: 24px;
-  height: 27px;
+  z-index: 2;
+  width: 31px;
+  height: 35px;
   top: -4px;
   left: 2px;
 `;

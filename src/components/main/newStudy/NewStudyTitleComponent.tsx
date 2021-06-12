@@ -1,9 +1,4 @@
-import {
-  DropDown,
-  StudyTitleWrapper,
-  TitleDiv,
-  TotalView,
-} from "../../../styles/main/BooksStyle";
+import { StudyTitleWrapper, TitleDiv } from "../../../styles/main/BooksStyle";
 
 export function NewStudyTitleComponent(): JSX.Element {
   return (

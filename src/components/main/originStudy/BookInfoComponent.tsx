@@ -14,13 +14,12 @@ import {
 } from "../../../styles/main/BooksStyle";
 
 type BookData = {
-  bookName: string;
-  img: string;
   studyName: string;
   host: string;
   memberCnt: number;
   startData: string;
   endData: string;
+  profile: string;
 };
 
 export default function BookInfoComponent(props: {
@@ -31,7 +30,7 @@ export default function BookInfoComponent(props: {
     <>
       <StudyInfoWrapper>
         <StudyProfile>
-          <StudyImg src="/assets/main/exBook.jpg" />
+          <StudyImg src={bookData.profile} />
           <StudyHost>{bookData.host}</StudyHost>
         </StudyProfile>
         <StudyContentWrapper>

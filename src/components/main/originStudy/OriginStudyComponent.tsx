@@ -7,11 +7,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 type BookData = {
   bookName: string;
   img: string;
-  studyName: string;
-  host: string;
-  memberCnt: number;
-  startData: string;
-  endData: string;
+  study: Array<{
+    studyName: string;
+    host: string;
+    memberCnt: number;
+    startData: string;
+    endData: string;
+    profile: string;
+  }>;
 };
 
 export default function OriginStudyComponent(props: {
@@ -27,12 +30,15 @@ export default function OriginStudyComponent(props: {
             <BookImgComponent img={book.img} />
             <Swiper spaceBetween={1} slidesPerView={1} initialSlide={0}>
               <SwiperSlide>
-                <BookInfoComponent bookInfo={book} />
-                <BookInfoComponent bookInfo={book} />
+                {book.study.map((study, i) => {
+                  return <BookInfoComponent bookInfo={study} key={i} />;
+                })}
               </SwiperSlide>
+
               <SwiperSlide>
-                <BookInfoComponent bookInfo={book} />
-                <BookInfoComponent bookInfo={book} />
+                {book.study.map((study, i) => {
+                  return <BookInfoComponent bookInfo={study} key={i} />;
+                })}
               </SwiperSlide>
             </Swiper>
           </MainContainer>

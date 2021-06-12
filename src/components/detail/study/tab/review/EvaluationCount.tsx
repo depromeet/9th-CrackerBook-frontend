@@ -41,7 +41,7 @@ export function TotalReview(): JSX.Element {
 }
 
 const IconWrapper = styled.div`
-  padding: 40px 39px 32px 39px;
+  padding: 40px 39px 12px 39px;
   display: flex;
   justify-content: space-around;
 `;
@@ -72,5 +72,4 @@ const Icon = styled.img`
 const TotalText = styled.div`
   color: #777777;
   padding-top: 32px;
-  padding-bottom: 32px;
 `;

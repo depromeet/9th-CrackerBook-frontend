@@ -1,4 +1,5 @@
 import {
+  BookBox,
   LikeDiv,
   LikeInfoWrapper,
   LikeRank,
@@ -18,6 +19,7 @@ import {
   CategoryTypeState,
   HeaderTextState,
 } from "../../../state/main/mainState";
+import styled from "styled-components";
 
 export default function LikeBookComponent(): JSX.Element {
   return (
@@ -27,7 +29,10 @@ export default function LikeBookComponent(): JSX.Element {
         <Swiper spaceBetween={1} slidesPerView={2.5} initialSlide={0}>
           <SwiperSlide>
             <LikeInfoWrapper>
-              <RankBookImg src="/assets/main/exBook.jpg" loading="lazy" />
+              <ImgWrapper>
+                <ImgShadow />
+                <Img src="/assets/main/categoryBook2.svg" loading="lazy" />
+              </ImgWrapper>
               <LikeBookContainer />
               <LikeBookNameContainer />
               <LikeDateContainer />
@@ -36,7 +41,10 @@ export default function LikeBookComponent(): JSX.Element {
           </SwiperSlide>
           <SwiperSlide>
             <LikeInfoWrapper>
-              <RankBookImg src="/assets/main/exBook.jpg" loading="lazy" />
+              <ImgWrapper>
+                <ImgShadow />
+                <Img src="/assets/main/category1.svg" loading="lazy" />
+              </ImgWrapper>
               <LikeBookContainer />
               <LikeBookNameContainer />
               <LikeDateContainer />
@@ -45,7 +53,10 @@ export default function LikeBookComponent(): JSX.Element {
           </SwiperSlide>
           <SwiperSlide>
             <LikeInfoWrapper>
-              <RankBookImg src="/assets/main/exBook.jpg" loading="lazy" />
+              <ImgWrapper>
+                <ImgShadow />
+                <Img src="/assets/main/categoryBook3.svg" loading="lazy" />
+              </ImgWrapper>
               <LikeBookContainer />
               <LikeBookNameContainer />
               <LikeDateContainer />
@@ -94,3 +105,40 @@ export function LikeTitleContainer(): JSX.Element {
 export function LikeDateContainer(): JSX.Element {
   return <StudyContent isLike={true}>04.26~05.26 토 14:00</StudyContent>;
 }
+
+// 공통화 되면 지우기
+const ImgWrapper = styled.div`
+  position: relative;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 20px;
+  z-index: 1;
+`;
+
+const Img = styled.img`
+  width: 120px;
+  height: 173px;
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.12));
+  border-radius: 0 5px 5px 0;
+  background: linear-gradient(
+    270deg,
+    rgba(207, 207, 207, 0) 27.95%,
+    rgba(136, 136, 136, 0.426) 100%
+  );
+  mix-blend-mode: multiply;
+`;
+const ImgShadow = styled.div`
+  position: absolute;
+  top: 0;
+  height: 173px;
+  width: 13.33px;
+  background: linear-gradient(
+    270deg,
+    rgba(207, 207, 207, 0) 27.95%,
+    rgba(136, 136, 136, 0.426) 100%
+  );
+  mix-blend-mode: multiply;
+  z-index: 0;
+`;
