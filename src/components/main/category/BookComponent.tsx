@@ -12,7 +12,10 @@ export default function BookComponent(props: {
         <Img src={props.img} />
       </ImgWrapper>
       {props.categoryType === "likeDetail" && (
-        <LikeRank src={`/assets/main/like${props.rank}.svg`} />
+        <RankWrapper>
+          <LikeRank src={`/assets/main/tag.svg`} />
+          <Rank>{props.rank}</Rank>
+        </RankWrapper>
       )}
     </Wrapper>
   );
@@ -20,7 +23,6 @@ export default function BookComponent(props: {
 
 const Wrapper = styled.div`
   position: relative;
-  padding-left: 5px;
 `;
 const ImgWrapper = styled.div`
   position: relative;
@@ -33,7 +35,7 @@ const ImgWrapper = styled.div`
 
 const Img = styled.img`
   height: 173px;
-  width: 115px;
+  width: 120px;
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.12));
   border-radius: 0px 5px 5px 0px;
   background: linear-gradient(
@@ -59,9 +61,26 @@ const ImgShadow = styled.div`
 
 const LikeRank = styled.img`
   position: absolute;
+  width: 31px;
+  height: 35px;
+`;
+
+const Rank = styled.div`
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  width: 27px;
+  height: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const RankWrapper = styled.div`
+  position: absolute;
   z-index: 2;
-  width: 28px;
-  height: 32px;
+  width: 31px;
+  height: 35px;
   top: -4px;
   left: 6px;
 `;

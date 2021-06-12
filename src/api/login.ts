@@ -8,7 +8,6 @@ type kakaoRes = {
 };
 
 const kakaoLogin = (code: string): Promise<AxiosResponse<kakaoRes>> => {
-  debugger;
   return instance.post("/users/sign-in/kakao", {
     code,
   });
