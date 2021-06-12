@@ -10,7 +10,7 @@ export default function MyPageComponent(): JSX.Element {
     <ButtomWrapper>
       <ButttomImg
         src="/assets/main/myPage.svg"
-        onClick={() => loginCheck(setOpenModal, "profile")}
+        onClick={() => loginCheck(setOpenModal, "profile?id=1")}
       />
       {openModal && <LoginConfirm setOpenModal={setOpenModal} />}
       <Text>마이페이지</Text>

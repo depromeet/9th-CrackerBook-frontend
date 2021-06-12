@@ -74,7 +74,7 @@ const LikeRank = styled.img`
 
 const Rank = styled.div`
   position: absolute;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   width: 27px;
   height: 23px;

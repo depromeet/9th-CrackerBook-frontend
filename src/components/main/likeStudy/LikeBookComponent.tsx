@@ -31,7 +31,7 @@ export default function LikeBookComponent(): JSX.Element {
             <LikeInfoWrapper>
               <ImgWrapper>
                 <ImgShadow />
-                <Img src="/assets/main/exBook.jpg" loading="lazy" />
+                <Img src="/assets/main/categoryBook2.svg" loading="lazy" />
               </ImgWrapper>
               <LikeBookContainer />
               <LikeBookNameContainer />
@@ -43,7 +43,7 @@ export default function LikeBookComponent(): JSX.Element {
             <LikeInfoWrapper>
               <ImgWrapper>
                 <ImgShadow />
-                <Img src="/assets/main/greenBook.jpg" loading="lazy" />
+                <Img src="/assets/main/category1.svg" loading="lazy" />
               </ImgWrapper>
               <LikeBookContainer />
               <LikeBookNameContainer />
@@ -55,7 +55,7 @@ export default function LikeBookComponent(): JSX.Element {
             <LikeInfoWrapper>
               <ImgWrapper>
                 <ImgShadow />
-                <Img src="/assets/main/exBook.jpg" loading="lazy" />
+                <Img src="/assets/main/categoryBook3.svg" loading="lazy" />
               </ImgWrapper>
               <LikeBookContainer />
               <LikeBookNameContainer />

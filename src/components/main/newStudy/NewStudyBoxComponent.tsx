@@ -14,14 +14,27 @@ import {
 } from "../../../styles/main/BooksStyle";
 import styled from "styled-components";
 
-export default function NewStudyBox(): JSX.Element {
+type StudyInfo = {
+  studyName: string;
+  startDate: string;
+  endDate: string;
+  memberCnt: string;
+  imgPath: string;
+  studyType: string;
+};
+export default function NewStudyBox(props: { study: StudyInfo }): JSX.Element {
+  const studyData = props.study;
+  const studyName =
+    studyData.studyName.length > 13
+      ? studyData.studyName.slice(0, 13) + "..."
+      : studyData.studyName;
   return (
     <>
       <NewBoxWrapper>
         <NewBookProfile>
           <ImgWrapper>
             <ImgShadow />
-            <Img src="/assets/main/exBook.jpg" loading="lazy" />
+            <Img src={studyData.imgPath} loading="lazy" />
           </ImgWrapper>
         </NewBookProfile>
         <StudyContentWrapper>
@@ -29,11 +42,11 @@ export default function NewStudyBox(): JSX.Element {
             <StudyIcon src="/assets/main/miniBook.svg" loading="lazy" />
             <StudyDiv>토론</StudyDiv>
             <StudyIcon src="/assets/main/member.svg" loading="lazy" />
-            <StudyDiv>멤버 3/6</StudyDiv>
+            <StudyDiv>멤버 {studyData.memberCnt}</StudyDiv>
           </StudyContent>
-          <StudyTitle isLike={false}>미움 받을 용기</StudyTitle>
+          <StudyTitle isLike={false}>{studyName}</StudyTitle>
           <StudyContent isLike={false}>
-            2021.04.26 ~ 05.21 토 14:00
+            {studyData.startDate} ~ {studyData.endDate}
           </StudyContent>
         </StudyContentWrapper>
         <IconWrapperContent>
