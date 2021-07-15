@@ -43,9 +43,9 @@ const LiText = styled.div`
 `;
 
 const difficultyData = [
-  { label: "초급", value: "beginner" },
-  { label: "중급", value: "intermediate" },
-  { label: "고급", value: "advanced" },
+  { label: "초급", value: "BASIC" },
+  { label: "중급", value: "INTERMEDIATE" },
+  { label: "고급", value: "ADVANCED" },
 ];
 
 export default function DifficultComponent(): JSX.Element {

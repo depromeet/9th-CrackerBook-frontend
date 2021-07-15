@@ -113,7 +113,14 @@ export default function SearchBoxComponent(): JSX.Element {
     setResultListIndex(-1);
     setStudyForm({
       ...studyForm,
-      book: { name: "", authors: "", title: "", author: "" },
+      book: {
+        id: "",
+        isbn_long: "",
+        name: "",
+        authors: "",
+        title: "",
+        author: "",
+      },
     });
     if (!inputRef.current.value) alert("검색어를 입력해주세요.");
 
@@ -123,6 +130,7 @@ export default function SearchBoxComponent(): JSX.Element {
         category === 0
           ? await getBooksByName(inputRef.current.value, 1, 10)
           : await getBooksByAuthor(inputRef.current.value, 1, 10);
+      console.log(response.data.data);
       setResultList(response.data.data.book_search_list);
       setLoading(false);
     } catch (error) {
@@ -136,7 +144,14 @@ export default function SearchBoxComponent(): JSX.Element {
     setCategory(index);
     setStudyForm({
       ...studyForm,
-      book: { name: "", authors: "", title: "", author: "" },
+      book: {
+        id: "",
+        isbn_long: "",
+        name: "",
+        authors: "",
+        title: "",
+        author: "",
+      },
     });
   };
   const clearSearchWord = () => {

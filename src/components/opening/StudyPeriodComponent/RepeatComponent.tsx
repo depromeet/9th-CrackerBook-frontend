@@ -103,23 +103,24 @@ export default function RepeatComponent(): JSX.Element {
       "day",
     );
     const startWeek = studyForm.studyStartDate.day();
+    let currentWeek = startWeek % 7;
 
     let frequency = 0;
 
     if (studyForm.repeat === "oneweek") {
       for (let i = 0; i < totalDay + 1; i++) {
-        const currentWeek = (startWeek + i) % 7;
-        if (studyForm.repeatWeek.includes(currentWeek)) frequency++;
+        if (studyForm.repeatWeek.includes(currentWeek++)) frequency++;
       }
     } else {
       // studyForm.repeat === "month" || "twoweek"
       const weekRepeat = studyForm.repeat === "twoweek" ? 2 : 4;
       let week = 0;
       for (let i = 0; i < totalDay + 1; i++) {
-        const currentWeek = (startWeek + i) % 7;
-        if (week % weekRepeat === 0) {
-          if (studyForm.repeatWeek.includes(currentWeek)) frequency++;
-        }
+        if (
+          studyForm.repeatWeek.includes(currentWeek++) &&
+          !(week % weekRepeat)
+        )
+          frequency++;
         if ((i + 1) % 7 === 0) week++;
       }
     }

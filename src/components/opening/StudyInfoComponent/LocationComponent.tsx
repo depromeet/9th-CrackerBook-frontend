@@ -60,9 +60,9 @@ const LiInput = styled.input`
   }
 `;
 const LocationData = [
-  { label: "온라인", value: "online" },
-  { label: "오프라인", value: "offline" },
-  { label: "온+오프라인", value: "bothline" },
+  { label: "온라인", value: "ONLINE" },
+  { label: "오프라인", value: "OFFLINE" },
+  { label: "온+오프라인", value: "BOTHLINE" },
 ];
 
 export default function LocationComponent(): JSX.Element {
